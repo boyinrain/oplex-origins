@@ -1,0 +1,37 @@
+//===== Oplex Origins Script ======================================= 
+//= Bed
+//===== By: ================================================== 
+//= Epsynus
+//===== Current Version: ===================================== 
+//= 1.1
+//===== Compatible With: ===================================== 
+//= Any Oplex Version 
+//===== Description: ========================================= 
+//= Enables you to sleep in beds
+//===== Changelog: ===========================================
+//= v1.1 - Optimized some code, added comments and duplicates
+//= v1.0 - Original release
+//============================================================
+//Where the inital bed spawns. You can get the mapname and X Y cordinates using /where ingame 
+dev_house,47,66,0	script	Bed::beds	111,{
+mes	"[Bed]";
+// The inital message when the player selects the bed
+mes	"You stare upon the bed with tired eyes";
+next;
+// Ask's the player if he/she wants to sleep here now
+mes	"Do you want to sleep here?";
+next;
+// Player choosing Yes or No to the question
+if(select("Yes:No")==1)
+// calls the sleep function when the player selects Yes.
+		callfunc "sleep_func";
+		else
+		{ 
+		//The message that shows when the player selects No.
+		mes	"You feel its to dangerous to sleep now, you will return at another time.";
+		close;
+		}
+}
+// Here you put all the clones for this script using this format(Including an example)
+// mapname,X,Y,0 TAB duplicate(beds) TAB Bed TAB 111
+// Example = la_market,149,25,0	duplicate(beds)	Bed	111
