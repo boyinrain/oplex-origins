@@ -1,0 +1,89 @@
+limbo_1.gat	mapflag	pvp	off
+tutorial.gat	mapflag	pvp	off
+lavive_01	mapflag	pvp	off
+//oplex_1	mapflag	pvp_nightmaredrop	random,equip,10000
+
+
+-	script	game_mechanics	-1,{
+
+OnPCLoginEvent:
+	getmapxy @playermap$,@playerx,@playery,0;
+	if(@playermap$=="tutorial"){ end; };
+	if(@playermap$=="limbo_1"){ end; };
+	addtimer 1000,"vitality_timer::OnTimer";
+	end;
+
+OnPCLogOutEvent:
+	deltimer "vitality_timer::OnTimer";
+	end;
+
+OnPCDieEvent:
+	getmapxy @playermap$,@playerx,@playery,0;
+	makeitem 530,1,@playermap$,@playerx,@playery;
+	makeitem 7050,1,@playermap$,@playerx,@playery;
+	deltimer "vitality_timer::OnTimer";
+	soundeffect "dying.wav",0;
+	set @superrand, rand(1,500);
+	if(@superrand > 495) {	atcommand "@dropall";};
+	set @randzombietime, rand(5000,30000);
+	set @randzombie, rand(0,10000);
+	sleep2 @randzombietime;
+	if (@randzombie == 10000) goto PC_tank_spawn;
+	monster @playermap$,@playerx,@playery," ",2000,1,"game_mechanics::OnDeath_count";
+	end;
+
+PC_tank_spawn:
+	monster @playermap$,@playerx,@playery," ",2500,1,"game_mechanics::OnDeath_count";
+	end;
+
+OnPCKillEvent:
+	set monsterkill, monsterkill + 1;
+	end;
+
+OnDeath_count:
+	end;
+
+}
+
+-	script	vitality_timer	-1,{
+OnTimer:
+	getmapxy @playermap$,@playerx,@playery,0;
+	if(@playermap$=="limbo_1.gat"){ end; };
+	if (isnight()==1) goto is_night;
+	sc_end SC_BLIND;
+	percentheal -3,0;
+	addtimer 60000,"vitality_timer::OnTimer";
+	end;
+
+is_night:
+	sc_start SC_BLIND,68000,0;
+	percentheal -1,0;
+	addtimer 60000,"vitality_timer::OnTimer";
+	end;
+}
+
+
+limbo_1,98,115,4	script	Limbo Master::lim_guard01	48,{
+set @npcname$, "[ Limbo Master ]";
+	mes @npcname$;
+	mes "Are you ready to return?";
+	next;
+	menu "Yes",a_yes,"No",-;
+	next;
+	mes @npcname$;
+	mes "Alright.";
+	close;
+a_yes:
+	next; 
+	mes @npcname$;
+	mes "Be careful.";
+	deltimer "vitality_timer::OnTimer";
+	addtimer 60000,"vitality_timer::OnTimer";
+	next;
+	percentheal 75,75;
+	warp lastsavedmap$,lastsavedx,lastsavedy;
+	close2;
+	
+}
+
+

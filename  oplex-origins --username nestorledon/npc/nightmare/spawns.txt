@@ -1,0 +1,209 @@
+//Permanent Spawns
+//Lavive Town
+lavive_09,0,0,0,0	monster	Tank	1085,1,1800000,1800000,0
+
+tutorial,58,44,1,1	monster	Undead	1083,3,30000,30000,0
+
+lavive_01,0,0,0,0	monster	Animal	1011,3,30000,30000,0
+lavive_01,0,0,0,0	monster	Animal	1008,1,30000,30000,0
+lavive_01,0,0,0,0	monster	Supply Crate	1504,1,30000,30000,0
+lavive_01,0,0,0,0	monster	Supply Crate	1505,1,30000,30000,0
+lavive_01,42,67,0,0	monster	Sentry	1122,1,10000,10000,8
+lavive_01,58,69,0,0	monster	Sentry	1123,1,10000,10000,8
+lavive_01,67,53,0,0	monster	Sentry	1122,1,10000,10000,8
+lavive_01,67,41,0,0	monster	Sentry	1123,1,10000,10000,8
+lavive_01,43,27,0,0	monster	Sentry	1122,1,10000,10000,8
+lavive_01,54,27,0,0	monster	Sentry	1123,1,10000,10000,8
+lavive_01,24,53,0,0	monster	Sentry	1122,1,10000,10000,8
+lavive_01,24,42,0,0	monster	Sentry	1123,1,10000,10000,8
+
+lavive_02,0,0,0,0	monster	Undead	1078,10,30000,30000,0
+lavive_02,0,0,0,0	monster	Undead	1079,10,30000,30000,0
+lavive_02,0,0,0,0	monster	Undead	1080,10,30000,30000,0
+lavive_02,0,0,0,0	monster	Supply Crate	1504,5,15000,30000,0
+lavive_02,0,0,0,0	monster	Supply Crate	1505,5,15000,30000,0
+
+lavive_03,0,0,0,0	monster	Undead	1081,10,30000,30000,0
+lavive_03,0,0,0,0	monster	Undead	1082,10,30000,30000,0
+lavive_03,0,0,0,0	monster	Undead	1083,10,30000,30000,0
+lavive_03,0,0,0,0	monster	Supply Crate	1504,5,15000,30000,0
+lavive_03,0,0,0,0	monster	Supply Crate	1505,5,15000,30000,0
+
+lavive_04,0,0,0,0	monster	Undead	1078,10,30000,30000,0
+lavive_04,0,0,0,0	monster	Undead	1079,10,30000,30000,0
+lavive_04,0,0,0,0	monster	Undead	1080,10,30000,30000,0
+lavive_04,0,0,0,0	monster	Supply Crate	1504,5,15000,30000,0
+lavive_04,0,0,0,0	monster	Supply Crate	1505,5,15000,30000,0
+
+lavive_05,0,0,0,0	monster	Undead	1081,10,30000,30000,0
+lavive_05,0,0,0,0	monster	Undead	1082,10,30000,30000,0
+lavive_05,0,0,0,0	monster	Undead	1083,10,30000,30000,0
+lavive_05,0,0,0,0	monster	Supply Crate	1504,5,15000,30000,0
+lavive_05,0,0,0,0	monster	Supply Crate	1505,5,15000,30000,0
+
+lavive_06,0,0,0,0	monster	Undead	1078,10,30000,30000,0
+lavive_06,0,0,0,0	monster	Undead	1079,10,30000,30000,0
+lavive_06,0,0,0,0	monster	Undead	1080,10,30000,30000,0
+lavive_06,0,0,0,0	monster	Supply Crate	1504,5,15000,30000,0
+lavive_06,0,0,0,0	monster	Supply Crate	1505,5,15000,30000,0
+
+lavive_07,0,0,0,0	monster	Undead	1081,10,30000,30000,0
+lavive_07,0,0,0,0	monster	Undead	1082,10,30000,30000,0
+lavive_07,0,0,0,0	monster	Undead	1083,10,30000,30000,0
+lavive_07,0,0,0,0	monster	Supply Crate	1504,5,15000,30000,0
+lavive_07,0,0,0,0	monster	Supply Crate	1505,5,15000,30000,0
+
+lavive_08,0,0,0,0	monster	Undead	1078,10,30000,30000,0
+lavive_08,0,0,0,0	monster	Undead	1079,10,30000,30000,0
+lavive_08,0,0,0,0	monster	Undead	1080,10,30000,30000,0
+lavive_08,0,0,0,0	monster	Supply Crate	1504,5,15000,30000,0
+lavive_08,0,0,0,0	monster	Supply Crate	1505,5,15000,30000,0
+
+lavive_09,0,0,0,0	monster	Undead	1081,25,30000,30000,0
+lavive_09,0,0,0,0	monster	Undead	1082,25,30000,30000,0
+lavive_09,0,0,0,0	monster	Undead	1083,25,30000,30000,0
+lavive_09,0,0,0,0	monster	Supply Crate	1504,5,15000,30000,0
+lavive_09,0,0,0,0	monster	Supply Crate	1505,5,15000,30000,0
+
+lavive_10,0,0,0,0	monster	Undead	1078,10,30000,30000,0
+lavive_10,0,0,0,0	monster	Undead	1079,10,30000,30000,0
+lavive_10,0,0,0,0	monster	Undead	1080,10,30000,30000,0
+lavive_10,0,0,0,0	monster	Supply Crate	1504,5,15000,30000,0
+lavive_10,0,0,0,0	monster	Supply Crate	1505,5,15000,30000,0
+
+la_fild01,0,0,0,0	monster	Undead	2002,10,30000,30000,0
+la_fild01,0,0,0,0	monster	Undead	2003,10,30000,30000,0
+la_fild01,0,0,0,0	monster	Undead	2004,10,30000,30000,0
+la_fild01,0,0,0,0	monster	Animal	1003,3,30000,30000,0
+la_fild01,0,0,0,0	monster	Animal	1005,3,30000,30000,0
+la_fild01,0,0,0,0	monster	Crate	1293,5,15000,30000,0
+
+la_fild02,0,0,0,0	monster	Undead	2002,10,30000,30000,0
+la_fild02,0,0,0,0	monster	Undead	2003,7,30000,30000,0
+la_fild02,0,0,0,0	monster	Undead	2004,5,30000,30000,0
+la_fild02,0,0,0,0	monster	Animal	1003,3,30000,30000,0
+la_fild02,0,0,0,0	monster	Animal	1005,3,30000,30000,0
+la_fild02,0,0,0,0	monster	Crate	1293,5,15000,30000,0
+
+la_fild03,0,0,0,0	monster	Undead	2004,2,30000,30000,0
+la_fild03,0,0,0,0	monster	Undead	2005,2,30000,30000,0
+la_fild03,0,0,0,0	monster	Animal	1004,5,30000,30000,0
+la_fild03,0,0,0,0	monster	Animal	1006,3,30000,30000,0
+la_fild03,0,0,0,0	monster	Animal	1007,1,30000,30000,0
+la_fild03,0,0,0,0	monster	Animal	1013,5,30000,30000,0
+la_fild03,0,0,0,0	monster	Crate	1293,5,15000,30000,0
+
+la_fild04,0,0,0,0	monster	Undead	2000,3,30000,30000,0
+la_fild04,0,0,0,0	monster	Undead	2002,3,30000,30000,0
+la_fild04,0,0,0,0	monster	Undead	2004,3,30000,30000,0
+la_fild04,0,0,0,0	monster	Animal	1004,5,30000,30000,0
+la_fild04,0,0,0,0	monster	Animal	1006,5,30000,30000,0
+la_fild04,0,0,0,0	monster	Animal	1007,1,30000,30000,0
+la_fild04,0,0,0,0	monster	Animal	1013,5,30000,30000,0
+la_fild04,0,0,0,0	monster	Crate	1293,5,15000,30000,0
+
+la_office01,31,18,5,5	monster	Undead	2000,5,30000,30000,0
+la_office01,31,18,5,5	monster	Undead	2001,5,30000,30000,0
+la_office01,31,18,5,5	monster	Undead	2002,5,30000,30000,0
+
+la_office02,75,38,5,5	monster	Undead	2000,5,30000,30000,0
+la_office02,75,38,5,5	monster	Undead	2001,5,30000,30000,0
+la_office02,75,38,5,5	monster	Undead	2002,5,30000,30000,0
+
+la_library,95,12,5,5	monster	Undead	2000,5,30000,30000,0
+la_library,95,12,5,5	monster	Undead	2001,3,30000,30000,0
+la_library,95,12,5,5	monster	Undead	2002,3,30000,30000,0
+la_library,0,0,0,0	monster	Crate	1296,5,15000,30000,0
+
+la_church,100,31,5,5	monster	Undead	2000,3,30000,30000,0
+la_church,100,31,5,5	monster	Undead	2001,2,30000,30000,0
+la_church,100,31,5,5	monster	Undead	2002,2,30000,30000,0
+la_church,0,0,0,0	monster	Crate	1292,5,15000,30000,0
+
+la_hospital,98,19,5,5	monster	Undead	2000,10,30000,30000,0
+la_hospital,98,19,5,5	monster	Undead	2001,5,30000,30000,0
+la_hospital,98,19,5,5	monster	Undead	2002,5,30000,30000,0
+la_hospital,0,0,0,0	monster	Crate	1294,10,15000,30000,0
+
+la_market,109,31,5,5	monster	Undead	2000,3,30000,30000,0
+la_market,109,31,5,5	monster	Undead	2001,2,30000,30000,0
+la_market,109,31,5,5	monster	Undead	2002,2,30000,30000,0
+la_market,0,0,0,0	monster	Crate	1297,5,15000,30000,0
+
+la_park,144,131,5,5	monster	Undead	2000,3,30000,30000,0
+la_park,144,131,5,5	monster	Undead	2001,3,30000,30000,0
+la_park,144,131,5,5	monster	Undead	2002,3,30000,30000,0
+
+la_police,93,19,5,5	monster	Undead	2000,3,30000,30000,0
+la_police,93,19,5,5	monster	Undead	2001,3,30000,30000,0
+la_police,93,19,5,5	monster	Undead	2002,3,30000,30000,0
+
+la_in01,139,16,2,2	monster	Undead	2002,2,30000,30000,0
+la_in01,92,16,2,2	monster	Undead	2002,2,30000,30000,0
+la_in01,47,20,2,2	monster	Undead	2002,2,30000,30000,0
+la_in01,0,0,0,0	monster	Crate	1295,10,15000,30000,0
+
+la_in02,55,84,2,2	monster	Undead	2002,2,30000,30000,0
+la_in02,180,95,2,2	monster	Undead	2002,2,30000,30000,0
+la_in02,103,72,2,2	monster	Undead	2002,2,30000,30000,0
+la_in02,119,164,2,2	monster	Undead	2002,2,30000,30000,0
+la_in02,43,144,2,2	monster	Undead	2002,2,30000,30000,0
+la_in02,152,164,2,2	monster	Undead	2002,2,30000,30000,0
+la_in02,0,0,0,0	monster	Crate	1295,10,15000,30000,0
+
+//Map Initiate Spawn
+-	script	monster_setup	-1,{
+OnInit:
+	monster "la_church",0,0," ",2000,10,"game_mechanics::OnDeath_count";
+	monster "la_office01",0,0," ",2000,50,"game_mechanics::OnDeath_count";
+	monster "la_office02",0,0," ",2000,50,"game_mechanics::OnDeath_count";
+	monster "la_hospital",0,0," ",2000,100,"game_mechanics::OnDeath_count";
+	monster "la_library",0,0," ",2000,25,"game_mechanics::OnDeath_count";
+	monster "la_market",0,0," ",2000,25,"game_mechanics::OnDeath_count";
+	monster "la_park",0,0," ",2000,25,"game_mechanics::OnDeath_count";
+	monster "la_police",0,0," ",2000,25,"game_mechanics::OnDeath_count";
+	monster "la_in01",0,0," ",2000,10,"game_mechanics::OnDeath_count";
+	monster "la_in02",0,0," ",2000,20,"game_mechanics::OnDeath_count";
+	monster "lavive_01",0,0," ",2000,3,"game_mechanics::OnDeath_count";
+	monster "lavive_02",0,0," ",2000,50,"game_mechanics::OnDeath_count";
+	monster "lavive_03",0,0," ",2000,50,"game_mechanics::OnDeath_count";
+	monster "lavive_04",0,0," ",2000,50,"game_mechanics::OnDeath_count";
+	monster "lavive_05",0,0," ",2000,50,"game_mechanics::OnDeath_count";
+	monster "lavive_06",0,0," ",2000,50,"game_mechanics::OnDeath_count";
+	monster "lavive_07",0,0," ",2000,50,"game_mechanics::OnDeath_count";
+	monster "lavive_08",0,0," ",2000,50,"game_mechanics::OnDeath_count";
+	monster "lavive_09",0,0," ",2000,50,"game_mechanics::OnDeath_count";
+	monster "lavive_10",0,0," ",2000,50,"game_mechanics::OnDeath_count";
+	monster "la_fild01",0,0," ",2000,10,"game_mechanics::OnDeath_count";
+	monster "la_fild02",0,0," ",2000,10,"game_mechanics::OnDeath_count";
+	monster "la_fild03",0,0," ",2000,10,"game_mechanics::OnDeath_count";
+	monster "la_fild04",0,0," ",2000,10,"game_mechanics::OnDeath_count";
+	//monster "la_church",0,0," ",1078,10,"game_mechanics::OnDeath_count";
+	//monster "la_office01",0,0," ",1079,50,"game_mechanics::OnDeath_count";
+	//monster "la_office02",0,0," ",1080,50,"game_mechanics::OnDeath_count";
+	//monster "la_hospital",0,0," ",1081,100,"game_mechanics::OnDeath_count";
+	//monster "la_library",0,0," ",1082,25,"game_mechanics::OnDeath_count";
+	//monster "la_market",0,0," ",1083,25,"game_mechanics::OnDeath_count";
+	//monster "la_park",0,0," ",1078,25,"game_mechanics::OnDeath_count";
+	//monster "la_police",0,0," ",1079,25,"game_mechanics::OnDeath_count";
+	//monster "la_in01",0,0," ",1080,10,"game_mechanics::OnDeath_count";
+	//monster "la_in02",0,0," ",1081,20,"game_mechanics::OnDeath_count";
+	//monster "lavive_01",0,0," ",1082,3,"game_mechanics::OnDeath_count";
+	//monster "lavive_02",0,0," ",1083,50,"game_mechanics::OnDeath_count";
+	//monster "lavive_03",0,0," ",1078,50,"game_mechanics::OnDeath_count";
+	//monster "lavive_04",0,0," ",1079,50,"game_mechanics::OnDeath_count";
+	//monster "lavive_05",0,0," ",1080,50,"game_mechanics::OnDeath_count";
+	//monster "lavive_06",0,0," ",1081,50,"game_mechanics::OnDeath_count";
+	//monster "lavive_07",0,0," ",1082,50,"game_mechanics::OnDeath_count";
+	//monster "lavive_08",0,0," ",1083,50,"game_mechanics::OnDeath_count";
+	//monster "lavive_09",0,0," ",1078,50,"game_mechanics::OnDeath_count";
+	//monster "lavive_10",0,0," ",1079,50,"game_mechanics::OnDeath_count";
+	//monster "la_fild01",0,0," ",1080,10,"game_mechanics::OnDeath_count";
+	//monster "la_fild02",0,0," ",1081,10,"game_mechanics::OnDeath_count";
+	//monster "la_fild03",0,0," ",1082,10,"game_mechanics::OnDeath_count";
+	//monster "la_fild04",0,0," ",1083,10,"game_mechanics::OnDeath_count";
+	atcommand "@mobevent 1080 3 0 0 0 1 0 0";
+	atcommand "@mobevent 1084 3 0 0 0 1 0 0";
+	atcommand "@mobevent 1085 3 0 0 0 1 0 0";
+	end;
+}

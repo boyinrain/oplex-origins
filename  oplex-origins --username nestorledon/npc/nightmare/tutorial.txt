@@ -1,0 +1,425 @@
+tutorial,92,62,3	script	Tutorial Guide	48,{
+	set @npcname$, "[Tutorial Guide]";
+if(tutoriallvl==5) goto tutorial_finish;
+if(tutoriallvl==3) goto tutorial_skillmaster;
+	mes @npcname$;
+	mes "-Grumbles-";
+	next;
+	emotion 0;
+	next;
+	mes @npcname$;
+	mes "Oh! Hello there...you're that kid that begged for adventure, aye?";
+	next;
+	mes "["+strcharinfo(0)+"]";
+	mes "Yes sir!";
+	next;
+	mes @npcname$;
+	mes "Hm...let's see...";
+	next;
+	mes @npcname$;
+	mes "Your name must be..."+strcharinfo(0)+"...correct?";
+	next;
+	mes "["+strcharinfo(0)+"]";
+	mes "That's me, alright.";
+	next;
+	mes @npcname$;
+	mes "Ah, excellent. There's just a problem.";
+	next;
+	mes @npcname$;
+	mes "We simply cannot let you enter the world without some information!";
+	next;
+	mes @npcname$;
+	mes "So. I'm going to ask you to fill out a survey. I also want you to take your time.";
+	next;
+	mes @npcname$;
+	mes "It'll help us understand what kind of person you are.";
+	next;
+	mes @npcname$;
+	mes "Are you ready?";
+	menu "Yes!",tutorial_survey,"No...",-;
+	next;
+	mes @npcname$;
+	mes "Ok, talk to me later when you are ready.";
+	close;
+
+tutorial_survey:
+	set statstr,0;
+	set statint,0;
+	set statagi,0;
+	set statvit,0;
+	set statdex,0;
+	set statluk,0;
+	next;
+	mes @npcname$;
+	mes "Alright.";
+	next;
+	mes @npcname$;
+	mes "You are on the show Deal or No Deal, and you've already been offered $250,000, but there's one last suitcase that could either be a $1,000,000 or $1. Would you:";
+	mes "A. Take the deal of $250,000 and walk away.";
+	mes "B. No deal and take the risk of getting all-or-nothing.";
+	if(select("A:B")==1) set statdex,statdex+1;
+		else { set statluk,statluk+1;
+			}
+	next;
+	mes @npcname$;
+	mes "A person is about to get shot by a gunsman. What is your first reaction?";
+	mes "A. Run towards the person and take the bullet.";
+	mes "B. Throw something to knock out the gunsman before he can shoot, but with the risk of missing.";
+	if(select("A:B")==1) set statvit,statvit+1;
+		else { set statagi,statagi+1;
+			}
+	next;
+	mes @npcname$;
+	mes "If you are in jail and are about to be executed, would you:";
+	mes "A. Accept your death.";
+	mes "B. Try to escape it.";
+	if(select("A:B")==1) set statstr,statstr+1;
+		else { set statint,statint+1;
+			}
+	next;
+	mes @npcname$;
+	mes "Do you believe Apple Jacks taste like apples?";
+	mes "A. WTF?!";
+	mes "B. Yes, they do. That's why they call them Apple Jacks!";
+	if(select("A:B")==1) set statdex,statdex+1;
+		else { set statluk,statluk+1;
+			}
+	next;
+	mes @npcname$;
+	mes "A person you don't like gets the blame for something that you did. What would you do?";
+	mes "A. Confess that it is really all your fault.";
+	mes "B. Ignore it and let it be.";
+	if(select("A:B")==1) set statvit,statvit+1;
+		else { set statagi,statagi+1;
+			}
+	next;
+	mes @npcname$;
+	mes "You enter a cave. What do you do?";
+	mes "A. Go in and explore it";
+	mes "B. Play safe and stay out of it.";
+	if(select("A:B")==1) set statstr,statstr+1;
+		else { set statint,statint+1;
+			}
+	next;
+	mes @npcname$;
+	mes "If someone dared you to eat live worms from the soil for a million dollars, would you do it?";
+	mes "A. Yes, why not?";
+	mes "B. Hell no!";
+	if(select("A:B")==2) set statdex,statdex+1;
+		else { set statluk,statluk+1;
+			}
+	next;
+	mes @npcname$;
+	mes "You buy a sandwich at a local bakery with the last of your money in your wallet. You exit the bakery and a poor man asks for some food. What would you do?";
+	mes "A. Give him your sandwich.";
+	mes "B. Try to find a local bank to get more money to buy him a sandwich.";
+	if(select("A:B")==1) set statvit,statvit+1;
+		else { set statagi,statagi+1;
+			}
+	next;
+	mes @npcname$;
+	mes "You are sick with cancer and only have a year to live. However, there is a treatment that could cure your sickness, but there is a chance it might fail and result in your death. Would you:";
+	mes "A. Play it safe and enjoy your last year.";
+	mes "B. Undergo the treatment in hopes that you get cured for life.";
+	if(select("A:B")==1) set statdex,statdex+1;
+		else { set statluk,statluk+1;
+			}
+	next;
+	mes @npcname$;
+	mes "You decide to buy a new car. What kind of car are you looking for?";
+	mes "A. An awesomely fast and nice-looking car, but doesn't last very long.";
+	mes "B. A fuel-efficient and safer car, but then people will make fun of you.";
+	if(select("A:B")==2) set statvit,statvit+1;
+		else { set statagi,statagi+1;
+			}
+	next;
+	mes @npcname$;
+	mes "A superhero is offering to give you one of his powers. Which one would you choose?";
+	mes "A. His abiility to acquire steel skin";
+	mes "B. His ability to teleport.";
+	if(select("A:B")==1) set statvit,statvit+1;
+		else { set statagi,statagi+1;
+			}
+	next;
+	mes @npcname$;
+	mes "A giant meteor is about to hit the world and may cause the world to end. What do you do with the last few days left?";
+	mes "A. Join those who are going deep underground in order to survive.";
+	mes "B. Party your night away and enjoy your last few days left.";
+	if(select("A:B")==2) set statdex,statdex+1;
+		else { set statluk,statluk+1;
+			}
+	next;
+	mes @npcname$;
+	mes "If someone you know has died, would you:";
+	mes "A. Mourn over their death.";
+	mes "B. Be happy that they are in a better place.";
+	if(select("A:B")==2) set statstr,statstr+1;
+		else { set statint,statint+1;
+			}
+	next;
+	mes @npcname$;
+	mes "You are about to fight a monster, but there are only two weapons you can find. Which weapon would you pick to slay this monster?";
+	mes "A. A Katana.";
+	mes "B. A Battle Axe.";
+	if(select("A:B")==2) set statvit,statvit+1;
+		else { set statagi,statagi+1;
+			}
+	next;
+	mes @npcname$;
+	mes "Do you want a soulmate that is courageous or reliable?";
+	mes "A. Courage!";
+	mes "B. Reliability!";
+	if(select("A:B")==2) set statdex,statdex+1;
+		else { set statluk,statluk+1;
+			}
+	next;
+	mes @npcname$;
+	mes "If someone punches you in the face and wants to pick a fight with you, would you:";
+	mes "A. Get into a fight with him and punch him back.";
+	mes "B. Ignore it and walk away.";
+	if(select("A:B")==1) set statstr,statstr+1;
+		else { set statint,statint+1;
+			}
+	next;
+	mes @npcname$;
+	mes "You go to McDonald's with $5 and you look through the menu. What would you get?";
+	mes "A. 2 Big Macs, Fries, and a Soda";
+	mes "B. 2 McChickens, Apple Pie, and Orange Juice.";
+	if(select("A:B")==1) set statstr,statstr+1;
+		else { set statint,statint+1;
+			}
+	next;
+	mes @npcname$;
+	mes "You find a wallet on the street with $100 in it. Would you:";
+	mes "A. Keep the wallet and take the money since a person lost it.";
+	mes "B. Turn it into the police in hopes of getting a reward.";
+	if(select("A:B")==1) set statdex,statdex+1;
+		else { set statluk,statluk+1;
+			}
+	next;
+	mes @npcname$;
+	mes "There are two t-shirt printing companies, but you do not know who is better at printing t-shirts. One company seems to be professional but is expensive; the other company is cheaper, but it seems like they don't do a very good job. Which company would you pick?";
+	mes "A. The professional, but more expensive looking company.";
+	mes "B. The cheaper, but less professinal looking company.";
+	if(select("A:B")==1) set statdex,statdex+1;
+		else { set statluk,statluk+1;
+			}
+	next;
+	mes @npcname$;
+	mes "If you were on the football team, would you play on the:";
+	mes "A. Offense.";
+	mes "B. Defense.";
+	if(select("A:B")==2) set statvit,statvit+1;
+		else { set statagi,statagi+1;
+			}
+	next;
+	mes @npcname$;
+	mes "A person is losing a lot of blood due to a severe injury and has only 20 minutes to survive. You see this person, but have no cell phone...so what would your first reaction be?";
+	mes "A. Look for somebody that can help you (i.e. person with a phone, doctor, etc.)";
+	mes "B. Help stop the bleeding as much as you can and yell for assistance.";
+	if(select("A:B")==2) set statstr,statstr+1;
+		else { set statint,statint+1;
+			}
+	next;
+	mes @npcname$;
+	mes "You are about to embark on a journey into the desert, but you want a mount since you don't want to go on foot. You encounter a merchant, but he only has two animals that he could offer you. What would you choose?";
+	mes "A. A strong, but slow elephant.";
+	mes "B. A quick, but weak ostrich.";
+	if(select("A:B")==1) set statvit,statvit+1;
+		else { set statagi,statagi+1;
+			}
+	next;
+	mes @npcname$;
+	mes "There is a pie on the counter and you and your brother call it at the same time. Would you:";
+	mes "A. Compromise with him and get half the pie.";
+	mes "B. Flip a coin to see who gets the whole thing.";
+	if(select("A:B")==1) set statdex,statdex+1;
+		else { set statluk,statluk+1;
+			}
+	next;
+	mes @npcname$;
+	mes "You are in a race and running to the finish line. However, one of your opponents, has tripped and fell, breaking one of his legs. What do you do?";
+	mes "A. Run back and help him out.";
+	mes "B. Continue to run to the finish line since it's not your business.";
+	if(select("A:B")==2) set statstr,statstr+1;
+		else { set statint,statint+1;
+			}
+	next;
+	mes @npcname$;
+	mes "During your free time, what would you rather do?";
+	mes "A. Play videogames and watch TV all day.";
+	mes "B. Go outside and play ball.";
+	if(select("A:B")==2) set statstr,statstr+1;
+		else { set statint,statint+1;
+			}
+	next;
+	mes @npcname$;
+	mes "Do you like believing in something because:";
+	mes "A. It is backed up by facts.";
+	mes "B. It is something you feel is right regardless of what anyone else thinks.";
+	if(select("A:B")==1) set statdex,statdex+1;
+		else { set statluk,statluk+1;
+			}
+	next;
+	mes @npcname$;
+	mes "You are given a present before Christmas and tempted to know what's inside. What would you do?";
+	mes "A. Open it up right away!";
+	mes "B. Be patient and wait until Christmas.";
+	if(select("A:B")==1) set statagi,statagi+1;
+		else { set statvit,statvit+1;
+			}
+	next;
+	mes @npcname$;
+	mes "A person has a knife to your throat and wants to steal your wedding ring. Would you:";
+	mes "A. Give that person the ring and let you off.";
+	mes "B. Fight against the person even though the chances are you might get stabbed.";
+	if(select("A:B")==2) set statstr,statstr+1;
+		else { set statint,statint+1;
+			}
+	next;
+	mes @npcname$;
+	mes "You are thinking about giving your significant other a present for your anniversary. Would you choose to:";
+	mes "A. Buy a diamond necklace.";
+	mes "B. Take her on a vacation to Paris.";
+	if(select("A:B")==2) set statstr,statstr+1;
+		else { set statint,statint+1;
+			}
+	next;
+	mes @npcname$;
+	mes "Your significant other breaks up with you. What are you going to do now?";
+	mes "A. Since it didn't work out, I'm going to try to get over it and find someone else.";
+	mes "B. I'm going to try to make things right and get back with him/her.";
+	if(select("A:B")==2) set statvit,statvit+1;
+		else { set statagi,statagi+1;
+			}
+	next;
+	mes @npcname$;
+	mes "Well...that's it. Give us a few minutes to process the information! Talk to The Skill Master on the right while you're waiting.";
+	set tutoriallvl, 3;
+	close;
+
+tutorial_skillmaster:
+	mes @npcname$;
+	mes "Hey! Did you talk to the Skill Master yet? Go talk to her!";
+	close;
+
+tutorial_finish:
+	set @npcname$, "[Tutorial Guide]";
+	mes @npcname$;
+	mes "When you are done with all the courses, in any order, come see me.";
+	next;
+	mes @npcname$;
+	mes "Oh wait, this is only testing. The tutorial system isn't finished!";
+	next;
+	mes @npcname$;
+	mes "Remember, you also have to protect others as well.";
+	next;
+	mes @npcname$;
+	mes "Well...good luck!";
+	statusup2 bStr, 5*statstr;
+	statusup2 bInt, 5*statint;
+	statusup2 bAgi, 5*statagi;
+	statusup2 bVit, 5*statvit;
+	statusup2 bDex, 5*statdex;
+	statusup2 bLuk, 5*statluk;
+	set statstr,0;
+	set statint,0;
+	set statagi,0;
+	set statvit,0;
+	set statdex,0;
+	set statluk,0;
+	set @surviveskillrand, rand(0,200);
+	if(@surviveskillrand<=10){skill 411,1,0; getitem 751,3;};
+	if(@surviveskillrand>11 && @surviveskillrand<20){skill 150,1,0; getitem 753,3;};
+	if(@surviveskillrand>21 && @surviveskillrand<50){skill 8,1,0; getitem 756,3;};
+	if(@surviveskillrand>51 && @surviveskillrand<70){skill 108,1,0; getitem 759,3;};
+	if(@surviveskillrand>71 && @surviveskillrand<100){skill 220,1,0; getitem 760,3;};
+	if(@surviveskillrand>101 && @surviveskillrand<150){skill 142,1,0; getitem 755,3;};
+	if(@surviveskillrand>151 && @surviveskillrand<170){skill 229,1,0; getitem 754,3;};
+	if(@surviveskillrand>171 && @surviveskillrand<=200){skill 124,1,0; getitem 752,3;};
+	skill 140,1,0;
+	skill 141,1,0;
+	skill 78,1,0;
+	skill 29,1,0;
+	skill 30,1,0;
+	skill 115,1,0;
+	skill 116,1,0;
+	skill 117,1,0;
+	skill 122,1,0;
+	skill 123,1,0;
+	skill 125,1,0;
+	skill 723,1,0;
+	skill 724,1,0;
+	skill 725,1,0;
+	set trapmaker_level, 0;
+	set chemmaker_level, 0;
+	set cookmaker_level, 0;
+	percentheal 100,100;
+	warp "lavive_01",0,0;
+	set lastsavedmap$, "lavive_01";
+	set lastsavedx, 49;
+	set lastsavedy, 48;
+	savepoint "limbo_1",99,17;
+	end;
+}
+
+tutorial,121,62,3	script	Skill Master	49,{
+	set @npcname$, "[Skill Master]";
+	if(tutoriallvl==3) goto tutorial_skills;
+	mes @npcname$;
+	mes "Hi, please talk to the Guide first.";
+	close;
+tutorial_skills:
+
+	mes @npcname$;
+	mes "Hello, fellow Survivor.";
+	next;
+	mes @npcname$;
+	mes "Skills are an important aspect in the world. You will need them in order to even survive.";
+	next;
+	mes @npcname$;
+	mes "Let's start: skills can be categorized into three groups: weapon, survival, and crafting.";
+	next;
+	mes @npcname$;
+	mes "Weapon skills are skills that are only obtainable when a survivor is equipped with that particular weapon. For example, guns will enable a survivor to use Head Shot, but when they change to a Knife weapon, they can not use Head Shot - instead, they can use Close Confine. Every weapon is unique; not all of them have the same weapon skills.";
+	next;
+	mes @npcname$;
+	mes "Survival skills are skills that can only be taught from player to player. At the end of the tutorial, you will recieve one survival skill and three guide books. With these guide books, you can teach other survivors that skill. To teach others your survival skill, just use the guide book for that skill and type in the survivor's name. They will recieve a message to confirm it, in which they have 3 minutes to type a message to NPC:teacher. Failure to do so will result in the inability to learn that skill...and a loss of 1 of your guide books.";
+	next;
+	mes @npcname$;
+	mes "Finally, crafting skills are skills that are only usable when the crafted item is present. Crafting items take time and experience - the more you craft, the more successful you will be. Within crafting, there are three branches: cooking, chemistry, and traps.";
+	next;
+	mes @npcname$;
+	mes "Cooking enables survivors to get the most out of the food they have. They can create food that can heal more, or even improve stats temporarily.";
+	next;
+	mes @npcname$;
+	mes "Chemistry and Traps are polar opposite skills.";
+	next;
+	mes @npcname$;
+	mes "Chemistry requires concentration of the mind and enables survivors to create items that benefit others or toxins that cripples the enemy.";
+	next;
+	mes @npcname$;
+	mes "Traps, on the other hand, require raw power. With traps, one can implant explosives or snares that will delay an enemy's advance.";	
+	next;
+	mes @npcname$;
+	mes "This is not all of the skills. There are rumors of skills that can be obtained through other means...but we have little information on them.";
+	next;
+	mes @npcname$;
+	mes "Well, that's all I have to tell you about skills. I hope you find it useful. Good luck on your journey!";
+	set tutoriallvl, 5;
+	close;
+
+}
+
+tutorial,88,39,0	script	tutorial_heal_001::tutorial_heal_001	-1,40,0,{
+OnTouch:
+	percentheal 100,100;
+	}
+tutorial,88,39,0	duplicate(tutorial_heal_001)	tutorial_heal_001	-1,40,0
+tutorial,89,39,0	duplicate(tutorial_heal_001)	tutorial_heal_002	-1,40,0
+tutorial,90,39,0	duplicate(tutorial_heal_001)	tutorial_heal_003	-1,40,0
+tutorial,91,39,0	duplicate(tutorial_heal_001)	tutorial_heal_004	-1,40,0
+tutorial,92,39,0	duplicate(tutorial_heal_001)	tutorial_heal_005	-1,40,0
+tutorial,93,39,0	duplicate(tutorial_heal_001)	tutorial_heal_006	-1,40,0
+tutorial,94,39,0	duplicate(tutorial_heal_001)	tutorial_heal_007	-1,40,0
+tutorial,95,39,0	duplicate(tutorial_heal_001)	tutorial_heal_008	-1,40,0

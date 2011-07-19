@@ -1,0 +1,151 @@
+function	script	reload10	{
+if(countitem(5000)>0) goto no_reload;
+	delitem 4000, 1;
+	getitem 5000, 10;
+	soundeffect "reload.wav",0;
+	return;
+	end;
+no_reload:
+	return;
+	end;
+}
+
+//Item Functions
+
+function	script	watch_func	{
+	mes "The current time is: " + gettime(3) + ":" + gettime(2) + ":" + gettime(1);
+	set @break, rand(1,100);
+	if (@break>99) goto clock_broke;
+	close;
+	end;
+
+clock_broke:
+	next;
+	mes "The clock stopped working..."; 
+	delitem 1005,1;
+	close;
+	end;
+}
+
+function	script	flashlight_func	{
+	sc_end 	SC_BLIND;
+	soundeffect "_stonecurse.wav",0;
+	sleep2 60000;
+	sc_start SC_BLIND,30000000,0;
+	end;
+
+}
+
+function	script	announce_func	{
+	set @announce1$, strcharinfo(0);
+	input @announce2$;
+	announce @announce1$ + " : " + @announce2$,bc_area;
+	end;
+}
+
+function	script	radio_send_func	{
+mes "Select a channel (1-10):";
+	input @channel;
+	if (@channel < 1 || @channel > 10) goto send_mes_fail;
+	mes "Input your message :";
+	next;
+	set $message_name$[@channel], strcharinfo(0);
+	input $message_text$[@channel];
+	next;
+	mes "Radio transmission complete.";
+	close;
+	end;
+
+send_mes_fail:
+	next;
+	mes ". . .";
+	next;
+	mes "Radio transmition failed to connect. Transmission failed.";
+	close;
+	end;
+}
+
+function	script	radio_recieve_func	{
+	mes "Radio has been connected.";
+	next;
+	mes "Channel 1: " + $message_name$[1] + ": " + $message_text$[1];
+	mes "Channel 2: " + $message_name$[2] + ": " + $message_text$[2];
+	mes "Channel 3: " + $message_name$[3] + ": " + $message_text$[3];
+	mes "Channel 4: " + $message_name$[4] + ": " + $message_text$[4];
+	mes "Channel 5: " + $message_name$[5] + ": " + $message_text$[5];
+	next;
+	mes "Channel 6: " + $message_name$[6] + ": " + $message_text$[6];
+	mes "Channel 7: " + $message_name$[7] + ": " + $message_text$[7];
+	mes "Channel 8: " + $message_name$[8] + ": " + $message_text$[8];
+	mes "Channel 9: " + $message_name$[9] + ": " + $message_text$[9];
+	mes "Channel 10: " + $message_name$[10] + ": " + $message_text$[10];
+	next;
+	mes "Radio has disconnected.";
+	close;
+	end;
+
+send_mes_fail:
+	next;
+	mes ". . .";
+	next;
+	mes "Radio transmition failed to connect. Transmission failed.";
+	end;
+}
+
+function	script	sleep_func	{
+	mes "How long would you like to sleep for?";
+	next;
+	menu "30 seconds",sleep_30sec,"1 minute",sleep_1min,"Nevermind",-;
+	close;
+	end;
+sleep_30sec:
+	mes "It's time to get some rest...";
+	sc_start SC_SLEEP,30000,0;
+	sleep2 3000;
+	mes "[|---------]";
+	sleep2 3000;
+	mes "[||--------]";
+	sleep2 3000;
+	mes "[|||-------]";
+	sleep2 3000;
+	mes "[||||------]";
+	sleep2 3000;
+	mes "[|||||-----]";
+	sleep2 3000;
+	mes "[||||||----]";
+	sleep2 3000;
+	mes "[|||||||---]";
+	sleep2 3000;
+	mes "[||||||||--]";
+	sleep2 3000;
+	mes "[|||||||||-]";
+	sleep2 3000;
+	percentheal 12,30;
+	close;
+	end;
+sleep_1min:
+	mes "It's time to get some rest...";
+	sc_start SC_SLEEP,60000,0;
+	sleep2 6000;
+	mes "[|---------]";
+	sleep2 6000;
+	mes "[||--------]";
+	sleep2 6000;
+	mes "[|||-------]";
+	sleep2 6000;
+	mes "[||||------]";
+	sleep2 6000;
+	mes "[|||||-----]";
+	sleep2 6000;
+	mes "[||||||----]";
+	sleep2 6000;
+	mes "[|||||||---]";
+	sleep2 6000;
+	mes "[||||||||--]";
+	sleep2 6000;
+	mes "[|||||||||-]";
+	sleep2 6000;
+	percentheal 25,75;
+	close;
+	end;
+}
