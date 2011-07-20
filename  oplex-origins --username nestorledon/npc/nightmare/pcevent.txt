@@ -4,7 +4,7 @@ lavive_01	mapflag	pvp	off
 //oplex_1	mapflag	pvp_nightmaredrop	random,equip,10000
 
 
--	script	game_mechanics	-1,{
+-	script	game_mechanics::gamemechs	-1,{
 
 OnPCLoginEvent:
 	getmapxy @playermap$,@playerx,@playery,0;
@@ -45,7 +45,7 @@ OnDeath_count:
 
 }
 
--	script	vitality_timer	-1,{
+-	script	vitality_timer::vittime	-1,{
 OnTimer:
 	getmapxy @playermap$,@playerx,@playery,0;
 	if(@playermap$=="limbo_1.gat"){ end; };

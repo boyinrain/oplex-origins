@@ -411,15 +411,15 @@ tutorial_skills:
 
 }
 
-tutorial,88,39,0	script	tutorial_heal_001::tutorial_heal_001	-1,40,0,{
+tutorial,88,39,0	script	tutorial_heal_001::tutorial_heals_001	-1,40,0,{
 OnTouch:
 	percentheal 100,100;
 	}
-tutorial,88,39,0	duplicate(tutorial_heal_001)	tutorial_heal_001	-1,40,0
-tutorial,89,39,0	duplicate(tutorial_heal_001)	tutorial_heal_002	-1,40,0
-tutorial,90,39,0	duplicate(tutorial_heal_001)	tutorial_heal_003	-1,40,0
-tutorial,91,39,0	duplicate(tutorial_heal_001)	tutorial_heal_004	-1,40,0
-tutorial,92,39,0	duplicate(tutorial_heal_001)	tutorial_heal_005	-1,40,0
-tutorial,93,39,0	duplicate(tutorial_heal_001)	tutorial_heal_006	-1,40,0
-tutorial,94,39,0	duplicate(tutorial_heal_001)	tutorial_heal_007	-1,40,0
-tutorial,95,39,0	duplicate(tutorial_heal_001)	tutorial_heal_008	-1,40,0
+tutorial,88,39,0	duplicate(tutorial_heals_001)	tutorial_heal_001	-1,40,0
+tutorial,89,39,0	duplicate(tutorial_heals_001)	tutorial_heal_002	-1,40,0
+tutorial,90,39,0	duplicate(tutorial_heals_001)	tutorial_heal_003	-1,40,0
+tutorial,91,39,0	duplicate(tutorial_heals_001)	tutorial_heal_004	-1,40,0
+tutorial,92,39,0	duplicate(tutorial_heals_001)	tutorial_heal_005	-1,40,0
+tutorial,93,39,0	duplicate(tutorial_heals_001)	tutorial_heal_006	-1,40,0
+tutorial,94,39,0	duplicate(tutorial_heals_001)	tutorial_heal_007	-1,40,0
+tutorial,95,39,0	duplicate(tutorial_heals_001)	tutorial_heal_008	-1,40,0
