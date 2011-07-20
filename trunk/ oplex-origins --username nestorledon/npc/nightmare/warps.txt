@@ -51,11 +51,11 @@ la_fild03,98,90,0	warp	lav050	1,1,la_fild04,4,43
 la_fild04,0,43,0	warp	lav051	1,1,la_fild03,96,92
 
 //Lavive Town World-Indoor Warps
-lavive_02,15,59,0	warp	lav026	1,1,la_church,100,32
-la_church,100,28,0	warp	lav027	1,1,lavive_02,15,56
+lavive_02,18,56,0	warp	lav026	1,1,la_church,100,32
+la_church,100,28,0	warp	lav027	1,1,lavive_02,18,53
 
-lavive_02,67,80,0	warp	lav028	1,1,la_office01,28,20
-la_office01,28,16,0	warp	lav029	1,1,lavive_02,64,80
+lavive_02,76,61,0	warp	lav028	1,1,la_office01,28,20
+la_office01,28,16,0	warp	lav029	1,1,lavive_02,76,58
 
 lavive_06,64,48,0	warp	lav030	1,1,la_library,95,11
 la_library,95,8,0	warp	lav031	1,1,lavive_06,61,48
@@ -66,32 +66,32 @@ la_office02,72,38,0	warp	lav033	1,1,lavive_04,19,59
 lavive_08,29,17,0	warp	lav034	1,1,la_police,93,20
 la_police,93,16,0	warp	lav035	1,1,lavive_08,32,17
 
-lavive_05,67,22,0	warp	lav036	1,1,la_market,110,31
-la_market,106,31,0	warp	lav037	1,1,lavive_05,67,26
+lavive_05,64,40,0	warp	lav036	1,1,la_market,110,31
+la_market,106,31,0	warp	lav037	1,1,lavive_05,61,40
 
 lavive_08,61,72,0	warp	lav038	1,1,la_hospital,98,19
 la_hospital,98,16,0	warp	lav039	1,1,lavive_08,61,69
 
 lavive_03,52,26,0	warp	lav052	1,1,la_in01,139,20
-la_in01,139,16,0	warp	lav053	1,1,lavive_03,65,26
+la_in01,139,16,0	warp	lav053	1,1,lavive_03,48,26
 
 lavive_03,85,24,0	warp	lav054	1,1,la_in01,92,19
 la_in01,92,16,0	warp	lav055	1,1,lavive_03,97,24
 
 lavive_03,30,23,0	warp	lav056	1,1,la_in01,44,20
-la_in01,47,20,0	warp	lav057	1,1,lavive_03,30,35
+la_in01,47,20,0	warp	lav057	1,1,lavive_03,30,20
 
-lavive_03,30,64,0	warp	lav058	1,1,la_in02,52,84
-la_in02,55,84,0	warp	lav059	1,1,lavive_03,30,51
+lavive_03,28,65,0	warp	lav058	1,1,la_in02,52,84
+la_in02,55,84,0	warp	lav059	1,1,lavive_03,29,67
 
 lavive_03,34,92,0	warp	lav060	1,1,la_in02,180,92
 la_in02,180,95,0	warp	lav061	1,1,lavive_03,21,92
 
-lavive_03,67,90,0	warp	lav062	1,1,la_in02,103,75
-la_in02,103,72,0	warp	lav063	1,1,lavive_03,79,90
+lavive_03,66,88,0	warp	lav062	1,1,la_in02,103,75
+la_in02,103,72,0	warp	lav063	1,1,lavive_03,64,89
 
 lavive_03,80,63,0	warp	lav064	1,1,la_in02,116,164
-la_in02,119,164,0	warp	lav065	1,1,lavive_03,80,75
+la_in02,119,164,0	warp	lav065	1,1,lavive_03,80,60
 
 lavive_10,75,10,0	warp	lav066	1,1,la_in02,43,147
 la_in02,43,144,0	warp	lav067	1,1,lavive_10,87,9
