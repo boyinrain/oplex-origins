@@ -2,3 +2,463 @@
 07/19/2011 18:05:05 - Maximus[2000000]: @speed 
 07/19/2011 18:05:09 - Maximus[2000000]: @speed 0
 07/19/2011 18:05:31 - Maximus[2000000]: @reloadscript
+07/20/2011 14:11:51 - Maximus[2000000]: @hide
+07/20/2011 14:11:53 - Maximus[2000000]: @heal
+07/20/2011 14:12:46 - night_darkness[0]: @effect 334
+07/20/2011 14:14:46 - night_darkness[0]: @effect 334
+07/20/2011 14:16:46 - night_darkness[0]: @effect 334
+07/20/2011 14:18:46 - night_darkness[0]: @effect 334
+07/20/2011 14:20:46 - night_darkness[0]: @effect 334
+07/20/2011 14:22:46 - night_darkness[0]: @effect 334
+07/20/2011 14:24:46 - night_darkness[0]: @effect 334
+07/20/2011 14:26:04 - Maximus[2000000]: @effect 334
+07/20/2011 14:26:46 - night_darkness[0]: @effect 334
+07/20/2011 14:28:04 - night_darkness[0]: @effect 334
+07/20/2011 14:28:46 - night_darkness[0]: @effect 334
+07/20/2011 14:29:46 - night_darkness[0]: @effect 334
+07/20/2011 14:30:13 - night_darkness[0]: @effect 334
+07/20/2011 14:31:04 - night_darkness[0]: @effect 334
+07/20/2011 14:31:46 - night_darkness[0]: @effect 334
+07/20/2011 14:32:13 - night_darkness[0]: @effect 334
+07/20/2011 14:33:04 - night_darkness[0]: @effect 334
+07/20/2011 14:33:46 - night_darkness[0]: @effect 334
+07/20/2011 14:34:13 - night_darkness[0]: @effect 334
+07/20/2011 14:35:04 - night_darkness[0]: @effect 334
+07/20/2011 14:35:47 - night_darkness[0]: @effect 334
+07/20/2011 14:36:13 - night_darkness[0]: @effect 334
+07/20/2011 14:37:04 - night_darkness[0]: @effect 334
+07/20/2011 14:37:47 - night_darkness[0]: @effect 334
+07/20/2011 14:38:13 - night_darkness[0]: @effect 334
+07/20/2011 14:39:04 - night_darkness[0]: @effect 334
+07/20/2011 14:39:47 - night_darkness[0]: @effect 334
+07/20/2011 14:40:04 - night_darkness[0]: @effect 334
+07/20/2011 14:40:13 - night_darkness[0]: @effect 334
+07/20/2011 14:40:47 - night_darkness[0]: @effect 334
+07/20/2011 14:41:04 - night_darkness[0]: @effect 334
+07/20/2011 14:41:32 - night_darkness[0]: @effect 334
+07/20/2011 14:41:55 - night_darkness[0]: @effect 334
+07/20/2011 14:42:13 - night_darkness[0]: @effect 334
+07/20/2011 14:42:47 - night_darkness[0]: @effect 334
+07/20/2011 14:43:04 - night_darkness[0]: @effect 334
+07/20/2011 14:43:24 - Maximus[2000000]: @effect 334
+07/20/2011 14:43:47 - night_darkness[0]: @effect 334
+07/20/2011 14:44:04 - night_darkness[0]: @effect 334
+07/20/2011 14:44:13 - night_darkness[0]: @effect 334
+07/20/2011 14:44:32 - night_darkness[0]: @effect 334
+07/20/2011 14:44:55 - night_darkness[0]: @effect 334
+07/20/2011 14:45:24 - night_darkness[0]: @effect 334
+07/20/2011 14:45:47 - night_darkness[0]: @effect 334
+07/20/2011 14:46:04 - night_darkness[0]: @effect 334
+07/20/2011 14:46:13 - night_darkness[0]: @effect 334
+07/20/2011 14:46:32 - night_darkness[0]: @effect 334
+07/20/2011 14:46:55 - night_darkness[0]: @effect 334
+07/20/2011 14:47:24 - night_darkness[0]: @effect 334
+07/20/2011 14:47:47 - night_darkness[0]: @effect 334
+07/20/2011 14:48:04 - night_darkness[0]: @effect 334
+07/20/2011 14:48:13 - night_darkness[0]: @effect 334
+07/20/2011 14:48:32 - night_darkness[0]: @effect 334
+07/20/2011 14:48:55 - night_darkness[0]: @effect 334
+07/20/2011 14:49:24 - night_darkness[0]: @effect 334
+07/20/2011 14:49:47 - night_darkness[0]: @effect 334
+07/20/2011 14:50:04 - night_darkness[0]: @effect 334
+07/20/2011 14:50:13 - night_darkness[0]: @effect 334
+07/20/2011 14:50:32 - night_darkness[0]: @effect 334
+07/20/2011 14:50:55 - night_darkness[0]: @effect 334
+07/20/2011 14:51:24 - night_darkness[0]: @effect 334
+07/20/2011 14:51:47 - night_darkness[0]: @effect 334
+07/20/2011 14:52:04 - night_darkness[0]: @effect 334
+07/20/2011 14:52:13 - night_darkness[0]: @effect 334
+07/20/2011 14:52:32 - night_darkness[0]: @effect 334
+07/20/2011 14:52:55 - night_darkness[0]: @effect 334
+07/20/2011 14:53:24 - night_darkness[0]: @effect 334
+07/20/2011 14:53:47 - night_darkness[0]: @effect 334
+07/20/2011 14:54:04 - night_darkness[0]: @effect 334
+07/20/2011 14:54:13 - night_darkness[0]: @effect 334
+07/20/2011 14:54:32 - night_darkness[0]: @effect 334
+07/20/2011 14:54:55 - night_darkness[0]: @effect 334
+07/20/2011 14:55:24 - night_darkness[0]: @effect 334
+07/20/2011 14:55:47 - night_darkness[0]: @effect 334
+07/20/2011 14:56:04 - night_darkness[0]: @effect 334
+07/20/2011 14:56:13 - night_darkness[0]: @effect 334
+07/20/2011 14:56:32 - night_darkness[0]: @effect 334
+07/20/2011 14:56:55 - night_darkness[0]: @effect 334
+07/20/2011 14:57:24 - night_darkness[0]: @effect 334
+07/20/2011 14:57:47 - night_darkness[0]: @effect 334
+07/20/2011 14:58:04 - night_darkness[0]: @effect 334
+07/20/2011 14:58:13 - night_darkness[0]: @effect 334
+07/20/2011 14:58:32 - night_darkness[0]: @effect 334
+07/20/2011 14:58:55 - night_darkness[0]: @effect 334
+07/20/2011 14:59:24 - night_darkness[0]: @effect 334
+07/20/2011 14:59:47 - night_darkness[0]: @effect 334
+07/20/2011 15:00:04 - night_darkness[0]: @effect 334
+07/20/2011 15:00:13 - night_darkness[0]: @effect 334
+07/20/2011 15:00:32 - night_darkness[0]: @effect 334
+07/20/2011 15:00:55 - night_darkness[0]: @effect 334
+07/20/2011 15:01:24 - night_darkness[0]: @effect 334
+07/20/2011 15:01:47 - night_darkness[0]: @effect 334
+07/20/2011 15:02:04 - night_darkness[0]: @effect 334
+07/20/2011 15:02:13 - night_darkness[0]: @effect 334
+07/20/2011 15:02:33 - night_darkness[0]: @effect 334
+07/20/2011 15:02:55 - night_darkness[0]: @effect 334
+07/20/2011 15:03:24 - night_darkness[0]: @effect 334
+07/20/2011 15:03:47 - night_darkness[0]: @effect 334
+07/20/2011 15:04:04 - night_darkness[0]: @effect 334
+07/20/2011 15:04:13 - night_darkness[0]: @effect 334
+07/20/2011 15:04:33 - night_darkness[0]: @effect 334
+07/20/2011 15:04:55 - night_darkness[0]: @effect 334
+07/20/2011 15:05:24 - night_darkness[0]: @effect 334
+07/20/2011 15:05:47 - night_darkness[0]: @effect 334
+07/20/2011 15:06:04 - night_darkness[0]: @effect 334
+07/20/2011 15:06:14 - night_darkness[0]: @effect 334
+07/20/2011 15:06:33 - night_darkness[0]: @effect 334
+07/20/2011 15:06:55 - night_darkness[0]: @effect 334
+07/20/2011 15:07:24 - night_darkness[0]: @effect 334
+07/20/2011 15:07:47 - night_darkness[0]: @effect 334
+07/20/2011 15:08:05 - night_darkness[0]: @effect 334
+07/20/2011 15:08:14 - night_darkness[0]: @effect 334
+07/20/2011 15:08:33 - night_darkness[0]: @effect 334
+07/20/2011 15:08:55 - night_darkness[0]: @effect 334
+07/20/2011 15:09:25 - night_darkness[0]: @effect 334
+07/20/2011 15:09:47 - night_darkness[0]: @effect 334
+07/20/2011 15:10:05 - night_darkness[0]: @effect 334
+07/20/2011 15:10:14 - night_darkness[0]: @effect 334
+07/20/2011 15:10:33 - night_darkness[0]: @effect 334
+07/20/2011 15:10:56 - night_darkness[0]: @effect 334
+07/20/2011 15:11:25 - night_darkness[0]: @effect 334
+07/20/2011 15:11:47 - night_darkness[0]: @effect 334
+07/20/2011 15:12:05 - night_darkness[0]: @effect 334
+07/20/2011 15:12:14 - night_darkness[0]: @effect 334
+07/20/2011 15:12:33 - night_darkness[0]: @effect 334
+07/20/2011 15:12:47 - Maximus[2000000]: @effect 334
+07/20/2011 15:12:50 - Maximus[2000000]: @hide
+07/20/2011 15:13:01 - Maximus[2000000]: @speed 0
+07/20/2011 15:13:05 - night_darkness[0]: @effect 334
+07/20/2011 15:13:25 - night_darkness[0]: @effect 334
+07/20/2011 15:13:47 - night_darkness[0]: @effect 334
+07/20/2011 15:13:56 - night_darkness[0]: @effect 334
+07/20/2011 15:14:14 - night_darkness[0]: @effect 334
+07/20/2011 15:14:33 - night_darkness[0]: @effect 334
+07/20/2011 15:14:48 - night_darkness[0]: @effect 334
+07/20/2011 15:15:05 - night_darkness[0]: @effect 334
+07/20/2011 15:15:25 - night_darkness[0]: @effect 334
+07/20/2011 15:15:47 - night_darkness[0]: @effect 334
+07/20/2011 15:15:56 - night_darkness[0]: @effect 334
+07/20/2011 15:16:14 - night_darkness[0]: @effect 334
+07/20/2011 15:16:33 - night_darkness[0]: @effect 334
+07/20/2011 15:16:48 - night_darkness[0]: @effect 334
+07/20/2011 15:17:05 - night_darkness[0]: @effect 334
+07/20/2011 15:17:25 - night_darkness[0]: @effect 334
+07/20/2011 15:17:47 - night_darkness[0]: @effect 334
+07/20/2011 15:17:56 - night_darkness[0]: @effect 334
+07/20/2011 15:18:14 - night_darkness[0]: @effect 334
+07/20/2011 15:18:33 - night_darkness[0]: @effect 334
+07/20/2011 15:18:48 - night_darkness[0]: @effect 334
+07/20/2011 15:19:05 - night_darkness[0]: @effect 334
+07/20/2011 15:19:20 - Epsensius[2000004]: @effect 334
+07/20/2011 15:19:33 - night_darkness[0]: @effect 334
+07/20/2011 15:19:48 - night_darkness[0]: @effect 334
+07/20/2011 15:20:05 - night_darkness[0]: @effect 334
+07/20/2011 15:20:14 - night_darkness[0]: @effect 334
+07/20/2011 15:20:25 - night_darkness[0]: @effect 334
+07/20/2011 15:20:48 - night_darkness[0]: @effect 334
+07/20/2011 15:20:56 - night_darkness[0]: @effect 334
+07/20/2011 15:21:20 - night_darkness[0]: @effect 334
+07/20/2011 15:21:33 - night_darkness[0]: @effect 334
+07/20/2011 15:21:48 - night_darkness[0]: @effect 334
+07/20/2011 15:22:05 - night_darkness[0]: @effect 334
+07/20/2011 15:22:14 - night_darkness[0]: @effect 334
+07/20/2011 15:22:25 - night_darkness[0]: @effect 334
+07/20/2011 15:22:48 - night_darkness[0]: @effect 334
+07/20/2011 15:22:56 - night_darkness[0]: @effect 334
+07/20/2011 15:23:20 - night_darkness[0]: @effect 334
+07/20/2011 15:23:33 - night_darkness[0]: @effect 334
+07/20/2011 15:23:48 - night_darkness[0]: @effect 334
+07/20/2011 15:24:05 - night_darkness[0]: @effect 334
+07/20/2011 15:24:14 - night_darkness[0]: @effect 334
+07/20/2011 15:24:25 - night_darkness[0]: @effect 334
+07/20/2011 15:24:48 - night_darkness[0]: @effect 334
+07/20/2011 15:24:56 - night_darkness[0]: @effect 334
+07/20/2011 15:25:20 - night_darkness[0]: @effect 334
+07/20/2011 15:25:33 - night_darkness[0]: @effect 334
+07/20/2011 15:25:48 - night_darkness[0]: @effect 334
+07/20/2011 15:26:05 - night_darkness[0]: @effect 334
+07/20/2011 15:26:14 - night_darkness[0]: @effect 334
+07/20/2011 15:26:25 - night_darkness[0]: @effect 334
+07/20/2011 15:26:48 - night_darkness[0]: @effect 334
+07/20/2011 15:26:56 - night_darkness[0]: @effect 334
+07/20/2011 17:21:08 - Maximus[2000000]: @effect 334
+07/20/2011 17:23:08 - night_darkness[0]: @effect 334
+07/20/2011 17:25:08 - night_darkness[0]: @effect 334
+07/20/2011 17:27:08 - night_darkness[0]: @effect 334
+07/20/2011 17:29:08 - night_darkness[0]: @effect 334
+07/20/2011 17:31:08 - night_darkness[0]: @effect 334
+07/20/2011 17:31:42 - Epsensius[2000004]: @speed 0
+07/20/2011 17:32:25 - night_darkness[0]: @effect 334
+07/20/2011 17:32:58 - Maximus[2000000]: @effect 334
+07/20/2011 17:33:25 - night_darkness[0]: @effect 334
+07/20/2011 17:33:58 - night_darkness[0]: @effect 334
+07/20/2011 17:34:25 - night_darkness[0]: @effect 334
+07/20/2011 17:34:40 - night_darkness[0]: @effect 334
+07/20/2011 17:35:08 - night_darkness[0]: @effect 334
+07/20/2011 17:35:28 - night_darkness[0]: @effect 334
+07/20/2011 17:35:58 - night_darkness[0]: @effect 334
+07/20/2011 17:36:25 - night_darkness[0]: @effect 334
+07/20/2011 17:36:40 - night_darkness[0]: @effect 334
+07/20/2011 17:37:08 - night_darkness[0]: @effect 334
+07/20/2011 17:37:28 - night_darkness[0]: @effect 334
+07/20/2011 17:37:58 - night_darkness[0]: @effect 334
+07/20/2011 17:38:25 - night_darkness[0]: @effect 334
+07/20/2011 17:38:36 - Epsensius[2000004]: @effect 334
+07/20/2011 17:38:40 - night_darkness[0]: @effect 334
+07/20/2011 17:38:58 - night_darkness[0]: @effect 334
+07/20/2011 17:39:25 - night_darkness[0]: @effect 334
+07/20/2011 17:39:36 - night_darkness[0]: @effect 334
+07/20/2011 17:39:40 - night_darkness[0]: @effect 334
+07/20/2011 17:39:58 - night_darkness[0]: @effect 334
+07/20/2011 17:40:25 - night_darkness[0]: @effect 334
+07/20/2011 17:40:36 - night_darkness[0]: @effect 334
+07/20/2011 17:40:41 - night_darkness[0]: @effect 334
+07/20/2011 17:40:42 - night_darkness[0]: @effect 334
+07/20/2011 17:40:44 - Maximus[2000000]: @cleanmap
+07/20/2011 17:40:58 - night_darkness[0]: @effect 334
+07/20/2011 17:41:02 - Jonn[2000003]: @heal
+07/20/2011 17:41:25 - night_darkness[0]: @effect 334
+07/20/2011 17:41:36 - night_darkness[0]: @effect 334
+07/20/2011 17:41:41 - night_darkness[0]: @effect 334
+07/20/2011 17:41:55 - night_darkness[0]: @effect 334
+07/20/2011 17:42:09 - night_darkness[0]: @effect 334
+07/20/2011 17:42:26 - Jonn[2000003]: @nuke eps
+07/20/2011 17:42:28 - night_darkness[0]: @effect 334
+07/20/2011 17:42:29 - Jonn[2000003]: @nuke jonn
+07/20/2011 17:42:34 - Maximus[2000000]: @hide
+07/20/2011 17:42:37 - Maximus[2000000]: @hide
+07/20/2011 17:42:39 - Maximus[2000000]: @raise
+07/20/2011 17:42:41 - night_darkness[0]: @effect 334
+07/20/2011 17:42:41 - Maximus[2000000]: @heal
+07/20/2011 17:42:42 - night_darkness[0]: @effect 334
+07/20/2011 17:42:58 - night_darkness[0]: @effect 334
+07/20/2011 17:43:13 - Maximus[2000000]: @battleignore
+07/20/2011 17:43:15 - Maximus[2000000]: @speed 0
+07/20/2011 17:43:18 - Epsensius[2000004]: @battleignore
+07/20/2011 17:43:23 - Epsensius[2000004]: @speed 0
+07/20/2011 17:43:25 - night_darkness[0]: @effect 334
+07/20/2011 17:43:36 - night_darkness[0]: @effect 334
+07/20/2011 17:43:41 - night_darkness[0]: @effect 334
+07/20/2011 17:43:55 - night_darkness[0]: @effect 334
+07/20/2011 17:44:09 - night_darkness[0]: @effect 334
+07/20/2011 17:44:28 - night_darkness[0]: @effect 334
+07/20/2011 17:44:36 - night_darkness[0]: @effect 334
+07/20/2011 17:44:41 - night_darkness[0]: @effect 334
+07/20/2011 17:44:55 - night_darkness[0]: @effect 334
+07/20/2011 17:45:09 - night_darkness[0]: @effect 334
+07/20/2011 17:45:28 - night_darkness[0]: @effect 334
+07/20/2011 17:45:41 - night_darkness[0]: @effect 334
+07/20/2011 17:45:42 - night_darkness[0]: @effect 334
+07/20/2011 17:45:51 - Maximus[2000000]: @warp lavive_01
+07/20/2011 17:45:58 - night_darkness[0]: @effect 334
+07/20/2011 17:46:25 - night_darkness[0]: @effect 334
+07/20/2011 17:46:36 - night_darkness[0]: @effect 334
+07/20/2011 17:46:41 - night_darkness[0]: @effect 334
+07/20/2011 17:46:55 - night_darkness[0]: @effect 334
+07/20/2011 17:47:09 - night_darkness[0]: @effect 334
+07/20/2011 17:47:28 - night_darkness[0]: @effect 334
+07/20/2011 17:47:41 - night_darkness[0]: @effect 334
+07/20/2011 17:47:43 - night_darkness[0]: @effect 334
+07/20/2011 17:47:58 - night_darkness[0]: @effect 334
+07/20/2011 17:48:22 - Maximus[2000000]: @effect 334
+07/20/2011 17:48:28 - night_darkness[0]: @effect 334
+07/20/2011 17:48:36 - night_darkness[0]: @effect 334
+07/20/2011 17:48:41 - night_darkness[0]: @effect 334
+07/20/2011 17:48:55 - night_darkness[0]: @effect 334
+07/20/2011 17:49:09 - night_darkness[0]: @effect 334
+07/20/2011 17:49:10 - Epsensius[2000004]: @warp la_curch
+07/20/2011 17:49:19 - Epsensius[2000004]: @warp la_church
+07/20/2011 17:49:26 - night_darkness[0]: @effect 334
+07/20/2011 17:49:29 - Epsensius[2000004]: @jump
+07/20/2011 17:49:41 - night_darkness[0]: @effect 334
+07/20/2011 17:49:43 - night_darkness[0]: @effect 334
+07/20/2011 17:49:51 - Epsensius[2000004]: @warp lavive_02 67 82
+07/20/2011 17:49:54 - Maximus[2000000]: @kami OMG
+07/20/2011 17:49:58 - Maximus[2000000]: @kami DUCKY
+07/20/2011 17:49:58 - night_darkness[0]: @effect 334
+07/20/2011 17:50:01 - Epsensius[2000004]: @jump
+07/20/2011 17:50:22 - night_darkness[0]: @effect 334
+07/20/2011 17:50:28 - night_darkness[0]: @effect 334
+07/20/2011 17:50:29 - Epsensius[2000004]: @jump
+07/20/2011 17:50:36 - night_darkness[0]: @effect 334
+07/20/2011 17:50:41 - night_darkness[0]: @effect 334
+07/20/2011 17:50:43 - Epsensius[2000004]: @warp lavive_02 67 70
+07/20/2011 17:50:55 - night_darkness[0]: @effect 334
+07/20/2011 17:50:58 - night_darkness[0]: @effect 334
+07/20/2011 17:51:10 - Maximus[2000000]: @kami DUCKY
+07/20/2011 17:51:14 - Epsensius[2000004]: @warp lavive_02 67 60
+07/20/2011 17:51:22 - night_darkness[0]: @effect 334
+07/20/2011 17:51:25 - Maximus[2000000]: @kami Made you GM.
+07/20/2011 17:51:28 - night_darkness[0]: @effect 334
+07/20/2011 17:51:41 - night_darkness[0]: @effect 334
+07/20/2011 17:51:43 - night_darkness[0]: @effect 334
+07/20/2011 17:51:56 - night_darkness[0]: @effect 334
+07/20/2011 17:52:07 - Maximus[2000000]: @speed 0
+07/20/2011 17:52:09 - night_darkness[0]: @effect 334
+07/20/2011 17:52:10 - Maximus[2000000]: @battleignore
+07/20/2011 17:52:26 - night_darkness[0]: @effect 334
+07/20/2011 17:52:36 - night_darkness[0]: @effect 334
+07/20/2011 17:52:41 - night_darkness[0]: @effect 334
+07/20/2011 17:52:55 - night_darkness[0]: @effect 334
+07/20/2011 17:52:58 - night_darkness[0]: @effect 334
+07/20/2011 17:52:59 - Epsensius[2000004]: @broadcast Hmm this building dont really have a door,
+07/20/2011 17:53:14 - Maximus[2000000]: @kami Sig: Which?
+07/20/2011 17:53:22 - night_darkness[0]: @effect 334
+07/20/2011 17:53:28 - night_darkness[0]: @effect 334
+07/20/2011 17:53:31 - Epsensius[2000004]: @broadcast the one that leads into la_office
+07/20/2011 17:53:41 - night_darkness[0]: @effect 334
+07/20/2011 17:53:43 - night_darkness[0]: @effect 334
+07/20/2011 17:53:43 - Epsensius[2000004]: @broadcast 01
+07/20/2011 17:53:56 - night_darkness[0]: @effect 334
+07/20/2011 17:54:09 - night_darkness[0]: @effect 334
+07/20/2011 17:54:26 - night_darkness[0]: @effect 334
+07/20/2011 17:54:36 - night_darkness[0]: @effect 334
+07/20/2011 17:54:41 - night_darkness[0]: @effect 334
+07/20/2011 17:54:49 - Maximus[2000000]: @kami Sig: Which map u on Ep?
+07/20/2011 17:54:55 - night_darkness[0]: @effect 334
+07/20/2011 17:54:57 - Epsensius[2000004]: @broadcast lavive_02
+07/20/2011 17:54:58 - night_darkness[0]: @effect 334
+07/20/2011 17:55:22 - night_darkness[0]: @effect 334
+07/20/2011 17:55:29 - night_darkness[0]: @effect 334
+07/20/2011 17:55:41 - night_darkness[0]: @effect 334
+07/20/2011 17:55:42 - Jessica[2000005]: @effect 334
+07/20/2011 17:55:49 - Jessica[2000005]: @warp lavive_02
+07/20/2011 17:55:55 - night_darkness[0]: @effect 334
+07/20/2011 17:55:58 - night_darkness[0]: @effect 334
+07/20/2011 17:56:21 - Maximus[2000000]: @recall jessica
+07/20/2011 17:56:22 - night_darkness[0]: @effect 334
+07/20/2011 17:56:29 - night_darkness[0]: @effect 334
+07/20/2011 17:56:30 - Maximus[2000000]: @killmonster2
+07/20/2011 17:56:32 - Maximus[2000000]: @raise
+07/20/2011 17:56:36 - night_darkness[0]: @effect 334
+07/20/2011 17:56:41 - night_darkness[0]: @effect 334
+07/20/2011 17:56:43 - night_darkness[0]: @effect 334
+07/20/2011 17:56:56 - night_darkness[0]: @effect 334
+07/20/2011 17:57:01 - Jessica[2000005]: @cleanmap
+07/20/2011 17:57:09 - night_darkness[0]: @effect 334
+07/20/2011 17:57:26 - night_darkness[0]: @effect 334
+07/20/2011 17:57:41 - night_darkness[0]: @effect 334
+07/20/2011 17:57:42 - night_darkness[0]: @effect 334
+07/20/2011 17:57:55 - night_darkness[0]: @effect 334
+07/20/2011 17:57:58 - night_darkness[0]: @effect 334
+07/20/2011 17:58:22 - night_darkness[0]: @effect 334
+07/20/2011 17:58:29 - night_darkness[0]: @effect 334
+07/20/2011 17:58:36 - night_darkness[0]: @effect 334
+07/20/2011 17:58:41 - night_darkness[0]: @effect 334
+07/20/2011 17:58:43 - night_darkness[0]: @effect 334
+07/20/2011 17:58:56 - night_darkness[0]: @effect 334
+07/20/2011 17:59:09 - night_darkness[0]: @effect 334
+07/20/2011 17:59:52 - Maximus[2000000]: @reloadscript
+07/20/2011 17:59:52 - Epsensius[2000004]: @warp lavive_06 64 40
+07/20/2011 18:00:07 - Maximus[2000000]: @effect 334
+07/20/2011 18:00:10 - Maximus[2000000]: @battleignore
+07/20/2011 18:00:23 - Epsensius[2000004]: @warp lavive_06 61 48
+07/20/2011 18:00:24 - Maximus[2000000]: @speed 0
+07/20/2011 18:00:53 - Epsensius[2000004]: @warp lavive_04 19 60
+07/20/2011 18:00:57 - night_darkness[0]: @effect 334
+07/20/2011 18:01:11 - Maximus[2000000]: @raise
+07/20/2011 18:01:19 - Epsensius[2000004]: @warp lavive_08 29 10
+07/20/2011 18:01:41 - Maximus[2000000]: @killmonster2
+07/20/2011 18:01:45 - Maximus[2000000]: @killmonster2
+07/20/2011 18:01:47 - Epsensius[2000004]: @warp lavive_05 67 20
+07/20/2011 18:01:47 - Maximus[2000000]: @raise
+07/20/2011 18:01:54 - Maximus[2000000]: @killmonster2
+07/20/2011 18:02:03 - Epsensius[2000004]: @warp lavive_05 67 22
+07/20/2011 18:02:07 - night_darkness[0]: @effect 334
+07/20/2011 18:02:55 - Maximus[2000000]: @killmonster2
+07/20/2011 18:02:57 - night_darkness[0]: @effect 334
+07/20/2011 18:03:11 - Epsensius[2000004]: @warp lavive_03 52 23
+07/20/2011 18:03:14 - Jessica[2000005]: @warp
+07/20/2011 18:03:15 - Jessica[2000005]: @hide
+07/20/2011 18:03:17 - Maximus[2000000]: @jump
+07/20/2011 18:03:19 - Jessica[2000005]: @warp lavive_03
+07/20/2011 18:03:28 - Epsensius[2000004]: @warp lavive_03 65 26
+07/20/2011 18:03:45 - Jessica[2000005]: /b Jessica: We should discuss what we want/are planning to do with Oplex
+07/20/2011 18:03:47 - Epsensius[2000004]: @warp lavive_03 52 20
+07/20/2011 18:03:48 - Jessica[2000005]: /b Jessica: either on here
+07/20/2011 18:03:52 - Jessica[2000005]: /b Jessica: or on Facebook.
+07/20/2011 18:04:07 - night_darkness[0]: @effect 334
+07/20/2011 18:04:11 - Maximus[2000000]: @kami facebook pl0x
+07/20/2011 18:04:33 - Epsensius[2000004]: @broadcast you guys can go on and start ill join in as soon as i have 
+07/20/2011 18:04:37 - Jessica[2000005]: @warp lavive_03
+07/20/2011 18:04:40 - Jessica[2000005]: @warp lavive_04
+07/20/2011 18:04:40 - Epsensius[2000004]: @broadcast fixed the warps
+07/20/2011 18:04:57 - night_darkness[0]: @effect 334
+07/20/2011 18:05:03 - Epsensius[2000004]: @warp lavive_03 30 20
+07/20/2011 18:05:11 - Jessica[2000005]: @warp lavive_05
+07/20/2011 18:05:42 - Epsensius[2000004]: @warp lavive_03 30 60
+07/20/2011 18:05:48 - Epsensius[2000004]: @warp lavive_03 30 62
+07/20/2011 18:06:07 - night_darkness[0]: @effect 334
+07/20/2011 18:06:17 - Jessica[2000005]: @warp lavive_06
+07/20/2011 18:06:34 - Jessica[2000005]: @warp lavive_01
+07/20/2011 18:06:45 - Epsensius[2000004]: @warp lavive_03 30 51
+07/20/2011 18:06:57 - night_darkness[0]: @effect 334
+07/20/2011 18:06:58 - Epsensius[2000004]: @warp lavive_03 30 58
+07/20/2011 18:07:02 - Epsensius[2000004]: @warp lavive_03 30 62
+07/20/2011 18:07:10 - Epsensius[2000004]: @warp lavive_03 30 40
+07/20/2011 18:07:13 - Epsensius[2000004]: @warp lavive_03 30 64
+07/20/2011 18:07:25 - Epsensius[2000004]: @warp lavive_03 30 62
+07/20/2011 18:07:29 - Jessica[2000005]: @spawn zombie_01
+07/20/2011 18:07:35 - Epsensius[2000004]: @warp lavive_03 28 64
+07/20/2011 18:07:42 - Jessica[2000005]: @spawn undead
+07/20/2011 18:07:45 - Jessica[2000005]: @spawn undead_01
+07/20/2011 18:07:47 - Jessica[2000005]: @spawn undead01
+07/20/2011 18:08:07 - night_darkness[0]: @effect 334
+07/20/2011 18:08:57 - night_darkness[0]: @effect 334
+07/20/2011 18:10:06 - Epsensius[2000004]: @warp lavive_03 65 90
+07/20/2011 18:10:07 - night_darkness[0]: @effect 334
+07/20/2011 18:10:57 - Jessica[2000005]: @spawn 1287
+07/20/2011 18:10:57 - night_darkness[0]: @effect 334
+07/20/2011 18:11:03 - Jessica[2000005]: @spawn 1288
+07/20/2011 18:11:22 - Jessica[2000005]: @spawn 1000
+07/20/2011 18:11:28 - Jessica[2000005]: @spawn zombie_0001
+07/20/2011 18:11:43 - Jessica[2000005]: @spawn zombie_000120
+07/20/2011 18:11:53 - Jessica[2000005]: @spawn 20 zombie_0001
+07/20/2011 18:12:00 - Jessica[2000005]: @spawn 20 zombie_0001
+07/20/2011 18:12:01 - Jessica[2000005]: @spawn 20 zombie_0001
+07/20/2011 18:12:01 - Jessica[2000005]: @spawn 20 zombie_0001
+07/20/2011 18:12:02 - Jessica[2000005]: @spawn 20 zombie_0001
+07/20/2011 18:12:02 - Jessica[2000005]: @spawn 20 zombie_0001
+07/20/2011 18:12:07 - night_darkness[0]: @effect 334
+07/20/2011 18:12:57 - night_darkness[0]: @effect 334
+07/20/2011 18:14:07 - night_darkness[0]: @effect 334
+07/20/2011 18:14:57 - night_darkness[0]: @effect 334
+07/20/2011 18:16:07 - night_darkness[0]: @effect 334
+07/20/2011 18:16:57 - night_darkness[0]: @effect 334
+07/20/2011 18:17:04 - Epsensius[2000004]: @warp lavive_03 75 63
+07/20/2011 18:18:07 - night_darkness[0]: @effect 334
+07/20/2011 18:18:57 - night_darkness[0]: @effect 334
+07/20/2011 18:20:07 - night_darkness[0]: @effect 334
+07/20/2011 18:20:48 - Epsensius[2000004]: @warp lavive_10 70 10
+07/20/2011 18:20:57 - night_darkness[0]: @effect 334
+07/20/2011 18:22:07 - night_darkness[0]: @effect 334
+07/20/2011 18:22:42 - Epsensius[2000004]: @warp la_fild01
+07/20/2011 18:22:57 - night_darkness[0]: @effect 334
+07/20/2011 18:23:38 - Epsensius[2000004]: @warp outpost
+07/20/2011 18:23:42 - Epsensius[2000004]: @warp lavive_01
+07/20/2011 18:24:08 - night_darkness[0]: @effect 334
+07/20/2011 18:24:57 - night_darkness[0]: @effect 334
+07/20/2011 18:26:08 - night_darkness[0]: @effect 334
+07/20/2011 18:26:57 - night_darkness[0]: @effect 334
+07/20/2011 18:28:08 - night_darkness[0]: @effect 334
+07/20/2011 18:28:57 - night_darkness[0]: @effect 334
+07/20/2011 18:30:08 - night_darkness[0]: @effect 334
+07/20/2011 18:30:57 - night_darkness[0]: @effect 334
+07/20/2011 18:32:08 - night_darkness[0]: @effect 334
+07/20/2011 18:32:58 - night_darkness[0]: @effect 334
+07/20/2011 18:34:08 - night_darkness[0]: @effect 334
+07/20/2011 18:34:58 - night_darkness[0]: @effect 334
+07/20/2011 18:36:08 - night_darkness[0]: @effect 334
+07/20/2011 18:36:58 - night_darkness[0]: @effect 334
+07/20/2011 18:38:08 - night_darkness[0]: @effect 334
+07/20/2011 18:38:58 - night_darkness[0]: @effect 334
+07/20/2011 18:40:08 - night_darkness[0]: @effect 334
+07/20/2011 18:40:58 - night_darkness[0]: @effect 334
+07/20/2011 18:42:08 - night_darkness[0]: @effect 334
+07/20/2011 18:42:58 - night_darkness[0]: @effect 334
+07/20/2011 18:44:08 - night_darkness[0]: @effect 334
