@@ -3,8 +3,8 @@
 OnPCLoginEvent:
 	skill 441,5,0;
 	addtimer 1000,"vitality_timer::OnTimer";
-	if (isday()) mes "The day is young...";
-	if (isnight()) mes "Night has fallen...";
+	if (isday()) announce "The day is young...",bc_all,0xFFFF00;
+	if (isnight()) announce "The night has fallen...",bc_all,0xFFFF00;
 	end;
 
 OnPCLogoutEvent:
