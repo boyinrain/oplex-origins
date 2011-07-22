@@ -1292,24 +1292,24 @@ static unsigned short status_base_atk(const struct block_list *bl, const struct 
 			flag = 1;
 	}
 	if (flag) {
-		str = status->dex;
-		dex = status->str;
+		str = 1;// status->dex;	// [duckyqq - Removed str and dex influence on atk (for both melee and ranged).]
+		dex = 1;// status->str;
 	} else {
-		str = status->str;
-		dex = status->dex;
+		str = 1;// status->str;
+		dex = 1;// status->dex;
 	}
 	//Normally only players have base-atk, but homunc have a different batk
 	// equation, hinting that perhaps non-players should use this for batk.
 	// [Skotlex]
-	dstr = str/10;
+	dstr = 1; // str/10;
 	str += dstr*dstr;
-	if (bl->type == BL_PC)
-		str+= dex/5 + status->luk/5;
+//	if (bl->type == BL_PC)
+//		str+= dex/5 + status->luk/5; [duckyqq - Removed the bonus of dex/5 and luk/5]
 	return cap_value(str, 0, USHRT_MAX);
 }
 
-#define status_base_matk_max(status) (status->int_+(status->int_/5)*(status->int_/5))
-#define status_base_matk_min(status) (status->int_+(status->int_/7)*(status->int_/7))
+#define status_base_matk_max(status) (1+(1)*(1))	//(status->int_+(status->int_/5)*(status->int_/5)) [duckyqq - Removed mATK]
+#define status_base_matk_min(status) (1+(1)*(1))	//(status->int_+(status->int_/7)*(status->int_/7))
 
 //Fills in the misc data that can be calculated from the other status info (except for level)
 void status_calc_misc(struct block_list *bl, struct status_data *status, int level)
@@ -1324,10 +1324,10 @@ void status_calc_misc(struct block_list *bl, struct status_data *status, int lev
 	status->matk_min = status_base_matk_min(status);
 	status->matk_max = status_base_matk_max(status);
 
-	status->hit += level;
-	status->flee += level;
-	status->def2 += level;
-	status->mdef2 += level;
+	status->hit += 10;	//[duckyqq - Removed hit increase through level; static value at 10]
+	status->flee += 10;	//[duckyqq - Removed flee increase through level; static value at 10]
+	status->def2 += 0;	//[duckyqq - Removed defense increase through level; static value at 0]
+	status->mdef2 += 0;	//[duckyqq - Removed mdefense increase through level; static value at 0]
 
 	if( bl->type&battle_config.enable_critical )
 		status->cri += level + 10;
@@ -1609,19 +1609,19 @@ static unsigned int status_base_pc_maxhp(struct map_session_data* sd, struct sta
 	unsigned int val = pc_class2idx(sd->status.class_);
 	val = 200;
 
-	if((sd->class_&MAPID_UPPERMASK) == MAPID_NINJA || (sd->class_&MAPID_UPPERMASK) == MAPID_GUNSLINGER)
-		val += 100; //Since their HP can't be approximated well enough without this.
-	if((sd->class_&MAPID_UPPERMASK) == MAPID_TAEKWON && sd->status.base_level >= 90 && pc_famerank(sd->status.char_id, MAPID_TAEKWON))
-		val *= 3; //Triple max HP for top ranking Taekwons over level 90.
-	if((sd->class_&MAPID_UPPERMASK) == MAPID_SUPER_NOVICE && sd->status.base_level >= 99)
-		val += 2000; //Supernovice lvl99 hp bonus.
+//	if((sd->class_&MAPID_UPPERMASK) == MAPID_NINJA || (sd->class_&MAPID_UPPERMASK) == MAPID_GUNSLINGER)
+//		val += 100; //Since their HP can't be approximated well enough without this.
+//	if((sd->class_&MAPID_UPPERMASK) == MAPID_TAEKWON && sd->status.base_level >= 90 && pc_famerank(sd->status.char_id, MAPID_TAEKWON))
+//		val *= 3; //Triple max HP for top ranking Taekwons over level 90.
+//	if((sd->class_&MAPID_UPPERMASK) == MAPID_SUPER_NOVICE && sd->status.base_level >= 99)
+//		val += 2000; //Supernovice lvl99 hp bonus.
 
-	val += val * status->vit/100; // +1% per each point of VIT
+	val += val * 0; // +1% per each point of VIT [duckyqq - Removal of VIT bonus on maxHP]
 
-	if (sd->class_&JOBL_UPPER)
-		val += val * 25/100; //Trans classes get a 25% hp bonus
-	else if (sd->class_&JOBL_BABY)
-		val -= val * 30/100; //Baby classes get a 30% hp penalty
+//	if (sd->class_&JOBL_UPPER)
+//		val += val * 25/100; //Trans classes get a 25% hp bonus
+//	else if (sd->class_&JOBL_BABY)
+//		val -= val * 30/100; //Baby classes get a 30% hp penalty
 	return val;
 }
 
@@ -1630,14 +1630,14 @@ static unsigned int status_base_pc_maxsp(struct map_session_data* sd, struct sta
 	unsigned int val;
 
 	val = 10 + sd->status.base_level*sp_coefficient[pc_class2idx(sd->status.class_)]/100;
-	val += val * status->int_/100;
+	val += val * 0; // [duckyqq - Removal of INT bonus on maxSP]
 
-	if (sd->class_&JOBL_UPPER)
-		val += val * 25/100;
-	else if (sd->class_&JOBL_BABY)
-		val -= val * 30/100;
-	if ((sd->class_&MAPID_UPPERMASK) == MAPID_TAEKWON && sd->status.base_level >= 90 && pc_famerank(sd->status.char_id, MAPID_TAEKWON))
-		val *= 3; //Triple max SP for top ranking Taekwons over level 90.
+//	if (sd->class_&JOBL_UPPER)
+//		val += val * 25/100;
+//	else if (sd->class_&JOBL_BABY)
+//		val -= val * 30/100;
+//	if ((sd->class_&MAPID_UPPERMASK) == MAPID_TAEKWON && sd->status.base_level >= 90 && pc_famerank(sd->status.char_id, MAPID_TAEKWON))
+//		val *= 3; //Triple max SP for top ranking Taekwons over level 90.
 
 	return val;
 }
@@ -2095,7 +2095,7 @@ int status_calc_pc_(struct map_session_data* sd, bool first)
 
 	// Absolute modifiers from passive skills
 	if((skill=pc_checkskill(sd,CR_TRUST))>0)
-		status->max_hp += skill*200;
+		status->max_hp += skill*50;
 
 	// Apply relative modifiers from equipment
 	if(sd->hprate < 0)
@@ -2528,19 +2528,19 @@ void status_calc_regen(struct block_list *bl, struct status_data *status, struct
 		return;
 
 	sd = BL_CAST(BL_PC,bl);
-	val = 1 + (status->vit/5) + (status->max_hp/200);
+	val = 0; // [duckyqq - changed from 1 + (status->vit/5) + (status->max_hp/200) to 0]
 
 	if( sd && sd->hprecov_rate != 100 )
-		val = val*sd->hprecov_rate/100;
+		val = 0; // [duckyqq - changed from val*sd->hprecov_rate/100 to 0]
 
 	regen->hp = cap_value(val, 1, SHRT_MAX);
 
-	val = 1 + (status->int_/6) + (status->max_sp/100);
+	val = 0; // [duckyqq - changed from 1 + (status->int_/6) + (status->max_sp/100) to 0]
 	if( status->int_ >= 120 )
 		val += ((status->int_-120)>>1) + 4;
 
 	if( sd && sd->sprecov_rate != 100 )
-		val = val*sd->sprecov_rate/100;
+		val = 0; // [duckyqq - changed from val*sd->sprecov_rate/100 to 0]
 
 	regen->sp = cap_value(val, 1, SHRT_MAX);
 
