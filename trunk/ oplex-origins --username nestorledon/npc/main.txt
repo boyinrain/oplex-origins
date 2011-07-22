@@ -3,30 +3,31 @@
 OnPCLoginEvent:
 	skill 441,5,0;
 	addtimer 1000,"vitality_timer::OnTimer";
+	if (isday()) mes "The day is young...";
+	if (isnight()) mes "Night has fallen...";
 	end;
 
 OnPCLogoutEvent:
-	unequip EQI_HAND_L;
 	end;
 
 OnPCDieEvent:
-	getmapxy @playermap$,@playerx,@playery,0;
-	makeitem 530,1,@playermap$,@playerx,@playery;
-	makeitem 7050,1,@playermap$,@playerx,@playery;
+//	getmapxy @playermap$,@playerx,@playery,0;
+//	makeitem 530,1,@playermap$,@playerx,@playery;
+//	makeitem 7050,1,@playermap$,@playerx,@playery;
 	deltimer "vitality_timer::OnTimer";
 	soundeffect "dying.wav",0;
-	set @superrand, rand(1,500);
-	if(@superrand > 495) {	atcommand "@dropall";};
-	set @randzombietime, rand(1000,5000);
-	set @randzombie, rand(0,10000);
-	sleep2 @randzombietime;
-	if (@randzombie == 10000) goto PC_tank_spawn;
-	monster @playermap$,@playerx,@playery," ",1084,1,"game_mechanics::OnDeath_count";
+//	set @superrand, rand(1,500);
+//	if(@superrand > 495) {	atcommand "@dropall";};
+//	set @randzombietime, rand(1000,5000);
+//	set @randzombie, rand(0,10000);
+//	sleep2 @randzombietime;
+//	if (@randzombie == 10000) goto PC_tank_spawn;
+//	monster @playermap$,@playerx,@playery," ",1084,1,"game_mechanics::OnDeath_count";
 	end;
 
-PC_tank_spawn:
-	monster @playermap$,@playerx,@playery," ",1085,1,"game_mechanics::OnDeath_count";
-	end;
+//PC_tank_spawn:
+//	monster @playermap$,@playerx,@playery," ",1085,1,"game_mechanics::OnDeath_count";
+//	end;
 
 
 }
@@ -38,34 +39,4 @@ OnTimer:
 	percentheal -3,0;
 	addtimer 60000,"vitality_timer::OnTimer";
 	end;
-}
-
--	script	night_darkness	-1,{
-
-OnPCLoginEvent:
-	while(1) {
-       if(isnight()) {
-               day;
-               announce "The Day is Young...",0;
-       } else {
-               night;
-               announce "Night Has Fallen...",0;
-               atcommand "@effect 334";
-               }
-        sleep 60000;
-        }
-end;
-}
-
--	script	night_2	-1,{
-
-OnPCLoadMapEvent:
-	while(1) {
-       if(isnight()) {
-               night;
-               atcommand "@effect 334";
-               }
-        sleep 60000;
-        }
-end;
 }
