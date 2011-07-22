@@ -3383,13 +3383,13 @@ int battle_check_target( struct block_list *src, struct block_list *target,int f
 		if( state&BCT_ENEMY && battle_config.pk_mode && !map_flag_gvg(m) && s_bl->type == BL_PC && t_bl->type == BL_PC )
 		{ // Prevent novice engagement on pk_mode (feature by Valaris)
 			TBL_PC *sd = (TBL_PC*)s_bl, *sd2 = (TBL_PC*)t_bl;
-			if (
-				(sd->class_&MAPID_UPPERMASK) == MAPID_NOVICE ||
-				(sd2->class_&MAPID_UPPERMASK) == MAPID_NOVICE ||
-				(int)sd->status.base_level < battle_config.pk_min_level ||
-			  	(int)sd2->status.base_level < battle_config.pk_min_level ||
-				(battle_config.pk_level_range && abs((int)sd->status.base_level - (int)sd2->status.base_level) > battle_config.pk_level_range)
-			)
+			//if (		[duckyqq - PK SERVER FOR EVERYONE]
+			//	(sd->class_&MAPID_UPPERMASK) == MAPID_NOVICE ||
+			//	(sd2->class_&MAPID_UPPERMASK) == MAPID_NOVICE ||
+			//	(int)sd->status.base_level < battle_config.pk_min_level ||
+			//  	(int)sd2->status.base_level < battle_config.pk_min_level ||
+			//	(battle_config.pk_level_range && abs((int)sd->status.base_level - (int)sd2->status.base_level) > battle_config.pk_level_range)
+			//)
 				state &= ~BCT_ENEMY;
 		}
 	}
