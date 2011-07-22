@@ -1,0 +1,529 @@
+//===== Oplex Origins Script =================================
+//= Work Bench
+//===== By: ================================================== 
+//= Epsynus
+//===== Current Version: ===================================== 
+//= 1.0
+//===== Compatible With: ===================================== 
+//= Any Oplex Version 
+//===== Description: ========================================= 
+//= Lists the different items you can make, shows how many of what item you need to make it.
+//= and also breaks things down into their spare parts
+//===== Changelog: ===========================================
+//= v1.0 - Original release
+//============================================================
+//Where the inital Work Bench spawns. You can get the mapname and X Y cordinates using /where ingame 
+// 111 = no sprite but you can still click it, only change if you have a sprite for the work bench and not a world object.
+lavive_01,20,27,0	script	work bench::workbenchs	111,{
+//Main selection
+//Menu structure = menu TAB "What you want displayed",L_where in the script it will go,"next option in the menu",L_see previous;
+//you should be able to add as many as you want, BUT can get a long and messy list so it might be wise to split it up (see end of file for that info)
+mes	"[Work Bench]";
+mes	"You look on the Work Bench and wonder what you should do at it";
+next;
+menu	"Create item.",L_Create,"Break down items into their basic parts",L_Decomp;
+
+
+//Asks them what item they want to create. I have added a few blank slots so it can easily be expandable
+//Just write the item name in the empty "" and it will show up
+// If you want to you can also change the name after the "",
+// just remember to change it in the other place so it all is the same, and it cannot take spaces so use underscores (_)
+L_Create:
+mes	"[Work Bench]";
+mes	"What items do you want to create?";
+next;
+menu	"Item A.",Item_A,"Item B.",Item_B,"Item C",Item_C,"Item D",Item_D,"",I_A,"",I_B,"",I_C,"",I_D,"",I_E;
+
+Item_A:
+mes	"[Work Bench]";
+mes	"To create this item you need";
+// change this to what the item needs
+mes	"10x Metal";
+mes	"5x cloth";
+mes	"1x hammer";
+next;
+mes	"[Work Bench]";
+mes	"Do you have the required items?";
+menu	"Yes",L_Yes,"No",L_No;
+// Checks if the player has the materials & if yes creates the item in question and deletes the materials, if no informs them of that.
+// Change the MATERIALID to the ID of the material in both places
+// and change the PRODUCEDID to the item they will get
+//same for all down below, should be self explanatory
+L_Yes:
+if (countitem(MATERIALID) >= 10) && (countitem(MATERIALID) >= 5) && (countitem(MATERIALID) >= 1) {
+			mes "All the items are here.";
+			mes	"You carefully start working on the item";
+			next;
+			delitem MATERIALID,10; //Metal
+			delitem MATERIALID,5; //Cloth
+			delitem MATERIALID,1; //Hammer
+			getitem PRODUCEDID,1; // The person will receive 1 of ITEM A
+			mes "Success!";
+			close;
+		}
+		// what it will say if the item check fails
+		else {
+		mes	"You seem to missing a few items.";
+		close;
+		}
+L_No:
+		//The message that shows when the player selects No.
+		mes	"As you check through your inventory you notice you are missing a few items";
+		mes	"and chooses to return later.";
+		close;
+Item_B:
+mes	"[Work Bench]";
+mes	"To create this item you need";
+mes	"10x Metal";
+mes	"5x cloth";
+mes	"1x hammer";
+next;
+mes	"[Work Bench]";
+mes	"Do you have the required items?";
+menu	"Yes",B_Yes,"No",B_No;
+// Checks if the player has the materials & if yes creates the item in question, if no informs them of that.
+B_Yes:
+if (countitem(574) >= 10) && (countitem(575) >= 5) && (countitem(576) >= 1) {
+			mes "All the items are here.";
+			mes	"You carefully start working on the item";
+			next;
+			delitem 574,10; //Metal
+			delitem 575,5; //Cloth
+			delitem 576,1; //Hammer
+			getitem 577,1; // The person will receive 1 of ITEM A
+			mes "Success!";
+			close;
+		}
+		else {
+		mes	"You seem to missing a few items.";
+		close;
+		}
+B_No:
+		//The message that shows when the player selects No.
+		mes	"As you check through your inventory you notice you are missing a few items";
+		mes	"and chooses to return later.";
+		close;
+Item_C:
+mes	"[Work Bench]";
+mes	"To create this item you need";
+mes	"10x Metal";
+mes	"5x cloth";
+mes	"1x hammer";
+next;
+mes	"[Work Bench]";
+mes	"Do you have the required items?";
+menu	"Yes",C_Yes,"No",C_No;
+// Checks if the player has the materials & if yes creates the item in question, if no informs them of that.
+C_Yes:
+if (countitem(578) >= 10) && (countitem(579) >= 5) && (countitem(580) >= 1) {
+			mes "All the items are here.";
+			mes	"You carefully start working on the item";
+			next;
+			delitem 578,10; //Metal
+			delitem 579,5; //Cloth
+			delitem 580,1; //Hammer
+			getitem 581,1; // The person will receive 1 of ITEM A
+			mes "Success!";
+			close;
+		}
+		else {
+		mes	"You seem to missing a few items.";
+		close;
+		}
+C_No:
+		//The message that shows when the player selects No.
+		mes	"As you check through your inventory you notice you are missing a few items";
+		mes	"and chooses to return later.";
+		close;
+Item_D:
+mes	"[Work Bench]";
+mes	"To create this item you need";
+mes	"10x Metal";
+mes	"5x cloth";
+mes	"1x hammer";
+next;
+mes	"[Work Bench]";
+mes	"Do you have the required items?";
+menu	"Yes",D_Yes,"No",D_No;
+// Checks if the player has the materials & if yes creates the item in question, if no informs them of that.
+D_Yes:
+if (countitem(582) >= 10) && (countitem(583) >= 5) && (countitem(584) >= 1) {
+			mes "All the items are here.";
+			mes	"You carefully start working on the item";
+			next;
+			delitem 582,10; //Metal
+			delitem 583,5; //Cloth
+			delitem 584,1; //Hammer
+			getitem 585,1; // The person will receive 1 of ITEM A
+			mes "Success!";
+			close;
+		}
+		else {
+		mes	"You seem to missing a few items.";
+		close;
+		}
+D_No:
+		//The message that shows when the player selects No.
+		mes	"As you check through your inventory you notice you are missing a few items";
+		mes	"and chooses to return later.";
+		close;
+
+		
+		// the items that atm wont show up in the first selection.
+I_A:
+mes	"[Work Bench]";
+mes	"To create this item you need";
+mes	"10x Metal";
+mes	"5x cloth";
+mes	"1x hammer";
+next;
+mes	"[Work Bench]";
+mes	"Do you have the required items?";
+menu	"Yes",H_Yes,"No",H_No;
+// Checks if the player has the materials & if yes creates the item in question, if no informs them of that.
+H_Yes:
+if (countitem(582) >= 10) && (countitem(583) >= 5) && (countitem(584) >= 1) {
+			mes "All the items are here.";
+			mes	"You carefully start working on the item";
+			next;
+			delitem 582,10; //Metal
+			delitem 583,5; //Cloth
+			delitem 584,1; //Hammer
+			getitem 585,1; // The person will receive 1 of ITEM A
+			mes "Success!";
+			close;
+		}
+		else {
+		mes	"You seem to missing a few items.";
+		close;
+		}
+H_No:
+		//The message that shows when the player selects No.
+		mes	"As you check through your inventory you notice you are missing a few items";
+		mes	"and chooses to return later.";
+		close;
+I_B:
+mes	"[Work Bench]";
+mes	"To create this item you need";
+mes	"10x Metal";
+mes	"5x cloth";
+mes	"1x hammer";
+next;
+mes	"[Work Bench]";
+mes	"Do you have the required items?";
+menu	"Yes",Y_Y,"No",N_N;
+// Checks if the player has the materials & if yes creates the item in question, if no informs them of that.
+Y_Y:
+if (countitem(582) >= 10) && (countitem(583) >= 5) && (countitem(584) >= 1) {
+			mes "All the items are here.";
+			mes	"You carefully start working on the item";
+			next;
+			delitem 582,10; //Metal
+			delitem 583,5; //Cloth
+			delitem 584,1; //Hammer
+			getitem 585,1; // The person will receive 1 of ITEM A
+			mes "Success!";
+			close;
+		}
+		else {
+		mes	"You seem to missing a few items.";
+		close;
+		}
+N_N:
+		//The message that shows when the player selects No.
+		mes	"As you check through your inventory you notice you are missing a few items";
+		mes	"and chooses to return later.";
+		close;
+I_C:
+mes	"[Work Bench]";
+mes	"To create this item you need";
+mes	"10x Metal";
+mes	"5x cloth";
+mes	"1x hammer";
+next;
+mes	"[Work Bench]";
+mes	"Do you have the required items?";
+menu	"Yes",Y_Ye,"No",Y_No;
+// Checks if the player has the materials & if yes creates the item in question, if no informs them of that.
+Y_Ye:
+if (countitem(582) >= 10) && (countitem(583) >= 5) && (countitem(584) >= 1) {
+			mes "All the items are here.";
+			mes	"You carefully start working on the item";
+			next;
+			delitem 582,10; //Metal
+			delitem 583,5; //Cloth
+			delitem 584,1; //Hammer
+			getitem 585,1; // The person will receive 1 of ITEM A
+			mes "Success!";
+			close;
+		}
+		else {
+		mes	"You seem to missing a few items.";
+		close;
+		}
+Y_No:
+		//The message that shows when the player selects No.
+		mes	"As you check through your inventory you notice you are missing a few items";
+		mes	"and chooses to return later.";
+		close;
+I_D:
+mes	"[Work Bench]";
+mes	"To create this item you need";
+mes	"10x Metal";
+mes	"5x cloth";
+mes	"1x hammer";
+next;
+mes	"[Work Bench]";
+mes	"Do you have the required items?";
+menu	"Yes",S_Y,"No",S_N;
+// Checks if the player has the materials & if yes creates the item in question, if no informs them of that.
+S_Y:
+if (countitem(582) >= 10) && (countitem(583) >= 5) && (countitem(584) >= 1) {
+			mes "All the items are here.";
+			mes	"You carefully start working on the item";
+			next;
+			delitem 582,10; //Metal
+			delitem 583,5; //Cloth
+			delitem 584,1; //Hammer
+			getitem 585,1; // The person will receive 1 of ITEM A
+			mes "Success!";
+			close;
+		}
+		else {
+		mes	"You seem to missing a few items.";
+		close;
+		}
+S_N:
+		//The message that shows when the player selects No.
+		mes	"As you check through your inventory you notice you are missing a few items";
+		mes	"and chooses to return later.";
+		close;
+I_E:
+mes	"[Work Bench]";
+mes	"To create this item you need";
+mes	"10x Metal";
+mes	"5x cloth";
+mes	"1x hammer";
+next;
+mes	"[Work Bench]";
+mes	"Do you have the required items?";
+menu	"Yes",M_Ys,"No",M_N;
+// Checks if the player has the materials & if yes creates the item in question, if no informs them of that.
+M_Ys:
+if (countitem(582) >= 10) && (countitem(583) >= 5) && (countitem(584) >= 1) {
+			mes "All the items are here.";
+			mes	"You carefully start working on the item";
+			next;
+			delitem 582,10; //Metal
+			delitem 583,5; //Cloth
+			delitem 584,1; //Hammer
+			getitem 585,1; // The person will receive 1 of ITEM A
+			mes "Success!";
+			close;
+		}
+		else {
+		mes	"You seem to missing a few items.";
+		close;
+		}
+M_N:
+		//The message that shows when the player selects No.
+		mes	"As you check through your inventory you notice you are missing a few items";
+		mes	"and chooses to return later.";
+		close;
+		
+//Decomposer / item break down
+//Like with the item creation i have added a few blank ones for easy addition
+L_Decomp:
+mes	"[Work Bench]";
+mes	"What item do you want to break down?";
+next;
+menu	"Item E.",Item_E,"Item F.",Item_F,"Item G",Item_G,"Item H",Item_H,"",IE_A,"",IE_B,"",IE_C,"",IE_D,"",IE_E;
+
+Item_E:
+mes	"You selected [Item E]";
+mes	"Was this the correct item?";
+menu	"Yes.",Y_cor,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+close;
+Y_cor:
+if (countitem(601) >= 1) {
+			mes "All the items are here.";
+			mes	"You carefully start working on the item";
+			next;
+			delitem 601,1; //Shovel
+			getitem 602,10; // The person will receive 10 metal peices
+			getitem 603,5; // The person will receive 5 Peices of wood
+			mes "Success!";
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item you want to break down.";
+		close;
+		}
+Item_F:
+mes	"You selected [Item E]";
+mes	"Was this the correct item?";
+menu	"Yes.",P_cor,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+close;
+P_cor:
+if (countitem(604) >= 1) {
+			mes "All the items are here.";
+			mes	"You carefully start working on the item";
+			next;
+			delitem 604,1; //Shovel
+			getitem 605,10; // The person will receive 10 metal peices
+			getitem 606,5; // The person will receive 5 Peices of wood
+			mes "Success!";
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item you want to break down.";
+		close;
+		}
+Item_G:
+mes	"You selected [Item E]";
+mes	"Was this the correct item?";
+menu	"Yes.",X_cor,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+close;
+X_cor:
+if (countitem(607) >= 1) {
+			mes "All the items are here.";
+			mes	"You carefully start working on the item";
+			next;
+			delitem 607,1; //Shovel
+			getitem 608,10; // The person will receive 10 metal peices
+			getitem 609,5; // The person will receive 5 Peices of wood
+			mes "Success!";
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item you want to break down.";
+		close;
+		}
+Item_H:
+mes	"You selected [Item E]";
+mes	"Was this the correct item?";
+menu	"Yes.",Z_cor,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+close;
+Z_cor:
+if (countitem(610) >= 1) {
+			mes "All the items are here.";
+			mes	"You carefully start working on the item";
+			next;
+			delitem 610,1; //Shovel
+			getitem 611,10; // The person will receive 10 metal peices
+			getitem 612,5; // The person will receive 5 Peices of wood
+			mes "Success!";
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item you want to break down.";
+		close;
+		}
+		
+			// the items that atm wont show up in the first selection.
+IE_A:
+mes	"You selected [Item E]";
+mes	"Was this the correct item?";
+menu	"Yes.",K_cor,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+close;
+K_cor:
+if (countitem(610) >= 1) {
+			mes "All the items are here.";
+			mes	"You carefully start working on the item";
+			next;
+			delitem 610,1; //Shovel
+			getitem 611,10; // The person will receive 10 metal peices
+			getitem 612,5; // The person will receive 5 Peices of wood
+			mes "Success!";
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item you want to break down.";
+		close;
+		}
+IE_B:
+mes	"You selected [Item E]";
+mes	"Was this the correct item?";
+menu	"Yes.",U_cor,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+close;
+U_cor:
+if (countitem(610) >= 1) {
+			mes "All the items are here.";
+			mes	"You carefully start working on the item";
+			next;
+			delitem 610,1; //Shovel
+			getitem 611,10; // The person will receive 10 metal peices
+			getitem 612,5; // The person will receive 5 Peices of wood
+			mes "Success!";
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item you want to break down.";
+		close;
+		}
+IE_C:
+mes	"You selected [Item E]";
+mes	"Was this the correct item?";
+menu	"Yes.",Q_cor,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+close;
+Q_cor:
+if (countitem(610) >= 1) {
+			mes "All the items are here.";
+			mes	"You carefully start working on the item";
+			next;
+			delitem 610,1; //Shovel
+			getitem 611,10; // The person will receive 10 metal peices
+			getitem 612,5; // The person will receive 5 Peices of wood
+			mes "Success!";
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item you want to break down.";
+		close;
+		}
+IE_D:
+mes	"You selected [Item E]";
+mes	"Was this the correct item?";
+menu	"Yes.",B_cor,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+close;
+B_cor:
+if (countitem(610) >= 1) {
+			mes "All the items are here.";
+			mes	"You carefully start working on the item";
+			next;
+			delitem 610,1; //Shovel
+			getitem 611,10; // The person will receive 10 metal peices
+			getitem 612,5; // The person will receive 5 Peices of wood
+			mes "Success!";
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item you want to break down.";
+		close;
+		}
+IE_E:
+mes	"You selected [Item E]";
+mes	"Was this the correct item?";
+menu	"Yes.",T_cor,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+close;
+T_cor:
+if (countitem(610) >= 1) {
+			mes "All the items are here.";
+			mes	"You carefully start working on the item";
+			next;
+			delitem 610,1; //Shovel
+			getitem 611,10; // The person will receive 10 metal peices
+			getitem 612,5; // The person will receive 5 Peices of wood
+			mes "Success!";
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item you want to break down.";
+		close;
+		}
+} // end of script curly
+
+// Here you put all the clones for this script using this format(Including an example)
+// mapname,X,Y,0 TAB duplicate(workbenchs) TAB Work Bench TAB 111
+// Example = la_market,149,25,0	duplicate(workbenchs)	work bench	111
+lavive_01,30,27,0	duplicate(workbenchs)	Work Bench	111
