@@ -373,11 +373,12 @@ int guild_send_xy_timer_sub(DBKey key,void *data,va_list ap)
 	for(i=0;i<g->max_member;i++){
 		//struct map_session_data* sd = g->member[i].sd;
 		struct map_session_data* sd = map_charid2sd(g->member[i].char_id); // temporary crashfix
-		if( sd != NULL && (sd->guild_x != sd->bl.x || sd->guild_y != sd->bl.y) && !sd->state.bg_id )
-		{
-			clif_guild_xy(sd);
-			sd->guild_x = sd->bl.x;
-			sd->guild_y = sd->bl.y;
+		if( sd != NULL ) {
+			if(sd->guild_x!=sd->bl.x || sd->guild_y!=sd->bl.y){
+				clif_guild_xy(sd);
+				sd->guild_x=sd->bl.x;
+				sd->guild_y=sd->bl.y;
+			}
 		}
 	}
 	return 0;
@@ -1229,7 +1230,6 @@ int guild_skillup(TBL_PC* sd, int skill_num)
 {
 	struct guild* g;
 	int idx = skill_num - GD_SKILLBASE;
-	int max = guild_skill_get_max(skill_num);
 
 	nullpo_retr(0, sd);
 
@@ -1240,8 +1240,8 @@ int guild_skillup(TBL_PC* sd, int skill_num)
 
 	if( g->skill_point > 0 &&
 			g->skill[idx].id != 0 &&
-			g->skill[idx].lv < max )
-		intif_guild_skillup(g->guild_id, skill_num, sd->status.account_id, max);
+			g->skill[idx].lv < guild_skill_get_max(skill_num) )
+		intif_guild_skillup(g->guild_id, skill_num, sd->status.account_id);
 
 	return 0;
 }
@@ -1731,7 +1731,7 @@ int guild_addcastleinfoevent(int castle_id,int index,const char *name)
 		return 0;
 
 	ev = (struct eventlist *)aMalloc(sizeof(struct eventlist));
-	strncpy(ev->name,name,ARRAYLENGTH(ev->name));
+	memcpy(ev->name,name,sizeof(ev->name));
 	//The next event becomes whatever was currently stored.
 	ev->next = (struct eventlist *)idb_put(guild_castleinfoevent_db,code,ev);
 	return 0;

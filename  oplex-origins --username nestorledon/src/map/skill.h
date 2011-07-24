@@ -68,12 +68,6 @@ struct status_change_entry;
 #define SD_SPLASH    0x4000 // skill_area_sub will count targets in skill_area_temp[2]
 #define SD_PREAMBLE  0x8000 // skill_area_sub will transmit a 'magic' damage packet (-30000 dmg) for the first target selected
 
-#define MAX_SKILL_ITEM_REQUIRE	10
-struct skill_condition {
-	int weapon,ammo,ammo_qty,hp,sp,zeny,spiritball,mhp,state;
-	int itemid[MAX_SKILL_ITEM_REQUIRE],amount[MAX_SKILL_ITEM_REQUIRE];
-};
-
 // スキルデ?タベ?ス
 struct s_skill_db {
 	char name[NAME_LENGTH];
@@ -87,7 +81,7 @@ struct s_skill_db {
 	int blewcount[MAX_SKILL_LEVEL];
 	int hp[MAX_SKILL_LEVEL],sp[MAX_SKILL_LEVEL],mhp[MAX_SKILL_LEVEL],hp_rate[MAX_SKILL_LEVEL],sp_rate[MAX_SKILL_LEVEL],zeny[MAX_SKILL_LEVEL];
 	int weapon,ammo,ammo_qty[MAX_SKILL_LEVEL],state,spiritball[MAX_SKILL_LEVEL];
-	int itemid[MAX_SKILL_ITEM_REQUIRE],amount[MAX_SKILL_ITEM_REQUIRE];
+	int itemid[10],amount[10];
 	int castnodex[MAX_SKILL_LEVEL], delaynodex[MAX_SKILL_LEVEL];
 	int nocast;
 	int unit_id[2];
@@ -131,7 +125,6 @@ struct skill_unit_group {
 	int src_id;
 	int party_id;
 	int guild_id;
-	int bg_id;
 	int map;
 	int target_flag; //Holds BCT_* flag for battle_check_target
 	int bl_flag;	//Holds BL_* flag for map_foreachin* functions
@@ -267,18 +260,17 @@ int skill_cleartimerskill(struct block_list *src);
 int skill_addtimerskill(struct block_list *src,unsigned int tick,int target,int x,int y,int skill_id,int skill_lv,int type,int flag);
 
 // 追加?果
-int skill_additional_effect( struct block_list* src, struct block_list *bl,int skillid,int skilllv,int attack_type,int dmg_lv,unsigned int tick);
+int skill_additional_effect( struct block_list* src, struct block_list *bl,int skillid,int skilllv,int attack_type,unsigned int tick);
 int skill_counter_additional_effect( struct block_list* src, struct block_list *bl,int skillid,int skilllv,int attack_type,unsigned int tick);
 int skill_blown(struct block_list* src, struct block_list* target, int count, int direction, int flag);
 int skill_break_equip(struct block_list *bl, unsigned short where, int rate, int flag);
 int skill_strip_equip(struct block_list *bl, unsigned short where, int rate, int lv, int time);
 // ユニットスキル
-struct skill_unit_group* skill_id2group(int group_id);
 struct skill_unit_group *skill_unitsetting(struct block_list* src, short skillid, short skilllv, short x, short y, int flag);
 struct skill_unit *skill_initunit (struct skill_unit_group *group, int idx, int x, int y, int val1, int val2);
 int skill_delunit(struct skill_unit *unit);
 struct skill_unit_group *skill_initunitgroup(struct block_list* src, int count, short skillid, short skilllv, int unit_id, int limit, int interval);
-int skill_delunitgroup(struct skill_unit_group *group);
+int skill_delunitgroup(struct block_list *src, struct skill_unit_group *group);
 int skill_clear_unitgroup(struct block_list *src);
 int skill_clear_group(struct block_list *bl, int flag);
 
@@ -287,13 +279,7 @@ int skill_unit_ondamaged(struct skill_unit *src,struct block_list *bl,int damage
 int skill_castfix( struct block_list *bl, int skill_id, int skill_lv);
 int skill_castfix_sc( struct block_list *bl, int time);
 int skill_delayfix( struct block_list *bl, int skill_id, int skill_lv);
-
-// Skill conditions check and remove [Inkfish]
-int skill_check_condition_castbegin(struct map_session_data *sd, short skill, short lv);
-int skill_check_condition_castend(struct map_session_data *sd, short skill, short lv);
-int skill_consume_requirement(struct map_session_data *sd, short skill, short lv, short type);
-struct skill_condition skill_get_requirement(struct map_session_data *sd, short skill, short lv);
-
+int skill_check_condition( struct map_session_data *sd, short skill, short lv, int type);
 int skill_check_pc_partner(struct map_session_data *sd, short skill_id, short* skill_lv, int range, int cast_flag);
 // -- moonsoul	(added skill_check_unit_cell)
 int skill_check_unit_cell(int skillid,int m,int x,int y,int unit_id);
@@ -302,6 +288,7 @@ int skill_unit_move(struct block_list *bl,unsigned int tick,int flag);
 int skill_unit_move_unit_group( struct skill_unit_group *group, int m,int dx,int dy);
 
 struct skill_unit_group *skill_check_dancing( struct block_list *src );
+void skill_stop_dancing(struct block_list *src);
 
 // Guild skills [celest]
 int skill_guildaura_sub (struct block_list *bl,va_list ap);
@@ -317,7 +304,7 @@ void skill_identify(struct map_session_data *sd,int idx);
 void skill_weaponrefine(struct map_session_data *sd,int idx); // [Celest]
 int skill_autospell(struct map_session_data *md,int skillid);
 
-int skill_calc_heal(struct block_list *src, struct block_list *target, int skill_id, int skill_lv, bool heal);
+int skill_calc_heal(struct block_list *src, struct block_list *target, int skill_lv);
 
 bool skill_check_cloaking(struct block_list *bl, struct status_change_entry *sce);
 
@@ -972,17 +959,19 @@ enum e_skill {
 	NPC_WIDESOULDRAIN,
 
 	ALL_INCCARRY = 681,
-	//NPC_TALK = 682,
-	NPC_HELLPOWER = 683,
+	/*
+	NPC_TALK = 682,
+	NPC_HELLPOWER,	
 	NPC_WIDEHELLDIGNITY,
 	NPC_INVINCIBLE,
 	NPC_INVINCIBLEOFF,
 	NPC_ALLHEAL,
-	//GM_SANDMAN = 688,
-	CASH_BLESSING = 689,
+
+	GM_SANDMAN = 688,
+	CASH_BLESSING,
 	CASH_INCAGI,
 	CASH_ASSUMPTIO,
-	/*
+
 	ALL_CATCRY = 692,
 	ALL_PARTYFLEE,
 	ALL_ANGEL_PROTECT,
@@ -1064,23 +1053,22 @@ enum e_skill {
 	MER_ESTIMATION,
 };
 
-/// The client view ids for land skills.
 enum {
 	UNT_SAFETYWALL = 0x7e,
 	UNT_FIREWALL,
 	UNT_WARP_WAITING,
 	UNT_WARP_ACTIVE,
-	UNT_BENEDICTIO, //TODO
-	UNT_SANCTUARY,
+	//0x82
+	UNT_SANCTUARY = 0x83,
 	UNT_MAGNUS,
 	UNT_PNEUMA,
-	UNT_DUMMYSKILL, //These show no effect on the client
+	UNT_ATTACK_SKILLS, //These show no effect on the client, therefore can be used for attack skills.
 	UNT_FIREPILLAR_WAITING,
 	UNT_FIREPILLAR_ACTIVE,
-	UNT_HIDDEN_TRAP, //TODO
-	UNT_TRAP, //TODO
-	UNT_HIDDEN_WARP_NPC, //TODO
-	UNT_USED_TRAPS,
+	//0x89
+	//0x8a
+	//0x8b
+	UNT_USED_TRAPS = 0x8c,
 	UNT_ICEWALL,
 	UNT_QUAGMIRE,
 	UNT_BLASTMINE,
@@ -1121,29 +1109,25 @@ enum {
 	UNT_CALLFAMILY,
 	UNT_GOSPEL,
 	UNT_BASILICA,
-	UNT_MOONLIT,
-	UNT_FOGWALL,
+	UNT_MOONLIT,//0xb5 //I HOPE this one doesn't shows any effects
+	UNT_FOGWALL = 0xb6,
 	UNT_SPIDERWEB,
 	UNT_GRAVITATION,
 	UNT_HERMODE,
-	UNT_KAENSIN, //TODO
-	UNT_SUITON,
+	UNT_DESPERADO, //0xba //Temporary setting until correct value is found.
+	UNT_SUITON = 0xbb,
 	UNT_TATAMIGAESHI,
-	UNT_KAEN,
+	UNT_KAENSIN,
 	UNT_GROUNDDRIFT_WIND,
 	UNT_GROUNDDRIFT_DARK,
 	UNT_GROUNDDRIFT_POISON,
 	UNT_GROUNDDRIFT_WATER,
 	UNT_GROUNDDRIFT_FIRE,
-	UNT_DEATHWAVE, //TODO
-	UNT_WATERATTACK, //TODO
-	UNT_WINDATTACK, //TODO
-	UNT_EARTHQUAKE, //TODO
-	UNT_EVILLAND,
-	UNT_DARK_RUNNER, //TODO
-	UNT_DARK_TRANSFER, //TODO
-
-	UNT_MAX = 0x190
+	//0xc3 ?
+	//0xc4 ?
+	//0xc5 ?
+	//0xc6 ?
+	UNT_EVILLAND = 0xc7,
 };
 
 #endif /* _SKILL_H_ */

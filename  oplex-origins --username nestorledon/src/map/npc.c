@@ -51,30 +51,10 @@ static int npc_script=0;
 static int npc_mob=0;
 static int npc_delay_mob=0;
 static int npc_cache_mob=0;
-
-/// Returns a new npc id that isn't being used in id_db.
-/// Fatal error if nothing is available.
-int npc_get_new_npc_id(void)
-{
-	if( npc_id >= START_NPC_NUM && map_id2bl(npc_id) == NULL )
-		return npc_id++;// available
-	{// find next id
-		int base_id = npc_id;
-		while( base_id != ++npc_id )
-		{
-			if( npc_id < START_NPC_NUM )
-				npc_id = START_NPC_NUM;
-			if( map_id2bl(npc_id) == NULL )
-				return npc_id++;// available
-		}
-		// full loop, nothing available
-		ShowFatalError("npc_get_new_npc_id: All ids are taken. Exiting...");
-		exit(1);
-	}
-}
+int npc_get_new_npc_id(void){ return npc_id++; }
 
 static DBMap* ev_db; // const char* event_name -> struct event_data*
-DBMap* npcname_db; // const char* npc_name -> struct npc_data*
+static DBMap* npcname_db; // const char* npc_name -> struct npc_data*
 
 struct event_data {
 	struct npc_data *nd;
@@ -183,7 +163,9 @@ int npc_event_dequeue(struct map_session_data* sd)
 			sd->state.using_fake_npc = 0;
 		}
 		if (sd->st) {
-			script_free_state(sd->st);
+			sd->st->pos = -1;
+			script_free_stack(sd->st->stack);
+			aFree(sd->st);
 			sd->st = NULL;
 		}
 		sd->npc_id = 0;
@@ -377,257 +359,221 @@ void npc_event_do_oninit(void)
  *------------------------------------------*/
 int npc_timerevent_import(char* lname, void* data, va_list ap)
 {
-	int pos = (int)data;
-	struct npc_data *nd = va_arg(ap,struct npc_data *);
-	int t = 0, i = 0;
+	int pos=(int)data;
+	struct npc_data *nd=va_arg(ap,struct npc_data *);
+	int t=0,i=0;
 
-	if( sscanf(lname,"OnTimer%d%n",&t,&i)==1 && lname[i]==':' )
+	if(sscanf(lname,"OnTimer%d%n",&t,&i)==1 && lname[i]==':')
 	{
-		struct npc_timerevent_list *te= nd->u.scr.timer_event;
-		int j, i = nd->u.scr.timeramount;
-
-		if( te == NULL )
-			te = (struct npc_timerevent_list*)aMallocA( sizeof(struct npc_timerevent_list) );
-		else
-			te = (struct npc_timerevent_list*)aRealloc( te, sizeof(struct npc_timerevent_list) * (i+1) );
-
-		if( te == NULL )
-		{
+		// タイマーイベント
+		struct npc_timerevent_list *te=nd->u.scr.timer_event;
+		int j,i=nd->u.scr.timeramount;
+		if(te==NULL) te=(struct npc_timerevent_list*)aMallocA(sizeof(struct npc_timerevent_list));
+		else te= (struct npc_timerevent_list*)aRealloc( te, sizeof(struct npc_timerevent_list) * (i+1) );
+		if(te==NULL){
 			ShowFatalError("npc_timerevent_import: out of memory !\n");
 			exit(EXIT_FAILURE);
 		}
-
 		ARR_FIND( 0, i, j, te[j].timer > t );
 		if( j < i )
 			memmove(te+j+1,te+j,sizeof(struct npc_timerevent_list)*(i-j));
-		te[j].timer = t;
-		te[j].pos = pos;
-		nd->u.scr.timer_event = te;
+		te[j].timer=t;
+		te[j].pos=pos;
+		nd->u.scr.timer_event=te;
 		nd->u.scr.timeramount++;
 	}
 	return 0;
 }
 struct timer_event_data {
 	int rid; //Attached player for this timer.
-	int next; //timer index (starts with 0, then goes up to nd->u.scr.timeramount)
-	int time; //holds total time elapsed for the script from when timer was started to when last time the event triggered.
+	int next; //timer index (starts with 0, then goes up to nd->u.scr.timeramount
+	int time; //holds total time elapsed for the script since time 0 (whenthe timers started)
+	unsigned int otick; //Holds tick value at which timer sequence was started (that is, it stores the tick value for which T= 0
 };
 
 /*==========================================
- * triger 'OnTimerXXXX' events
+ * タイマーイベント実行
  *------------------------------------------*/
 int npc_timerevent(int tid, unsigned int tick, int id, intptr data)
 {
-	int next;
-	int old_rid, old_timer;
+	int next,t,old_rid,old_timer;
 	unsigned int old_tick;
 	struct npc_data* nd=(struct npc_data *)map_id2bl(id);
 	struct npc_timerevent_list *te;
 	struct timer_event_data *ted = (struct timer_event_data*)data;
 	struct map_session_data *sd=NULL;
 
-	if( nd == NULL )
-	{
+	if( nd==NULL ){
 		ShowError("npc_timerevent: NPC not found??\n");
 		return 0;
 	}
-
-	if( ted->rid && !(sd = map_id2sd(ted->rid)) )
-	{
-		ShowError("npc_timerevent: Attached player not found.\n");
-		ers_free(timer_event_ers, ted);
-		return 0;
+	if (ted->rid) {
+		sd = map_id2sd(ted->rid);
+		if (!sd) {
+			ShowError("npc_timerevent: Attached player not found.\n");
+			ers_free(timer_event_ers, ted);
+			return 0;
+		}
 	}
-
-	// These stuffs might need to be restored.
-	old_rid = nd->u.scr.rid;	
+	old_rid = nd->u.scr.rid; //To restore it later.
+	nd->u.scr.rid = sd?sd->bl.id:0;
+	
 	old_tick = nd->u.scr.timertick;
+	nd->u.scr.timertick=ted->otick;
+	te=nd->u.scr.timer_event+ ted->next;
+	
 	old_timer = nd->u.scr.timer;
-
-	// Set the values of the timer
-	nd->u.scr.rid = sd?sd->bl.id:0;	//attached rid
-	nd->u.scr.timertick = tick;		//current time tick
-	nd->u.scr.timer = ted->time;	//total time from beginning to now
-
-	// Locate the event
-	te = nd->u.scr.timer_event + ted->next;
-
-	// Arrange for the next event
-	ted->next++;	
-	if( nd->u.scr.timeramount > ted->next )
-	{
-		next = nd->u.scr.timer_event[ ted->next ].timer - nd->u.scr.timer_event[ ted->next - 1 ].timer;
-		ted->time += next;
-		if( sd )
+	t = nd->u.scr.timer=ted->time;
+	ted->next++;
+	
+	if( nd->u.scr.timeramount> ted->next){
+		next= nd->u.scr.timer_event[ ted->next ].timer
+			- nd->u.scr.timer_event[ ted->next-1 ].timer;
+		ted->time+=next;
+		if (sd)
 			sd->npc_timer_id = add_timer(tick+next,npc_timerevent,id,(intptr)ted);
 		else
 			nd->u.scr.timerid = add_timer(tick+next,npc_timerevent,id,(intptr)ted);
-	}
-	else
-	{
-		if( sd )
+	} else {
+		if (sd)
 			sd->npc_timer_id = -1;
 		else
-		{
 			nd->u.scr.timerid = -1;
-			nd->u.scr.timertick = 0; // NPC timer stopped
-		}
 		ers_free(timer_event_ers, ted);
 	}
-
-	// Run the script
-	run_script(nd->u.scr.script,te->pos,nd->u.scr.rid,nd->bl.id);	
-	
-	nd->u.scr.rid = old_rid; // Attached-rid should be restored anyway.
-	if( sd )
-	{ // Restore previous data, only if this timer is a player-attached one.
+	run_script(nd->u.scr.script,te->pos,nd->u.scr.rid,nd->bl.id);
+	//Restore previous data, only if this timer is a player-attached one.
+	if (sd) {
+		nd->u.scr.rid = old_rid;
 		nd->u.scr.timer = old_timer;
 		nd->u.scr.timertick = old_tick;
 	}
-
 	return 0;
 }
 /*==========================================
- * Start/Resume NPC timer
+ * タイマーイベント開始
  *------------------------------------------*/
 int npc_timerevent_start(struct npc_data* nd, int rid)
 {
-	int j, next;
-	unsigned int tick = gettick();
-	struct map_session_data *sd = NULL; //Player to whom script is attached.
+	int j,n, next;
+	struct map_session_data *sd=NULL; //Player to whom script is attached.
 	struct timer_event_data *ted;
 		
 	nullpo_retr(0, nd);
 
-	// No need to start because of no events
-	if( nd->u.scr.timeramount == 0 )
+	n=nd->u.scr.timeramount;
+	if( n==0 )
 		return 0;
 
-	// Check if there is an OnTimer Event
-	ARR_FIND( 0, nd->u.scr.timeramount, j, nd->u.scr.timer_event[j].timer > nd->u.scr.timer );
-	if( j >= nd->u.scr.timeramount ) // No need to start because of no events left to trigger
+	ARR_FIND( 0, n, j, nd->u.scr.timer_event[j].timer > nd->u.scr.timer );
+	if(j>=n) // check if there is a timer to use !!BEFORE!! you write stuff to the structures [Shinomori]
 		return 0;
-
-	if( nd->u.scr.rid > 0 && !(sd = map_id2sd(nd->u.scr.rid)) )
-	{ // Failed to attach timer to this player.
-		ShowError("npc_timerevent_start: Attached player not found!\n");
-		return 1;
+	if (nd->u.scr.rid > 0) {
+		//Try to attach timer to this player.
+		sd = map_id2sd(nd->u.scr.rid);
+		if (!sd) {
+			ShowError("npc_timerevent_start: Attached player not found!\n");
+			return 1;
+		}
 	}
-
-	// Check if timer is already started.
-	if( sd )
-	{
-		if( sd->npc_timer_id != -1 )
+	//Check if timer is already started.
+	if (sd) {
+		if (sd->npc_timer_id != -1)
 			return 0;
-	}
-	else if( nd->u.scr.timerid != -1 )
+	} else if (nd->u.scr.timerid != -1)
 		return 0;
-
-	// Arrange for the next event		
+		
 	ted = ers_alloc(timer_event_ers, struct timer_event_data);
-	ted->next = j; // Set event index
-	ted->time = nd->u.scr.timer_event[j].timer;
-	next = nd->u.scr.timer_event[j].timer - nd->u.scr.timer;
-	if( sd )
-	{
-		ted->rid = sd->bl.id; // Attach only the player if attachplayerrid was used.
-		sd->npc_timer_id = add_timer(tick+next,npc_timerevent,nd->bl.id,(intptr)ted);
-	}
-	else
-	{
-		ted->rid = 0;
-		nd->u.scr.timertick = tick; // Set when timer is started
-		nd->u.scr.timerid = add_timer(tick+next,npc_timerevent,nd->bl.id,(intptr)ted);
-	}
+	ted->next = j;
+	nd->u.scr.timertick=ted->otick=gettick();
 
+	//Attach only the player if attachplayerrid was used.
+	ted->rid = sd?sd->bl.id:0;
+
+// Do not store it to make way to two types of timers: globals and personals.	
+//	if (rid >= 0) nd->u.scr.rid=rid;	// changed to: attaching to given rid by default [Shinomori]
+	// if rid is less than 0 leave it unchanged [celest]
+
+	next = nd->u.scr.timer_event[j].timer - nd->u.scr.timer;
+	ted->time = nd->u.scr.timer_event[j].timer;
+	if (sd)
+		sd->npc_timer_id = add_timer(gettick()+next,npc_timerevent,nd->bl.id,(intptr)ted);
+	else
+		nd->u.scr.timerid = add_timer(gettick()+next,npc_timerevent,nd->bl.id,(intptr)ted);
 	return 0;
 }
 /*==========================================
- * Stop NPC timer
+ * タイマーイベント終了
  *------------------------------------------*/
 int npc_timerevent_stop(struct npc_data* nd)
 {
-	struct map_session_data *sd = NULL;
+	struct map_session_data *sd =NULL;
 	const struct TimerData *td = NULL;
 	int *tid;
-
 	nullpo_retr(0, nd);
-
-	if( nd->u.scr.rid && !(sd = map_id2sd(nd->u.scr.rid)) )
-	{
-		ShowError("npc_timerevent_stop: Attached player not found!\n");
-		return 1;
+	if (nd->u.scr.rid) {
+		sd = map_id2sd(nd->u.scr.rid);
+		if (!sd) {
+			ShowError("npc_timerevent_stop: Attached player not found!\n");
+			return 1;
+		}
 	}
 	
 	tid = sd?&sd->npc_timer_id:&nd->u.scr.timerid;
-	if( *tid == -1 ) // Nothing to stop
+	
+	if (*tid == -1) //Nothing to stop
 		return 0;
-
-	// Delete timer
 	td = get_timer(*tid);
-	if( td && td->data ) 
+	if (td && td->data) 
 		ers_free(timer_event_ers, (void*)td->data);
 	delete_timer(*tid,npc_timerevent);
 	*tid = -1;
-
-	if( !sd )
-	{
-		nd->u.scr.timer += DIFF_TICK(gettick(),nd->u.scr.timertick); // Set 'timer' to the time that has passed since the beginning of the timers
-		nd->u.scr.timertick = 0; // Set 'tick' to zero so that we know it's off.
-	}
-
+	//Set the timer tick to the time that has passed since the beginning of the timers and now.
+	nd->u.scr.timer = DIFF_TICK(gettick(),nd->u.scr.timertick);
+//	nd->u.scr.rid = 0; //Eh? why detach?
 	return 0;
 }
 /*==========================================
- * Aborts a running NPC timer that is attached to a player.
+ * Aborts a running npc timer that is attached to a player.
  *------------------------------------------*/
 void npc_timerevent_quit(struct map_session_data* sd)
 {
 	const struct TimerData *td;
 	struct npc_data* nd;
 	struct timer_event_data *ted;
-
-	// Check timer existance
-	if( sd->npc_timer_id == -1 )
+	if (sd->npc_timer_id == -1)
 		return;
-	if( !(td = get_timer(sd->npc_timer_id)) )
-	{
+	td = get_timer(sd->npc_timer_id);
+	if (!td) {
 		sd->npc_timer_id = -1;
-		return;
+		return; //??
 	}
-
-	// Delete timer
 	nd = (struct npc_data *)map_id2bl(td->id);
 	ted = (struct timer_event_data*)td->data;
 	delete_timer(sd->npc_timer_id, npc_timerevent);
 	sd->npc_timer_id = -1;
-
-	// Execute OnTimerQuit
-	if( nd && nd->bl.type == BL_NPC )
-	{
+	if (nd && nd->bl.type == BL_NPC)
+	{	//Execute OnTimerQuit
 		char buf[NAME_LENGTH*2+3];
 		struct event_data *ev;
-
 		snprintf(buf, ARRAYLENGTH(buf), "%s::OnTimerQuit", nd->exname);
 		ev = (struct event_data*)strdb_get(ev_db, buf);
-		if( ev && ev->nd != nd )
-		{
+		if(ev && ev->nd != nd) {
 			ShowWarning("npc_timerevent_quit: Unable to execute \"OnTimerQuit\", two NPCs have the same event name [%s]!\n",buf);
 			ev = NULL;
 		}
-		if( ev )
-		{
+		if (ev) {
 			int old_rid,old_timer;
 			unsigned int old_tick;
-
 			//Set timer related info.
-			old_rid = (nd->u.scr.rid == sd->bl.id ? 0 : nd->u.scr.rid); // Detach rid if the last attached player logged off.
-			old_tick = nd->u.scr.timertick;
-			old_timer = nd->u.scr.timer;
+			old_rid = nd->u.scr.rid;
+			nd->u.scr.rid = sd->bl.id;
 
-			nd->u.scr.rid = sd->bl.id;			
-			nd->u.scr.timertick = gettick();			
-			nd->u.scr.timer = ted->time;
+			old_tick = nd->u.scr.timertick;
+			nd->u.scr.timertick=ted->otick;
+
+			old_timer = nd->u.scr.timer;
+			nd->u.scr.timer=ted->time;
 		
 			//Execute label
 			run_script(nd->u.scr.script,ev->pos,sd->bl.id,nd->bl.id);
@@ -642,47 +588,43 @@ void npc_timerevent_quit(struct map_session_data* sd)
 }
 
 /*==========================================
- * Get the tick value of an NPC timer
- * If it's stopped, return stopped time
+ * タイマー値の所得
  *------------------------------------------*/
 int npc_gettimerevent_tick(struct npc_data* nd)
 {
 	int tick;
 	nullpo_retr(0, nd);
 
-	// TODO: Get player attached timer's tick. Now we can just get it by using 'getnpctimer' inside OnTimer event.
-
-	tick = nd->u.scr.timer; // The last time it's active(start, stop or event trigger)
-	if( nd->u.scr.timertick ) // It's a running timer
-		tick += DIFF_TICK(gettick(), nd->u.scr.timertick);
-
+	tick=nd->u.scr.timer;
+	if (nd->u.scr.timertick)
+		tick+=DIFF_TICK(gettick(), nd->u.scr.timertick);
 	return tick;
 }
-
 /*==========================================
- * Set tick for running and stopped timer
+ * タイマー値の設定
  *------------------------------------------*/
 int npc_settimerevent_tick(struct npc_data* nd, int newtimer)
 {
-	bool flag;
-	int old_rid;
-	//struct map_session_data *sd = NULL;
+	int flag;
+	struct map_session_data *sd=NULL;
 
 	nullpo_retr(0, nd);
 
-	// TODO: Set player attached timer's tick.	
+	if (nd->u.scr.rid) {
+		sd = map_id2sd(nd->u.scr.rid);
+		if (!sd) {
+			ShowError("npc_settimerevent_tick: Attached player not found!\n");
+			return 1;
+		}
+		flag= sd->npc_timer_id != -1 ;
+	} else
+		flag= nd->u.scr.timerid != -1 ;
 
-	old_rid = nd->u.scr.rid;
-	nd->u.scr.rid = 0;
-
-	// Check if timer is started
-	flag = (nd->u.scr.timerid != INVALID_TIMER);
-
-	if( flag ) npc_timerevent_stop(nd);
-	nd->u.scr.timer = newtimer;
-	if( flag ) npc_timerevent_start(nd, -1);
-
-	nd->u.scr.rid = old_rid;
+	if(flag)
+		npc_timerevent_stop(nd);
+	nd->u.scr.timer=newtimer;
+	if(flag)
+		npc_timerevent_start(nd, -1);
 	return 0;
 }
 
@@ -821,12 +763,11 @@ int npc_touch_areanpc(struct map_session_data* sd, int m, int x, int y)
 
 			snprintf(name, ARRAYLENGTH(name), "%s::OnTouch", map[m].npc[i]->exname); // It goes here too. exname being the unique identifier. [Lance]
 
-			if( npc_event(sd,name,0) > 0 )
-			{// failed to run OnTouch event, so just click the npc
+			if( npc_event(sd,name,0)>0 ) {
+				pc_stop_walking(sd,1); //Make it stop walking!
 				npc_click(sd,map[m].npc[i]);
 			}
-
-			pc_stop_walking(sd,1); //Make it stop walking!
+			//aFree(name);
 			break;
 		}
 	}
@@ -1415,8 +1356,11 @@ static int npc_unload_dup_sub(struct npc_data* nd, va_list args)
 {
 	int src_id;
 
+	if( nd->subtype != SCRIPT )
+		return 0;
+
 	src_id = va_arg(args, int);
-	if (nd->src_id == src_id)
+	if (nd->u.scr.src_id == src_id)
 		npc_unload(nd);
 	return 0;
 }
@@ -1442,35 +1386,12 @@ int npc_unload(struct npc_data* nd)
 	npc_chat_finalize(nd); // deallocate npc PCRE data structures
 #endif
 
-	if( (nd->subtype == SHOP || nd->subtype == CASHSHOP) && nd->src_id == 0) //src check for duplicate shops [Orcao]
+	if( nd->subtype == SHOP || nd->subtype == CASHSHOP )
 		aFree(nd->u.shop.shop_item);
 	else
 	if( nd->subtype == SCRIPT )
 	{
-		struct s_mapiterator* iter;
-		struct block_list* bl;		
-
-		ev_db->foreach(ev_db,npc_unload_ev,nd->exname); //Clean up all events related
-
-		iter = mapit_geteachpc();  
-		for( bl = (struct block_list*)mapit_first(iter); mapit_exists(iter); bl = (struct block_list*)mapit_next(iter) )  
-		{
-			struct map_session_data *sd = map_id2sd(bl->id);
-			if( sd && sd->npc_timer_id != INVALID_TIMER )
-			{
-				const struct TimerData *td = get_timer(sd->npc_timer_id);
-
-				if( td && td->id != nd->bl.id )
-					continue;
-
-				if( td && td->data )
-					ers_free(timer_event_ers, (void*)td->data);
-				delete_timer(sd->npc_timer_id, npc_timerevent);
-				sd->npc_timer_id = INVALID_TIMER;
-			}
-		}  
-		mapit_free(iter);
-
+		ev_db->foreach(ev_db,npc_unload_ev,nd->exname); //Clean up all events related.
 		if (nd->u.scr.timerid != -1) {
 			const struct TimerData *td = NULL;
 			td = get_timer(nd->u.scr.timerid);
@@ -1480,7 +1401,7 @@ int npc_unload(struct npc_data* nd)
 		}
 		if (nd->u.scr.timer_event)
 			aFree(nd->u.scr.timer_event);
-		if (nd->src_id == 0) {
+		if (nd->u.scr.src_id == 0) {
 			if(nd->u.scr.script) {
 				script_free_code(nd->u.scr.script);
 				nd->u.scr.script = NULL;
@@ -1971,11 +1892,12 @@ static const char* npc_parse_script(char* w1, char* w2, char* w3, char* w4, cons
 	struct script_code *script;
 	int i;
 	const char* end;
-	const char* script_start;
 
 	struct npc_label_list* label_list;
 	int label_list_num;
+	int src_id;
 	struct npc_data* nd;
+	struct npc_data* dnd;
 
 	if( strcmp(w1, "-") == 0 )
 	{// floating npc
@@ -1993,27 +1915,53 @@ static const char* npc_parse_script(char* w1, char* w2, char* w3, char* w4, cons
 		m = map_mapname2mapid(mapname);
 	}
 
-	script_start = strstr(start,",{");
-	end = strchr(start,'\n');
-	if( strstr(w4,",{") == NULL || script_start == NULL || (end != NULL && script_start > end) )
-	{
-		ShowError("npc_parse_script: Missing left curly ',{' in file '%s', line '%d'. Skipping the rest of the file.\n * w1=%s\n * w2=%s\n * w3=%s\n * w4=%s\n", filepath, strline(buffer,start-buffer), w1, w2, w3, w4);
-		return NULL;// can't continue
+	if( strcmp(w2, "script") == 0 )
+	{// parsing script with curly
+		const char* script_start;
+
+		script_start = strstr(start,",{");
+		end = strchr(start,'\n');
+		if( strstr(w4,",{") == NULL || script_start == NULL || (end != NULL && script_start > end) )
+		{
+			ShowError("npc_parse_script: Missing left curly ',{' in file '%s', line '%d'. Skipping the rest of the file.\n * w1=%s\n * w2=%s\n * w3=%s\n * w4=%s\n", filepath, strline(buffer,start-buffer), w1, w2, w3, w4);
+			return NULL;// can't continue
+		}
+		++script_start;
+
+		end = npc_skip_script(script_start, buffer, filepath);
+		if( end == NULL )
+			return NULL;// (simple) parse error, don't continue
+
+		script = parse_script(script_start, filepath, strline(buffer,script_start-buffer), SCRIPT_USE_LABEL_DB);
+		label_list = NULL;
+		label_list_num = 0;
+		src_id = 0;
+		if( script )
+		{
+			DBMap* label_db = script_get_label_db();
+			label_db->foreach(label_db, npc_convertlabel_db, &label_list, &label_list_num, filepath);
+			label_db->clear(label_db, NULL); // not needed anymore, so clear the db
+		}
 	}
-	++script_start;
+	else
+	{// duplicate npc
+		char srcname[128];
 
-	end = npc_skip_script(script_start, buffer, filepath);
-	if( end == NULL )
-		return NULL;// (simple) parse error, don't continue
-
-	script = parse_script(script_start, filepath, strline(buffer,script_start-buffer), SCRIPT_USE_LABEL_DB);
-	label_list = NULL;
-	label_list_num = 0;
-	if( script )
-	{
-		DBMap* label_db = script_get_label_db();
-		label_db->foreach(label_db, npc_convertlabel_db, &label_list, &label_list_num, filepath);
-		label_db->clear(label_db, NULL); // not needed anymore, so clear the db
+		end = strchr(start,'\n');
+		if( sscanf(w2,"duplicate(%127[^)])",srcname) != 1 )
+		{
+			ShowError("npc_parse_script: bad duplicate name in file '%s', line '%d' : %s\n", filepath, strline(buffer,start-buffer), w2);
+			return strchr(start, '\n');// next line, try to continue
+		}
+		dnd = npc_name2id(srcname);
+		if( dnd == NULL) {
+			ShowError("npc_parse_script: original npc not found for duplicate in file '%s', line '%d' : %s\n", filepath, strline(buffer,start-buffer), srcname);
+			return strchr(start, '\n');// next line, continue
+		}
+		script = dnd->u.scr.script;
+		label_list = dnd->u.scr.label_list;// TODO duplicate this?
+		label_list_num = dnd->u.scr.label_list_num;
+		src_id = dnd->bl.id;
 	}
 
 	CREATE(nd, struct npc_data, 1);
@@ -2039,6 +1987,7 @@ static const char* npc_parse_script(char* w1, char* w2, char* w3, char* w4, cons
 	nd->class_ = class_;
 	nd->speed = 200;
 	nd->u.scr.script = script;
+	nd->u.scr.src_id = src_id;
 	nd->u.scr.label_list = label_list;
 	nd->u.scr.label_list_num = label_list_num;
 
@@ -2086,189 +2035,6 @@ static const char* npc_parse_script(char* w1, char* w2, char* w3, char* w4, cons
 			ev->pos = pos;
 			if( strdb_put(ev_db, buf, ev) != NULL )// There was already another event of the same name?
 				ShowWarning("npc_parse_script : duplicate event %s (%s)\n", buf, filepath);
-		}
-	}
-
-	//-----------------------------------------
-	// ラベルデータからタイマーイベント取り込み
-	for (i = 0; i < nd->u.scr.label_list_num; i++){
-		int t = 0, k = 0;
-		char *lname = nd->u.scr.label_list[i].name;
-		int pos = nd->u.scr.label_list[i].pos;
-		if (sscanf(lname, "OnTimer%d%n", &t, &k) == 1 && lname[k] == '\0') {
-			// タイマーイベント
-			struct npc_timerevent_list *te = nd->u.scr.timer_event;
-			int j, k = nd->u.scr.timeramount;
-			if (te == NULL)
-				te = (struct npc_timerevent_list *)aMallocA(sizeof(struct npc_timerevent_list));
-			else
-				te = (struct npc_timerevent_list *)aRealloc( te, sizeof(struct npc_timerevent_list) * (k+1) );
-			for (j = 0; j < k; j++){
-				if (te[j].timer > t){
-					memmove(te+j+1, te+j, sizeof(struct npc_timerevent_list)*(k-j));
-					break;
-				}
-			}
-			te[j].timer = t;
-			te[j].pos = pos;
-			nd->u.scr.timer_event = te;
-			nd->u.scr.timeramount++;
-		}
-	}
-	nd->u.scr.timerid = -1;
-
-	return end;
-}
-
-/// Duplicate a warp, shop, cashshop or script. [Orcao]
-/// warp: <map name>,<x>,<y>,<facing>%TAB%duplicate(<name of target>)%TAB%<NPC Name>%TAB%<spanx>,<spany>
-/// shop/cashshop/npc: -%TAB%duplicate(<name of target>)%TAB%<NPC Name>%TAB%<sprite id>
-/// shop/cashshop/npc: <map name>,<x>,<y>,<facing>%TAB%duplicate(<name of target>)%TAB%<NPC Name>%TAB%<sprite id>
-/// npc: -%TAB%duplicate(<name of target>)%TAB%<NPC Name>%TAB%<sprite id>,<triggerX>,<triggerY>
-/// npc: <map name>,<x>,<y>,<facing>%TAB%duplicate(<name of target>)%TAB%<NPC Name>%TAB%<sprite id>,<triggerX>,<triggerY>
-const char* npc_parse_duplicate(char* w1, char* w2, char* w3, char* w4, const char* start, const char* buffer, const char* filepath)
-{
-	int x, y, dir, m, xs = -1, ys = -1, class_ = 0;
-	char mapname[32];
-	char srcname[128];
-	int i;
-	const char* end;
-
-	int src_id;
-	int type;
-	struct npc_data* nd;
-	struct npc_data* dnd;
-
-	end = strchr(start,'\n');
-	// get the npc being duplicated
-	if( sscanf(w2,"duplicate(%127[^)])",srcname) != 1 )
-	{
-		ShowError("npc_parse_script: bad duplicate name in file '%s', line '%d' : %s\n", filepath, strline(buffer,start-buffer), w2);
-		return end;// next line, try to continue
-	}
-	dnd = npc_name2id(srcname);
-	if( dnd == NULL) {
-		ShowError("npc_parse_script: original npc not found for duplicate in file '%s', line '%d' : %s\n", filepath, strline(buffer,start-buffer), srcname);
-		return end;// next line, try to continue
-	}
-	src_id = dnd->bl.id;
-	type = dnd->subtype;
-
-	// get placement
-	if( (type==SHOP || type==CASHSHOP || type==SCRIPT) && strcmp(w1, "-") == 0 )
-	{// floating shop/chashshop/script
-		x = y = dir = 0;
-		m = -1;
-	}
-	else
-	{
-		if( sscanf(w1, "%31[^,],%d,%d,%d", mapname, &x, &y, &dir) != 4 )// <map name>,<x>,<y>,<facing>
-		{
-			ShowError("npc_parse_duplicate: Invalid placement format for duplicate in file '%s', line '%d'. Skipping line...\n * w1=%s\n * w2=%s\n * w3=%s\n * w4=%s\n", filepath, strline(buffer,start-buffer), w1, w2, w3, w4);
-			return end;// next line, try to continue
-		}
-		m = map_mapname2mapid(mapname);
-	}
-
-	if( type == WARP && sscanf(w4, "%d,%d", &xs, &ys) == 2 );// <spanx>,<spany>
-	else if( type == SCRIPT && sscanf(w4, "%d,%d,%d", &class_, &xs, &ys) == 3);// <sprite id>,<triggerX>,<triggerY>
-	else if( type != WARP ) class_ = atoi(w4);// <sprite id>
-	else
-	{
-		ShowError("npc_parse_duplicate: Invalid span format for duplicate warp in file '%s', line '%d'. Skipping line...\n * w1=%s\n * w2=%s\n * w3=%s\n * w4=%s\n", filepath, strline(buffer,start-buffer), w1, w2, w3, w4);
-		return end;// next line, try to continue
-	}
-
-	CREATE(nd, struct npc_data, 1);
-
-	nd->bl.prev = nd->bl.next = NULL;
-	nd->bl.m = m;
-	nd->bl.x = x;
-	nd->bl.y = y;
-	npc_parsename(nd, w3, start, buffer, filepath);
-	nd->bl.id = npc_get_new_npc_id();
-	nd->class_ = class_;
-	nd->speed = 200;
-	nd->src_id = src_id;
-	nd->bl.type = BL_NPC;
-	nd->subtype = type;
-	switch( type )
-	{
-	case SCRIPT:
-		++npc_script;
-		nd->u.scr.xs = xs;
-		nd->u.scr.ys = ys;
-		nd->u.scr.script = dnd->u.scr.script;
-		nd->u.scr.label_list = dnd->u.scr.label_list;
-		nd->u.scr.label_list_num = dnd->u.scr.label_list_num;
-		break;
-
-	case SHOP:
-	case CASHSHOP:
-		++npc_shop;
-		nd->u.shop.shop_item = dnd->u.shop.shop_item;
-		nd->u.shop.count = dnd->u.shop.count;
-		break;
-
-	case WARP:
-		++npc_warp;
-		if( !battle_config.warp_point_debug )
-			nd->class_ = WARP_CLASS;
-		else
-			nd->class_ = WARP_DEBUG_CLASS;
-		nd->u.warp.xs = xs;
-		nd->u.warp.ys = ys;
-		nd->u.warp.mapindex = dnd->u.warp.mapindex;
-		nd->u.warp.x = dnd->u.warp.x;
-		nd->u.warp.y = dnd->u.warp.y;
-		break;
-	}
-
-	//Add the npc to its location
-	if( m >= 0 )
-	{
-		map_addnpc(m, nd);
-		status_change_init(&nd->bl);
-		unit_dataset(&nd->bl);
-		nd->ud.dir = dir;
-		npc_setcells(nd);
-		map_addblock(&nd->bl);
-		if( class_ >= 0 )
-		{
-			status_set_viewdata(&nd->bl, nd->class_);
-			clif_spawn(&nd->bl);
-		}
-	}
-	else
-	{
-		// we skip map_addnpc, but still add it to the list of ID's
-		map_addiddb(&nd->bl);
-	}
-	strdb_put(npcname_db, nd->exname, nd);
-
-	if( type != SCRIPT )
-		return end;
-
-	//Handle labels
-	//-----------------------------------------
-	// イベント用ラベルデータのエクスポート
-	for (i = 0; i < nd->u.scr.label_list_num; i++)
-	{
-		char* lname = nd->u.scr.label_list[i].name;
-		int pos = nd->u.scr.label_list[i].pos;
-
-		if ((lname[0] == 'O' || lname[0] == 'o') && (lname[1] == 'N' || lname[1] == 'n'))
-		{
-			struct event_data* ev;
-			char buf[NAME_LENGTH*2+3]; // 24 for npc name + 24 for label + 2 for a "::" and 1 for EOS
-			snprintf(buf, ARRAYLENGTH(buf), "%s::%s", nd->exname, lname);
-
-			// generate the data and insert it
-			CREATE(ev, struct event_data, 1);
-			ev->nd = nd;
-			ev->pos = pos;
-			if( strdb_put(ev_db, buf, ev) != NULL )// There was already another event of the same name?
-				ShowWarning("npc_parse_duplicate : duplicate event %s (%s)\n", buf, filepath);
 		}
 	}
 
@@ -2478,14 +2244,13 @@ void npc_parse_mob2(struct spawn_data* mob)
 
 static const char* npc_parse_mob(char* w1, char* w2, char* w3, char* w4, const char* start, const char* buffer, const char* filepath)
 {
-	int num, class_, mode, x,y,xs,ys, i,j;
+	int level, num, class_, mode, x,y,xs,ys, i,j;
 	char mapname[32];
+	char mobname[128];
 	struct spawn_data mob, *data;
 	struct mob_db* db;
 
 	memset(&mob, 0, sizeof(struct spawn_data));
-
-	mob.boss = !strcmpi(w2,"boss_monster");
 
 	// w1=<map name>,<x>,<y>,<xs>,<ys>
 	// w4=<mob id>,<amount>,<delay1>,<delay2>,<event>
@@ -2565,6 +2330,10 @@ static const char* npc_parse_mob(char* w1, char* w2, char* w3, char* w4, const c
 		mob.delay2 = mob.delay2/100*battle_config.mob_spawn_delay;
 	}
 
+	// parse MOB_NAME,[MOB LEVEL]
+	if (sscanf(w3, "%127[^,],%d", mobname, &level) > 1)
+		mob.level = level;
+
 	if(mob.delay1>0xfffffff || mob.delay2>0xfffffff) {
 		ShowError("npc_parse_mob: wrong monsters spawn delays : %s %s (file '%s', line '%d').\n", w3, w4, filepath, strline(buffer,start-buffer));
 		return strchr(start,'\n');// skip and continue
@@ -2576,7 +2345,7 @@ static const char* npc_parse_mob(char* w1, char* w2, char* w3, char* w4, const c
 	else if (battle_config.override_mob_names==2)
 		strcpy(mob.name,"--ja--");
 	else
-		safestrncpy(mob.name, w3, sizeof(mob.name));
+		strncpy(mob.name, mobname, NAME_LENGTH-1);
 
 	//Verify dataset.
 	if( !mob_parse_dataset(&mob) )
@@ -2612,27 +2381,34 @@ static const char* npc_parse_mob(char* w1, char* w2, char* w3, char* w4, const c
 		}
 	}
 
-	//Now that all has been validated. We allocate the actual memory that the re-spawn data will use.
+	//Now that all has been validated. We allocate the actual memory
+	//that the re-spawn data will use.
 	data = (struct spawn_data*)aMalloc(sizeof(struct spawn_data));
 	memcpy(data, &mob, sizeof(struct spawn_data));
-
-	// spawn / cache the new mobs
-	if( battle_config.dynamic_mobs && map_addmobtolist(data->m, data) >= 0 )
-	{
-		data->state.dynamic = true;
-		npc_cache_mob += data->num;
-
-		// check if target map has players
-		// (usually shouldn't occur when map server is just starting,
-		// but not the case when we do @reloadscript
-		if( map[data->m].users > 0 )
-			npc_parse_mob2(data);
-	}
-	else
-	{
+	
+	if( !battle_config.dynamic_mobs || data->delay1 || data->delay2 ) {
 		data->state.dynamic = false;
 		npc_parse_mob2(data);
 		npc_delay_mob += data->num;
+	} else {
+		int index = map_addmobtolist(data->m, data);
+		if( index >= 0 ) {
+			data->state.dynamic = true;
+			// check if target map has players
+			// (usually shouldn't occur when map server is just starting,
+			// but not the case when we do @reloadscript
+			if (map[data->m].users > 0)
+				npc_parse_mob2(data);
+			npc_cache_mob += data->num;
+		} else {
+			// mobcache is full
+			// create them as delayed with one second
+			data->state.dynamic = false;
+			data->delay1 = 1000;
+			data->delay2 = 1000;
+			npc_parse_mob2(data);
+			npc_delay_mob += data->num;
+		}
 	}
 
 	npc_mob++;
@@ -2711,18 +2487,13 @@ static const char* npc_parse_mapflag(char* w1, char* w2, char* w3, char* w4, con
 		map[m].flag.nozenypenalty=state;
 	}
 	else if (!strcmpi(w3,"pvp")) {
-		map[m].flag.pvp = state;
-		if( state && (map[m].flag.gvg || map[m].flag.gvg_dungeon || map[m].flag.gvg_castle) )
-		{
-			map[m].flag.gvg = 0;
-			map[m].flag.gvg_dungeon = 0;
-			map[m].flag.gvg_castle = 0;
-			ShowWarning("npc_parse_mapflag: You can't set PvP and GvG flags for the same map! Removing GvG flags from %s (file '%s', line '%d').\n", map[m].name, filepath, strline(buffer,start-buffer));
-		}
-		if( state && map[m].flag.battleground )
-		{
-			map[m].flag.battleground = 0;
-			ShowWarning("npc_parse_mapflag: You can't set GvG and BattleGround flags for the same map! Removing BattleGround flag from %s (file '%s', line '%d').\n", map[m].name, filepath, strline(buffer,start-buffer));
+		map[m].flag.pvp=state;
+		if (state) {
+			if (map[m].flag.gvg || map[m].flag.gvg_dungeon || map[m].flag.gvg_castle)
+				ShowWarning("npc_parse_mapflag: You can't set PvP and GvG flags for the same map! Removing GvG flags from %s (file '%s', line '%d').\n", map[m].name, filepath, strline(buffer,start-buffer));
+			map[m].flag.gvg=0;
+			map[m].flag.gvg_dungeon=0;
+			map[m].flag.gvg_castle=0;
 		}
 	}
 	else if (!strcmpi(w3,"pvp_noparty"))
@@ -2762,16 +2533,11 @@ static const char* npc_parse_mapflag(char* w1, char* w2, char* w3, char* w4, con
 	else if (!strcmpi(w3,"pvp_nocalcrank"))
 		map[m].flag.pvp_nocalcrank=state;
 	else if (!strcmpi(w3,"gvg")) {
-		map[m].flag.gvg = state;
-		if( state && map[m].flag.pvp )
+		map[m].flag.gvg=state;
+		if (state && map[m].flag.pvp)
 		{
-			map[m].flag.pvp = 0;
+			map[m].flag.pvp=0;
 			ShowWarning("npc_parse_mapflag: You can't set PvP and GvG flags for the same map! Removing PvP flag from %s (file '%s', line '%d').\n", map[m].name, filepath, strline(buffer,start-buffer));
-		}
-		if( state && map[m].flag.battleground )
-		{
-			map[m].flag.battleground = 0;
-			ShowWarning("npc_parse_mapflag: You can't set PvP and BattleGround flags for the same map! Removing BattleGround flag from %s (file '%s', line '%d').\n", map[m].name, filepath, strline(buffer,start-buffer));
 		}
 	}
 	else if (!strcmpi(w3,"gvg_noparty"))
@@ -2783,30 +2549,6 @@ static const char* npc_parse_mapflag(char* w1, char* w2, char* w3, char* w4, con
 	else if (!strcmpi(w3,"gvg_castle")) {
 		map[m].flag.gvg_castle=state;
 		if (state) map[m].flag.pvp=0;
-	}
-	else if (!strcmpi(w3,"battleground")) {
-		if( state )
-		{
-			if( sscanf(w4, "%d", &state) == 1 )
-				map[m].flag.battleground = state;
-			else
-				map[m].flag.battleground = 1; // Default value
-		}
-		else
-			map[m].flag.battleground = 0;
-
-		if( map[m].flag.battleground && map[m].flag.pvp )
-		{
-			map[m].flag.pvp = 0;
-			ShowWarning("npc_parse_mapflag: You can't set PvP and BattleGround flags for the same map! Removing PvP flag from %s (file '%s', line '%d').\n", map[m].name, filepath, strline(buffer,start-buffer));
-		}
-		if( map[m].flag.battleground && (map[m].flag.gvg || map[m].flag.gvg_dungeon || map[m].flag.gvg_castle) )
-		{
-			map[m].flag.gvg = 0;
-			map[m].flag.gvg_dungeon = 0;
-			map[m].flag.gvg_castle = 0;
-			ShowWarning("npc_parse_mapflag: You can't set GvG and BattleGround flags for the same map! Removing GvG flag from %s (file '%s', line '%d').\n", map[m].name, filepath, strline(buffer,start-buffer));
-		}
 	}
 	else if (!strcmpi(w3,"noexppenalty"))
 		map[m].flag.noexppenalty=state;
@@ -2969,14 +2711,9 @@ void npc_parsesrcfile(const char* filepath)
 		// fill w4 (to end of line)
 		if( pos[1]-pos[8] > ARRAYLENGTH(w4)-1 )
 			ShowWarning("npc_parsesrcfile: w4 truncated, too much data (%d) in file '%s', line '%d'.\n", pos[1]-pos[8], filepath, strline(buffer,p-buffer));
-		if( pos[8] != -1 )
-		{
-			i = min(pos[1]-pos[8], ARRAYLENGTH(w4)-1);
-			memcpy(w4, p+pos[8], i*sizeof(char));
-			w4[i] = '\0';
-		}
-		else
-			w4[0] = '\0';
+		i = min(pos[1]-pos[8], ARRAYLENGTH(w4)-1);
+		memcpy(w4, p+pos[8], i*sizeof(char));
+		w4[i] = '\0';
 
 		if( count < 3 )
 		{// Unknown syntax
@@ -3023,9 +2760,9 @@ void npc_parsesrcfile(const char* filepath)
 		}
 		else if( (i=0, sscanf(w2,"duplicate%n",&i), (i > 0 && w2[i] == '(')) && count > 3 )
 		{
-			p = npc_parse_duplicate(w1,w2,w3,w4, p, buffer, filepath);
+			p = npc_parse_script(w1,w2,w3,w4, p, buffer, filepath);
 		}
-		else if( (strcmpi(w2,"monster") == 0 || strcmpi(w2,"boss_monster") == 0) && count > 3 )
+		else if( strcmpi(w2,"monster") == 0 && count > 3 )
 		{
 			p = npc_parse_mob(w1, w2, w3, w4, p, buffer, filepath);
 		}
@@ -3146,11 +2883,6 @@ int npc_reload(void)
 				if (map[m].moblist[i] != NULL) {
 					aFree(map[m].moblist[i]);
 					map[m].moblist[i] = NULL;
-				}
-				if( map[m].mob_delete_timer != INVALID_TIMER )
-				{ // Mobs were removed anyway,so delete the timer [Inkfish]
-					delete_timer(map[m].mob_delete_timer, map_removemobs_timer);
-					map[m].mob_delete_timer = INVALID_TIMER;
 				}
 			}
 		}

@@ -2,5 +2,3 @@
 //
 // Structure of Database:
 // GroupID,ItemID,Rate
-
-5,909,1	//Jellopy

@@ -35,9 +35,6 @@
 #define MOB_CLONE_START (MAX_MOB_DB-999)
 #define MOB_CLONE_END MAX_MOB_DB
 
-//Used to determine default enemy type of mobs (for use in eachinrange calls)
-#define DEFAULT_ENEMY_TYPE(md) (md->special_state.ai?BL_CHAR:BL_PC|BL_HOM|BL_MER)
-
 //Mob skill states.
 enum MobSkillState {
 	MSS_ANY = -1,
@@ -115,7 +112,6 @@ struct mob_data {
 		int provoke_flag; // Celest
 		unsigned npc_killmonster: 1; //for new killmonster behavior
 		unsigned rebirth: 1; // NPC_Rebirth used
-		unsigned int bg_id; // BattleGround System
 	} state;
 	struct guardian_data* guardian_data; 
 	struct {
@@ -127,7 +123,6 @@ struct mob_data {
 	int spawn_timer; //Required for Convex Mirror
 	struct item *lootitem;
 	short class_;
-	unsigned boss : 1;
 	unsigned int tdmg; //Stores total damage given to the mob, for exp calculations. [Skotlex]
 	int level;
 	int target_id,attacked_id;
@@ -213,7 +208,6 @@ int mob_once_spawn_area(struct map_session_data* sd,int m,int x0,int y0,int x1,i
 bool mob_ksprotected (struct block_list *src, struct block_list *target);
 
 int mob_spawn_guardian(const char* mapname, short x, short y, const char* mobname, int class_, const char* event, int guardian, bool has_index);	// Spawning Guardians [Valaris]
-int mob_spawn_bg(const char* mapname, short x, short y, const char* mobname, int class_, const char* event, int bg_id);
 int mob_guardian_guildchange(struct block_list *bl,va_list ap); //Change Guardian's ownership. [Skotlex]
 
 int mob_randomwalk(struct mob_data *md,unsigned int tick);
@@ -222,7 +216,6 @@ int mob_target(struct mob_data *md,struct block_list *bl,int dist);
 int mob_unlocktarget(struct mob_data *md, unsigned int tick);
 struct mob_data* mob_spawn_dataset(struct spawn_data *data);
 int mob_spawn(struct mob_data *md);
-int mob_delayspawn(int tid, unsigned int tick, int id, intptr data);
 int mob_setdelayspawn(struct mob_data *md);
 int mob_parse_dataset(struct spawn_data *data);
 void mob_log_damage(struct mob_data *md, struct block_list *src, int damage);
@@ -233,7 +226,6 @@ void mob_heal(struct mob_data *md,unsigned int heal);
 
 #define mob_stop_walking(md, type) unit_stop_walking(&(md)->bl, type)
 #define mob_stop_attack(md) unit_stop_attack(&(md)->bl)
-#define mob_is_battleground(md) ( map[(md)->bl.m].flag.battleground && ((md)->class_ == 1906 || ((md)->class_ >= 1909 && (md)->class_ <= 1915)) )
 
 void mob_clear_spawninfo();
 int do_init_mob(void);
@@ -258,7 +250,7 @@ int mob_countslave(struct block_list *bl);
 int mob_is_clone(int class_);
 
 int mob_clone_spawn(struct map_session_data *sd, int m, int x, int y, const char *event, int master_id, int mode, int flag, unsigned int duration);
-int mob_clone_delete(struct mob_data *md);
+int mob_clone_delete(int class_);
 
 void mob_reload(void);
 

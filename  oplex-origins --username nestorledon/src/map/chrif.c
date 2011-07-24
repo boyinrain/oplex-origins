@@ -313,10 +313,9 @@ int chrif_sendmap(int fd)
 {
 	int i;
 	ShowStatus("Sending maps to char server...\n");
-	// Sending normal maps, not instances
-	WFIFOHEAD(fd, 4 + map_instance_start * 4);
+	WFIFOHEAD(fd, 4 + map_num * 4);
 	WFIFOW(fd,0) = 0x2afa;
-	for(i = 0; i < map_instance_start; i++)
+	for(i = 0; i < map_num; i++)
 		WFIFOW(fd,4+i*4) = map[i].index;
 	WFIFOW(fd,2) = 4 + i * 4;
 	WFIFOSET(fd,WFIFOW(fd,2));
@@ -838,7 +837,10 @@ int chrif_changedsex(int fd)
 			// remove specifical skills of Bard classes 
 			for(i = 315; i <= 322; i++) {
 				if (sd->status.skill[i].id > 0 && !sd->status.skill[i].flag) {
-					sd->status.skill_point += sd->status.skill[i].lv;
+					if (sd->status.skill_point > USHRT_MAX - sd->status.skill[i].lv)
+						sd->status.skill_point = USHRT_MAX;
+					else
+						sd->status.skill_point += sd->status.skill[i].lv;
 					sd->status.skill[i].id = 0;
 					sd->status.skill[i].lv = 0;
 				}
@@ -846,7 +848,10 @@ int chrif_changedsex(int fd)
 			// remove specifical skills of Dancer classes 
 			for(i = 323; i <= 330; i++) {
 				if (sd->status.skill[i].id > 0 && !sd->status.skill[i].flag) {
-					sd->status.skill_point += sd->status.skill[i].lv;
+					if (sd->status.skill_point > USHRT_MAX - sd->status.skill[i].lv)
+						sd->status.skill_point = USHRT_MAX;
+					else
+						sd->status.skill_point += sd->status.skill[i].lv;
 					sd->status.skill[i].id = 0;
 					sd->status.skill[i].lv = 0;
 				}
