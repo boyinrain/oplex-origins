@@ -293,7 +293,7 @@ int intif_saveregistry(struct map_session_data *sd, int type)
 	WFIFOL(inter_fd,8)=sd->status.char_id;
 	WFIFOB(inter_fd,12)=type;
 	for( p = 13, i = 0; i < count; i++ ) {
-		if (reg[i].str[0] != '\0' && reg[i].value[0] != '\0') {
+		if (reg[i].str[0] && reg[i].value != 0) {
 			p+= sprintf((char*)WFIFOP(inter_fd,p), "%s", reg[i].str)+1; //We add 1 to consider the '\0' in place.
 			p+= sprintf((char*)WFIFOP(inter_fd,p), "%s", reg[i].value)+1;
 		}
@@ -423,25 +423,17 @@ int intif_party_leave(int party_id,int account_id, int char_id)
 // パーティ移動要求
 int intif_party_changemap(struct map_session_data *sd,int online)
 {
-	int m, mapindex;
-	
 	if (CheckForCharServer())
 		return 0;
 	if(!sd)
 		return 0;
-
-	if( (m=map_mapindex2mapid(sd->mapindex)) >= 0 && map[m].instance_id )
-		mapindex = map[map[m].instance_map[0]].index;
-	else
-		mapindex = sd->mapindex;
-	
 
 	WFIFOHEAD(inter_fd,19);
 	WFIFOW(inter_fd,0)=0x3025;
 	WFIFOL(inter_fd,2)=sd->status.party_id;
 	WFIFOL(inter_fd,6)=sd->status.account_id;
 	WFIFOL(inter_fd,10)=sd->status.char_id;
-	WFIFOW(inter_fd,14)=mapindex;
+	WFIFOW(inter_fd,14)=sd->mapindex;
 	WFIFOB(inter_fd,16)=online;
 	WFIFOW(inter_fd,17)=sd->status.base_level;
 	WFIFOSET(inter_fd,19);
@@ -652,17 +644,16 @@ int intif_guild_position(int guild_id,int idx,struct guild_position *p)
 	return 0;
 }
 // ギルドスキルアップ要求
-int intif_guild_skillup(int guild_id, int skill_num, int account_id, int max)
+int intif_guild_skillup(int guild_id, int skill_num, int account_id)
 {
 	if( CheckForCharServer() )
 		return 0;
-	WFIFOHEAD(inter_fd, 18);
+	WFIFOHEAD(inter_fd, 14);
 	WFIFOW(inter_fd, 0)  = 0x303c;
 	WFIFOL(inter_fd, 2)  = guild_id;
 	WFIFOL(inter_fd, 6)  = skill_num;
 	WFIFOL(inter_fd, 10) = account_id;
-	WFIFOL(inter_fd, 14) = max;
-	WFIFOSET(inter_fd, 18);
+	WFIFOSET(inter_fd, 14);
 	return 0;
 }
 // ギルド同盟/敵対要求
@@ -1447,7 +1438,6 @@ int intif_parse_Mail_inboxreceived(int fd)
 
 	//FIXME: this operation is not safe [ultramage]
 	memcpy(&sd->mail.inbox, RFIFOP(fd,9), sizeof(struct mail_data));
-	sd->mail.changed = false; // cache is now in sync
 
 	if (flag)
 		clif_Mail_refreshinbox(sd);
@@ -1644,9 +1634,7 @@ static void intif_parse_Mail_send(int fd)
 	memcpy(&msg, RFIFOP(fd,4), sizeof(struct mail_message));
 	fail = (msg.id == 0);
 
-	// notify sender
-	sd = map_charid2sd(msg.send_id);
-	if( sd != NULL )
+	if( (sd = map_charid2sd(msg.send_id)) )
 	{
 		if( fail )
 			mail_deliveryfail(sd, &msg);
@@ -1661,11 +1649,9 @@ static void intif_parse_Mail_send(int fd)
 	if( fail )
 		return;
 
-	// notify recipient (if online)
-	sd = map_charid2sd(msg.dest_id);
-	if( sd != NULL )
+	if( (sd = map_charid2sd(msg.dest_id)) )
 	{
-		sd->mail.changed = true;
+		sd->mail.inbox.changed = true;
 		clif_Mail_new(sd->fd, msg.id, msg.send_name, msg.title);
 	}
 }
@@ -1680,7 +1666,7 @@ static void intif_parse_Mail_new(int fd)
 	if( sd == NULL )
 		return;
 
-	sd->mail.changed = true;
+	sd->mail.inbox.changed = true;
 	clif_Mail_new(sd->fd, mail_id, sender_name, title);
 }
 

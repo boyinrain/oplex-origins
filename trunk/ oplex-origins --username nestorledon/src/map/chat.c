@@ -6,7 +6,6 @@
 #include "../common/nullpo.h"
 #include "../common/showmsg.h"
 #include "../common/strlib.h"
-#include "../common/mmo.h"
 #include "atcommand.h" // msg_txt()
 #include "battle.h" // struct battle_config
 #include "clif.h"
@@ -40,20 +39,18 @@ static struct chat_data* chat_createchat(struct block_list* bl, const char* titl
 	cd->owner = bl;
 	safestrncpy(cd->npc_event, ev, sizeof(cd->npc_event));
 
-	cd->bl.id   = map_get_new_object_id();
 	cd->bl.m    = bl->m;
 	cd->bl.x    = bl->x;
 	cd->bl.y    = bl->y;
 	cd->bl.type = BL_CHAT;
 	cd->bl.next = cd->bl.prev = NULL;
+	cd->bl.id   = map_addobject(&cd->bl);
 
 	if( cd->bl.id == 0 )
 	{
 		aFree(cd);
 		cd = NULL;
 	}
-
-	map_addiddb(&cd->bl);
 
 	return cd;
 }
@@ -174,9 +171,7 @@ int chat_leavechat(struct map_session_data* sd, bool kicked)
 	if( cd->users == 0 && cd->owner->type == BL_PC )
 	{	// Delete empty chatroom
 		clif_clearchat(cd, 0);
-		map_deliddb(&cd->bl);
-		map_delblock(&cd->bl);
-		map_freeblock(&cd->bl);
+		map_delobject(cd->bl.id);
 		return 1;
 	}
 
@@ -327,9 +322,7 @@ int chat_deletenpcchat(struct npc_data* nd)
 	
 	chat_npckickall(cd);
 	clif_clearchat(cd, 0);
-	map_deliddb(&cd->bl);
-	map_delblock(&cd->bl);
-	map_freeblock(&cd->bl);
+	map_delobject(cd->bl.id);	// free‚Ü‚Å‚µ‚Ä‚­‚ê‚é
 	nd->chat_id = 0;
 	
 	return 0;
