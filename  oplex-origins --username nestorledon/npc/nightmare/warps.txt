@@ -17,6 +17,7 @@ lavive_04,98,48,0	warp	lav013	1,1,lavive_05,4,48
 
 lavive_05,0,48,0	warp	lav014	1,1,lavive_04,94,49
 lavive_05,49,98,0	warp	lav015	1,1,lavive_06,50,6
+lavive_05,49,0,0	warp	lav100	1,1,lavive_10,49,94
 
 lavive_06,50,0,0	warp	lav016	1,1,lavive_05,49,92
 lavive_06,49,98,0	warp	lav017	1,1,lavive_07,50,6
@@ -32,18 +33,10 @@ lavive_08,0,48,0	warp	lav023	1,1,lavive_09,94,48
 lavive_09,98,48,0	warp	lav024	1,1,lavive_08,5,47
 lavive_09,50,0,0	warp	lav025	1,1,lavive_02,50,91
 
-lavive_09,50,98,0	warp	lav040	1,1,lavive_10,49,5
-lavive_10,49,0,0	warp	lav041	1,1,lavive_09,50,94
+lavive_10,50,98,0	warp	lav041	1,1,lavive_05,50,5
+lavive_10,50,0,0	warp	lav0101	1,1,la_fild01,50,94
 
-lavive_10,79,55,0	warp	lav042	1,1,la_park,144,132
-la_park,144,128,0	warp	lav043	1,1,lavive_10,79,52
-
-lavive_10,49,98,0	warp	lav044	1,1,la_fild01,50,5
-la_fild01,50,0,0	warp	lav045	1,1,lavive_10,49,93
-
-la_fild01,50,98,0	warp	lav046	1,1,la_fild02,50,5
-la_fild02,50,0,0	warp	lav047	1,1,la_fild01,50,94
-
+la_fild01,50,98,0	warp	lav0102	1,1,lavive_10,50,5
 la_fild02,98,28,0	warp	lav048	1,1,la_fild03,4,12
 la_fild03,0,11,0	warp	lav049	1,1,la_fild02,94,28
 
@@ -63,7 +56,6 @@ la_library,95,8,0	warp	lav031	1,1,lavive_06,61,48
 lavive_04,19,63,0	warp	lav032	1,1,la_office02,76,38
 la_office02,72,38,0	warp	lav033	1,1,lavive_04,19,59
 
-lavive_08,29,17,0	warp	lav034	1,1,la_police,93,20
 la_police,93,16,0	warp	lav035	1,1,lavive_08,32,17
 
 lavive_05,64,40,0	warp	lav036	1,1,la_market,110,31
@@ -92,9 +84,3 @@ la_in02,103,72,0	warp	lav063	1,1,lavive_03,64,89
 
 lavive_03,80,63,0	warp	lav064	1,1,la_in02,116,164
 la_in02,119,164,0	warp	lav065	1,1,lavive_03,80,60
-
-lavive_10,75,10,0	warp	lav066	1,1,la_in02,43,147
-la_in02,43,144,0	warp	lav067	1,1,lavive_10,87,9
-
-lavive_10,75,29,0	warp	lav068	1,1,la_in02,155,164
-la_in02,152,164,0	warp	lav069	1,1,lavive_10,87,29
