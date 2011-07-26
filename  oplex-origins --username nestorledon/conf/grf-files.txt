@@ -1,0 +1,12 @@
+//-----------------------------------------
+// GRF List
+//-----------------------------------------
+// You may add more in this format
+// grf: <data file path>
+grf: C:\Program Files (x86)\Gravity\Oplex Origins\oplex_origins.grf
+
+//------ Others ---------------------------
+
+// Data Directory (without the actual data\ though)
+// the below example would use C:\path\to\RO\data\
+data_dir: C:\Program Files (x86)\Gravity\Oplex Origins\data\
