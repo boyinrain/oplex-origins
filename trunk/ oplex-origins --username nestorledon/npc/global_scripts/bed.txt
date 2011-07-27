@@ -35,3 +35,23 @@ if(select("Yes:No")==1)
 // Here you put all the clones for this script using this format(Including an example)
 // mapname,X,Y,0 TAB duplicate(beds) TAB Bed TAB 111
 // Example = la_market,149,25,0	duplicate(beds)	Bed	111
+la_in01,40,102,0	duplicate(beds)	Bed	111
+la_in01,174,138,0	duplicate(beds)	Bed	111
+la_in01,174,30,0	duplicate(beds)	Bed	111
+la_in01,136,30,0	duplicate(beds)	Bed	111
+la_in01,88,64,0	duplicate(beds)	Bed	111
+la_in01,88,30,0	duplicate(beds)	Bed	111
+la_in01,88,172,0	duplicate(beds)	Bed	111
+la_in01,136,172,0	duplicate(beds)	Bed	111
+la_in01,136,102,0	duplicate(beds)	Bed	111
+la_in01,136,138,0	duplicate(beds)	Bed	111
+la_in01,174,102,0	duplicate(beds)	Bed	111
+la_in01,88,138,0	duplicate(beds)	Bed	111
+la_in01,174,172,0	duplicate(beds)	Bed	111
+la_in01,40,172,0	duplicate(beds)	Bed	111
+la_in01,40,138,0	duplicate(beds)	Bed	111
+la_in01,87,102,0	duplicate(beds)	Bed	111
+la_in01,174,64,0	duplicate(beds)	Bed	111
+la_in01,88,102,0	duplicate(beds)	Bed	111
+la_in01,40,64,0	duplicate(beds)	Bed	111
+la_in01,136,64,0	duplicate(beds)	Bed	111

@@ -64,23 +64,23 @@ la_market,106,31,0	warp	lav037	1,1,lavive_05,61,40
 lavive_08,61,72,0	warp	lav038	1,1,la_hospital,98,19
 la_hospital,98,16,0	warp	lav039	1,1,lavive_08,61,69
 
-lavive_03,52,26,0	warp	lav052	1,1,la_in01,139,20
-la_in01,139,16,0	warp	lav053	1,1,lavive_03,48,26
+lavive_03,52,26,0	warp	lav052	1,1,la_in01,140,52
+la_in01,141,50,0	warp	lav053	1,1,lavive_03,48,26
 
-lavive_03,85,24,0	warp	lav054	1,1,la_in01,92,19
-la_in01,92,16,0	warp	lav055	1,1,lavive_03,97,24
+lavive_03,85,24,0	warp	lav054	1,1,la_in01,45,91
+la_in01,45,88,0	warp	lav055	1,1,lavive_03,97,24
 
-lavive_03,30,23,0	warp	lav056	1,1,la_in01,44,20
-la_in01,47,20,0	warp	lav057	1,1,lavive_03,30,20
+lavive_03,30,23,0	warp	lav056	1,1,la_in01,179,126
+la_in01,179,124,0	warp	lav057	1,1,lavive_03,30,20
 
-lavive_03,28,65,0	warp	lav058	1,1,la_in02,52,84
-la_in02,55,84,0	warp	lav059	1,1,lavive_03,29,67
+lavive_03,28,65,0	warp	lav058	1,1,la_in02,179,19
+la_in01,179,16,0	warp	lav059	1,1,lavive_03,29,67
 
-lavive_03,34,92,0	warp	lav060	1,1,la_in02,180,92
-la_in02,180,95,0	warp	lav061	1,1,lavive_03,21,92
+lavive_03,34,92,0	warp	lav060	1,1,la_in02,141,19
+la_in01,141,16,0	warp	lav061	1,1,lavive_03,92
 
-lavive_03,66,88,0	warp	lav062	1,1,la_in02,103,75
-la_in02,103,72,0	warp	lav063	1,1,lavive_03,64,89
+lavive_03,66,88,0	warp	lav062	1,1,la_in02,93,53
+la_in01,93,50,0	warp	lav063	1,1,lavive_03,64,89
 
-lavive_03,80,63,0	warp	lav064	1,1,la_in02,116,164
-la_in02,119,164,0	warp	lav065	1,1,lavive_03,80,60
+lavive_03,80,63,0	warp	lav064	1,1,la_in02,92,20
+la_in01,93,16,0	warp	lav065	1,1,lavive_03,80,60
