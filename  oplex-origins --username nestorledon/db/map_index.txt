@@ -851,5 +851,13 @@ la_office01
 la_office02
 la_park
 la_police
-la_sewer
-dev_house	1250
+la_sewer01
+la_sewer02
+la_sewer03
+la_sewer04
+la_sewer05
+la_sewer06
+la_sewer07
+la_sewer08
+la_sewer09
+la_sewer10
