@@ -55,3 +55,4 @@ la_in01,174,64,0	duplicate(beds)	Bed::bed16	111
 la_in01,88,102,0	duplicate(beds)	Bed::bed17	111
 la_in01,40,64,0	duplicate(beds)	Bed::bed18	111
 la_in01,136,64,0	duplicate(beds)	Bed::bed19	111
+la_in01,40,30,0	duplicate(beds)	Bed::bed17	111
