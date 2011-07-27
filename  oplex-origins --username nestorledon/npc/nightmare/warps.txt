@@ -64,23 +64,42 @@ la_market,106,31,0	warp	lav037	1,1,lavive_05,61,40
 lavive_08,61,72,0	warp	lav038	1,1,la_hospital,98,19
 la_hospital,98,16,0	warp	lav039	1,1,lavive_08,61,69
 
-lavive_03,52,26,0	warp	lav052	1,1,la_in01,140,52
-la_in01,141,50,0	warp	lav053	1,1,lavive_03,48,26
+//Lavive House Warps
+lavive_03, 29,91,0	warp	lav052	1,1,la_in01,44,18
+la_in01, 44,16,0	warp	lav053	1,1,lavive_03,33,92
 
-lavive_03,85,24,0	warp	lav054	1,1,la_in01,45,91
-la_in01,45,88,0	warp	lav055	1,1,lavive_03,97,24
+lavive_03, 5,75,0	warp	lav052	1,1,la_in01,92,18
+la_in01, 92,16,0	warp	lav053	1,1,lavive_03,9,76
 
-lavive_03,30,23,0	warp	lav056	1,1,la_in01,179,126
-la_in01,179,124,0	warp	lav057	1,1,lavive_03,30,20
+lavive_03, 5,48,0	warp	lav052	1,1,la_in01,140,18
+la_in01, 140,16,0	warp	lav053	1,1,lavive_03,9,49
 
-lavive_03,28,65,0	warp	lav058	1,1,la_in02,179,19
-la_in01,179,16,0	warp	lav059	1,1,lavive_03,29,67
+lavive_03, 5,20,0	warp	lav052	1,1,la_in01,178,18
+la_in01, 178,16,0	warp	lav053	1,1,lavive_03,9,20
 
-lavive_03,34,92,0	warp	lav060	1,1,la_in02,141,19
-la_in01,141,16,0	warp	lav061	1,1,lavive_03,92
+lavive_03, 21,4,0	warp	lav052	1,1,la_in01,44,52
+la_in01, 44,50,0	warp	lav053	1,1,lavive_03,21,8
 
-lavive_03,66,88,0	warp	lav062	1,1,la_in02,93,53
-la_in01,93,50,0	warp	lav063	1,1,lavive_03,64,89
+lavive_03, 48,3,0	warp	lav052	1,1,la_in01,92,52
+la_in01, 92,50,0	warp	lav053	1,1,lavive_03,48,7
 
-lavive_03,80,63,0	warp	lav064	1,1,la_in02,92,20
-la_in01,93,16,0	warp	lav065	1,1,lavive_03,80,60
+lavive_03, 78,3,0	warp	lav052	1,1,la_in01,140,52
+la_in01, 140,50,0	warp	lav053	1,1,lavive_03,78,7
+
+lavive_03, 90,22,0	warp	lav052	1,1,la_in01,178,52
+la_in01, 178,50,0	warp	lav053	1,1,lavive_03,86,23
+
+lavive_03, 81,68,0	warp	lav052	1,1,la_in01,44,90
+la_in01, 44,88,0	warp	lav053	1,1,lavive_03,80,64
+
+lavive_03, 70,88,0	warp	lav052	1,1,la_in01,92,90
+la_in01, 92,88,0	warp	lav053	1,1,lavive_03,66,89
+
+lavive_03, 28,59,0	warp	lav052	1,1,la_in01,140,90
+la_in01, 140,88,0	warp	lav053	1,1,lavive_03,29,63
+
+lavive_03, 31,27,0	warp	lav052	1,1,la_in01,178,90
+la_in01, 178,88,0	warp	lav053	1,1,lavive_03,31,23
+
+lavive_03, 54,25,0	warp	lav052	1,1,la_in01,44,126
+la_in01, 44,124,0	warp	lav053	1,1,lavive_03,50,26
