@@ -1,0 +1,22 @@
+//===== Oplex Origins Script =================================
+//= Ladder
+//===== By: ================================================== 
+//= Ducky
+//===== Current Version: ===================================== 
+//= 1.0
+//===== Compatible With: ===================================== 
+//= Any Oplex Version 
+//===== Description: ========================================= 
+//= Climbing ladders
+//===== Changelog: ===========================================
+//= v1.0 - Original release
+//============================================================
+//ATTENTION: NEEDS AN "EMPTY" NPC (NPC sprite that's basically nothing, so it's just a clickable area)
+
+lavive_03.gat,26,95,0	script	Ladder::ladder_la01	0,{
+	sleep2 500;	//Give the script a half second delay before allowing player to go through (limits abuse)
+	message strcharinfo(0), "You climbed up the ladder.";
+//	warp "la_in01",47,21;	//Place appropriate coordinates
+	end;
+
+}
