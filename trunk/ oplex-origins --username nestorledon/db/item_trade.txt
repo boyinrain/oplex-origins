@@ -12,3 +12,7 @@
 //Example:
 //1161,67,50 //Balmung: No drop, No trade, No Guild Store (1+2+64 =67),
 //only GMs of GM-level 50 and up can override the setting.
+
+1101,127,99 //9mm
+1103,127,99 //12 Gauge
+1105,127,99 //556mm
