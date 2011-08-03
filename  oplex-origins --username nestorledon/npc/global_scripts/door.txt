@@ -1,18 +1,17 @@
 //===== Oplex Origins Script =================================
 //= Door
 //===== By: ================================================== 
-//= Ducky
+//= Ducky and Epsynus
 //===== Current Version: ===================================== 
-//= 1.0
+//= 1.1
 //===== Compatible With: ===================================== 
 //= Any Oplex Version 
 //===== Description: ========================================= 
 //= Locked doors
 //===== Changelog: ===========================================
 //= v1.0 - Original release
+//= v1.1 - Fixed sprite. 111 is as long as you aint touched it. an empty sprite.
 //============================================================
-//ATTENTION: NEEDS AN "EMPTY" NPC (NPC sprite that's basically nothing, so it's just a clickable area)
-
 lavive_03.gat,26,95,0	script	Door::door_la01	0,{
 	set @keyitemid, 500; //PLACE THE KEY ITEM ID HERE BEFORE USING THE SCRIPT
 	set @keyname$, "Silver Key";	//NAME OF THE KEY, EDIT BEFORE USING SCRIPT
