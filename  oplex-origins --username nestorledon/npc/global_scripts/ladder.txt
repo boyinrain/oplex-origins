@@ -13,10 +13,10 @@
 //= v1.1 - Fixed sprite
 //============================================================
 
-lavive_03.gat,26,95,0	script	Ladder::ladder_la01	111,{
+lavive_01.gat,50,48,0	script	Ladder::ladder_la01	111,{
 	sleep2 500;	//Give the script a half second delay before allowing player to go through (limits abuse)
-	message strcharinfo(0), "You climbed up the ladder.";
-//	warp "la_in01",47,21;	//Place appropriate coordinates
+	message strcharinfo(0), "You climbed the ladder.";
+	warp "la_sewer01",36,32;	//Place appropriate coordinates
 	end;
 
 }
