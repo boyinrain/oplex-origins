@@ -33,7 +33,7 @@ win_jam:
 	end;
 }
 
-la_in01.gat,47,20,0	script	Window:win_la02	111,{
+la_in01.gat,47,20,0	script	Window::win_la02	111,{
 	sleep2 1000;
 	set @brokenwindow, rand(0,10);
 	if(@brokenwindow == 5) goto win_jam;
