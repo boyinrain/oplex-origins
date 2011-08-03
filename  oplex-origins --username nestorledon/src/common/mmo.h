@@ -18,10 +18,10 @@
 //The number is the max number of hotkeys to save (27 = 9 skills x 3 bars)
 #define MAX_HOTKEYS 27
 
-#define MAX_MAP_PER_SERVER 1500 // Increased to allow creation of Instance Maps
+#define MAX_MAP_PER_SERVER 1024
 #define MAX_INVENTORY 100
 //Max number of characters per account. Note that changing this setting alone is not enough if the client is not hexed to support more characters as well.
-#define MAX_CHARS 9
+#define MAX_CHARS 3
 //Number of slots carded equipment can have. Never set to less than 4 as they are also used to keep the data of forged items/equipment. [Skotlex]
 //Note: The client seems unable to receive data for more than 4 slots due to all related packets having a fixed size.
 #define MAX_SLOTS 4
@@ -41,8 +41,8 @@
 #define MAX_WALK_SPEED 1000
 #define MAX_STORAGE 600
 #define MAX_GUILD_STORAGE 1000
-#define MAX_PARTY 12
-#define MAX_GUILD 16+10*6	// increased max guild members +6 per 1 extension levels [Lupus]
+#define MAX_PARTY 15
+#define MAX_GUILD 20+10*8	// increased max guild members +6 per 1 extension levels [Lupus]
 #define MAX_GUILDPOSITION 20	// increased max guild positions to accomodate for all members [Valaris] (removed) [PoW]
 #define MAX_GUILDEXPULSION 32
 #define MAX_GUILDALLIANCE 16
@@ -270,7 +270,7 @@ struct mmo_charstatus {
 	int zeny;
 
 	short class_;
-	unsigned int status_point,skill_point;
+	unsigned short status_point,skill_point;
 	int hp,max_hp,sp,max_sp;
 	unsigned int option;
 	short manner;
@@ -332,7 +332,7 @@ struct mail_message {
 
 struct mail_data {
 	short amount;
-	bool full;
+	bool changed, full;
 	short unchecked, unread;
 	struct mail_message msg[MAIL_MAX_INBOX];
 };
@@ -592,12 +592,6 @@ enum {
 	JOB_STAR_GLADIATOR2,
 	JOB_SOUL_LINKER,
 	JOB_MAX,
-};
-
-enum {
-	SEX_FEMALE = 0,
-	SEX_MALE,
-	SEX_SERVER
 };
 
 // sanity checks...

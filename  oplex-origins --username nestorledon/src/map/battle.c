@@ -1431,7 +1431,7 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src,struct blo
 					skillratio += 35*skill_lv;
 					break;
 				case AM_DEMONSTRATION:
-					skillratio += 20*skill_lv;
+					skillratio += 0;
 					break;
 				case AM_ACIDTERROR:
 					skillratio += 40*skill_lv;
@@ -2513,13 +2513,13 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
 	{
 	case HT_LANDMINE:
 	case MA_LANDMINE:
-		md.damage=skill_lv*(sstatus->dex+75)*(100+sstatus->int_)/100;
+		md.damage=75;	//[duckyqq - Traps are modified (damage wise)]
 		break;
 	case HT_BLASTMINE:
-		md.damage=skill_lv*(sstatus->dex/2+50)*(100+sstatus->int_)/100;
+		md.damage=50;
 		break;
 	case HT_CLAYMORETRAP:
-		md.damage=skill_lv*(sstatus->dex/2+75)*(100+sstatus->int_)/100;
+		md.damage=35;
 		break;
 	case HT_BLITZBEAT:
 	case SN_FALCONASSAULT:
@@ -2541,7 +2541,7 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
 		}
 		break;
 	case TF_THROWSTONE:
-		md.damage=50;
+		md.damage=15;	//[duckyqq - Modified Throw Stone damage to 15]
 		break;
 	case BA_DISSONANCE:
 		md.damage=30+skill_lv*10;

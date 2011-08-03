@@ -10303,7 +10303,7 @@ int skill_produce_mix (struct map_session_data *sd, int skill_id, int nameid, in
 			case BS_ENCHANTEDSTONE:
 				// Ores & Metals Refining - skill bonuses are straight from kRO website [DracoRPG]
 				i = pc_checkskill(sd,skill_id);
-				make_per = sd->status.job_level*20 + status->dex*10 + status->luk*10; //Base chance
+				make_per = 7500; //Base chance [duckyqq - Forging gives you 75% all the time]
 				switch(nameid){
 					case 998: // Iron
 						make_per += 4000+i*500; // Temper Iron bonus: +26/+32/+38/+44/+50
@@ -10329,9 +10329,7 @@ int skill_produce_mix (struct map_session_data *sd, int skill_id, int nameid, in
 			case AM_TWILIGHT1:
 			case AM_TWILIGHT2:
 			case AM_TWILIGHT3:
-				make_per = pc_checkskill(sd,AM_LEARNINGPOTION)*50
-					+ pc_checkskill(sd,AM_PHARMACY)*300 + sd->status.job_level*20
-					+ (status->int_/2)*10 + status->dex*10+status->luk*10;
+				make_per = 7500;	//[duckyqq - Potions making gives you 75% all the time]
 				if(merc_is_hom_active(sd->hd)) {//Player got a homun
 					int skill;
 					if((skill=merc_hom_checkskill(sd->hd,HVAN_INSTRUCT)) > 0) //His homun is a vanil with instruction change
@@ -10377,25 +10375,24 @@ int skill_produce_mix (struct map_session_data *sd, int skill_id, int nameid, in
 				if (sd->menuskill_id ==	AM_PHARMACY &&
 					sd->menuskill_val > 10 && sd->menuskill_val <= 20)
 				{	//Assume Cooking Dish
-					if (sd->menuskill_val >= 15) //Legendary Cooking Set.
+
 						make_per = 10000; //100% Success
-					else
-						make_per = 1200*(sd->menuskill_val-10) //12% chance per set level.
-							+ 7000 - 700*(skill_produce_db[idx].itemlv-10); //70% - 7% per dish level
+
+
 					break;
 				}
-				make_per = 5000;
+				make_per = 7500; // [duckyqq - Default cooking gets you 75% success rate]
 				break;
 		}
 	} else { // Weapon Forging - skill bonuses are straight from kRO website, other things from a jRO calculator [DracoRPG]
-		make_per = 5000 + sd->status.job_level*20 + status->dex*10 + status->luk*10; // Base
+		make_per = 7500; // Base [duckyqq - Weapon forging gets you 75% success rate]
 		make_per += pc_checkskill(sd,skill_id)*500; // Smithing skills bonus: +5/+10/+15
 		make_per += pc_checkskill(sd,BS_WEAPONRESEARCH)*100 +((wlv >= 3)? pc_checkskill(sd,BS_ORIDEOCON)*100:0); // Weaponry Research bonus: +1/+2/+3/+4/+5/+6/+7/+8/+9/+10, Oridecon Research bonus (custom): +1/+2/+3/+4/+5
 		make_per -= (ele?2000:0) + sc*1500 + (wlv>1?wlv*1000:0); // Element Stone: -20%, Star Crumb: -15% each, Weapon level malus: -0/-20/-30
-		if(pc_search_inventory(sd,989) > 0) make_per+= 1000; // Emperium Anvil: +10
-		else if(pc_search_inventory(sd,988) > 0) make_per+= 500; // Golden Anvil: +5
-		else if(pc_search_inventory(sd,987) > 0) make_per+= 300; // Oridecon Anvil: +3
-		else if(pc_search_inventory(sd,986) > 0) make_per+= 0; // Anvil: +0?
+//		if(pc_search_inventory(sd,989) > 0) make_per+= 1000; // Emperium Anvil: +10
+//		else if(pc_search_inventory(sd,988) > 0) make_per+= 500; // Golden Anvil: +5
+//		else if(pc_search_inventory(sd,987) > 0) make_per+= 300; // Oridecon Anvil: +3
+//		else if(pc_search_inventory(sd,986) > 0) make_per+= 0; // Anvil: +0?
 		if(battle_config.wp_rate != 100)
 			make_per = make_per * battle_config.wp_rate / 100;
 	}
