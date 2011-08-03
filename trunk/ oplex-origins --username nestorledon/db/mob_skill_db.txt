@@ -97,7 +97,7 @@
 1085,General Crawler@AS_SONICBLOW,attack,136,5,1000,800,5000,no,target,always,0,,,,,,
 1085,General Crawler@NPC_BLEEDING,attack,660,3,1000,0,3000,yes,target,always,0,,,,,,32
 1085,General Crawler@NPC_STUNATTACK,chase,179,3,500,0,5000,yes,target,always,0,,,,,,39
-1085,General Crawler@NPC_HALLUCINATION,at-tack,207,1,500,500,5000,yes,target,always,0,,,,,,18
+1085,General Crawler@NPC_HALLUCINATION,attack,207,1,500,500,5000,yes,target,always,0,,,,,,18
 1085,General Crawler@KN_BOWLINGBASH,attack,62,10,1000,0,10000,yes,target,always,,,,,,,
 1086,Zombie Crawler@AL_INCAGI,chase,29,1,500,700,5000,no,self,always,0,,,,,,30
 1086,Zombie Crawler@NPC_CURSEATTACK,attack,181,1,500,800,5000,no,target,always,0,,,,,,6
@@ -109,7 +109,7 @@
 1087,Regenerator@CR_AUTOGUARD,chase,249,5,1000,0,300000,yes,self,longrangeattacked,,,,,,,
 1087,Regenerator@CR_AUTOGUARD,attack,249,5,1000,0,300000,yes,self,always,0,,,,,,
 1087,Regenerator@MO_BODYRELOCATION,chase,264,1,500,500,5000,no,target,always,0,,,,,,
-1088,Zombie_Pass@NPC_HALLUCINATION,at-tack,207,1,500,500,5000,yes,target,always,0,,,,,,18
+1088,Zombie_Pass@NPC_HALLUCINATION,attack,207,1,500,500,5000,yes,target,always,0,,,,,,18
 1089,Zombie_Pass@NPC_HALLUCINATION,attack,207,1,500,500,5000,yes,target,always,0,,,,,,18
 1090,Zombie_Pass@NPC_HALLUCINATION,attack,207,1,500,500,5000,yes,target,always,0,,,,,,18
 1091,Zombie_Pass@NPC_HALLUCINATION,attack,207,1,500,500,5000,yes,target,always,0,,,,,,18
