@@ -32,10 +32,7 @@ if(select("Yes:No")==1)
 		close;
 		}
 }
-// Here you put all the clones for this script using this format(Including an example)
-// mapname,X,Y,0 TAB duplicate(beds) TAB Bed TAB 111
-// Example = la_market,149,25,0	duplicate(beds)	Bed	111
-//la_in01,40,102,0	duplicate(beds)	Bed	111
+// Here you put all the clones for this script use the format below
 la_in01,174,138,0	duplicate(beds)	Bed::bed1	111
 la_in01,174,30,0	duplicate(beds)	Bed::bed2	111
 la_in01,136,30,0	duplicate(beds)	Bed::bed3	111
