@@ -1,21 +1,21 @@
 //===== Oplex Origins Script =================================
 //= Door
 //===== By: ================================================== 
-//= Ducky and Epsynus
+//= Ducky
 //===== Current Version: ===================================== 
-//= 1.1
+//= 1.0
 //===== Compatible With: ===================================== 
 //= Any Oplex Version 
 //===== Description: ========================================= 
 //= Locked doors
 //===== Changelog: ===========================================
 //= v1.0 - Original release
-//= v1.1 - Fixed sprite
 //============================================================
+//ATTENTION: NEEDS AN "EMPTY" NPC (NPC sprite that's basically nothing, so it's just a clickable area)
 
-lavive_03.gat,26,95,0	script	Door::door_la01	111,{
-	@keyitemid, 500; //PLACE THE KEY ITEM ID HERE BEFORE USING THE SCRIPT
-	@keyname$, "Silver Key";	//NAME OF THE KEY, EDIT BEFORE USING SCRIPT
+lavive_03.gat,26,95,0	script	Door::door_la01	0,{
+	set @keyitemid, 500; //PLACE THE KEY ITEM ID HERE BEFORE USING THE SCRIPT
+	set @keyname$, "Silver Key";	//NAME OF THE KEY, EDIT BEFORE USING SCRIPT
 	sleep2 500;	//Give the script a half second delay before allowing player to go through (limits abuse)
 	if(countitem(@keyitemid) < 1) goto door_fail;
 	message strcharinfo(0), "You inserted the " +@keyname$+ " and opened the door.";
