@@ -17,4 +17,3 @@ la_fild02	mapflag	nightenabled
 la_fild03	mapflag	nightenabled
 la_fild04	mapflag	nightenabled
 la_park	mapflag	nightenabled
-la_sewer	mapflag	nightenabled

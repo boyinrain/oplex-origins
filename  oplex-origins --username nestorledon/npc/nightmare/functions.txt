@@ -1,18 +1,39 @@
-function	script	reload10	{
-if(countitem(5000)>0) goto no_reload;
-	delitem 4000, 1;
-	getitem 5000, 10;
+function	script	func_bullet_9mm	{
+	message strcharinfo(0), "Reloading!";
+	sleep2 500;
+	delitem 1101, countitem(1101);
+	delitem 1102, 1;
+	getitem 1101, 15;
 	soundeffect "reload.wav",0;
 	return;
 	end;
-no_reload:
+}
+
+function	script	func_bullet_12gauge	{
+	message strcharinfo(0), "Reloading!";
+	sleep2 500;
+	delitem 1103, countitem(1103);
+	delitem 1104, 1;
+	getitem 1103, 10;
+	soundeffect "reload.wav",0;
+	return;
+	end;
+}
+
+function	script	func_bullet_556mm	{
+	message strcharinfo(0), "Reloading!";
+	sleep2 500;
+	delitem 1105, countitem(1105);
+	delitem 1106, 1;
+	getitem 1105, 5;
+	soundeffect "reload.wav",0;
 	return;
 	end;
 }
 
 //Item Functions
 
-function	script	watch_func	{
+function	script	func_watch	{
 	mes "The current time is: " + gettime(3) + ":" + gettime(2) + ":" + gettime(1);
 	set @break, rand(1,100);
 	if (@break>99) goto clock_broke;
@@ -21,30 +42,47 @@ function	script	watch_func	{
 
 clock_broke:
 	next;
-	mes "The clock stopped working..."; 
-	delitem 1005,1;
-	close;
+	message strcharinfo(0),"The clock stopped working..."; 
+	delitem 605,1;
+
 	end;
 }
 
-function	script	flashlight_func	{
+function	script	func_flashlight	{
 	sc_end 	SC_BLIND;
 	soundeffect "_stonecurse.wav",0;
 	sleep2 60000;
 	sc_start SC_BLIND,30000000,0;
 	end;
-
 }
 
-function	script	announce_func	{
+function	script	func_megaphone	{
+	message strcharinfo(0),"You decide to yell into a megaphone...";
 	set @announce1$, strcharinfo(0);
 	input @announce2$;
 	announce @announce1$ + " : " + @announce2$,bc_area;
 	end;
 }
 
-function	script	radio_send_func	{
-mes "Select a channel (1-10):";
+
+function	script	func_radio	{
+	mes "Select an option:";
+	menu "Send a message",func_radio_send,"Check messages",func_radio_recieve,"Nevermind",-;
+	close;
+	end;
+func_radio_send:
+	callfunc "func_radio_send";
+	close;
+	end;
+func_radio_recieve:
+	callfunc "func_radio_recieve";
+	close;	
+	end;
+}
+
+
+function	script	func_radio_send	{
+	mes "Select a channel (1-10):";
 	input @channel;
 	if (@channel < 1 || @channel > 10) goto send_mes_fail;
 	mes "Input your message :";
@@ -65,7 +103,7 @@ send_mes_fail:
 	end;
 }
 
-function	script	radio_recieve_func	{
+function	script	func_radio_recieve	{
 	mes "Radio has been connected.";
 	next;
 	mes "Channel 1: " + $message_name$[1] + ": " + $message_text$[1];
