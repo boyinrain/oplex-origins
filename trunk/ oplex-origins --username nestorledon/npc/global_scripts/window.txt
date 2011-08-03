@@ -3,7 +3,7 @@
 //===== By: ================================================== 
 //= Epsynus and Ducky
 //===== Current Version: ===================================== 
-//= 1.5
+//= 1.6
 //===== Compatible With: ===================================== 
 //= Any Oplex Version 
 //===== Description: ========================================= 
@@ -11,10 +11,10 @@
 //===== Changelog: ===========================================
 //= v1.0 - Original release
 //= v1.5 - Changed warp portals into an automatic NPC script
+//= v1.6 - Fixed sprites
 //============================================================
-//ATTENTION: NEEDS AN "EMPTY" NPC (NPC sprite that's basically nothing, so it's just a clickable area)
 
-lavive_03.gat,26,95,0	script	Window::win_la01	0,{
+lavive_03.gat,26,95,0	script	Window::win_la01	111,{
 	sleep2 1000;	//Give the script a 1 second delay before allowing player to climb through (limits abuse)
 	set @brokenwindow, rand(0,10);
 	if(@brokenwindow == 5) goto win_jam;
@@ -33,7 +33,7 @@ win_jam:
 	end;
 }
 
-la_in01.gat,47,20,0	script	Window:win_la02	-,{
+la_in01.gat,47,20,0	script	Window:win_la02	111,{
 	sleep2 1000;
 	set @brokenwindow, rand(0,10);
 	if(@brokenwindow == 5) goto win_jam;
