@@ -1618,7 +1618,7 @@ static unsigned int status_base_pc_maxsp(struct map_session_data* sd, struct sta
 {
 	unsigned int val;
 
-	val = 10 + sd->status.base_level*sp_coefficient[pc_class2idx(sd->status.class_)]/100;
+	val = 100; //[duckyqq - Edited the value of SP from "+ sd->status.base_level*sp_coefficient[pc_class2idx(sd->status.class_)]/100;" to 100;
 	val += val * 0; // [duckyqq - Removal of INT bonus on maxSP]
 
 //	if (sd->class_&JOBL_UPPER)
@@ -2265,8 +2265,8 @@ int status_calc_pc(struct map_session_data* sd,int first)
 // ----- MISC CALCULATIONS -----
 
 	// Weight
-	if((skill=pc_checkskill(sd,MC_INCCARRY))>0)
-		sd->max_weight += 2000*skill;
+	if((skill=pc_checkskill(sd,MC_INCCARRY))>0)		//[duckyqq - Increase weight limit by 250]
+		sd->max_weight += 2500*skill;
 	if(pc_isriding(sd) && pc_checkskill(sd,KN_RIDING)>0)
 		sd->max_weight += 10000;
 	if(sc->data[SC_KNOWLEDGE])
