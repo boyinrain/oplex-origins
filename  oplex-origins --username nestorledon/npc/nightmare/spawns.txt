@@ -4,86 +4,86 @@ lavive_09,0,0,0,0	monster	Tank	1085,1,1800000,1800000,0
 
 lavive_01,0,0,0,0	monster	Animal	1011,3,30000,30000,0
 lavive_01,0,0,0,0	monster	Animal	1008,1,30000,30000,0
-lavive_01,0,0,0,0	monster	Supply Crate	1504,1,30000,30000,0
-lavive_01,0,0,0,0	monster	Supply Crate	1505,1,30000,30000,0
+lavive_01,0,0,0,0	monster	Supply Crate	1504,3,300000,300000,0
+lavive_01,0,0,0,0	monster	Supply Crate	1505,3,300000,300000,0
 
 lavive_02,0,0,0,0	monster	Undead	1078,10,30000,30000,0
 lavive_02,0,0,0,0	monster	Undead	1079,10,30000,30000,0
 lavive_02,0,0,0,0	monster	Undead	1080,10,30000,30000,0
-lavive_02,0,0,0,0	monster	Supply Crate	1504,3,15000,30000,0
-lavive_02,0,0,0,0	monster	Supply Crate	1501,1,15000,30000,0
-lavive_02,0,0,0,0	monster	Supply Crate	1505,3,15000,30000,0
-lavive_02,0,0,0,0	monster	Supply Crate	1502,1,15000,30000,0
-lavive_02,0,0,0,0	monster	Supply Crate	1503,3,15000,30000,0
+lavive_02,0,0,0,0	monster	Supply Crate	1504,5,300000,300000,0
+lavive_02,0,0,0,0	monster	Supply Crate	1501,1,300000,300000,0
+lavive_02,0,0,0,0	monster	Supply Crate	1505,5,300000,300000,0
+lavive_02,0,0,0,0	monster	Supply Crate	1502,1,300000,300000,0
+lavive_02,0,0,0,0	monster	Supply Crate	1503,5,300000,300000,0
 
 lavive_03,0,0,0,0	monster	Undead	1081,10,30000,30000,0
 lavive_03,0,0,0,0	monster	Undead	1082,10,30000,30000,0
 lavive_03,0,0,0,0	monster	Undead	1083,10,30000,30000,0
-lavive_03,0,0,0,0	monster	Supply Crate	1504,3,15000,30000,0
-lavive_03,0,0,0,0	monster	Supply Crate	1501,1,15000,30000,0
-lavive_03,0,0,0,0	monster	Supply Crate	1505,3,15000,30000,0
-lavive_03,0,0,0,0	monster	Supply Crate	1502,1,15000,30000,0
-lavive_03,0,0,0,0	monster	Supply Crate	1503,3,15000,30000,0
+lavive_03,0,0,0,0	monster	Supply Crate	1504,5,300000,300000,0
+lavive_03,0,0,0,0	monster	Supply Crate	1501,1,300000,300000,0
+lavive_03,0,0,0,0	monster	Supply Crate	1505,5,300000,300000,0
+lavive_03,0,0,0,0	monster	Supply Crate	1502,1,300000,300000,0
+lavive_03,0,0,0,0	monster	Supply Crate	1503,5,300000,300000,0
 
 lavive_04,0,0,0,0	monster	Undead	1078,10,30000,30000,0
 lavive_04,0,0,0,0	monster	Undead	1079,10,30000,30000,0
 lavive_04,0,0,0,0	monster	Undead	1080,10,30000,30000,0
-lavive_04,0,0,0,0	monster	Supply Crate	1504,3,15000,30000,0
-lavive_04,0,0,0,0	monster	Supply Crate	1501,1,15000,30000,0
-lavive_04,0,0,0,0	monster	Supply Crate	1505,3,15000,30000,0
-lavive_04,0,0,0,0	monster	Supply Crate	1502,1,15000,30000,0
-lavive_04,0,0,0,0	monster	Supply Crate	1503,3,15000,30000,0
+lavive_04,0,0,0,0	monster	Supply Crate	1504,5,300000,300000,0
+lavive_04,0,0,0,0	monster	Supply Crate	1501,1,300000,300000,0
+lavive_04,0,0,0,0	monster	Supply Crate	1505,5,300000,300000,0
+lavive_04,0,0,0,0	monster	Supply Crate	1502,1,300000,300000,0
+lavive_04,0,0,0,0	monster	Supply Crate	1503,5,300000,300000,0
 
 lavive_05,0,0,0,0	monster	Undead	1081,10,30000,30000,0
 lavive_05,0,0,0,0	monster	Undead	1082,10,30000,30000,0
 lavive_05,0,0,0,0	monster	Undead	1083,10,30000,30000,0
-lavive_05,0,0,0,0	monster	Supply Crate	1504,3,15000,30000,0
-lavive_05,0,0,0,0	monster	Supply Crate	1501,1,15000,30000,0
-lavive_05,0,0,0,0	monster	Supply Crate	1505,3,15000,30000,0
-lavive_05,0,0,0,0	monster	Supply Crate	1502,1,15000,30000,0
-lavive_05,0,0,0,0	monster	Supply Crate	1503,3,15000,30000,0
+lavive_05,0,0,0,0	monster	Supply Crate	1504,5,300000,300000,0
+lavive_05,0,0,0,0	monster	Supply Crate	1501,1,300000,300000,0
+lavive_05,0,0,0,0	monster	Supply Crate	1505,5,300000,300000,0
+lavive_05,0,0,0,0	monster	Supply Crate	1502,1,300000,300000,0
+lavive_05,0,0,0,0	monster	Supply Crate	1503,5,300000,300000,0
 
 lavive_06,0,0,0,0	monster	Undead	1078,10,30000,30000,0
 lavive_06,0,0,0,0	monster	Undead	1079,10,30000,30000,0
 lavive_06,0,0,0,0	monster	Undead	1080,10,30000,30000,0
-lavive_06,0,0,0,0	monster	Supply Crate	1504,3,15000,30000,0
-lavive_06,0,0,0,0	monster	Supply Crate	1501,1,15000,30000,0
-lavive_06,0,0,0,0	monster	Supply Crate	1505,3,15000,30000,0
-lavive_06,0,0,0,0	monster	Supply Crate	1502,1,15000,30000,0
-lavive_06,0,0,0,0	monster	Supply Crate	1503,3,15000,30000,0
+lavive_06,0,0,0,0	monster	Supply Crate	1504,3,300000,300000,0
+lavive_06,0,0,0,0	monster	Supply Crate	1501,1,300000,300000,0
+lavive_06,0,0,0,0	monster	Supply Crate	1505,5,300000,300000,0
+lavive_06,0,0,0,0	monster	Supply Crate	1502,1,300000,300000,0
+lavive_06,0,0,0,0	monster	Supply Crate	1503,5,300000,300000,0
 
 lavive_07,0,0,0,0	monster	Undead	1081,10,30000,30000,0
 lavive_07,0,0,0,0	monster	Undead	1082,10,30000,30000,0
 lavive_07,0,0,0,0	monster	Undead	1083,10,30000,30000,0
-lavive_07,0,0,0,0	monster	Supply Crate	1504,3,15000,30000,0
-lavive_07,0,0,0,0	monster	Supply Crate	1501,1,15000,30000,0
-lavive_07,0,0,0,0	monster	Supply Crate	1505,3,15000,30000,0
-lavive_07,0,0,0,0	monster	Supply Crate	1502,1,15000,30000,0
-lavive_07,0,0,0,0	monster	Supply Crate	1503,3,15000,30000,0
+lavive_07,0,0,0,0	monster	Supply Crate	1504,5,300000,300000,0
+lavive_07,0,0,0,0	monster	Supply Crate	1501,5,300000,300000,0
+lavive_07,0,0,0,0	monster	Supply Crate	1505,5,300000,300000,0
+lavive_07,0,0,0,0	monster	Supply Crate	1502,1,300000,300000,0
+lavive_07,0,0,0,0	monster	Supply Crate	1503,5,300000,300000,0
 
 lavive_08,0,0,0,0	monster	Undead	1078,10,30000,30000,0
 lavive_08,0,0,0,0	monster	Undead	1079,10,30000,30000,0
 lavive_08,0,0,0,0	monster	Undead	1080,10,30000,30000,0
-lavive_08,0,0,0,0	monster	Supply Crate	1504,3,15000,30000,0
-lavive_08,0,0,0,0	monster	Supply Crate	1501,1,15000,30000,0
-lavive_08,0,0,0,0	monster	Supply Crate	1505,3,15000,30000,0
-lavive_08,0,0,0,0	monster	Supply Crate	1502,1,15000,30000,0
-lavive_08,0,0,0,0	monster	Supply Crate	1503,3,15000,30000,0
+lavive_08,0,0,0,0	monster	Supply Crate	1504,5,300000,300000,0
+lavive_08,0,0,0,0	monster	Supply Crate	1501,1,300000,300000,0
+lavive_08,0,0,0,0	monster	Supply Crate	1505,5,300000,300000,0
+lavive_08,0,0,0,0	monster	Supply Crate	1502,1,300000,300000,0
+lavive_08,0,0,0,0	monster	Supply Crate	1503,5,300000,300000,0
 
 lavive_09,0,0,0,0	monster	Undead	1081,25,30000,30000,0
 lavive_09,0,0,0,0	monster	Undead	1082,25,30000,30000,0
 lavive_09,0,0,0,0	monster	Undead	1083,25,30000,30000,0
-lavive_09,0,0,0,0	monster	Supply Crate	1504,3,15000,30000,0
-lavive_09,0,0,0,0	monster	Supply Crate	1501,1,15000,30000,0
-lavive_09,0,0,0,0	monster	Supply Crate	1505,3,15000,30000,0
-lavive_09,0,0,0,0	monster	Supply Crate	1502,1,15000,30000,0
-lavive_09,0,0,0,0	monster	Supply Crate	1503,3,15000,30000,0
+lavive_09,0,0,0,0	monster	Supply Crate	1504,7,300000,300000,0
+lavive_09,0,0,0,0	monster	Supply Crate	1501,1,300000,300000,0
+lavive_09,0,0,0,0	monster	Supply Crate	1505,7,300000,300000,0
+lavive_09,0,0,0,0	monster	Supply Crate	1502,1,300000,300000,0
+lavive_09,0,0,0,0	monster	Supply Crate	1503,7,300000,300000,0
 
 lavive_10,0,0,0,0	monster	Undead	1078,10,30000,30000,0
 lavive_10,0,0,0,0	monster	Undead	1079,10,30000,30000,0
 lavive_10,0,0,0,0	monster	Undead	1080,10,30000,30000,0
-lavive_10,0,0,0,0	monster	Supply Crate	1504,3,15000,30000,0
-lavive_10,0,0,0,0	monster	Supply Crate	1501,1,15000,30000,0
-lavive_10,0,0,0,0	monster	Supply Crate	1505,3,15000,30000,0
-lavive_10,0,0,0,0	monster	Supply Crate	1502,1,15000,30000,0
-lavive_10,0,0,0,0	monster	Supply Crate	1503,3,15000,30000,0
+lavive_10,0,0,0,0	monster	Supply Crate	1504,5,300000,300000,0
+lavive_10,0,0,0,0	monster	Supply Crate	1501,1,300000,300000,0
+lavive_10,0,0,0,0	monster	Supply Crate	1505,5,300000,300000,0
+lavive_10,0,0,0,0	monster	Supply Crate	1502,1,300000,300000,0
+lavive_10,0,0,0,0	monster	Supply Crate	1503,5,300000,300000,0

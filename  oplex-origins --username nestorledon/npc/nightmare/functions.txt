@@ -1,9 +1,8 @@
 function	script	func_bullet_9mm	{
 	message strcharinfo(0), "Reloading!";
-	sleep2 500;
-	delitem 1101,countitem(1101);
-	delitem 1102,1;
-	getitem 1101,15;
+	delitem 1101, countitem(1101);
+	delitem 1102, 1;
+	getitem 1101, 15;
 	soundeffect "reload.wav",0;
 	return;
 	end;
@@ -11,10 +10,9 @@ function	script	func_bullet_9mm	{
 
 function	script	func_bullet_12gauge	{
 	message strcharinfo(0), "Reloading!";
-	sleep2 500;
-	delitem 1103,countitem(1103);
-	delitem 1104,1;
-	getitem 1103,10;
+	delitem 1103, countitem(1103);
+	delitem 1104, 1;
+	getitem 1103, 10;
 	soundeffect "reload.wav",0;
 	return;
 	end;
@@ -22,10 +20,9 @@ function	script	func_bullet_12gauge	{
 
 function	script	func_bullet_556mm	{
 	message strcharinfo(0), "Reloading!";
-	sleep2 500;
-	delitem 1105,countitem(1105);
-	delitem 1106,1;
-	getitem 1105,5;
+	delitem 1105, countitem(1105);
+	delitem 1106, 1;
+	getitem 1105, 5;
 	soundeffect "reload.wav",0;
 	return;
 	end;
@@ -63,7 +60,6 @@ function	script	func_megaphone	{
 	set @announce1$, strcharinfo(0);
 	input @announce2$;
 	announce @announce1$ + " : " + @announce2$,bc_area;
-	delitem 603,1;
 	end;
 }
 
@@ -142,7 +138,7 @@ function	script	sleep_func	{
 sleep_30sec:
 	mes "It's time to get some rest...";
 	sc_start SC_SLEEP,30000,0;
-	cutin "sleep",4;
+	cutin "sleep",2;
 	sleep2 3000;
 	mes "[|---------]";
 	sleep2 3000;
@@ -169,7 +165,7 @@ sleep_30sec:
 sleep_1min:
 	mes "It's time to get some rest...";
 	sc_start SC_SLEEP,60000,0;
-	cutin "sleep",4;
+	cutin "sleep",2;
 	sleep2 6000;
 	mes "[|---------]";
 	sleep2 6000;

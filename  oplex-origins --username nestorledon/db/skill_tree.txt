@@ -14,7 +14,7 @@
 0,150,1,0,0,0,0,0,0,0,0,0,0 //TF_BACKSLIDING#Back Sliding#
 0,152,1,0,0,0,0,0,0,0,0,0,0 //TF_THROWSTONE#Stone Fling#
 0,124,1,0,0,0,0,0,0,0,0,0,0 //HT_REMOVETRAP#Remove Trap#
-0,8,1,0,0,0,0,0,0,0,0,0,0 //SM_ENDURE#Endure#
+//0,8,1,0,0,0,0,0,0,0,0,0,0 //SM_ENDURE#Endure#
 
 //Trap skills
 //0,115,5,0,0,0,0,0,0,0,0,0,0 //HT_SKIDTRAP#Skid Trap#
