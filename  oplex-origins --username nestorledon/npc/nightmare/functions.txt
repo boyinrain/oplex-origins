@@ -63,6 +63,7 @@ function	script	func_megaphone	{
 	set @announce1$, strcharinfo(0);
 	input @announce2$;
 	announce @announce1$ + " : " + @announce2$,bc_area;
+	delitem 603,1;
 	end;
 }
 
