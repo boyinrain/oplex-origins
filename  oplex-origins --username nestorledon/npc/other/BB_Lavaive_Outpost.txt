@@ -14,7 +14,7 @@
 //= 1.0 Added the Bulletin Board system [[GM]Xeon]
 //============================================================ 
 
-lavive_01.gat,50,46,1	script	Bulletin Board#XeonBB1	47,{ //Other good sprites: 857, 858, 844, 837
+//lavive_01.gat,50,46,1	script	Bulletin Board#XeonBB1	53,{ //Other good sprites: 857, 858, 844, 837
 
 //======================
 //= Custom Settings
