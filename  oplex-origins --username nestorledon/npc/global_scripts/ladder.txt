@@ -18,7 +18,7 @@ lavive_01.gat,50,48,0	script	Ladder::ladder_la01	111,{
 	set @crowbarname$, "Crowbar";
 	sleep2 500;	//Give the script a half second delay before allowing player to go through (limits abuse)
 	if(countitem(@crowbarid) < 1) goto ladder_fail;
-	message strcharinfo(0), "You use your " +@keyname$+ " too unlock the ladder.";
+	message strcharinfo(0), "You use your " +@crowbarname$+ " too unlock the ladder.";
 	warp "la_sewer01",36,32;	//Place appropriate coordinates
 	end;
 ladder_fail:
