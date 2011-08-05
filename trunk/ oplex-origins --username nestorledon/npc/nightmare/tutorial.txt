@@ -54,14 +54,6 @@ tutorial_survey:
 	mes "Alright.";
 	next;
 	mes @npcname$;
-	mes "You are on the show Deal or No Deal, and you've already been offered $250,000, but there's one last suitcase that could either be a $1,000,000 or $1. Would you:";
-	mes "A. Take the deal of $250,000 and walk away.";
-	mes "B. No deal and take the risk of getting all-or-nothing.";
-	if(select("A:B")==1) set statdex,statdex+1;
-		else { set statluk,statluk+1;
-			}
-	next;
-	mes @npcname$;
 	mes "A person is about to get shot by a gunsman. What is your first reaction?";
 	mes "A. Run towards the person and take the bullet.";
 	mes "B. Throw something to knock out the gunsman before he can shoot, but with the risk of missing.";
@@ -78,27 +70,11 @@ tutorial_survey:
 			}
 	next;
 	mes @npcname$;
-	mes "If you are in jail and are about to be executed, would you:";
-	mes "A. Accept your death.";
-	mes "B. Try to escape it.";
-	if(select("A:B")==1) set statstr,statstr+1;
-		else { set statint,statint+1;
-			}
-	next;
-	mes @npcname$;
 	mes "Do you believe Apple Jacks taste like apples?";
 	mes "A. WTF?!";
 	mes "B. Yes, they do. That's why they call them Apple Jacks!";
 	if(select("A:B")==1) set statdex,statdex+1;
 		else { set statluk,statluk+1;
-			}
-	next;
-	mes @npcname$;
-	mes "A person you don't like gets the blame for something that you did. What would you do?";
-	mes "A. Confess that it is really all your fault.";
-	mes "B. Ignore it and let it be.";
-	if(select("A:B")==1) set statvit,statvit+1;
-		else { set statagi,statagi+1;
 			}
 	next;
 	mes @npcname$;
@@ -150,43 +126,11 @@ tutorial_survey:
 			}
 	next;
 	mes @npcname$;
-	mes "You decide to buy a new car. What kind of car are you looking for?";
-	mes "A. An awesomely fast and nice-looking car, but doesn't last very long.";
-	mes "B. A fuel-efficient and safer car, but then people will make fun of you.";
-	if(select("A:B")==2) set statvit,statvit+1;
-		else { set statagi,statagi+1;
-			}
-	next;
-	mes @npcname$;
-	mes "A superhero is offering to give you one of his powers. Which one would you choose?";
-	mes "A. His abiility to acquire steel skin";
-	mes "B. His ability to teleport.";
-	if(select("A:B")==1) set statvit,statvit+1;
-		else { set statagi,statagi+1;
-			}
-	next;
-	mes @npcname$;
-	mes "A giant meteor is about to hit the world and may cause the world to end. What do you do with the last few days left?";
-	mes "A. Join those who are going deep underground in order to survive.";
-	mes "B. Party your night away and enjoy your last few days left.";
-	if(select("A:B")==2) set statdex,statdex+1;
-		else { set statluk,statluk+1;
-			}
-	next;
-	mes @npcname$;
 	mes "There's a picnic that your friends invited you to attend for the weekend. What do you bring?";
 	mes "A. Enough hamburger patties and buns to satisfy almost all the attendees.";
 	mes "B. BACON. But only enough for yourself, because you're a scumbag.";
 	if(select("A:B")==2) set statint,statint+1;
 		else { set statstr,statstr+1;
-			}
-	next;
-	mes @npcname$;
-	mes "You are about to fight a monster, but there are only two weapons you can find. Which weapon would you pick to slay this monster?";
-	mes "A. A Katana.";
-	mes "B. A Battle Axe.";
-	if(select("A:B")==2) set statvit,statvit+1;
-		else { set statagi,statagi+1;
 			}
 	next;
 	mes @npcname$;
@@ -214,38 +158,6 @@ tutorial_survey:
 			}
 	next;
 	mes @npcname$;
-	mes "You find a wallet on the street with $100 in it. Would you:";
-	mes "A. Keep the wallet and take the money since a person lost it.";
-	mes "B. Turn it into the police in hopes of getting a reward.";
-	if(select("A:B")==1) set statdex,statdex+1;
-		else { set statluk,statluk+1;
-			}
-	next;
-	mes @npcname$;
-	mes "There are two t-shirt printing companies, but you do not know who is better at printing t-shirts. One company seems to be professional but is expensive; the other company is cheaper, but it seems like they don't do a very good job. Which company would you pick?";
-	mes "A. The professional, but more expensive looking company.";
-	mes "B. The cheaper, but less professinal looking company.";
-	if(select("A:B")==1) set statdex,statdex+1;
-		else { set statluk,statluk+1;
-			}
-	next;
-	mes @npcname$;
-	mes "If you were on the football team, would you play on the:";
-	mes "A. Offense.";
-	mes "B. Defense.";
-	if(select("A:B")==2) set statvit,statvit+1;
-		else { set statagi,statagi+1;
-			}
-	next;
-	mes @npcname$;
-	mes "A person is losing a lot of blood due to a severe injury and has only 20 minutes to survive. You see this person, but have no cell phone...so what would your first reaction be?";
-	mes "A. Look for somebody that can help you (i.e. person with a phone, doctor, etc.)";
-	mes "B. Help stop the bleeding as much as you can and yell for assistance.";
-	if(select("A:B")==2) set statstr,statstr+1;
-		else { set statint,statint+1;
-			}
-	next;
-	mes @npcname$;
 	mes "You are about to embark on a journey into the desert, but you want a mount since you don't want to go on foot. You encounter a merchant, but he only has two animals that he could offer you. What would you choose?";
 	mes "A. A strong, but slow elephant.";
 	mes "B. A quick, but weak ostrich.";
@@ -259,22 +171,6 @@ tutorial_survey:
 	mes "B. Flip a coin to see who gets the whole thing.";
 	if(select("A:B")==1) set statdex,statdex+1;
 		else { set statluk,statluk+1;
-			}
-	next;
-	mes @npcname$;
-	mes "You are in a race and running to the finish line. However, one of your opponents, has tripped and fell, breaking one of his legs. What do you do?";
-	mes "A. Run back and help him out.";
-	mes "B. Continue to run to the finish line since it's not your business.";
-	if(select("A:B")==2) set statstr,statstr+1;
-		else { set statint,statint+1;
-			}
-	next;
-	mes @npcname$;
-	mes "During your free time, what would you rather do?";
-	mes "A. Play videogames and watch TV all day.";
-	mes "B. Go outside and play ball.";
-	if(select("A:B")==2) set statstr,statstr+1;
-		else { set statint,statint+1;
 			}
 	next;
 	mes @npcname$;
@@ -294,14 +190,6 @@ tutorial_survey:
 			}
 	next;
 	mes @npcname$;
-	mes "A person has a knife to your throat and wants to steal your wedding ring. Would you:";
-	mes "A. Give that person the ring and let you off.";
-	mes "B. Fight against the person even though the chances are you might get stabbed.";
-	if(select("A:B")==2) set statstr,statstr+1;
-		else { set statint,statint+1;
-			}
-	next;
-	mes @npcname$;
 	mes "You decide to audition for a hip-hop dance team. However, you completely mess up during the audition process and forget the choreography. What do you do?";
 	mes "A. Freestyle and hope that the judges would be impressed by your amazing style.";
 	mes "B. Stand there and accept defeat. GG uninstall.";
@@ -315,14 +203,6 @@ tutorial_survey:
 	mes "B. Let him continue playing cards, but comfort him when he fails his midterm and says 'But I studied so hard!'";
 	if(select("A:B")==2) set statstr,statstr+1;
 		else { set statint,statint+1;
-			}
-	next;
-	mes @npcname$;
-	mes "Your significant other breaks up with you. What are you going to do now?";
-	mes "A. Since it didn't work out, I'm going to try to get over it and find someone else.";
-	mes "B. I'm going to try to make things right and get back with him/her.";
-	if(select("A:B")==2) set statvit,statvit+1;
-		else { set statagi,statagi+1;
 			}
 	next;
 	mes @npcname$;
@@ -340,12 +220,12 @@ tutorial_finish:
 	next;
 	mes @npcname$;
 	mes "Good luck!";
-	statusup2 bStr, statstr;
-	statusup2 bInt, statint;
-	statusup2 bAgi, statagi;
-	statusup2 bVit, statvit;
-	statusup2 bDex, statdex;
-	statusup2 bLuk, statluk;
+	statusup2 bStr, 2*statstr;
+	statusup2 bInt, 2*statint;
+	statusup2 bAgi, 2*statagi;
+	statusup2 bVit, 2*statvit;
+	statusup2 bDex, 2*statdex;
+	statusup2 bLuk, 2*statluk;
 	set statstr,0;
 	set statint,0;
 	set statagi,0;
@@ -371,7 +251,7 @@ tutorial_finish:
 	set cookmaker_level, 0;
 	percentheal 100,100;
 	warp "lavive_01",0,0;
-	addtimer 500,"survival_mechanic::survival_loop";
+	addtimer 500,"survival_mechanic::OnTimer";
 	set lastsavedmap$, "lavive_01";
 	set lastsavedx, 49;
 	set lastsavedy, 48;
@@ -403,7 +283,7 @@ dead_respawn_yes:
 	next;
 	percentheal 100,100;
 	warp "lavive_01",0,0;
-	addtimer 500,"survival_mechanic::survival_loop";
+	addtimer 500,"survival_mechanic::OnTimer";
 	end;
 
 }
@@ -558,4 +438,6 @@ op_tut01,88,39,0	script	tutorial_heal_001::tutorial_heals_001	-1,40,0,{
 OnTouch:
 	percentheal 100,100;
 	}
-//tutorial,88,39,0	duplicate(tutorial_heals_001)	tutorial_heal_001	-1,40,0
+op_tut01,94,44,0	duplicate(tutorial_heals_001)	tutorial_heal_001	-1,40,0
+op_tut01,94,36,0	duplicate(tutorial_heals_001)	tutorial_heal_002	-1,40,0
+op_tut01,88,44,0	duplicate(tutorial_heals_001)	tutorial_heal_003	-1,40,0
