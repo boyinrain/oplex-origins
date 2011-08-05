@@ -1,0 +1,110 @@
+//===== Oplex Origins Script =================================
+//= First mission
+//===== By: ================================================== 
+//= Epsynus
+//===== Current Version: ===================================== 
+//= 1.0
+//===== Compatible With: ===================================== 
+//= Any Oplex Version 
+//===== Description: ========================================= 
+//= The first mission people do.
+//===== Changelog: ===========================================
+//= v1.0 - Original release
+//==== Note: =================================================
+//= This info is taken from
+//= http://theonlyhome.com/oplex/showthread.php?tid=83
+//= It's not fully done it's missing some maps & the morgue so dont enable it yet.
+//============================================================
+// Lavive. It should be possible to just make copies of most of these npc's for the other cities
+la_hosp00,47,21,0	script	Patient Terminal::ptrm01	-,{
+if( ($quest==1) )	goto	Q_1;
+mes	"[Patient Terminal]";
+mes	"...I moved everyone to the basement so those things wouldn't get to them.";
+next;
+mes	"Most of the survivors are comatose but some are showing signs of rehabilitation.";
+next;
+mes	"I'm going to seal the doors to the basement just to be safe. The only way out then will be the Service Tunnels.";
+next;
+mes	"I'll hide the key in morgue....";
+set $quest,1;
+close;
+Q_1:
+mes	"[Patient Terminal]";
+mes	"Find the key!";
+close;
+}
+//add morgue between here
+
+//and here
+
+//The Service Tunnels
+lavive_service_tunnels,47,21,0	script	Note::note01	-,{
+if( ($quest==2) )	goto	Q_2;
+mes	"The majority of the tunnels have been locked off in one form or another.";
+next;
+mes	"You'll need at least a crowbar to make your way to the streets.";
+set	$quest,2;
+close;
+
+Q_2:
+mes	"Find a crowbar!";
+close;
+}
+
+lavive_service_tunnels,47,21,0	script	Door::door_srvtunl01	111,{
+if( (countitem(crowbar)>=1) )	goto	D_Open;
+mes	"This door seems to be quite weak.";
+next;
+mes	"Maybe you can pry it open with a crowbar";
+close;
+
+D_Open:
+mes	"You put the crowbar in and starts bending the door";
+close2;
+warp "lavive_service_tunnels_room01",47,21;
+}
+
+lavive_service_tunnels_room01,47,21,0	script	Note::note02	-,{
+if( ($quest==3) )	goto	Q_3;
+mes	"If you've made it this far, you probably already know it's not safe above ground.";
+mes	"The streets are flooded with those creatures.";
+next;
+mes	"I heard a radio transmission from the military earlier today";
+next;
+mes	"They said they where setting up defensive perimeter in the town square.";
+mes	"You might want to check it out.";
+set	$quest,3;
+close;
+
+Q_3:
+mes	"Find the Outpost!";
+close;
+}
+//add the correct ladder up to the surface to ladder.txt
+//they should only be able to go UP the ladder not down.
+
+//The Outpost
+outpost,47,21,0	script	Outpost Terminal::outtrm01	-,{
+if( ($quest==4) )	goto	Q_4;
+mes	"[Outpost Terminal]";
+mes	"...Loading...";
+next;
+mes	"T-37 Sentries Operational...";
+mes	"Checking resource deposits...";
+next;
+mes	"WARNING! Ration deficiency!";
+next;
+mes	"WARNING! Medical Anesthetics deficiency!";
+next;
+mes	"WARNING! Metals deficiency!";
+set	$quest,4;
+close;
+
+Q_4:
+mes	"[Outpost Terminal]";
+mes	"Find Food!";
+mes	"Find Anesthetics!";
+mes	"Find Metal";
+}
+
+// Morgue monster spawns start here.
