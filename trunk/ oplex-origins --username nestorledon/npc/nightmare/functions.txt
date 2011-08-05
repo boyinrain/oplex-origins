@@ -34,7 +34,10 @@ function	script	func_bullet_556mm	{
 //Item Functions
 
 function	script	func_watch	{
-	mes "The current time is: " + gettime(3) + ":" + gettime(2) + ":" + gettime(1);
+	message strcharinfo(0),"The current time is: " + gettime(3) + ":" + gettime(2) + ":" + gettime(1);
+	if (isday()) 	message strcharinfo(0),"It is currently day time.";
+	if (isnight()) 	message strcharinfo(0),"It is currently night time.";
+	message strcharinfo(0),"You have survived for a total of " + survival + " days.";
 	set @break, rand(1,100);
 	if (@break>99) goto clock_broke;
 	close;
@@ -44,7 +47,6 @@ clock_broke:
 	next;
 	message strcharinfo(0),"The clock stopped working..."; 
 	delitem 605,1;
-
 	end;
 }
 
@@ -139,6 +141,7 @@ function	script	sleep_func	{
 sleep_30sec:
 	mes "It's time to get some rest...";
 	sc_start SC_SLEEP,30000,0;
+	cutin "sleep",4;
 	sleep2 3000;
 	mes "[|---------]";
 	sleep2 3000;
@@ -159,11 +162,13 @@ sleep_30sec:
 	mes "[|||||||||-]";
 	sleep2 3000;
 	percentheal 12,30;
+	cutin "",255;
 	close;
 	end;
 sleep_1min:
 	mes "It's time to get some rest...";
 	sc_start SC_SLEEP,60000,0;
+	cutin "sleep",4;
 	sleep2 6000;
 	mes "[|---------]";
 	sleep2 6000;
@@ -184,6 +189,7 @@ sleep_1min:
 	mes "[|||||||||-]";
 	sleep2 6000;
 	percentheal 25,75;
+	cutin "",255;
 	close;
 	end;
 }

@@ -2,8 +2,6 @@
 //Lavive Town
 lavive_09,0,0,0,0	monster	Tank	1085,1,1800000,1800000,0
 
-tutorial,58,44,1,1	monster	Undead	1083,3,30000,30000,0
-
 lavive_01,0,0,0,0	monster	Animal	1011,3,30000,30000,0
 lavive_01,0,0,0,0	monster	Animal	1008,1,30000,30000,0
 lavive_01,0,0,0,0	monster	Supply Crate	1504,1,30000,30000,0
@@ -150,60 +148,3 @@ la_in02,119,164,2,2	monster	Undead	2002,2,30000,30000,0
 la_in02,43,144,2,2	monster	Undead	2002,2,30000,30000,0
 la_in02,152,164,2,2	monster	Undead	2002,2,30000,30000,0
 la_in02,0,0,0,0	monster	Crate	1295,10,15000,30000,0
-
-//Map Initiate Spawn
--	script	monster_setup	-1,{
-OnInit:
-	monster "la_church",0,0," ",2000,10,"game_mechanics::OnDeath_count";
-	monster "la_office01",0,0," ",2000,50,"game_mechanics::OnDeath_count";
-	monster "la_office02",0,0," ",2000,50,"game_mechanics::OnDeath_count";
-	monster "la_hospital",0,0," ",2000,100,"game_mechanics::OnDeath_count";
-	monster "la_library",0,0," ",2000,25,"game_mechanics::OnDeath_count";
-	monster "la_market",0,0," ",2000,25,"game_mechanics::OnDeath_count";
-	monster "la_park",0,0," ",2000,25,"game_mechanics::OnDeath_count";
-	monster "la_police",0,0," ",2000,25,"game_mechanics::OnDeath_count";
-	monster "la_in01",0,0," ",2000,10,"game_mechanics::OnDeath_count";
-	monster "la_in02",0,0," ",2000,20,"game_mechanics::OnDeath_count";
-	monster "lavive_01",0,0," ",2000,3,"game_mechanics::OnDeath_count";
-	monster "lavive_02",0,0," ",2000,50,"game_mechanics::OnDeath_count";
-	monster "lavive_03",0,0," ",2000,50,"game_mechanics::OnDeath_count";
-	monster "lavive_04",0,0," ",2000,50,"game_mechanics::OnDeath_count";
-	monster "lavive_05",0,0," ",2000,50,"game_mechanics::OnDeath_count";
-	monster "lavive_06",0,0," ",2000,50,"game_mechanics::OnDeath_count";
-	monster "lavive_07",0,0," ",2000,50,"game_mechanics::OnDeath_count";
-	monster "lavive_08",0,0," ",2000,50,"game_mechanics::OnDeath_count";
-	monster "lavive_09",0,0," ",2000,50,"game_mechanics::OnDeath_count";
-	monster "lavive_10",0,0," ",2000,50,"game_mechanics::OnDeath_count";
-	monster "la_fild01",0,0," ",2000,10,"game_mechanics::OnDeath_count";
-	monster "la_fild02",0,0," ",2000,10,"game_mechanics::OnDeath_count";
-	monster "la_fild03",0,0," ",2000,10,"game_mechanics::OnDeath_count";
-	monster "la_fild04",0,0," ",2000,10,"game_mechanics::OnDeath_count";
-	//monster "la_church",0,0," ",1078,10,"game_mechanics::OnDeath_count";
-	//monster "la_office01",0,0," ",1079,50,"game_mechanics::OnDeath_count";
-	//monster "la_office02",0,0," ",1080,50,"game_mechanics::OnDeath_count";
-	//monster "la_hospital",0,0," ",1081,100,"game_mechanics::OnDeath_count";
-	//monster "la_library",0,0," ",1082,25,"game_mechanics::OnDeath_count";
-	//monster "la_market",0,0," ",1083,25,"game_mechanics::OnDeath_count";
-	//monster "la_park",0,0," ",1078,25,"game_mechanics::OnDeath_count";
-	//monster "la_police",0,0," ",1079,25,"game_mechanics::OnDeath_count";
-	//monster "la_in01",0,0," ",1080,10,"game_mechanics::OnDeath_count";
-	//monster "la_in02",0,0," ",1081,20,"game_mechanics::OnDeath_count";
-	//monster "lavive_01",0,0," ",1082,3,"game_mechanics::OnDeath_count";
-	//monster "lavive_02",0,0," ",1083,50,"game_mechanics::OnDeath_count";
-	//monster "lavive_03",0,0," ",1078,50,"game_mechanics::OnDeath_count";
-	//monster "lavive_04",0,0," ",1079,50,"game_mechanics::OnDeath_count";
-	//monster "lavive_05",0,0," ",1080,50,"game_mechanics::OnDeath_count";
-	//monster "lavive_06",0,0," ",1081,50,"game_mechanics::OnDeath_count";
-	//monster "lavive_07",0,0," ",1082,50,"game_mechanics::OnDeath_count";
-	//monster "lavive_08",0,0," ",1083,50,"game_mechanics::OnDeath_count";
-	//monster "lavive_09",0,0," ",1078,50,"game_mechanics::OnDeath_count";
-	//monster "lavive_10",0,0," ",1079,50,"game_mechanics::OnDeath_count";
-	//monster "la_fild01",0,0," ",1080,10,"game_mechanics::OnDeath_count";
-	//monster "la_fild02",0,0," ",1081,10,"game_mechanics::OnDeath_count";
-	//monster "la_fild03",0,0," ",1082,10,"game_mechanics::OnDeath_count";
-	//monster "la_fild04",0,0," ",1083,10,"game_mechanics::OnDeath_count";
-	atcommand "@mobevent 1080 3 0 0 0 1 0 0";
-	atcommand "@mobevent 1084 3 0 0 0 1 0 0";
-	atcommand "@mobevent 1085 3 0 0 0 1 0 0";
-	end;
-}
