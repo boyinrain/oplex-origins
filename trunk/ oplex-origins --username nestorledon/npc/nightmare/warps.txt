@@ -136,3 +136,6 @@ la_sewer08, 0,47,0	warp	las32	1,1,la_sewer09,94,47
 
 la_sewer09, 98,47,0	warp	las34	1,1,la_sewer08,4,47
 la_sewer09, 50,0,0	warp	las35	1,1,la_sewer02,49,94
+
+lavive_07, 24,64,0	warp	las50	1,1,la_eden,13,19
+la_eden, 13,16,0	warp	las51	1,1,lavive_07,24,60
