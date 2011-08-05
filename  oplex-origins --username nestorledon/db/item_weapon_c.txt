@@ -1,4 +1,26 @@
-// Worn-Out Scroll Obtainable Items Database
+// Weapons Common Database
 //
 // Structure of Database:
 // GroupID,ItemID,Rate
+
+//Knives
+10,1201,50
+10,1202,15
+10,1205,50
+10,1206,10
+
+//Axes
+10,1301,15
+
+//Hammers
+10,1351,15
+
+//Guns
+10,13100,15
+10,13152,1
+
+
+
+
+
+

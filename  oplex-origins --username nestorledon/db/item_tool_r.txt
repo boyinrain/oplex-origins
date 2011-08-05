@@ -1,0 +1,5 @@
+//9,601,10	//Flashlight
+9,602,10	//Sleeping Bag
+9,603,10	//Megaphone
+9,604,10	//Radio
+9,605,10	//Watch
