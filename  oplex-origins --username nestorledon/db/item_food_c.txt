@@ -5,9 +5,9 @@
 
 //1,501,12	//Red Potion
 
-1,514,10	//Fruit Juice
+//1,514,10	//Fruit Juice
 1,515,10	//Tea
-1,516,10	//Lettuce
+//1,516,10	//Lettuce
 1,517,10	//Bread
 1,518,10	//Rice
 1,519,10	//Can of Soup
