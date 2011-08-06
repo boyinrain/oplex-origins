@@ -3,9 +3,9 @@
 // Structure of Database:
 // GroupID,ItemID,Rate
 
-2,514,10	//Fruit Juice
+//2,514,10	//Fruit Juice
 2,515,10	//Tea
-2,516,10	//Lettuce
+//2,516,10	//Lettuce
 2,517,10	//Bread
 2,518,10	//Rice
 2,519,10	//Can of Soup
