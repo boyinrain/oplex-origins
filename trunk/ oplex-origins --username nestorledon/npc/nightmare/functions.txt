@@ -2,6 +2,7 @@ function	script	func_bullet_9mm	{
 	message strcharinfo(0), "Reloading!";
 	delitem 1101, countitem(1101);
 	delitem 1102, 1;
+	sleep2 100;
 	getitem 1101, 15;
 	soundeffect "reload.wav",0;
 	return;

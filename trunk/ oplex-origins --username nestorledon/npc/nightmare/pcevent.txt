@@ -64,8 +64,8 @@ OnNPCKillEvent:
 	end;
 
 OnPCKillEvent:
-	getnameditem(501,KilledRid);	//Killed player drops meat
-	getnameditem(1001,KilledRid);	//Killed player drops skull
+//	getnameditem(501,KilledRid);	//Killed player drops meat
+//	getnameditem(1001,KilledRid);	//Killed player drops skull
 	set @char_id, getcharid(0);
 	set playerkill, playerkill + 1;
 	set sanity, sanity + 5;
@@ -79,14 +79,7 @@ OnPCKillEvent:
 OnTimeCheck:
 	getmapxy @playermap$,@playerx,@playery,0;
 	if(@playermap$=="op_tut01"){ end; };
-	if (isnight()==1) goto is_night;
 //	sc_end SC_BLIND;
-	heal rand(-10,-5),rand(-10,-5);
-	addtimer 60000,"vitality_timer::OnTimeCheck";
-	end;
-
-OnTimeCheck:
-//	sc_start SC_BLIND,65000,0;
 	heal rand(-10,-5),rand(-10,-5);
 	addtimer 60000,"vitality_timer::OnTimeCheck";
 	end;
