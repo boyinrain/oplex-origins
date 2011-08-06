@@ -99,11 +99,10 @@
 1085,General Crawler@NPC_STUNATTACK,chase,179,3,500,0,5000,yes,target,always,0,,,,,,39
 1085,General Crawler@NPC_HALLUCINATION,attack,207,1,500,500,5000,yes,target,always,0,,,,,,18
 1085,General Crawler@KN_BOWLINGBASH,attack,62,10,1000,0,10000,yes,target,always,,,,,,,
-1086,Zombie Crawler@AL_INCAGI,chase,29,1,500,700,5000,no,self,always,0,,,,,,30
+1086,Zombie Crawler@AL_INCAGI,chase,29,1,1000,700,5000,no,self,always,0,,,,,,30
 1086,Zombie Crawler@NPC_CURSEATTACK,attack,181,1,500,800,5000,no,target,always,0,,,,,,6
 1086,Zombie Crawler@MONK_BLADESTOP,attack,269,1,2500,800,5000,no,target,always,0,,,,,,6
 1086,Zombie Crawler@NPC_POISON,attack,176,5,500,800,5000,no,target,always,0,,,,,,
-1086,Zombie Crawler@NPC_RUN,chase,354,1,2500,0,0,yes,self,myhpltmaxrate,30,,,,,,26
 1087,Regenerator@NPC_RUN,chase,354,1,1000,0,0,yes,self,myhpltmaxrate,30,,,,,,26
 1087,Regenerator@NPC_CRITICALSLASH,attack,170,1,1000,500,5000,no,target,always,0,,,,,,
 1087,Regenerator@CR_AUTOGUARD,chase,249,5,1000,0,300000,yes,self,longrangeattacked,,,,,,,
