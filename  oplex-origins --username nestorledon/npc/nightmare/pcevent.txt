@@ -3,7 +3,7 @@ OnPCLoginEvent:
 	addtimer 500,"survival_mechanic::OnTimeCheck";
 	end;
 OnTimeCheck:
-	sleep2 20000;
+	sleep2 1200000;
 	set survival, survival + 1;
 //Begin with the SQL check for how long player has survived
 	set @char_id, getcharid(0);
