@@ -251,7 +251,8 @@ tutorial_finish:
 	set cookmaker_level, 0;
 	percentheal 100,100;
 	warp "lavive_01",0,0;
-	addtimer 500,"survival_mechanic::OnTimer";
+	addtimer 500,"survival_mechanic::OnTimeCheck";
+	addtimer 500,"vitality_timer::OnTimeCheck";
 	set lastsavedmap$, "lavive_01";
 	set lastsavedx, 49;
 	set lastsavedy, 48;
@@ -283,7 +284,8 @@ dead_respawn_yes:
 	next;
 	percentheal 100,100;
 	warp "lavive_01",0,0;
-	addtimer 500,"survival_mechanic::OnTimer";
+	addtimer 500,"survival_mechanic::OnTimeCheck";
+	addtimer 500,"vitality_timer::OnTimeCheck";
 	end;
 
 }

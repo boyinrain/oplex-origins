@@ -1,7 +1,8 @@
 -	script	survival_mechanic	-1,{
 OnPCLoginEvent:
-	addtimer 500,"survival_mechanic::OnTimer";
-OnTimer:
+	addtimer 500,"survival_mechanic::OnTimeCheck";
+	end;
+OnTimeCheck:
 	sleep2 20000;
 	set survival, survival + 1;
 //Begin with the SQL check for how long player has survived
@@ -10,11 +11,11 @@ OnTimer:
 	if(@survival < survival) {
 	query_sql "UPDATE `char` SET `survival` = "+survival+" WHERE `char_id` = "+@char_id;
 	}
-	addtimer 500,"survival_mechanic::OnTimer";
+	addtimer 500,"survival_mechanic::OnTimeCheck";
 	end;
 OnPCDieEvent:
 	awake "survival_mechanic";
-	awake "survival_mechanic::OnTimer";
+	awake "survival_mechanic::OnTimeCheck";
 	end;	
 }
 
@@ -25,12 +26,13 @@ OnPCLoginEvent:
 	if (isday()) announce "It is day time.",bc_self,0xFFFF00;
 	if (isnight()) announce "It is night time.",bc_self,0xFFFF00;
 	if(@playermap$=="op_tut01"){ end; };
-	addtimer 500,"vitality_timer::OnTimer";
+	addtimer 500,"vitality_timer::OnTimeCheck";
 	end;
 
 OnPCLogOutEvent:
-	deltimer "vitality_timer::OnTimer";
-	awake "survival_mechanic::OnTimer";
+	deltimer "vitality_timer::OnTimeCheck";
+	awake "survival_mechanic::OnTimeCheck";
+	deltimer "survival_mechanic::OnTimeCheck";
 	end;
 
 OnPCDieEvent:
@@ -42,24 +44,15 @@ OnPCDieEvent:
 	}
 //Reset survival timer
 	set survival, 0;
-//	deltimer "vitality_timer::OnTimer";
+	deltimer "vitality_timer::OnTimeCheck";
+	deltimer "survival_mechanic::OnTimeCheck";	
 //Drop items for dead player
-//	getmapxy @playermap$,@playerx,@playery,0;
-//	makeitem 501,1,@playermap$,@playerx,@playery;	//Drops Uncooked Meat
+	getmapxy @playermap$,@playerx,@playery,0;
+	makeitem 501,1,@playermap$,@playerx,@playery;	//Drops Uncooked Meat
 //	makeitem 1001,1,@playermap$,@playerx,@playery;	//Drops Skull
 	set @superrand, rand(1,100);
 	if(@superrand > 80) {	atcommand "@dropall";};	//Drops all items by a chance of 20/100.
-//Spawn zombie from player corpse
 	soundeffect "dying.wav",0;
-	set @randzombietime, rand(5000,30000);
-	set @randzombie, rand(0,10000);
-	sleep2 @randzombietime;
-	if (@randzombie == 10000) goto PC_tank_spawn;
-	monster @playermap$,@playerx,@playery,"Undead",1080,1,0;	//Spawns a zombie
-	end;
-
-PC_tank_spawn:
-	monster @playermap$,@playerx,@playery,"Undead",1085,1,0;	// Spawns General Crawler
 	end;
 
 OnNPCKillEvent:
@@ -83,18 +76,18 @@ OnPCKillEvent:
 }
 
 -	script	vitality_timer	-1,{
-OnTimer:
+OnTimeCheck:
 	getmapxy @playermap$,@playerx,@playery,0;
 	if(@playermap$=="op_tut01"){ end; };
 	if (isnight()==1) goto is_night;
 //	sc_end SC_BLIND;
 	heal rand(-10,-5),rand(-10,-5);
-	addtimer 60000,"vitality_timer::OnTimer";
+	addtimer 60000,"vitality_timer::OnTimeCheck";
 	end;
 
-is_night:
+OnTimeCheck:
 //	sc_start SC_BLIND,65000,0;
 	heal rand(-10,-5),rand(-10,-5);
-	addtimer 60000,"vitality_timer::OnTimer";
+	addtimer 60000,"vitality_timer::OnTimeCheck";
 	end;
 }

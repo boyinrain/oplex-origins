@@ -5,7 +5,7 @@
 //0,154,1,0,0,0,0,0,0,0,0,0,0 //MC_CHANGECART#Change Cart#
 //0,410,1,0,0,0,0,0,0,0,0,0,0 //WE_CALLBABY#Call Baby#
 0,681,1,0,0,0,0,0,0,0,0,0,0 //ALL_INCCARRY#Enlarge Weight Limit R#
-//0,154,7,0,0,0,0,0,0,0,0,0,0 //MC_PUSHCART#Pushcart#
+//0,39,7,0,0,0,0,0,0,0,0,0,0 //MC_PUSHCART#Pushcart#
 
 //Life skills
 0,142,1,0,0,0,0,0,0,0,0,0,0 //NV_FIRSTAID#First Aid#
