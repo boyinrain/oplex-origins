@@ -48,8 +48,8 @@ lavive_02,01,18,55,0	warp	lav026	1,1,la_church01,49,17
 la_church01,49,14,0	warp	lav027	1,1,lavive_02,18,51
 
 lavive_02,76,61,0	warp	lav072 1,1,la_lib01,19,8
-la_lib01,19,4,0	warp	lav073 1,1,lavive_06,76,58
-la_lib01,18,24,0	warp	lav071 1,1,lavive_06,20,83
+la_lib01,19,4,0	warp	lav073 1,1,lavive_02,76,58
+la_lib01,18,24,0	warp	lav071 1,1,lavive_02,20,83
 la_lib01,20,87,0	warp	lav700 1,1,la_lib01,18,27
 
 lavive_06,64,48,0	warp	lav030	1,1,la_library,95,11
