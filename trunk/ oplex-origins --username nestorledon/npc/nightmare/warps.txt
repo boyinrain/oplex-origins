@@ -47,13 +47,10 @@ la_fild04,0,43,0	warp	lav051	1,1,la_fild03,96,92
 lavive_02,18,55,0	warp	lav026	1,1,la_church01,49,17
 la_church01,49,14,0	warp	lav027	1,1,lavive_02,18,51
 
-lavive_02,76,61,0	warp	lalib01 1,1,la_lib01,19,8
+lavive_02,76,61,0	warp	lalib01	1,1,la_lib01,19,8
 la_lib01,19,4,0	warp	lalib02	1,1,lavive_02,76,58
 la_lib01,18,24,0	warp	lalib03 1,1,lavive_02,20,83
 la_lib01,20,87,0	warp	lalib04 1,1,la_lib01,18,27
-
-lavive_06,64,48,0	warp	lav030	1,1,la_library,95,11
-la_library,95,8,0	warp	lav031	1,1,lavive_06,61,48
 
 lavive_04,19,63,0	warp	lav032	1,1,la_office02,76,38
 la_office02,72,38,0	warp	lav033	1,1,lavive_04,19,59
@@ -69,10 +66,10 @@ la_eden, 13,16,0	warp	las51	1,1,lavive_07,24,60
 lavive_08,61,72,0	warp	lav038	1,1,la_hospital,98,19
 la_hospital,98,16,0	warp	lav039	1,1,lavive_08,61,69
 
-lavive_06,23,91,0	warp	lav074	1,1,la_jack,9,9
-la_jack,9,6,0	warp	lav075	1,1,lavive_06,30,36
-la_jack,20,17,0	warp	lav076	1,1,la_jack,19,91
-la_jack,23,91,0	warp	lav077	1,1,la_jack,22,16
+lavive_06,23,91,0	warp	lajk00	1,1,la_jack,9,9
+la_jack,9,6,0	warp	lajk01	1,1,lavive_06,30,36
+la_jack,20,17,0	warp	lajk02	1,1,la_jack,19,91
+la_jack,23,91,0	warp	lajk03	1,1,la_jack,22,16
 
 lavive_06,68,48,0	warp	lav078	1,1,la_police01,24,7
 la_police01,24,4,0	warp	lav079	1,1,lavive_06,64,48
