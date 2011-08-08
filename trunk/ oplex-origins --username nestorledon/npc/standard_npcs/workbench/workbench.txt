@@ -17,7 +17,7 @@
 // I have only fixed the decompose section as i dont know what it should produce yet.
 //Where the inital Work Bench spawns. You can get the mapname and X Y cordinates using /where ingame 
 // 111 = no sprite but you can still click it, only change if you have a sprite for the work bench and not a world object.
-lavive_01,20,27,0	script	work bench::workbenchs	111,{
+blank_01,4,98,0	script	work bench::workbenchs	111,{
 //Config section
 // Items - Having the ammount as 0 disables them from getting that material. atleast it should.
 // please check the values of what they get if they are what they should be.
