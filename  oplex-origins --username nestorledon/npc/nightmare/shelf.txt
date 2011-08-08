@@ -11,7 +11,7 @@
 //===== Changelog: ===========================================
 //= v1.0 - Original release
 //============================================================
-blank_01.gat,0,98,0	script	Shelf::Shelf01	111,{
+blank_01,0,98,0	script	Shelf::Shelf01	111,{
 	//configure
 	set @emptyshelf,0;	//Is the Shelf empty? 1 = Yes (aka disabled) 0 = no (aka enabled)
 	set @ammount,1;	//How many of the randomized items should they get?
