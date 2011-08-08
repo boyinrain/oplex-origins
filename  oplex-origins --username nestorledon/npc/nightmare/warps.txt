@@ -50,7 +50,7 @@ la_church01,49,14,0	warp	lav027	1,1,lavive_02,18,51
 lavive_02,76,61,0	warp	llib01	1,1,la_lib01,19,8
 la_lib01,19,4,0	warp	llib02	1,1,lavive_02,76,58
 la_lib01,18,24,0	warp	llib03	1,1,la_lib01,20,83
-la_lib01,20,87,0	warp	llib04 1,1,la_lib01,18,27
+la_lib01,20,87,0	warp	llib04	1,1,la_lib01,18,27
 
 lavive_04,19,63,0	warp	lav032	1,1,la_office02,76,38
 la_office02,72,38,0	warp	lav033	1,1,lavive_04,19,59
