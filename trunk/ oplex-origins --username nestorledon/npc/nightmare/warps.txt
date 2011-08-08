@@ -66,8 +66,8 @@ la_eden, 13,16,0	warp	las51	1,1,lavive_07,24,60
 lavive_08,61,72,0	warp	lav038	1,1,la_hospital,98,19
 la_hospital,98,16,0	warp	lav039	1,1,lavive_08,61,69
 
-lavive_06,23,91,0	warp	lajk00	1,1,la_jack,9,9
-la_jack,9,6,0	warp	lajk01	1,1,lavive_06,30,36
+lavive_06,23,33,0	warp	lajk00	1,1,la_jack,9,9
+la_jack,9,6,0	warp	lajk01	1,1,lavive_06,30,37
 la_jack,20,17,0	warp	lajk02	1,1,la_jack,19,91
 la_jack,23,91,0	warp	lajk03	1,1,la_jack,22,16
 
