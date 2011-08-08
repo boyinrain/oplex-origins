@@ -848,15 +848,12 @@ la_hosp01
 la_in01
 la_in02
 la_lib01
-la_lib02
 la_eden
 la_office01
 la_office02
 la_police01
-la_police02
 la_church01
-la_jack01
-la_jack02
+la_jack
 la_apt01
 la_apt02
 //Lavive Sewers
