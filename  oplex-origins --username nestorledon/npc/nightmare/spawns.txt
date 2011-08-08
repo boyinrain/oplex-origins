@@ -6,6 +6,14 @@ lavive_01,0,0,0,0	monster	Animal	1011,3,30000,30000,0
 lavive_01,0,0,0,0	monster	Animal	1008,1,30000,30000,0
 lavive_01,0,0,0,0	monster	Supply Crate	1501,2,300000,300000,0
 lavive_01,0,0,0,0	monster	Supply Crate	1505,2,300000,300000,0
+lavive_01,42,67,0,0	monster	Sentry	1122,1,10000,10000,8
+lavive_01,58,69,0,0	monster	Sentry	1123,1,10000,10000,8
+lavive_01,67,53,0,0	monster	Sentry	1122,1,10000,10000,8
+lavive_01,67,41,0,0	monster	Sentry	1123,1,10000,10000,8
+lavive_01,43,27,0,0	monster	Sentry	1122,1,10000,10000,8
+lavive_01,54,27,0,0	monster	Sentry	1123,1,10000,10000,8
+lavive_01,24,53,0,0	monster	Sentry	1122,1,10000,10000,8
+lavive_01,24,42,0,0	monster	Sentry	1123,1,10000,10000,8
 
 lavive_02,0,0,0,0	monster	Undead	1078,10,30000,30000,0
 lavive_02,0,0,0,0	monster	Undead	1079,10,30000,30000,0
