@@ -22,7 +22,7 @@
 //============================================================ 
 
 //Stylist------------------------------------------------------------------------------------------------------------
-blank_01.gat,10,98,1	script	Stylist	47,{
+la_jack.gat,16,17,1	script	Stylist	47,{
 	mes "[^FF8000Stylist^000000]";
 	mes "I'm the greatest stylist in all of Rune-Midgard~~!";
 	mes "I can change your hair style or color!";
