@@ -19,7 +19,7 @@ op_tut01.gat,52,29,0	script	Car::Car01	111,{
 	if(.emptied == 1) goto empty_car2;
 	if(@emptycar == 1) goto empty_car;
 	message strcharinfo(0), "As you search the car you find some items";
-	getitem	groupranditem(20),@ammount;
+	getitem	groupranditem(19),@ammount;
 	set .emptied,1;
 	end;
 empty_car:
@@ -39,7 +39,7 @@ op_tut01.gat,48,27,0	script	Car::Car02	111,{
 	if(.emptied == 1) goto empty_car2;
 	if(@emptycar == 1) goto empty_car;
 	message strcharinfo(0), "As you search the car you find some items";
-	getitem	groupranditem(20),@ammount;
+	getitem	groupranditem(19),@ammount;
 	set .emptied,1;
 	end;
 empty_car:
