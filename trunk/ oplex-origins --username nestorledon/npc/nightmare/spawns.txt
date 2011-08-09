@@ -4,8 +4,6 @@ lavive_09,0,0,0,0	monster	Tank	1085,1,1800000,1800000,0
 
 lavive_01,0,0,0,0	monster	Animal	1011,3,30000,30000,0
 lavive_01,0,0,0,0	monster	Animal	1008,1,30000,30000,0
-lavive_01,0,0,0,0	monster	Supply Crate	1501,2,300000,300000,0
-lavive_01,0,0,0,0	monster	Supply Crate	1505,2,300000,300000,0
 lavive_01,42,67,0,0	monster	Sentry	1122,1,10000,10000,8
 lavive_01,58,69,0,0	monster	Sentry	1123,1,10000,10000,8
 lavive_01,67,53,0,0	monster	Sentry	1122,1,10000,10000,8

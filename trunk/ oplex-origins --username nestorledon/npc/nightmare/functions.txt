@@ -139,7 +139,7 @@ function	script	sleep_func	{
 sleep_30sec:
 	mes "It's time to get some rest...";
 	sc_start SC_SLEEP,30000,0;
-//	cutin "sleep",2;
+//	cutin"sleep",3; 
 	sleep2 3000;
 	mes "[|---------]";
 	sleep2 3000;
