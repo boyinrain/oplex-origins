@@ -31,7 +31,7 @@ empty_shelf2:
 	sleep2 1800000;//pause the script for 30 minutes
 	set .emptied,0;//setting it to 0 once the timer is done makes it restock itself
 }
-op_tut01.gat,48,27,0	script	Shelf::Shelf02	111,{
+op_tut01.gat,64,51,0	script	Shelf::Shelf02	111,{
 	//configure
 	set @emptyshelf,0;	//Is the Shelf empty? 1 = Yes (aka disabled) 0 = no (aka enabled)
 	set @ammount,1;	//How many of the randomized items should they get?
