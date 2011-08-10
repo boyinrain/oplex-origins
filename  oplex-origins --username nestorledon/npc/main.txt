@@ -40,3 +40,10 @@ OnTimer:
 	addtimer 60000,"vitality_timer::OnTimer";
 	end;
 }
+
+- 	script	blind	-1,{
+
+OnPCLoginEvent:
+	callfunc "func_flashlight";
+	end;
+}
