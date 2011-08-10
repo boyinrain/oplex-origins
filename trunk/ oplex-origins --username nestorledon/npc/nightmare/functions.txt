@@ -131,7 +131,6 @@ send_mes_fail:
 }
 
 function	script	sleep_func	{
-	callfunc "func_flashlight";
 	mes "How long would you like to sleep for?";
 	next;
 	menu "30 seconds",sleep_30sec,"1 minute",sleep_1min,"Nevermind",-;
