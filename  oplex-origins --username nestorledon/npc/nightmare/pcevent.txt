@@ -22,8 +22,11 @@ OnPCDieEvent:
 -	script	game_mechanics::gamemechs	-1,{
 
 OnPCLoginEvent:
-	getmapxy @playermap$,@playerx,@playery,0;
 	callfunc "func_flashlight";
+	end;
+
+OnPCLoginEvent:
+	getmapxy @playermap$,@playerx,@playery,0;
 	if (isday()) announce "It is day time.",bc_self,0xFFFF00;
 	if (isnight()) announce "It is night time.",bc_self,0xFFFF00;
 	if(@playermap$=="op_tut01"){ end; };
