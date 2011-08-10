@@ -2,7 +2,7 @@
 
 OnPCLoginEvent:
 	skill 441,5,0;
-	callfunc "func_flashlight";
+	callfunc func_flashlight;
 	addtimer 1000,"vitality_timer::OnTimer";
 	if (isday()) announce "The day is young...",bc_all,0xFFFF00;
 	if (isnight()) announce "The night has fallen...",bc_all,0xFFFF00;
