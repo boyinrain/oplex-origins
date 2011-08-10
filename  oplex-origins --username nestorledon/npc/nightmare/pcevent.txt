@@ -22,6 +22,7 @@ OnPCDieEvent:
 -	script	game_mechanics::gamemechs	-1,{
 
 OnPCLoginEvent:
+	getmapxy @playermap$,@playerx,@playery,0;
 	callfunc "func_flashlight";
 	end;
 
