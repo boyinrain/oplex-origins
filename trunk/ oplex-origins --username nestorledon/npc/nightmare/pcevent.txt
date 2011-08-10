@@ -19,12 +19,14 @@ OnPCDieEvent:
 	end;	
 }
 
--	script	game_mechanics::gamemechs	-1,{
-
-OnPCLoadMapEvent:
+-	script	blind_mechanic	-1,{
+OnPCLoginEvent:
 	getmapxy @playermap$,@playerx,@playery,0;
 	callfunc "func_flashlight";
 	end;
+}
+
+-	script	game_mechanics::gamemechs	-1,{
 
 OnPCLoginEvent:
 	getmapxy @playermap$,@playerx,@playery,0;
