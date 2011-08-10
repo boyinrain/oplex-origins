@@ -45,5 +45,4 @@ OnTimer:
 
 OnPCLoginEvent:
 	callfunc "func_flashlight";
-	end;
 }
