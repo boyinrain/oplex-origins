@@ -25,10 +25,9 @@ OnRecvCastlePt01:
 lavive_02,71,14,1	script	Office Building#p1-2::office_building2	722,{
 	set .@GID, GetCastleData("la_bld01",1);
 	if (.@GID == 0) {
-		mes " [ Lavive Engergy Effecient Suites ]";
+		mes "[Lavive Energy Efficient Suites]";
 		mes " ";
 		mes "This building is well intact...";
-		mes " ";
 		mes "If we can get to the power room ";
 		mes "we might be able to get the power running.";
 	}
@@ -44,12 +43,11 @@ lavive_02,71,14,1	script	Office Building#p1-2::office_building2	722,{
 			}
 			close;
 		}
-		mes "[ Lavive Engergy Effecient Suites ]";
+		mes "[Lavive Energy Efficient Suites]";
 		mes " ";
 		mes "This building is in";
-		mes "the private possession of ^ff0000" + GetGuildName(.@GID) + "^000000 Alliance.";
-		mes " ";
-		mes "2. The Leader of ^ff0000"+ GetGuildName(.@GID) + "^000000 Guild is";
+		mes "the private possession of the ^ff0000" + GetGuildName(.@GID) + "^000000 Alliance.";
+		mes "The Leader of the ^ff0000"+ GetGuildName(.@GID) + "^000000 Alliance is";
 		mes "^FF0000" + GetGuildMaster(.@GID) + "^000000";
 	}
 	close;
