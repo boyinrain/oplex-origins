@@ -132,7 +132,6 @@ OnAgitBreak:
 
 // War of Emperium has ended.
 OnAgitEnd:
-	disablenpc"bld0101"
 	if (strnpcinfo(0) == "Gld_Agit_Manager") end;
 	GvgOff strnpcinfo(2);
 	// If the castle has no owner at the end of WoE, do not kill Emperium.
