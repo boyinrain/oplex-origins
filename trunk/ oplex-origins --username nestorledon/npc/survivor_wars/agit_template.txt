@@ -70,21 +70,7 @@ OnAgitStart:
 OnStartArena:
 	// OnAgitStart will fall through and spawn the Emperium.
 	if (strnpcinfo(2) == "aldeg_cas01") { setarray .@emproom[0],216,23; }
-	else if (strnpcinfo(2) == "aldeg_cas02") { setarray .@emproom[0],213,23; }
-	else if (strnpcinfo(2) == "aldeg_cas03") { setarray .@emproom[0],205,31; }
-	else if (strnpcinfo(2) == "aldeg_cas04") { setarray .@emproom[0],36,217; }
-	else if (strnpcinfo(2) == "aldeg_cas05") { setarray .@emproom[0],27,101; }
-	else if (strnpcinfo(2) == "gefg_cas01") { setarray .@emproom[0],197,181; }
-	else if (strnpcinfo(2) == "gefg_cas02") { setarray .@emproom[0],176,178; }
-	else if (strnpcinfo(2) == "gefg_cas03") { setarray .@emproom[0],244,166; }
-	else if (strnpcinfo(2) == "gefg_cas04") { setarray .@emproom[0],174,177; }
-	else if (strnpcinfo(2) == "gefg_cas05") { setarray .@emproom[0],194,184; }
-	else if (strnpcinfo(2) == "payg_cas01") { setarray .@emproom[0],139,139; }
-	else if (strnpcinfo(2) == "payg_cas02") { setarray .@emproom[0],38,25; }
-	else if (strnpcinfo(2) == "payg_cas03") { setarray .@emproom[0],268,264; }
-	else if (strnpcinfo(2) == "payg_cas04") { setarray .@emproom[0],270,28; }
-	else if (strnpcinfo(2) == "payg_cas05") { setarray .@emproom[0],30,30; }
-	else if (strnpcinfo(2) == "prtg_cas01") { setarray .@emproom[0],197,197; }
+	else if (strnpcinfo(2) == "la_bld01") { setarray .@emproom[0],197,197; }
 	else if (strnpcinfo(2) == "prtg_cas02") { setarray .@emproom[0],157,174; }
 	else if (strnpcinfo(2) == "prtg_cas03") { setarray .@emproom[0],16,220; }
 	else if (strnpcinfo(2) == "prtg_cas04") { setarray .@emproom[0],291,14; }

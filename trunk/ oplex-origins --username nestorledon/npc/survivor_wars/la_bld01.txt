@@ -23,7 +23,7 @@ OnRecvCastlePt01:
 // Guild Flag (Outside Castle)
 //============================================================
 lavive_02,71,14,6	script	Kriemhild#p1-2::Kriemhild2	722,{
-	set .@GID, GetCastleData("prtg_cas01",1);
+	set .@GID, GetCastleData("la_bld01",1);
 	if (.@GID == 0) {
 		mes " [ Edict of the Divine Rune Midgard Kingdom ]";
 		mes " ";
@@ -95,7 +95,7 @@ prtg_cas01,45,46,4	duplicate(Kriemhild3)	Kriemhild#p1-15	722
 
 // AGIT Manager
 //============================================================
-lavive,75,14,0	duplicate(Gld_Agit_Manager)	Agit#la_bld01	-1
+lavive_01,75,14,0	duplicate(Gld_Agit_Manager)	Agit#la_bld01	-1
 
 // Steward
 //============================================================
