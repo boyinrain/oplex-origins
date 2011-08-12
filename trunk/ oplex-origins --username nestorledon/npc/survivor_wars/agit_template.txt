@@ -3,7 +3,7 @@
 //===== By: ==================================================
 //= L0ne_W0lf
 //===== Current Version: =====================================
-//= 1.4
+//= 1.6a
 //===== Compatible With: =====================================
 //= eAthena SVN
 //===== Description: =========================================
@@ -41,7 +41,12 @@
 //= 1.4 Fixed a typo in defense investment. [L0ne_W0lf]
 //= 1.5 Fixed spawn point of the emperium in Payon 1. [L0ne_W0lf]
 //=     Double-investing doubles the price now.
-//= Altered for WoE Setter v3... [[GM]Xeon]
+//= 1.6 Corrected Zeny check when summoning guardians. [L0ne_W0lf]
+//=     Corrected cost for investing, thanks to Ai4rei.
+//=     Second invest is now quadruple the value of the first
+//=     Investing now happens at the turn of the day.
+//= 1.6a Corrected conditions in the new investing blocks. [L0ne_W0lf]
+//= 1.6b Moved where investments are added to eco/def. [L0ne_W0lf]
 //============================================================
 
 // AGIT Manager Template
@@ -51,20 +56,12 @@
 
 // Load (or reload) specific information for a castle.
 OnInterIfInitOnce:
-	if (strnpcinfo(2) == "aldeg_cas01") { GetCastleData "aldeg_cas01",0,strnpcinfo(0)+"::OnRecvCastle"; }
-	else if (strnpcinfo(2) == "la_bld01") { GetCastleData "la_bld01",0,strnpcinfo(0)+"::OnRecvCastle"; }
-	else if (strnpcinfo(2) == "prtg_cas02") { GetCastleData "prtg_cas02",0,strnpcinfo(0)+"::OnRecvCastle"; }
-	else if (strnpcinfo(2) == "prtg_cas03") { GetCastleData "prtg_cas03",0,strnpcinfo(0)+"::OnRecvCastle"; }
-	else if (strnpcinfo(2) == "prtg_cas04") { GetCastleData "prtg_cas04",0,strnpcinfo(0)+"::OnRecvCastle"; }
-	else if (strnpcinfo(2) == "prtg_cas05") { GetCastleData "prtg_cas05",0,strnpcinfo(0)+"::OnRecvCastle"; }
-	// Add custom Guild Castles here.
-	else {
-		end;
-	}
+	if (strnpcinfo(0) == "Gld_Agit_Manager") end;
+	GetCastleData strnpcinfo(2),0,strnpcinfo(0) + "::OnRecvCastle";
 	end;
 
 // War of Emperium has started.
-OnAgitStart_: //CHANGED
+OnAgitStart:
 	if (strnpcinfo(0) == "Gld_Agit_Manager") end;
 	MapRespawnGuildID strnpcinfo(2),GetCastleData(strnpcinfo(2),1),2;
 	GvgOn strnpcinfo(2);
@@ -89,18 +86,6 @@ OnStartArena:
 
 // The Emperium has been broken.
 OnAgitBreak:
-	if ($@woes3_breaker) { //BEGIN CHANGED
-		if (query_sql("select `char_id` from `woe_pbreaks` where `char_id` = '"+getcharid(0)+"'",.@ignore)) {
-			query_sql("update `woe_pbreaks` set `breaks` = `breaks`+1 where `char_id` = '"+getcharid(0)+"'",.@ignore);
-		} else {
-			query_sql("insert into `woe_pbreaks` values('"+getcharid(0)+"','"+escape_sql(strcharinfo(0))+"','1')",.@ignore);
-		}
-		if (query_sql("select `guild_id` from `woe_gbreaks` where `guild_id` = '"+getcharid(2)+"'",.@ignore)) {
-			query_sql("update `woe_gbreaks` set `breaks` = `breaks`+1 where `guild_id` = '"+getcharid(2)+"'",.@ignore);
-		} else {
-			query_sql("insert into `woe_gbreaks` values('"+getcharid(2)+"','"+escape_sql(getguildname(getcharid(2)))+"','1')",.@ignore);
-		}
-	} //END CHANGED
 	set .@GID,getcharid(2);
 	// Show and log error if an unguilded player breaks the Emperium. (Should NEVER happen)
 	if (.@GID <= 0) {
@@ -138,19 +123,21 @@ OnAgitBreak:
 		}
 	}
 	// Respawn the Emperium, and display new owners.
-	if (agitcheck()) {
-		sleep2 500; // Slow down script execution slightly.
+	sleep 500; // Slow down script execution slightly.
+	if( agitcheck() )
 		donpcevent "Agit#"+strnpcinfo(2)+"::OnStartArena";
-	}
-	sleep2 getbattleflag("gvg_eliminate_time");
-	if (!$woe_announcebreaker) { announce "The [" + getcastlename(strnpcinfo(2)) + "] castle has been conquered by the [" + getguildName(.@GID) + "] guild.",bc_all; } else { announce "The [" + getcastlename(strnpcinfo(2)) + "] castle has been conquered by "+strcharinfo(0)+" in the [" + getguildName(.@GID) + "] guild.",bc_all; } //CHANGED
+	sleep getbattleflag("gvg_eliminate_time");
+	announce "The [" + getcastlename(strnpcinfo(2)) + "] castle has been conquered by the [" + getguildName(.@GID) + "] guild.",bc_all;
 	end;
 
 // War of Emperium has ended.
-OnAgitEnd_: //CHANGED
+OnAgitEnd:
 	if (strnpcinfo(0) == "Gld_Agit_Manager") end;
 	GvgOff strnpcinfo(2);
-	KillMonster strnpcinfo(2),"Agit#"+strnpcinfo(2)+"::OnAgitBreak";
+	// If the castle has no owner at the end of WoE, do not kill Emperium.
+	if (GetCastleData(strnpcinfo(2),1)) {
+		KillMonster strnpcinfo(2),"Agit#"+strnpcinfo(2)+"::OnAgitBreak";
+	}
 	end;
 
 // Occupying Guild has been disbanded.
@@ -171,7 +158,7 @@ OnRecvCastle:
 
 	// Spawn Monsters if the castle is empty.
 	set .@GID, GetCastleData(strnpcinfo(2),1);
-	if (.@GID == 0&&$woe_mobspawn) { //CHANGED
+	if (.@GID == 0) {
 		killmonsterall strnpcinfo(2);
 		if (compare(strnpcinfo(2),"aldeg")) {
 			// Normal Spawns
@@ -199,7 +186,52 @@ OnRecvCastle:
 			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Abysmal Knight",1219,1;
 			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Raydric Archer",1276,5;
 		}
-
+		else if (compare(strnpcinfo(2),"gefg")) {
+			// Normal Spawns
+			monster strnpcinfo(2),0,0,"Evil Druid",1117,10;
+			monster strnpcinfo(2),0,0,"Wind Ghost",1263,11;
+			monster strnpcinfo(2),0,0,"Bathory",1102,10;
+			monster strnpcinfo(2),0,0,"Jakk",1130,10;
+			monster strnpcinfo(2),0,0,"Marduk",1140,20;
+			monster strnpcinfo(2),0,0,"Raydric",1163,9;
+			monster strnpcinfo(2),0,0,"Alice",1275,1;
+			monster strnpcinfo(2),0,0,"Abysmal Knight",1219,1;
+			monster strnpcinfo(2),0,0,"Moonlight Flower",1150,1;
+			monster strnpcinfo(2),0,0,"Phreeoni",1159,1;
+			// Set Emperium room spawn coordinates and spawn monsters.
+			if (strnpcinfo(2) == "gefg_cas01") { setarray .@emproom[0],197,181; }
+			else if (strnpcinfo(2) == "gefg_cas02") { setarray .@emproom[0],176,178; }
+			else if (strnpcinfo(2) == "gefg_cas03") { setarray .@emproom[0],244,166; }
+			else if (strnpcinfo(2) == "gefg_cas04") { setarray .@emproom[0],174,177; }
+			else if (strnpcinfo(2) == "gefg_cas05") { setarray .@emproom[0],194,184; }
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Mysteltainn",1203,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Orc Hero",1087,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"High Orc",1213,10;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Orc Archer",1189,10;
+		}
+		else if (compare(strnpcinfo(2),"payg")) {
+			// Normal Spawns
+			monster strnpcinfo(2),0,0,"Greatest General",1277,9;
+			monster strnpcinfo(2),0,0,"Wanderer",1208,10;
+			monster strnpcinfo(2),0,0,"Mutant Dragonoid",1262,5;
+			monster strnpcinfo(2),0,0,"Bathory",1102,5;
+			monster strnpcinfo(2),0,0,"Moonlight Flower",1150,1;
+			monster strnpcinfo(2),0,0,"Eddga",1115,1;
+			monster strnpcinfo(2),0,0,"Horong",1129,11;
+			monster strnpcinfo(2),0,0,"Raydric Archer",1276,5;
+			monster strnpcinfo(2),0,0,"Kobold Archer",1282,4;
+			monster strnpcinfo(2),0,0,"Gargoyle",1253,5;
+			// Set Emperium room spawn coordinates and spawn monsters.
+			if (strnpcinfo(2) == "payg_cas01") { setarray .@emproom[0],139,139; }
+			else if (strnpcinfo(2) == "payg_cas02") { setarray .@emproom[0],38,25; }
+			else if (strnpcinfo(2) == "payg_cas03") { setarray .@emproom[0],268,264; }
+			else if (strnpcinfo(2) == "payg_cas04") { setarray .@emproom[0],270,28; }
+			else if (strnpcinfo(2) == "payg_cas05") { setarray .@emproom[0],30,30; }
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Moonlight Flower",1150,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Eddga",1115,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Wanderer",1208,6;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Raydric Archer",1276,5;
+		}
 		else if (compare(strnpcinfo(2),"prtg")) {
 			// Normal Spawns
 			monster strnpcinfo(2),0,0,"Raydric",1163,1;
@@ -214,7 +246,7 @@ OnRecvCastle:
 			monster strnpcinfo(2),0,0,"Alice",1275,1;
 			monster strnpcinfo(2),0,0,"Zealotus",1200,1;
 			// Set Emperium room spawn coordinates and spawn monsters.
-			if (strnpcinfo(2) == "la_bld01") { setarray .@emproom[0],17,79; }
+			if (strnpcinfo(2) == "prtg_cas01") { setarray .@emproom[0],197,197; }
 			else if (strnpcinfo(2) == "prtg_cas02") { setarray .@emproom[0],157,174; }
 			else if (strnpcinfo(2) == "prtg_cas03") { setarray .@emproom[0],16,220; }
 			else if (strnpcinfo(2) == "prtg_cas04") { setarray .@emproom[0],291,14; }
@@ -229,7 +261,7 @@ OnRecvCastle:
 		else {
 			end;
 		}
-		//donpcevent "Agit#"+strnpcinfo(2)+"::OnStartArena"; //CHANGED
+		donpcevent "Agit#"+strnpcinfo(2)+"::OnStartArena";
 		// Disable Kafra Staff...
 		disablenpc "Kafra Staff#"+strnpcinfo(2);
 		end;
@@ -251,7 +283,7 @@ OnRecvCastle:
 		else if (strnpcinfo(2) == "payg_cas03") { donpcevent "::OnRecvCastlePy03"; }
 		else if (strnpcinfo(2) == "payg_cas04") { donpcevent "::OnRecvCastlePy04"; }
 		else if (strnpcinfo(2) == "payg_cas05") { donpcevent "::OnRecvCastlePy05"; }
-		else if (strnpcinfo(2) == "la_bld01") { donpcevent "::OnRecvCastlePt01"; }
+		else if (strnpcinfo(2) == "prtg_cas01") { donpcevent "::OnRecvCastlePt01"; }
 		else if (strnpcinfo(2) == "prtg_cas02") { donpcevent "::OnRecvCastlePt02"; }
 		else if (strnpcinfo(2) == "prtg_cas03") { donpcevent "::OnRecvCastlePt03"; }
 		else if (strnpcinfo(2) == "prtg_cas04") { donpcevent "::OnRecvCastlePt04"; }
@@ -271,7 +303,6 @@ OnRecvCastle:
 // Guild Steward Template
 //============================================================
 -	script	Gld_Mngr_Template::Gld_Mngr_Template	-1,{
-OnTalk: //CHANGED
 	// What is the Display Name of the NPC?
 	set .@name$,strnpcinfo(1);
 
@@ -292,9 +323,94 @@ OnTalk: //CHANGED
 		setarray .@guardianposy[0],218,208,196,228,194,24,24,70;
 		setarray .@masterroom[0],113,223;
 	}
-
+	else if (strnpcinfo(2) == "aldeg_cas02") {
+		setarray .@guardiantype[0],3,3,3,1,1,2,2,2;
+		setarray .@guardianposx[0],27,88,117,60,51,21,36,210;
+		setarray .@guardianposy[0],184,43,46,202,183,177,183,7;
+		setarray .@masterroom[0],134,225;
+	}
+	else if (strnpcinfo(2) == "aldeg_cas03") {
+		setarray .@guardiantype[0],3,3,1,1,1,2,2,2;
+		setarray .@guardianposx[0],90,116,86,116,64,212,195,110;
+		setarray .@guardianposy[0],112,112,120,76,103,160,151,217;
+		setarray .@masterroom[0],229,267;
+	}
+	else if (strnpcinfo(2) == "aldeg_cas04") {
+		setarray .@guardiantype[0],2,2,2,1,1,1,3,3;
+		setarray .@guardianposx[0],187,192,148,145,169,198,48,55;
+		setarray .@guardianposy[0],100,42,88,209,53,77,72,88;
+		setarray .@masterroom[0],83,17;
+	}
+	else if (strnpcinfo(2) == "aldeg_cas05") {
+		setarray .@guardiantype[0],2,2,1,1,3,3,3,3;
+		setarray .@guardianposx[0],51,188,157,157,27,145,156,41;
+		setarray .@guardianposy[0],202,79,192,74,221,78,73,112;
+		setarray .@masterroom[0],64,8;
+	}
+	// Geffen (Britoniah) Castles
+	else if (strnpcinfo(2) == "gefg_cas01") {
+		setarray .@guardiantype[0],1,1,1,2,2,3,3,3;
+		setarray .@guardianposx[0],67,184,62,36,50,50,189,200;
+		setarray .@guardianposy[0],179,20,41,186,186,67,41,167;
+		setarray .@masterroom[0],152,117;
+	}
+	else if (strnpcinfo(2) == "gefg_cas02") {
+		setarray .@guardiantype[0],1,1,1,2,2,3,3,3;
+		setarray .@guardianposx[0],64,56,166,35,20,19,166,159;
+		setarray .@guardianposy[0],168,41,25,148,150,41,42,188;
+		setarray .@masterroom[0],145,115;
+	}
+	else if (strnpcinfo(2) == "gefg_cas03") {
+		setarray .@guardiantype[0],2,2,1,1,1,3,3,3;
+		setarray .@guardianposx[0],48,113,48,157,243,157,234,238;
+		setarray .@guardianposy[0],176,214,207,62,41,45,25,160;
+		setarray .@masterroom[0],275,289;
+	}
+	else if (strnpcinfo(2) == "gefg_cas04") {
+		setarray .@guardiantype[0],2,2,1,1,1,3,3,3;
+		setarray .@guardianposx[0],53,31,49,29,147,57,160,148;
+		setarray .@guardianposy[0],191,178,220,46,65,46,50,189;
+		setarray .@masterroom[0],116,123;
+	}
+	else if (strnpcinfo(2) == "gefg_cas05") {
+		setarray .@guardiantype[0],2,2,1,1,1,3,3,3;
+		setarray .@guardianposx[0],45,71,72,66,177,66,177,193;
+		setarray .@guardianposy[0],149,163,142,47,50,17,35,166;
+		setarray .@masterroom[0],149,106;
+	}
+	// Payon (Baulder) Castles
+	else if (strnpcinfo(2) == "payg_cas01") {
+		setarray .@guardiantype[0],2,2,2,2,2,2,2,3;
+		setarray .@guardianposx[0],229,225,222,99,65,36,51,138;
+		setarray .@guardianposy[0],92,80,111,45,31,127,144,133;
+		setarray .@masterroom[0],295,8;
+	}
+	else if (strnpcinfo(2) == "payg_cas02") {
+		setarray .@guardiantype[0],2,2,2,2,2,2,2,3;
+		setarray .@guardianposx[0],237,228,210,57,42,287,264,27;
+		setarray .@guardianposy[0],54,72,41,241,241,257,272,20;
+		setarray .@masterroom[0],141,149;
+	}
+	else if (strnpcinfo(2) == "payg_cas03") {
+		setarray .@guardiantype[0],2,2,2,2,2,2,2,3;
+		setarray .@guardianposx[0],245,269,36,41,39,19,37,268;
+		setarray .@guardianposy[0],37,51,39,39,65,276,277,244;
+		setarray .@masterroom[0],163,167;
+	}
+	else if (strnpcinfo(2) == "payg_cas04") {
+		setarray .@guardiantype[0],2,2,2,2,2,2,2,3;
+		setarray .@guardianposx[0],251,232,231,32,32,35,36,270;
+		setarray .@guardianposy[0],212,212,175,287,232,45,17,41;
+		setarray .@masterroom[0],151,47;
+	}
+	else if (strnpcinfo(2) == "payg_cas05") {
+		setarray .@guardiantype[0],2,2,2,2,2,2,2,3;
+		setarray .@guardianposx[0],19,33,266,266,263,263,250,36;
+		setarray .@guardianposy[0],279,260,234,279,37,21,22,36;
+		setarray .@masterroom[0],153,137;
+	}
 	// Prontera (Valkyrie Realms) Castles
-	else if (strnpcinfo(2) == "la_bld01") {
+	else if (strnpcinfo(2) == "prtg_cas01") {
 		setarray .@guardiantype[0],1,1,1,2,2,3,3,3;
 		setarray .@guardianposx[0],182,182,153,59,50,184,196,107;
 		setarray .@guardianposy[0],62,116,86,28,36,183,189,179;
@@ -330,16 +446,16 @@ OnTalk: //CHANGED
 	}
 	
 	mes "[ Steward " + .@name$ + " ]";
-	if (.@GID == 0 && getgmlevel() < $woe_mingmlv) { //CHANGED
+	if (.@GID == 0) {
 		mes "I'm waiting for my master to return.";
 		mes "If you wish to speak with him, you will have to wait as well. ";
 		close;
 	}
-	if ((getcharid(2) != .@GID || strcharinfo(0) != getguildmaster(.@GID)) && getgmlevel() < $woe_mingmlv){ //CHANGED
+	if (getcharid(2) != .@GID || strcharinfo(0) != getguildmaster(.@GID)){
 		mes "I am loyal and I will follow my master ^ff0000" + getguildmaster(.@GID) + "^000000. We are Guardians! We defend to the bitter end!";
 		close;
 	}
-	if (getgmlevel()) { mes "Welcome. Game Master, ^ff0000" + strcharinfo(0) + "^000000..."; } else { mes "Welcome. My honorable master, ^ff0000" + getguildmaster(.@GID) + "^000000..."; } //CHANGED
+	mes "Welcome. My honorable master, ^ff0000" + getguildmaster(.@GID) + "^000000...";
 	mes "Whatever you need, I am at your service. I will be faithful in my duties.";
 	next;
 	switch(select("castle briefing:Invest in commercial growth:Invest in safeguard:Summon Guardian:Employ / discharge storehouse staff:Go into Master's room")) {
@@ -360,19 +476,29 @@ OnTalk: //CHANGED
 		close;
 	case 2:
 		set .@Economy,GetCastleData(strnpcinfo(2),2);
-		if(.@Economy < 8) set .@eco_invest,10000;
-		if(.@Economy >= 8) set .@eco_invest,20000;
-		if(.@Economy >= 16) set .@eco_invest,40000;
-		if(.@Economy >= 25) set .@eco_invest,80000;
-		if(.@Economy >= 34) set .@eco_invest,160000;
-		if(.@Economy >= 44) set .@eco_invest,320000;
-		if(.@Economy >= 54) set .@eco_invest,640000;
-		if(.@Economy >= 65) set .@eco_invest,1280000;
-		if(.@Economy >= 76) set .@eco_invest,2560000;
-		if(.@Economy >= 88) set .@eco_invest,5120000;
-		//Double the cost of investing if you've already invested once.
+		if (.@Economy < 6) { set .@eco_invest,5000; }
+		else if ((.@Economy >= 6) && (.@Economy <= 10)) { set .@eco_invest,10000; }
+		else if ((.@Economy >= 11) && (.@Economy <= 15)) { set .@eco_invest,20000; }
+		else if ((.@Economy >= 16) && (.@Economy <= 20)) { set .@eco_invest,35000; }
+		else if ((.@Economy >= 21) && (.@Economy <= 25)) { set .@eco_invest,55000; }
+		else if ((.@Economy >= 26) && (.@Economy <= 30)) { set .@eco_invest,80000; }
+		else if ((.@Economy >= 31) && (.@Economy <= 35)) { set .@eco_invest,110000; }
+		else if ((.@Economy >= 36) && (.@Economy <= 40)) { set .@eco_invest,145000; }
+		else if ((.@Economy >= 41) && (.@Economy <= 45)) { set .@eco_invest,185000; }
+		else if ((.@Economy >= 46) && (.@Economy <= 50)) { set .@eco_invest,230000; }
+		else if ((.@Economy >= 51) && (.@Economy <= 55)) { set .@eco_invest,280000; }
+		else if ((.@Economy >= 56) && (.@Economy <= 60)) { set .@eco_invest,335000; }
+		else if ((.@Economy >= 61) && (.@Economy <= 65)) { set .@eco_invest,395000; }
+		else if ((.@Economy >= 66) && (.@Economy <= 70)) { set .@eco_invest,460000; }
+		else if ((.@Economy >= 71) && (.@Economy <= 75)) { set .@eco_invest,530000; }
+		else if ((.@Economy >= 76) && (.@Economy <= 80)) { set .@eco_invest,605000; }
+		else if ((.@Economy >= 81) && (.@Economy <= 85)) { set .@eco_invest,685000; }
+		else if ((.@Economy >= 86) && (.@Economy <= 90)) { set .@eco_invest,770000; }
+		else if ((.@Economy >= 91) && (.@Economy <= 95)) { set .@eco_invest,860000; }
+		else if ((.@Economy >= 96) && (.@Economy <= 100)) { set .@eco_invest,955000; }
+		//Quadruple the cost of investing if you've already invested once.
 		if (GetCastleData(strnpcinfo(2),4)) {
-			set .@eco_invest,.@eco_invest*2;
+			set .@eco_invest,.@eco_invest*4;
 		}
 		mes "[ Steward " + .@name$ + " ]";
 		mes "If you raise commercial growth, the quantity of goods made by the guild will increase. So if you want a prosperous future, investment will be required.";
@@ -403,7 +529,6 @@ OnTalk: //CHANGED
 			}
 			set zeny,zeny-.@eco_invest;
 			SetCastleData strnpcinfo(2),4,GetCastleData(strnpcinfo(2),4)+1;
-			SetCastleData strnpcinfo(2),2,.@Economy + 1 + (.@Economy<99 && rand(2) && getgdskilllv(.@GID,10014));
 			mes "[ Steward " + .@name$ + "]";
 			mes "We finished the investment safely. I expect that our growth level will be increased by tomorrow.";
 			close;
@@ -414,19 +539,29 @@ OnTalk: //CHANGED
 		}
 	case 3:
 		set .@Defence,GetCastleData(strnpcinfo(2),3);
-		if(.@Defence < 8) set .@def_invest,20000;
-		if(.@Defence >= 8) set .@def_invest,40000;
-		if(.@Defence >= 16) set .@def_invest,80000;
-		if(.@Defence >= 25) set .@def_invest,160000;
-		if(.@Defence >= 34) set .@def_invest,320000;
-		if(.@Defence >= 44) set .@def_invest,640000;
-		if(.@Defence >= 54) set .@def_invest,1280000;
-		if(.@Defence >= 65) set .@def_invest,2560000;
-		if(.@Defence >= 76) set .@def_invest,5120000;
-		if(.@Defence >= 88) set .@def_invest,10240000;
-		//Double the cost of investing if you've already invested once.
+		if (.@Defence < 6) { set .@def_invest,10000; }
+		else if ((.@Defence >= 6) && (.@Defence <= 10)) { set .@def_invest,20000; }
+		else if ((.@Defence >= 11) && (.@Defence <= 15)) { set .@def_invest,40000; }
+		else if ((.@Defence >= 16) && (.@Defence <= 20)) { set .@def_invest,70000; }
+		else if ((.@Defence >= 21) && (.@Defence <= 25)) { set .@def_invest,110000; }
+		else if ((.@Defence >= 26) && (.@Defence <= 30)) { set .@def_invest,160000; }
+		else if ((.@Defence >= 31) && (.@Defence <= 35)) { set .@def_invest,220000; }
+		else if ((.@Defence >= 36) && (.@Defence <= 40)) { set .@def_invest,290000; }
+		else if ((.@Defence >= 41) && (.@Defence <= 45)) { set .@def_invest,370000; }
+		else if ((.@Defence >= 46) && (.@Defence <= 50)) { set .@def_invest,460000; }
+		else if ((.@Defence >= 51) && (.@Defence <= 55)) { set .@def_invest,560000; }
+		else if ((.@Defence >= 56) && (.@Defence <= 60)) { set .@def_invest,670000; }
+		else if ((.@Defence >= 61) && (.@Defence <= 65)) { set .@def_invest,790000; }
+		else if ((.@Defence >= 66) && (.@Defence <= 70)) { set .@def_invest,920000; }
+		else if ((.@Defence >= 71) && (.@Defence <= 75)) { set .@def_invest,1060000; }
+		else if ((.@Defence >= 76) && (.@Defence <= 80)) { set .@def_invest,1210000; }
+		else if ((.@Defence >= 81) && (.@Defence <= 85)) { set .@def_invest,1370000; }
+		else if ((.@Defence >= 86) && (.@Defence <= 90)) { set .@def_invest,1540000; }
+		else if ((.@Defence >= 91) && (.@Defence <= 95)) { set .@def_invest,1720000; }
+		else if ((.@Defence >= 96) && (.@Defence <= 100)) { set .@def_invest,1910000; }
+		//Quadruple the cost of investing if you've already invested once.
 		if (GetCastleData(strnpcinfo(2),5)) {
-			set .@def_invest,.@def_invest*2;
+			set .@def_invest,.@def_invest*4;
 		}
 		mes "[ Steward " + .@name$ + " ]";
 		mes "If you raise the safeguard, the durability of the Guardians and emperium will increase. So if you expect more defenses in battles, investment will be required.";
@@ -457,7 +592,6 @@ OnTalk: //CHANGED
 			}
 			set zeny,zeny-.@def_invest;
 			SetCastleData strnpcinfo(2),5,GetCastleData(strnpcinfo(2),5)+1;
-			SetCastleData strnpcinfo(2),3,.@Defence+1;
 			mes "[ Steward " + .@name$ + "]";
 			mes "We finished the investment safely. I expect that the safeguard level will be increased by tomorrow.";
 			close;
@@ -500,7 +634,7 @@ OnTalk: //CHANGED
 				close;
 			}
 
-			if (Zeny < 1000) {
+			if (Zeny < 10000) {
 				mes "Well... I'm sorry but we don't have funds to summon the Guardian. We failed to summon the Guardian.";
 				close;
 			}
@@ -991,13 +1125,6 @@ OnTouch:
 	end;
 
 OnClock0001:
-
-	for (set .@i, 1; .@i <= 7; set .@i, .@i+1) { //START CHANGED
-		for (set .@i_, 1; .@i_ <= 5; set .@i_, .@i_+1) {
-			if (getd("$woe_cas"+.@i+"_3$["+.@i_+"]") == strnpcinfo(2) && getd("$woe_cas"+.@i+"_tdisable["+.@i_+"]")) { end; }
-		}
-	} //END CHANGED
-
 	// Do nothing if this script is the template.
 	if (strnpcinfo(1) == "Gld_Trea_Spawn") end;
 	
@@ -1113,7 +1240,19 @@ OnClock0001:
 		end;
 	}
 
-	// Reset daily investment limit.
+	// Apply investment to Eco. and Def. Only happens if there were investments made.
+	// Permanent Development can only happen once per day.
+	if (GetCastleData(strnpcinfo(2),4)) {
+		set .@Economy,GetCastleData(strnpcinfo(2),2);
+		SetCastleData strnpcinfo(2),2,.@Economy + GetCastleData(strnpcinfo(2),4) + (rand(2) && getgdskilllv(.@GID,10014));
+		if (GetCastleData(strnpcinfo(2),2) > 100) SetCastleData strnpcinfo(2),2,100;
+	}
+	if (GetCastleData(strnpcinfo(2),5)) {
+		set .@Defence,GetCastleData(strnpcinfo(2),3);
+		SetCastleData strnpcinfo(2),3,.@Defence + GetCastleData(strnpcinfo(2),5);
+		if (GetCastleData(strnpcinfo(2),3) > 100) SetCastleData strnpcinfo(2),3,100;
+	}
+	// Reset daily investment limits.
 	setcastledata strnpcinfo(2),4,0;
 	setcastledata strnpcinfo(2),5,0;
 
