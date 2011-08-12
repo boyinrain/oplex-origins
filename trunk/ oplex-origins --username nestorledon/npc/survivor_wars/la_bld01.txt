@@ -12,7 +12,7 @@
 //============================================================
 // Guild Flag (Town)
 //============================================================
-lavive_02,71,14,1	script	Office Building#p1-1::Kriemhild	722,{
+lavive_01,25,25,1	script	Office Building#p1-1::office_building	722,{
 	end;
 
 OnRecvCastlePt01:
@@ -22,7 +22,7 @@ OnRecvCastlePt01:
 
 // Guild Flag (Outside Castle)
 //============================================================
-lavive_02,71,14,1	script	Office Building#p1-2::Kriemhild2	722,{
+lavive_02,71,14,1	script	Office Building#p1-2::office_building2	722,{
 	set .@GID, GetCastleData("la_bld01",1);
 	if (.@GID == 0) {
 		mes " [ Edict of the Divine Rune Midgard Kingdom ]";
