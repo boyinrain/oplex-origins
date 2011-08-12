@@ -26,7 +26,7 @@ lavive_02,69,14,1	script	Survivor War Info	111,{ //If you wish to change the nam
 	if (getgmlevel()>=$woe_mingmlv) goto L_Main;
 L_View:
 	mes "[Survivor War Info]";
-	mes "Welcome to the Survivor War Info NPC, the current WoE times are as follows:";
+	mes "Welcome to the Survivor War Info NPC, the current SW times are as follows:";
 	callsub S_Listing2;
 	set @temp$, "";
 	for (set @i, 0; @i < getarraysize($@woes3_pl_player$); set @i, @i+1) {
@@ -110,10 +110,10 @@ S_Listing2:
 	}
 	return;
 L_Main:
-	mes "[WoE Time Setter]";
+	mes "[SW Time Setter]";
 	mes "Hello there, how can I help you GM?";
 	next;
-	menu "Manage WoE Times",L_ModifyListing,"Start/Stop WoE",L_ManualWoE,"Plug-ins",L_Plugins,"Settings",L_Settings,"Test Player View",L_View,"Exit",-;
+	menu "Manage SW Times",L_ModifyListing,"Start/Stop SW",L_ManualWoE,"Plug-ins",L_Plugins,"Settings",L_Settings,"Test Player View",L_View,"Exit",-;
 	close;
 L_Plugins:
 	set @temp$, "";
@@ -145,7 +145,7 @@ L_ModifyListing:
 		callfunc("WoE_Status",0,@ar_town[@sel_modify],@ar_castle[@sel_modify]);
 	}
 	query_sql("delete from `woe_times` where `id` = '"+@ar_id[@sel_modify]+"'");
-	dispbottom "WoE time deleted!";
+	dispbottom "SW time deleted!";
 	set $woe_chatinfo, 0;
 	goto L_ModifyListing;
 L_ModifyAdd:
@@ -203,7 +203,7 @@ L_ModifyCastle_Sub:
 	}
 	dispbottom "Select the castle(s) within the previously selected town(s) you wish this WoE time to apply to. If the name is green it means it's enabled, red means disabled.";
 L_ModifyTime_Main:
-	if (!@sel2) { dispbottom "You must first select at least one castle!"; goto L_ModifyCastle_Sub; }
+	if (!@sel2) { dispbottom "You must first select at least one location!"; goto L_ModifyCastle_Sub; }
 	set @cas_code, 0;
 	if (@sel_castle[1]) set @cas_code, @cas_code+1;
 	set @temp, 2;
@@ -267,7 +267,7 @@ OnInit:
 	query_sql("CREATE TABLE IF NOT EXISTS `woe_times` ( `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT, `town` TINYINT UNSIGNED NOT NULL, `castle` TINYINT UNSIGNED NOT NULL, `sd` TINYINT UNSIGNED NOT NULL, `sh` TINYINT UNSIGNED NOT NULL, `sm` TINYINT UNSIGNED NOT NULL, `st` BIGINT UNSIGNED NOT NULL, `sv` INTEGER UNSIGNED NOT NULL, `ed` TINYINT UNSIGNED NOT NULL, `eh` TINYINT UNSIGNED NOT NULL, `em` TINYINT UNSIGNED NOT NULL, `et` BIGINT UNSIGNED NOT NULL, `ev` INTEGER UNSIGNED NOT NULL, `active` TINYINT UNSIGNED NOT NULL, PRIMARY KEY (`id`) ) ENGINE = MyISAM;");
 	set $woe_manual, 1; //Variable to know whether WoE was started by atcommand/manually through NPC, or through automatic timer.
 	set $woe_mingmlv, 80; //The minimum GM level able to use the NPC
-	setarray $woe_towns$[1], "Aldebaran", "Geffen", "Payon", "Prontera", "Novice Castles", "Schwartzvalt", "Arunafeltz", "All Castles"; //These are the town names, mostly for announcements
+	setarray $woe_towns$[1], "Aldebaran", "Geffen", "Payon", "Lavive", "Novice Castles", "Schwartzvalt", "Arunafeltz", "All Castles"; //These are the town names, mostly for announcements
 	setarray $woe_cas1_1$[1], getcastlename("aldeg_cas01"), getcastlename("aldeg_cas02"), getcastlename("aldeg_cas03"), getcastlename("aldeg_cas04"), getcastlename("aldeg_cas05"); //These are the  castle names
 	setarray $woe_cas1_2[1], 0, 0, 0, 0, 0; //Aldebaran's agit status
 	setarray $woe_cas1_3$[1], "aldeg_cas01", "aldeg_cas02", "aldeg_cas03", "aldeg_cas04", "aldeg_cas05";
@@ -277,7 +277,7 @@ OnInit:
 	setarray $woe_cas3_1$[1], getcastlename("payg_cas01"), getcastlename("payg_cas02"), getcastlename("payg_cas03"), getcastlename("payg_cas04"), getcastlename("payg_cas05"); //These are the castle names
 	setarray $woe_cas3_2[1], 0, 0, 0, 0, 0; //Payon's agit status
 	setarray $woe_cas3_3$[1], "payg_cas01", "payg_cas02", "payg_cas03", "payg_cas04", "payg_cas05";
-	setarray $woe_cas4_1$[1], getcastlename("prtg_cas01"), getcastlename("prtg_cas02"), getcastlename("prtg_cas03"), getcastlename("prtg_cas04"), getcastlename("prtg_cas05"); //These are the castle names
+	setarray $woe_cas4_1$[1], getcastlename("la_bld01"), getcastlename("prtg_cas02"), getcastlename("prtg_cas03"), getcastlename("prtg_cas04"), getcastlename("prtg_cas05"); //These are the castle names
 	setarray $woe_cas4_2[1], 0, 0, 0, 0, 0; //Prontera's agit status
 	setarray $woe_cas4_3$[1], "prtg_cas01", "prtg_cas02", "prtg_cas03", "prtg_cas04", "prtg_cas05";
 	setarray $woe_cas5_1$[1], "Aldebaran Castle", "Geffen Castle", "Payon Castle", "Prontera Castle", "-"; //These are the castle names
@@ -430,7 +430,7 @@ function	script	WoE_Status	{
 			if (.@i_>5) { if (!agitcheck2()&&getarg(0)) { agitstart2; } } else { if (!agitcheck()&&getarg(0)) { agitstart; } }
 			set .@temp$, ""; set .@ccode, getarg(2); set .@ccurrent, 16;
 			for (set .@i, 5; .@i>0; set .@i,.@i-1) { if (.@ccode>=.@ccurrent) { if (getarg(0)) { if (.@i_!=6&&.@i_!=7) { if(.@tcurrent!=16) donpcevent "Agit#"+getd("$woe_cas"+.@i_+"_3$["+.@i+"]")+"::OnAgitStart_"; } else if (.@i_==7) { donpcevent "Manager#aru0"+.@i+"_02::OnAgitStart2_"; } else { donpcevent "Manager#sch0"+.@i+"_02::OnAgitStart2_"; } } else { if (.@i_!=6&&.@i_!=7) { if (.@tcurrent!=16) donpcevent "Agit#"+getd("$woe_cas"+.@i_+"_3$["+.@i+"]")+"::OnAgitEnd_"; } else if (.@i_==7) {donpcevent "Manager#aru0"+.@i+"_02::OnAgitEnd2_"; } else { donpcevent "Manager#sch0"+.@i+"_02::OnAgitEnd2_"; } } setd "$woe_cas"+.@i_+"_2["+.@i+"]", getarg(0); set .@temp$, .@temp$+getd("$woe_cas"+.@i_+"_1$["+.@i+"]")+((.@ccode>.@ccurrent)?", ":" "); set .@ccode, .@ccode-.@ccurrent; } set .@ccurrent, .@ccurrent/2; }
-			if (getarg(1)!=127&&.@tcurrent!=16) announce "WoE has "+((getarg(0))?"begun":"ended")+" for "+$woe_towns$[.@i_]+" ( Castle(s): "+((getarg(2)==31)?"All":.@temp$)+" )!",bc_all|bc_yellow;
+			if (getarg(1)!=127&&.@tcurrent!=16) announce "Survivor Wars has "+((getarg(0))?"begun":"ended")+" for "+$woe_towns$[.@i_]+" ( Location(s): "+((getarg(2)==31)?"All":.@temp$)+" )!",bc_all|bc_yellow;
 			set .@tcode, .@tcode-.@tcurrent;
 		}
 		set .@tcurrent,.@tcurrent/2;
