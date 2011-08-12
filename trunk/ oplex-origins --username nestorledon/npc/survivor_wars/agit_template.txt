@@ -127,7 +127,7 @@ OnAgitBreak:
 	if( agitcheck() )
 		donpcevent "Agit#"+strnpcinfo(2)+"::OnStartArena";
 	sleep getbattleflag("gvg_eliminate_time");
-	announce "The Safe House " + getcastlename(strnpcinfo(2)) + " has been captured by the [" + getguildName(.@GID) + "] Alliance.",bc_all;
+	announce "The Safe House " + getcastlename(strnpcinfo(2)) + " has been captured by the " + getguildName(.@GID) + " Alliance.",bc_all;
 	end;
 
 // War of Emperium has ended.
@@ -137,6 +137,11 @@ OnAgitEnd:
 	// If the castle has no owner at the end of WoE, do not kill Emperium.
 	if (GetCastleData(strnpcinfo(2),1)) {
 		KillMonster strnpcinfo(2),"Agit#"+strnpcinfo(2)+"::OnAgitBreak";
+	}
+	end;
+
+OnAgitEnd:	{
+	disablenpc"bld0101"
 	}
 	end;
 
