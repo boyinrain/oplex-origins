@@ -39,12 +39,11 @@ lavive_02,71,14,1	script	Office Building#p1-2::office_building2	722,{
 	}
 	else {
 		if (getcharid(2) == .@GID) {
-			mes "Brave ones...";
-			mes "Do you wish to return to your honorable place?";
+			mes "Enter?";
 			next;
 			if (select("Return to the guild castle.:Quit.") == 1) {
-				if (getcharid(2) == GetCastleData("prtg_cas01",1)) {
-					warp "prtg_cas01",96,173;
+				if (getcharid(2) == GetCastleData("la_bld01",1)) {
+					warp "la_bld01",17,8;
 					end;
 				}
 			}
