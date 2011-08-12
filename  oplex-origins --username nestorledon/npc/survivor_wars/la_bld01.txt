@@ -25,17 +25,12 @@ OnRecvCastlePt01:
 lavive_02,71,14,1	script	Office Building#p1-2::office_building2	722,{
 	set .@GID, GetCastleData("la_bld01",1);
 	if (.@GID == 0) {
-		mes " [ Edict of the Divine Rune Midgard Kingdom ]";
+		mes " [ Lavive Engergy Effecient Suites ]";
 		mes " ";
-		mes "1. Follow the ordinance of The Divine Rune Midgard Kingdom, ";
-		mes "We declare that";
-		mes "there is no formal master of this castle.";
+		mes "This building is well intact...";
 		mes " ";
-		mes "2. To the one who can ";
-		mes "overcome all trials";
-		mes "and destroy the Emperium,";
-		mes "the king will endow the one with";
-		mes "ownership of this castle.";
+		mes "If we can get to the power room ";
+		mes "we might be able to get the power running.";
 	}
 	else {
 		if (getcharid(2) == .@GID) {
@@ -49,17 +44,13 @@ lavive_02,71,14,1	script	Office Building#p1-2::office_building2	722,{
 			}
 			close;
 		}
-		mes "[ Edict of the Divine Rune Midgard Kingdom ]";
+		mes "[ Lavive Engergy Effecient Suites ]";
 		mes " ";
-		mes "1. Following the ordinance of the";
-		mes "Divine Rune Midgard Kingdom,";
-		mes "we approve that this place is in";
-		mes "the private possession of ^ff0000" + GetGuildName(.@GID) + "^000000 Guild.";
+		mes "This building is in";
+		mes "the private possession of ^ff0000" + GetGuildName(.@GID) + "^000000 Alliance.";
 		mes " ";
-		mes "2. The guild Master of ^ff0000"+ GetGuildName(.@GID) + "^000000 Guild is";
+		mes "2. The Leader of ^ff0000"+ GetGuildName(.@GID) + "^000000 Guild is";
 		mes "^FF0000" + GetGuildMaster(.@GID) + "^000000";
-		mes "If there is anyone who objects to this,";
-		mes " prove your strength and honor with a steel blade in your hand.";
 	}
 	close;
 
