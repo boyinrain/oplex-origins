@@ -70,7 +70,7 @@ OnAgitStart:
 OnStartArena:
 	// OnAgitStart will fall through and spawn the Emperium.
 	if (strnpcinfo(2) == "aldeg_cas01") { setarray .@emproom[0],216,23; }
-	else if (strnpcinfo(2) == "la_bld01") { setarray .@emproom[0],197,197; }
+	else if (strnpcinfo(2) == "la_bld01") { setarray .@emproom[0],17,79; }
 	else if (strnpcinfo(2) == "prtg_cas02") { setarray .@emproom[0],157,174; }
 	else if (strnpcinfo(2) == "prtg_cas03") { setarray .@emproom[0],16,220; }
 	else if (strnpcinfo(2) == "prtg_cas04") { setarray .@emproom[0],291,14; }
