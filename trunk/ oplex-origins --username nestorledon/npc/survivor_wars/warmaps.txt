@@ -14,4 +14,4 @@
 
 //Lavive Survivor Wars Buildings
 lavive_02,75,14,0	warp	bld0101	1,1,la_bld01,17,8
-la_bld01,17,4,0	warp	bld0101	1,1,lavive_02,75,10
+la_bld01,17,4,0	warp	bld0102	1,1,lavive_02,75,10
