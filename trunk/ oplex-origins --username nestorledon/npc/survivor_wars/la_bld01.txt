@@ -63,11 +63,11 @@ prt_gld,135,60,6	duplicate(Kriemhild2)	Kriemhild#p1-5	722
 
 // Guild Flag (Inside Castle)
 //============================================================
-prtg_cas01,58,56,4	script	Kriemhild#p1-4::Kriemhild3	722,{
+prtg_cas01,58,56,4	script	Office Building#p1-4::office_building3	722,{
 	end;
 
 OnRecvCastlePt01:
-	FlagEmblem GetCastleData("prtg_cas01",1);
+	FlagEmblem GetCastleData("la_bld01",1);
 	end;
 }
 
