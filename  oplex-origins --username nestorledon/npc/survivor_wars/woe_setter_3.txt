@@ -18,15 +18,15 @@
 //=	added whisperglobal system [[GM]Xeon]
 //===========================================================================
 
-lavive_02,69,14,1	script	WoE Information	806,{ //If you wish to change the name, search for all 'WoE Information' and replace them with the desired name.
+lavive_02,69,14,1	script	Survivor War Info	111,{ //If you wish to change the name, search for all 'WoE Information' and replace them with the desired name.
 //To do:
 //GM:
 //Player: Warp to treasury when WoE isn't active?
 
 	if (getgmlevel()>=$woe_mingmlv) goto L_Main;
 L_View:
-	mes "[WoE Information]";
-	mes "Welcome to the WoE Information NPC, the current WoE times are as follows:";
+	mes "[Survivor War Info]";
+	mes "Welcome to the Survivor War Info NPC, the current WoE times are as follows:";
 	callsub S_Listing2;
 	set @temp$, "";
 	for (set @i, 0; @i < getarraysize($@woes3_pl_player$); set @i, @i+1) {
@@ -291,7 +291,7 @@ OnInit:
 	agitend; agitend2;
 	query_sql "update `woe_times` set `active` = '0' where `active` = '1'";
 	callfunc("WoE_Update");
-	donpcevent "WoE Information::OnChatInfo";
+	donpcevent "Survivor War Info::OnChatInfo";
 	deletearray $@woes3_pl_playermenu$[0], 128;
 	deletearray $@woes3_pl_player$[0], 128;
 	deletearray $@woes3_pl_gmmenu$[0], 128;
