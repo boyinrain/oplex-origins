@@ -2,4 +2,4 @@
 //
 // Structure of Database:
 // CastleID,MapName,CastleName,OnGuildBreakEventName(to abandon captured castles),Flag(reserved)
-
+15,la_bld01,Kriemhild,Agit#la_bld01,1			// kRO : Creamhilt
