@@ -15,7 +15,7 @@
 lavive_01,25,25,1	script	Office Building#p1-1::office_building	722,{
 	end;
 
-OnRecvCastlePt01:
+OnRecvCastlelabld01:
 	FlagEmblem GetCastleData("la_bld01",1);
 	end;
 }
@@ -52,7 +52,7 @@ lavive_02,71,14,1	script	Office Building#p1-2::office_building2	722,{
 	}
 	close;
 
-OnRecvCastlePt01:
+OnRecvCastlelabld01:
 	FlagEmblem GetCastleData("la_bld01",1);
 	end;
 }
@@ -66,7 +66,7 @@ prt_gld,135,60,6	duplicate(Kriemhild2)	Kriemhild#p1-5	722
 prtg_cas01,58,56,4	script	Office Building#p1-4::office_building3	722,{
 	end;
 
-OnRecvCastlePt01:
+OnRecvCastlelabld01:
 	FlagEmblem GetCastleData("la_bld01",1);
 	end;
 }
