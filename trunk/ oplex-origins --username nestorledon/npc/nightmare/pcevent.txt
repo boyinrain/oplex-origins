@@ -26,6 +26,13 @@ OnPCLoginEvent:
 	end;
 }
 
+-	script	light_mechanic	-1,{
+OnPCLoginEvent:
+	getmapxy @playermap$,@playerx,@playery,0;
+	if (isday()) callfunc "func_light";
+	end;
+}
+
 -	script	game_mechanics::gamemechs	-1,{
 
 OnPCLoginEvent:
