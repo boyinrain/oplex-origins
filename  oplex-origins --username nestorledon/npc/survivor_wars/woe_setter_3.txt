@@ -76,7 +76,7 @@ S_Listing2:
 	deletearray @ar_smin[0], 128; deletearray @ar_stick[0], 128; deletearray @ar_svar[0], 128; deletearray @ar_eday[0], 128; deletearray @ar_ehour[0], 128;
 	deletearray @ar_emin[0], 128; deletearray @ar_etick[0], 128; deletearray @ar_evar[0], 128;
 	set @results, query_sql("select * from `woe_times` order by `st` ASC",@ar_id,@ar_town,@ar_castle,@ar_sday,@ar_shour,@ar_smin,@ar_stick,@ar_svar,@ar_eday,@ar_ehour,@ar_emin,@ar_etick,@ar_evar,@ignore);
-	if (!@results) { mes "There are no current WoE times!"; return; }
+	if (!@results) { mes "There are no current SW times!"; return; }
 	for (set @temp,0; @temp<@results; set @temp, @temp+1) {
 		mes "--";
 		set @temp$, "";
@@ -86,7 +86,7 @@ S_Listing2:
 			if (@temp_>=64) { set @temp$, @temp$+"^FFFF00Arunafeltz "; set @temp_, @temp_-64; }
 			if (@temp_>=32) { set @temp$, @temp$+"^FF0000Schwartzvelt "; set @temp_, @temp_-32; }
 			if (@temp_>=16) { set @temp$, @temp$+"^9900CCNovice "; set @temp_, @temp_-16; }
-			if (@temp_>=8) { set @temp$, @temp$+"^808080Prontera "; set @temp_, @temp_-8; }
+			if (@temp_>=8) { set @temp$, @temp$+"^808080Lavive "; set @temp_, @temp_-8; }
 			if (@temp_>=4) { set @temp$, @temp$+"^339900Payon "; set @temp_, @temp_-4; }
 			if (@temp_>=2) { set @temp$, @temp$+"^0066FFGeffen "; set @temp_, @temp_-2; }
 			if (@temp_==1) set @temp$, @temp$+"^FF9900Aldebaran ";
@@ -140,7 +140,7 @@ L_ModifyListing:
 	set @adding, 0;
 	menu "Modify time",L_ModifyTown_Main,"Delete time",-,"Back",L_ModifyListing;
 	if (gettimetick(2)>=@ar_stick[@sel_modify]&&gettimetick(2)<@ar_etick[@sel_modify]) {
-		dispbottom "The selected WoE is currently active, if you delete it it will automatically stop! Proceed?";
+		dispbottom "The selected SW is currently active, if you delete it it will automatically stop! Proceed?";
 		menu "Yes",-,"No",L_ModifyAdd;
 		callfunc("WoE_Status",0,@ar_town[@sel_modify],@ar_castle[@sel_modify]);
 	}
@@ -177,7 +177,7 @@ L_ModifyTown_Main: //@sel_modify is passed from the selection of what exisitng t
 		set @emin, @ar_emin[@sel_modify];
 		set @evar, @ar_evar[@sel_modify];
 	}
-	dispbottom "Select the town(s) you wish this WoE time to apply to. If the name is green it means it's enabled, red means disabled.";
+	dispbottom "Select the town(s) you wish this SW time to apply to. If the name is green it means it's enabled, red means disabled.";
 L_ModifyTown_Sub:
 	menu ((@sel_town[1])?"^339900":"^FF0000")+$woe_towns$[1]+":"+((@sel_town[2])?"^339900":"^FF0000")+$woe_towns$[2]+":"+((@sel_town[3])?"^339900":"^FF0000")+$woe_towns$[3]+":"+((@sel_town[4])?"^339900":"^FF0000")+$woe_towns$[4]+":"+((@sel_town[5])?"^339900":"^FF0000")+$woe_towns$[5]+":"+((@sel_town[6])?"^339900":"^FF0000")+$woe_towns$[6]+":"+((@sel_town[7])?"^339900":"^FF0000")+$woe_towns$[7]+":"+((@sel==7)?"^339900":"^FF0000")+$woe_towns$[8],-,"^000000Proceed",L_ModifyCastle_Main,"Back",L_ModifyListing;
 	if (@menu==8) if (@sel<7) { setarray @sel_town[1], 1, 1, 1, 1, 1, 1, 1; set @sel, 7; goto L_ModifyTown_Sub; } else { setarray @sel_town[1], 0, 0, 0, 0, 0, 0, 0; set @sel, 0; goto L_ModifyTown_Sub; }
@@ -211,7 +211,7 @@ L_ModifyTime_Main:
 	if (!@set_time) {
 		set @sday, 0; set @shour, 0; set @smin, 0; set @svar, 0; set @eday, 0; set @ehour, 0; set @emin, 0; set @evar, 0;
 	}
-	dispbottom "Select the starting and ending time for the WoE, note the hour is in military time, i.e. 0=12AM, 10=10AM, 22=10PM. Variance is the total amount in seconds to make the time be randomized, ex: setting start to 60 would make the start time either start up to 30 seconds earlier, or start up to 30 seconds later.";
+	dispbottom "Select the starting and ending time for the SW, note the hour is in military time, i.e. 0=12AM, 10=10AM, 22=10PM. Variance is the total amount in seconds to make the time be randomized, ex: setting start to 60 would make the start time either start up to 30 seconds earlier, or start up to 30 seconds later.";
 L_ModifyTime_Sub:
 	for (set .@i, 1; .@i<3; set .@i, .@i+1) setd("@temp"+.@i+"$", callfunc("daytostr",1,getd(((.@i==1)?"@sday":"@eday"))));
 	menu "Start Day [^0066FF"+@temp1$+"^000000]:Start Hour [^0066FF"+@shour+"^000000]:Start Minute [^0066FF"+@smin+"^000000]:End Day [^0066FF"+@temp2$+"^000000]:End Hour [^0066FF"+@ehour+"^000000]:End Minute [^0066FF"+@emin+"^000000]:Start Variance [^0066FF"+@svar+"^000000]:End Variance [^0066FF"+@evar+"^000000]",-,"Proceed",L_ModifyFinish,"Back",L_ModifyCastle_Sub;
@@ -240,7 +240,7 @@ L_ModifyFinish:
 	dispbottom "WoE time "+((@adding)?"added!":"modified!");
 	goto L_ModifyListing;
 L_ManualWoE:
-	dispbottom "Select the castle(s) to start or stop WoE for.";
+	dispbottom "Select the location(s) to start or stop SW for.";
 	menu (($woe_cas1_2[1]||$woe_cas1_2[2]||$woe_cas1_2[3]||$woe_cas1_2[4]||$woe_cas1_2[5])?"^339900":"^FF0000")+$woe_towns$[1]+":"+(($woe_cas2_2[1]||$woe_cas2_2[2]||$woe_cas2_2[3]||$woe_cas2_2[4]||$woe_cas2_2[5])?"^339900":"^FF0000")+$woe_towns$[2]+":"+(($woe_cas3_2[1]||$woe_cas3_2[2]||$woe_cas3_2[3]||$woe_cas3_2[4]||$woe_cas3_2[5])?"^339900":"^FF0000")+$woe_towns$[3]+":"+(($woe_cas4_2[1]||$woe_cas4_2[2]||$woe_cas4_2[3]||$woe_cas4_2[4]||$woe_cas4_2[5])?"^339900":"^FF0000")+$woe_towns$[4]+":"+(($woe_cas5_2[1]||$woe_cas5_2[2]||$woe_cas5_2[3]||$woe_cas5_2[4]||$woe_cas5_2[5])?"^339900":"^FF0000")+$woe_towns$[5]+":"+(($woe_cas6_2[1]||$woe_cas6_2[2]||$woe_cas6_2[3]||$woe_cas6_2[4]||$woe_cas6_2[5])?"^339900":"^FF0000")+$woe_towns$[6]+":"+(($woe_cas7_2[1]||$woe_cas7_2[2]||$woe_cas7_2[3]||$woe_cas7_2[4])?"^339900":"^FF0000")+$woe_towns$[7],-,"^339900Enable all",-,"^FF0000Disable all",-,"^000000Back",L_Main;
 	if (@menu==8) { set $woe_manual, 0; callfunc("WoE_Status",1,127,31); set $woe_manual, 1; goto L_ManualWoE; }
 	if (@menu==9) { set $woe_manual, 0; callfunc("WoE_Status",0,127,31); set $woe_manual, 1; goto L_ManualWoE; }
