@@ -127,7 +127,7 @@ OnAgitBreak:
 	if( agitcheck() )
 		donpcevent "Agit#"+strnpcinfo(2)+"::OnStartArena";
 	sleep getbattleflag("gvg_eliminate_time");
-	announce "The [" + getcastlename(strnpcinfo(2)) + "] castle has been conquered by the [" + getguildName(.@GID) + "] guild.",bc_all;
+	announce "The Safe House[" + getcastlename(strnpcinfo(2)) + "] has been conquered by the [" + getguildName(.@GID) + "] Alliance.",bc_all;
 	end;
 
 // War of Emperium has ended.
