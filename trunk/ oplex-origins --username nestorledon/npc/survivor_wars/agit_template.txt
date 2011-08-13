@@ -66,12 +66,15 @@ OnInterIfInitOnce:
 	else if (strnpcinfo(2) == "payg_cas03") { GetCastleData "payg_cas03",0,strnpcinfo(0)+"::OnRecvCastle"; }
 	else if (strnpcinfo(2) == "payg_cas04") { GetCastleData "payg_cas04",0,strnpcinfo(0)+"::OnRecvCastle"; }
 	else if (strnpcinfo(2) == "payg_cas05") { GetCastleData "payg_cas05",0,strnpcinfo(0)+"::OnRecvCastle"; }
-	else if (strnpcinfo(2) == "la_bld01") { GetCastleData "la_bld01",0,strnpcinfo(0)+"::OnRecvCastle"; }
+	else if (strnpcinfo(2) == "prtg_cas01") { GetCastleData "prtg_cas01",0,strnpcinfo(0)+"::OnRecvCastle"; }
 	else if (strnpcinfo(2) == "prtg_cas02") { GetCastleData "prtg_cas02",0,strnpcinfo(0)+"::OnRecvCastle"; }
 	else if (strnpcinfo(2) == "prtg_cas03") { GetCastleData "prtg_cas03",0,strnpcinfo(0)+"::OnRecvCastle"; }
 	else if (strnpcinfo(2) == "prtg_cas04") { GetCastleData "prtg_cas04",0,strnpcinfo(0)+"::OnRecvCastle"; }
 	else if (strnpcinfo(2) == "prtg_cas05") { GetCastleData "prtg_cas05",0,strnpcinfo(0)+"::OnRecvCastle"; }
 	// Add custom Guild Castles here.
+	else if (strnpcinfo(2) == "la_bld01") { GetCastleData "la_bld01",0,strnpcinfo(0)+"::OnRecvCastle"; }
+	else if (strnpcinfo(2) == "la_bld02") { GetCastleData "la_bld02",0,strnpcinfo(0)+"::OnRecvCastle"; }
+	else if (strnpcinfo(2) == "la_bld03") { GetCastleData "la_bld03",0,strnpcinfo(0)+"::OnRecvCastle"; }
 	else {
 		end;
 	}
@@ -101,17 +104,20 @@ OnStartArena:
 	else if (strnpcinfo(2) == "payg_cas03") { setarray .@emproom[0],268,264; }
 	else if (strnpcinfo(2) == "payg_cas04") { setarray .@emproom[0],270,28; }
 	else if (strnpcinfo(2) == "payg_cas05") { setarray .@emproom[0],30,30; }
-	else if (strnpcinfo(2) == "la_bld01") { setarray .@emproom[0],17,79; }
+	else if (strnpcinfo(2) == "prtg_cas01") { setarray .@emproom[0],197,197; }
 	else if (strnpcinfo(2) == "prtg_cas02") { setarray .@emproom[0],157,174; }
 	else if (strnpcinfo(2) == "prtg_cas03") { setarray .@emproom[0],16,220; }
 	else if (strnpcinfo(2) == "prtg_cas04") { setarray .@emproom[0],291,14; }
 	else if (strnpcinfo(2) == "prtg_cas05") { setarray .@emproom[0],266,266; }
 	// Add custom Guild Castles here.
+	else if (strnpcinfo(2) == "la_bld01") { setarray .@emproom[0],17,97; }
+	else if (strnpcinfo(2) == "la_bld02") { setarray .@emproom[0],17,97; }
+	else if (strnpcinfo(2) == "la_bld03") { setarray .@emproom[0],17,97; }
 	else {
 		end;
 	}
 	if (!mobcount(strnpcinfo(2),"Agit#"+strnpcinfo(2)+"::OnAgitBreak")) {
-		monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Emperium",1288,1,"Agit#"+strnpcinfo(2)+"::OnAgitBreak";
+		monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Generator",1500,1,"Agit#"+strnpcinfo(2)+"::OnAgitBreak";
 	}
 	end;
 
@@ -171,7 +177,7 @@ OnAgitBreak:
 		donpcevent "Agit#"+strnpcinfo(2)+"::OnStartArena";
 	}
 	sleep2 getbattleflag("gvg_eliminate_time");
-	if (!$woe_announcebreaker) { announce "The [" + getcastlename(strnpcinfo(2)) + "] castle has been conquered by the [" + getguildName(.@GID) + "] guild.",bc_all; } else { announce "The [" + getcastlename(strnpcinfo(2)) + "] castle has been conquered by "+strcharinfo(0)+" in the [" + getguildName(.@GID) + "] guild.",bc_all; } //CHANGED
+	if (!$woe_announcebreaker) { announce "The Safe House " + getcastlename(strnpcinfo(2)) + " has been conquered by " + getguildName(.@GID) + ".",bc_all; } else { announce "The Safe House" + getcastlename(strnpcinfo(2)) + " has been conquered by "+strcharinfo(0)+" in " + getguildName(.@GID) + ".",bc_all; } //CHANGED
 	end;
 
 // War of Emperium has ended.
@@ -287,7 +293,7 @@ OnRecvCastle:
 			monster strnpcinfo(2),0,0,"Alice",1275,1;
 			monster strnpcinfo(2),0,0,"Zealotus",1200,1;
 			// Set Emperium room spawn coordinates and spawn monsters.
-			if (strnpcinfo(2) == "la_bld01") { setarray .@emproom[0],17,79; }
+			if (strnpcinfo(2) == "prtg_cas01") { setarray .@emproom[0],197,197; }
 			else if (strnpcinfo(2) == "prtg_cas02") { setarray .@emproom[0],157,174; }
 			else if (strnpcinfo(2) == "prtg_cas03") { setarray .@emproom[0],16,220; }
 			else if (strnpcinfo(2) == "prtg_cas04") { setarray .@emproom[0],291,14; }
@@ -299,6 +305,23 @@ OnRecvCastle:
 			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Raydric Archer",1276,5;
 		}
 		// Add custom Guild Castles here.
+		else if (compare(strnpcinfo(2),"labld")) {
+			// Normal Spawns
+			monster strnpcinfo(2),0,0,"Undead",1080,10;
+			monster strnpcinfo(2),0,0,"Undead",1081,10;
+			monster strnpcinfo(2),0,0,"Undead",1082,10;
+			monster strnpcinfo(2),0,0,"Undead",1083,10;
+			monster strnpcinfo(2),0,0,"Undead",1084,10;
+			// Set Emperium room spawn coordinates and spawn monsters.
+			if (strnpcinfo(2) == "la_bld01") { setarray .@emproom[0],17,79; }
+			else if (strnpcinfo(2) == "la_bld02") { setarray .@emproom[0],17,79; }
+			else if (strnpcinfo(2) == "la_bld03") { setarray .@emproom[0],17,79; }
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Undead",1084,10;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Undead",1084,10;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Undead",1084,10;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Undead",1084,10;;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Undead",1084,10;
+		}
 		else {
 			end;
 		}
@@ -324,12 +347,15 @@ OnRecvCastle:
 		else if (strnpcinfo(2) == "payg_cas03") { donpcevent "::OnRecvCastlePy03"; }
 		else if (strnpcinfo(2) == "payg_cas04") { donpcevent "::OnRecvCastlePy04"; }
 		else if (strnpcinfo(2) == "payg_cas05") { donpcevent "::OnRecvCastlePy05"; }
-		else if (strnpcinfo(2) == "la_bld01") { donpcevent "::OnRecvCastlePt01"; }
+		else if (strnpcinfo(2) == "prtg_cas01") { donpcevent "::OnRecvCastlePt01"; }
 		else if (strnpcinfo(2) == "prtg_cas02") { donpcevent "::OnRecvCastlePt02"; }
 		else if (strnpcinfo(2) == "prtg_cas03") { donpcevent "::OnRecvCastlePt03"; }
 		else if (strnpcinfo(2) == "prtg_cas04") { donpcevent "::OnRecvCastlePt04"; }
 		else if (strnpcinfo(2) == "prtg_cas05") { donpcevent "::OnRecvCastlePt05"; }
 		// Add custom Guild Castles here.
+		else if (strnpcinfo(2) == "la_bld01") { donpcevent "::OnRecvCastlelabld01"; }
+		else if (strnpcinfo(2) == "la_bld02") { donpcevent "::OnRecvCastlelabld02"; }
+		else if (strnpcinfo(2) == "la_bld03") { donpcevent "::OnRecvCastlelabld03"; }
 		else {
 			end;
 		}
@@ -452,7 +478,7 @@ OnTalk: //CHANGED
 		setarray .@masterroom[0],153,137;
 	}
 	// Prontera (Valkyrie Realms) Castles
-	else if (strnpcinfo(2) == "la_bld01") {
+	else if (strnpcinfo(2) == "prtg_cas01") {
 		setarray .@guardiantype[0],1,1,1,2,2,3,3,3;
 		setarray .@guardianposx[0],182,182,153,59,50,184,196,107;
 		setarray .@guardianposy[0],62,116,86,28,36,183,189,179;
@@ -483,6 +509,24 @@ OnTalk: //CHANGED
 		setarray .@masterroom[0],281,176;
 	}
 	// Add custom Guild Castles here.
+	// Lavive Safe Houses
+	else if (strnpcinfo(2) == "la_bld01") {
+		setarray .@guardiantype[0],1,1,1,2,2,3,3,3;
+		setarray .@guardianposx[0],182,182,153,59,50,184,196,107;
+		setarray .@guardianposy[0],62,116,86,28,36,183,189,179;
+		setarray .@masterroom[0],15,209;
+	}
+	else if (strnpcinfo(2) == "la_bld02") {
+		setarray .@guardiantype[0],3,3,3,1,1,2,2,2;
+		setarray .@guardianposx[0],161,153,178,71,49,64,7,75;
+		setarray .@guardianposy[0],161,161,44,75,28,186,196,175;
+		setarray .@masterroom[0],207,229;
+	}
+	else if (strnpcinfo(2) == "la_bld03") {
+		setarray .@guardiantype[0],3,3,3,1,1,2,2,2;
+		setarray .@guardianposx[0],191,137,45,50,41,191,179,191;
+		setarray .@guardianposy[0],190,190,99,87,87,42,43,72;
+		setarray .@masterroom[0],190,130;
 	else {
 		end;
 	}
@@ -865,7 +909,7 @@ OnSpawnGuardians:
 		setarray .@guardianposy[0],279,260,234,279,37,21,22,36;
 	}
 	// Prontera (Valkyrie Realms) Castles
-	else if (strnpcinfo(2) == "la_bld01") {
+	else if (strnpcinfo(2) == "prtg_cas01") {
 		setarray .@guardiantype[0],1,1,1,2,2,3,3,3;
 		setarray .@guardianposx[0],182,182,153,59,50,184,196,107;
 		setarray .@guardianposy[0],62,116,86,28,36,183,189,179;
@@ -1241,7 +1285,7 @@ OnClock0001:
 		setarray .@treasurex[0],155,158,158,155,154,155,156,157,158,159,159,159,159,159,159,158,157,156,155,154,154,154,154,154;
 		setarray .@treasurey[0],134,134,131,131,135,135,135,135,135,135,134,133,132,131,130,130,130,130,130,130,131,132,133,134;
 	}
-	else if (strnpcinfo(2) == "la_bld01") { 
+	else if (strnpcinfo(2) == "prtg_cas01") { 
 		set .@treasurebox,1354;
 		setarray .@treasurex[0],10,11,11,10,8,9,10,11,12,13,13,13,13,13,13,12,11,10,9,8,8,8,8,8;
 		setarray .@treasurey[0],209,209,208,208,211,211,211,211,211,211,210,209,208,207,206,206,206,206,206,206,207,208,209,210;
