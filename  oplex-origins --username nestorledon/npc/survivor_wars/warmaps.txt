@@ -11,6 +11,20 @@
 //===== Additional Comments: =================================
 //============================================================
 
+la_bld01,12,30,5 script Sample 437,{
+warp "la_bld01",12,30;
+end;
+
+OnInit:
+OnAgitEnd:
+disablenpc strnpcinfo(0);
+end;
+
+OnAgitStart:
+enablenpc strnpcinfo(0);
+end;
+
+}
 
 //Lavive Survivor Wars Buildings
 lavive_02,75,14,0	warp	bld0101	1,1,la_bld01,17,8
