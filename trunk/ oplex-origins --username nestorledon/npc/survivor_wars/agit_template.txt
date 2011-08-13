@@ -527,6 +527,7 @@ OnTalk: //CHANGED
 		setarray .@guardianposx[0],191,137,45,50,41,191,179,191;
 		setarray .@guardianposy[0],190,190,99,87,87,42,43,72;
 		setarray .@masterroom[0],190,130;
+	}
 	else {
 		end;
 	}
