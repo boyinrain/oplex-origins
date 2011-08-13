@@ -826,7 +826,6 @@ bat_c03
 //Oplex Origins
 op_tut01
 blank_01
-blank_02
 //Lavive Town
 lavive_01
 lavive_02
