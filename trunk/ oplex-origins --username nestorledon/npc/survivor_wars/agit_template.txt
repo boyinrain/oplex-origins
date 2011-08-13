@@ -70,15 +70,15 @@ OnAgitStart:
 OnStartArena:
 	// OnAgitStart will fall through and spawn the Emperium.
 	if (strnpcinfo(2) == "aldeg_cas01") { setarray .@emproom[0],216,23; }
-	else if (strnpcinfo(2) == "prtg_cas01") { setarray .@emproom[0],17,79; }
+	else if (strnpcinfo(2) == "prtg_cas01") { setarray .@emproom[0],81,17; }
 	else if (strnpcinfo(2) == "prtg_cas02") { setarray .@emproom[0],157,174; }
 	else if (strnpcinfo(2) == "prtg_cas03") { setarray .@emproom[0],16,220; }
 	else if (strnpcinfo(2) == "prtg_cas04") { setarray .@emproom[0],291,14; }
 	else if (strnpcinfo(2) == "prtg_cas05") { setarray .@emproom[0],266,266; }
 	// Add custom Guild Castles here.
-	else if (strnpcinfo(2) == "la_bld01") { setarray .@emproom[0],17,79; }
-	else if (strnpcinfo(2) == "la_bld02") { setarray .@emproom[0],17,79; }
-	else if (strnpcinfo(2) == "la_bld03") { setarray .@emproom[0],17,79; }
+	else if (strnpcinfo(2) == "la_bld01") { setarray .@emproom[0],81,17; }
+	else if (strnpcinfo(2) == "la_bld02") { setarray .@emproom[0],81,17; }
+	else if (strnpcinfo(2) == "la_bld03") { setarray .@emproom[0],81,17; }
 	else {
 		end;
 	}
@@ -269,9 +269,9 @@ OnRecvCastle:
 			monster strnpcinfo(2),0,0,"Undead",1083,10;
 			monster strnpcinfo(2),0,0,"Undead",1084,10;
 			// Set Emperium room spawn coordinates and spawn monsters.
-			if (strnpcinfo(2) == "la_bld01") { setarray .@emproom[0],17,79; }
-			else if (strnpcinfo(2) == "la_bld02") { setarray .@emproom[0],17,79; }
-			else if (strnpcinfo(2) == "la_bld03") { setarray .@emproom[0],17,79; }
+			if (strnpcinfo(2) == "la_bld01") { setarray .@emproom[0],81,17; }
+			else if (strnpcinfo(2) == "la_bld02") { setarray .@emproom[0],81,17; }
+			else if (strnpcinfo(2) == "la_bld03") { setarray .@emproom[0],81,17; }
 			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Mutated",1085,1;
 			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Mutated",1085,1;
 
