@@ -18,7 +18,7 @@
 //=	added whisperglobal system [[GM]Xeon]
 //===========================================================================
 
-prontera,159,185,1	script	WoE Information	806,{ //If you wish to change the name, search for all 'WoE Information' and replace them with the desired name.
+la_bld01,19,82,1	script	WoE Information	806,{ //If you wish to change the name, search for all 'WoE Information' and replace them with the desired name.
 //To do:
 //GM:
 //Player: Warp to treasury when WoE isn't active?
