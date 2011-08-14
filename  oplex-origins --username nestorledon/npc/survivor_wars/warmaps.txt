@@ -11,8 +11,23 @@
 //===== Additional Comments: =================================
 //============================================================
 
-la_bld01,12,30,5	script	swwarps::wpbld01	437,{
-warp "la_bld01",12,30;
+la_bld01,12,30,5	script	Stairs::wpbld01	437,{
+warp "la_bld01",13,94;
+end;
+
+OnInit:
+OnAgitEnd:
+disablenpc strnpcinfo(0);
+end;
+
+OnAgitStart:
+enablenpc strnpcinfo(0);
+end;
+
+}
+
+la_bld01,14,94,5	script	Stairs::wpbld02	437,{
+warp "la_bld01",14,29;
 end;
 
 OnInit:
