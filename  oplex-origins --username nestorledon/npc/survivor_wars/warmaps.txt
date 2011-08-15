@@ -12,7 +12,7 @@
 //============================================================
 
 //Lavive Survivor Wars Main Warp
-lavive_02,75,14,5	script	Stairs::wpbld01	45,2,2,{
+lavive_02,75,14,5	script	Stairs::wpbld01	111,2,2,{
 end; // Disable Click
 OnTouch:
 warp "la_bld01",17,8;
@@ -28,7 +28,7 @@ end;
 
 }
 
-la_bld01,17,4,0	script	Stairs::wpbld02	45,2,2,{
+la_bld01,17,4,0	script	Stairs::wpbld02	111,2,2,{
 end; // Disable Click
 OnTouch:
 warp "lavive_02",75,10;
