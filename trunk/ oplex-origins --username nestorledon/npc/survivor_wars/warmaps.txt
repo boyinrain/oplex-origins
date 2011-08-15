@@ -52,14 +52,10 @@ end; // Disable Click
 	}
 	else {
 		if (getcharid(2) == .@GID) {
-			mes "Enter?";
-			next;
-			if (select("Return to HQ.:Quit.") == 1) {
-				if (getcharid(2) == GetCastleData("la_bld01",1)) {
-					warp "la_bld01",69,29;
-					end;
+			if (getcharid(2) == GetCastleData("la_bld01",1)) {
+				warp "la_bld01",69,29;
+				end;
 				}
-			}
 			close;
 		}
 		mes "Members Only.";
