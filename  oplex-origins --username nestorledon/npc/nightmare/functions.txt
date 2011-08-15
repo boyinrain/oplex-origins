@@ -60,7 +60,7 @@ function	script	func_flashlight	{
 	sc_end 	SC_BLIND;
 	soundeffect "_stonecurse.wav",0;
 	sleep2 60000;
-	sc_start SC_BLIND,30000000,0;
+	if (isnight()) sc_start SC_BLIND,1800000,0;
 	end;
 }
 
