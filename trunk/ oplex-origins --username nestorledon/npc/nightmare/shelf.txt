@@ -1,15 +1,16 @@
 //===== Oplex Origins Script =================================
-//= Super market Shelves
+//= Searchable Locations
 //===== By: ================================================== 
 //= Epsynus
 //===== Current Version: ===================================== 
-//= 1.0
+//= 1.1
 //===== Compatible With: ===================================== 
 //= Any Oplex Version 
 //===== Description: ========================================= 
-//= Searchable shelves to get some food
+//= Searchable locations.
 //===== Changelog: ===========================================
 //= v1.0 - Original release
+//= V1.1 - Made Script More Flexable [Sigma]
 //============================================================
 op_tut01.gat,64,51,0	script	Search::search	111,{
 	//configure
