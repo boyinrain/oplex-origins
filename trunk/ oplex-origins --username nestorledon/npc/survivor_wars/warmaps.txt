@@ -43,15 +43,17 @@ enablenpc strnpcinfo(3);
 end;
 }
 
-la_bld01,6,31,0	script	Ladder::wpbld03	111,2,2,{
+la_bld01,6,31,0	script	Ladder::wpbld03	111,1,1,{
 end; // Disable Click
 set .@GID, GetCastleData(strnpcinfo(2),1);
 if (strnpcinfo(2) == "la_bld01") {
-
 	OnTouch:
-	warp "lavive_02",75,10;
+	warp "la_bld01",69,29;
 	end;
 	}
+else if {
+mes "Members Only";
+}
 }
 
 //Lavive Survivor Wars Indoor Warps
