@@ -87,11 +87,11 @@ warp "la_bld01",17,8;
 end;
 
 OnAgitEnd:
-disablenpc strnpcinfo(0);
+disablenpc strnpcinfo(3);
 end;
 
 OnAgitInit:
-enablenpc strnpcinfo(0);
+enablenpc strnpcinfo(3);
 end;
 
 }
@@ -103,11 +103,11 @@ warp "lavive_02",75,10;
 end;
 
 OnAgitEnd:
-disablenpc strnpcinfo(0);
+disablenpc strnpcinfo(3);
 end;
 
 OnAgitInit:
-enablenpc strnpcinfo(0);
+enablenpc strnpcinfo(3);
 end;
 
 }
