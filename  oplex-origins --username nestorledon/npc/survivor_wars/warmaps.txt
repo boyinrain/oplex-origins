@@ -12,7 +12,7 @@
 //============================================================
 
 la_bld01,12,30,5	script	Stairs::wpbld01	437,1,1,{
-warp "la_bld01",13,94;
+warp "la_bld01",14,94;
 end;
 
 OnInit:
@@ -27,7 +27,7 @@ end;
 }
 
 la_bld01,14,94,5	script	Stairs::wpbld02	437,1,1,{
-warp "la_bld01",14,29;
+warp "la_bld01",15,29;
 end;
 
 OnInit:
@@ -42,7 +42,7 @@ end;
 }
 
 la_bld01,79,93,5	script	Stairs::wpbld03	437,1,1,{
-warp "la_bld01",17,93;
+warp "la_bld01",18,93;
 end;
 
 OnInit:
@@ -57,7 +57,7 @@ end;
 }
 
 la_bld01,16,93,5	script	Stairs::wpbld04	437,1,1,{
-warp "la_bld01",78,93;
+warp "la_bld01",79,93;
 end;
 
 OnInit:
