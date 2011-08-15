@@ -29,7 +29,7 @@ empty_shelf:
 	
 empty_shelf2:
 	message strcharinfo(0),"Nothing of importance.";
-	close2;
+	close;
 	sleep2 1800000;//pause the script for 30 minutes
 	set .emptied,0;//setting it to 0 once the timer is done makes it restock itself
 	end;
