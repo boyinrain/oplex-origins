@@ -26,8 +26,8 @@ end;
 
 }
 
-la_bld01,14,94,5	script	Stairs::wpbld02	437,1,1,{
-warp "la_bld01",15,29;
+la_bld01,14,95,5	script	Stairs::wpbld02	437,1,1,{
+warp "la_bld01",10,29;
 end;
 
 OnInit:
