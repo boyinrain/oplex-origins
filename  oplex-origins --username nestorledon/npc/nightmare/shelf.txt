@@ -28,9 +28,14 @@ empty_shelf:
 	close;
 	
 empty_shelf2:
-	message strcharinfo(0),"Nothing of importance.";
-	sleep2 1800000;//pause the script for 30 minutes
-	set .emptied,0;//setting it to 0 once the timer is done makes it restock itself
+    message strcharinfo(0),"Nothing of importance.";
+    close2; //Let the player free but continue the code
+    if(.restocking) end; //If the script is restocking, don't restock again
+    set .restocking, 1; //Start restocking
+    sleep 1800000;//pause the script for 30 minutes
+    set .emptied,0;//setting it to 0 once the timer is done makes it restock itself
+    set .restocking, 0; //Restocking done, ready to restock again
+    end; //Stop code
 }
 
 op_tut01,68,51,0	duplicate(search)	Search::search1	111
