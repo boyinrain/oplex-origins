@@ -64,7 +64,7 @@ end; // Disable Click
 
 }
 
-la_bld01,70,31,0	script	Ladder::wpbld04	111,2,2,{
+la_bld01,70,32,0	script	Ladder::wpbld04	111,2,2,{
 end; // Disable Click
 	OnTouch:
 	set .@GID, GetCastleData("la_bld01",1);
@@ -74,7 +74,7 @@ end; // Disable Click
 	else {
 		if (getcharid(2) == .@GID) {
 			if (getcharid(2) == GetCastleData("la_bld01",1)) {
-				warp "la_bld01",70,29;
+				warp "la_bld01",6,26;
 				end;
 				}
 			close;
