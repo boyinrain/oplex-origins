@@ -1,3 +1,4 @@
+{
 -	script	survival_mechanic	-1,{
 OnPCLoginEvent:
 	addtimer 500,"survival_mechanic::OnTimeCheck";
@@ -22,7 +23,7 @@ OnPCDieEvent:
 -	script	blind_mechanic	-1,{
 OnPCLoginEvent:
 	getmapxy @playermap$,@playerx,@playery,0;
-	if (isnight()) sc_start SC_BLIND
+	if (isnight()) sc_start SC_BLIND;
 	end;
 }
 
