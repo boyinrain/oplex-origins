@@ -43,17 +43,29 @@ enablenpc strnpcinfo(3);
 end;
 }
 
-la_bld01,6,31,0	script	Ladder::wpbld03	111,1,1,{
+la_bld01,6,32,0	script	Ladder::wpbld03	111,1,1,{
 end; // Disable Click
-set .@GID, GetCastleData(strnpcinfo(2),1);
-if (strnpcinfo(2) == "la_bld01") {
 	OnTouch:
-	warp "la_bld01",69,29;
-	end;
+	set .@GID, GetCastleData("la_bld01",1);
+	if (.@GID == 0) {
+		mes "Members Only";
 	}
-else if {
-mes "Members Only";
-}
+	else {
+		if (getcharid(2) == .@GID) {
+			mes "Enter?";
+			next;
+			if (select("Return to HQ.:Quit.") == 1) {
+				if (getcharid(2) == GetCastleData("la_bld01",1)) {
+					warp "la_bld01",69,29;
+					end;
+				}
+			}
+			close;
+		}
+		mes "Members Only.";
+	}
+	close;
+
 }
 
 //Lavive Survivor Wars Indoor Warps
