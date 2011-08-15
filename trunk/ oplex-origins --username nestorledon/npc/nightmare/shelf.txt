@@ -12,7 +12,7 @@
 //= v1.0 - Original release
 //= V1.1 - Made Script More Flexable [Sigma]
 //============================================================
-op_tut01.gat,64,51,0	script	Search::search	111,{
+op_tut01,64,51,0	script	Search::search	111,{
 	//configure
 	set .emptyshelf,0;	//Is the Shelf empty? 1 = Yes (aka disabled) 0 = no (aka enabled)
 	set .ammount,1;	//How many of the randomized items should they get?
