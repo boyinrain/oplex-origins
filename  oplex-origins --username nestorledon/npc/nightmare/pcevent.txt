@@ -22,7 +22,7 @@ OnPCDieEvent:
 -	script	blind_mechanic	-1,{
 OnPCLoginEvent:
 	getmapxy @playermap$,@playerx,@playery,0;
-	callfunc "func_flashlight";
+	if (isnight()) sc_start SC_BLIND
 	end;
 }
 
@@ -104,12 +104,12 @@ OnTimeCheck:
 OnPcLoginEvent:
 if (getgmlevel() < 20) end;
 if (gmlvlnamecheck == 1) end;
-if (getgmlevel() >= 98) set @gmlvlname$,"[ADMIN]";
+if (getgmlevel() >= 98) set @gmlvlname$,"[Admin]";
 if (getgmlevel() >= 79 && getgmlevel() <= 98) set @gmlvlname$,"[GM]";
 if (getgmlevel() >= 60 && getgmlevel() <= 79) set @gmlvlname$,"[GM]";
-if (getgmlevel() >= 50 && getgmlevel() <= 59) set @gmlvlname$,"[EVENT GM]";
-if (getgmlevel() >= 40 && getgmlevel() <= 49) set @gmlvlname$,"[SUB GM]";
-if (getgmlevel() >= 20 && getgmlevel() <= 39) set @gmlvlname$,"[MODERATOR]";
+if (getgmlevel() >= 50 && getgmlevel() <= 59) set @gmlvlname$,"[Event GM]";
+if (getgmlevel() >= 40 && getgmlevel() <= 49) set @gmlvlname$,"[Sub GM]";
+if (getgmlevel() >= 20 && getgmlevel() <= 39) set @gmlvlname$,"[Moderator]";
 callfunc "gmloginchangename";
 
 }

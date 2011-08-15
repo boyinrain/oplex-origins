@@ -33,7 +33,7 @@ function	script	func_bullet_556mm	{
 function	script	func_light	{
 	sc_end 	SC_BLIND;
 	sleep2 60000;
-	sc_start SC_BLIND,1800000,0;
+//	sc_start SC_BLIND,1800000,0;
 	end;
 }
 
