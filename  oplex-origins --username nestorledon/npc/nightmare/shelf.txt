@@ -19,16 +19,16 @@ op_tut01.gat,64,51,0	script	Search::search	111,{
 	//end of config
 	if(.emptied == 1) goto empty_shelf2;
 	if(.emptyshelf == 1) goto empty_shelf;
-	mes strcharinfo(0) + "You found something...";
+	message strcharinfo(0), "You found something...";
 	getitem	groupranditem(19),.ammount;
 	set .emptied,1;
 	close;
 empty_shelf:
-	mes strcharinfo(0) + "It's empty.";
+	message strcharinfo(0), "It's empty.";
 	close;
 	
 empty_shelf2:
-    mes strcharinfo(0) + "Nothing of importance.";
+    message strcharinfo(0), "Nothing of importance.";
     close2; //Let the player free but continue the code
     if(.restocking) end; //If the script is restocking, don't restock again
     set .restocking, 1; //Start restocking
