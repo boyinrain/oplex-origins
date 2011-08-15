@@ -11,76 +11,8 @@
 //===== Additional Comments: =================================
 //============================================================
 
-la_bld01,12,30,5	script	Stairs::wpbld01	437,1,1,{
-end; // Disable Click
-OnTouch:
-warp "la_bld01",12,95;
-end;
-
-OnInit:
-OnAgitEnd:
-disablenpc strnpcinfo(0);
-end;
-
-OnAgitStart:
-enablenpc strnpcinfo(0);
-end;
-
-}
-
-la_bld01,15,95,5	script	Stairs::wpbld02	437,1,1,{
-end; // Disable Click
-OnTouch:
-warp "la_bld01",15,30;
-end;
-
-OnInit:
-OnAgitEnd:
-disablenpc strnpcinfo(0);
-end;
-
-OnAgitStart:
-enablenpc strnpcinfo(0);
-end;
-
-}
-
-la_bld01,79,93,5	script	Stairs::wpbld03	437,1,1,{
-end; // Disable Click
-OnTouch:
-warp "la_bld01",18,93;
-end;
-
-OnInit:
-OnAgitEnd:
-disablenpc strnpcinfo(0);
-end;
-
-OnAgitStart:
-enablenpc strnpcinfo(0);
-end;
-
-}
-
-la_bld01,16,93,5	script	Stairs::wpbld04	437,1,1,{
-end; // Disable Click
-OnTouch:
-warp "la_bld01",76,94;
-end;
-
-OnInit:
-OnAgitEnd:
-disablenpc strnpcinfo(0);
-end;
-
-OnAgitStart:
-enablenpc strnpcinfo(0);
-end;
-
-}
-
 //Lavive Survivor Wars Main Warp
-lavive_02,75,14,5	script	Stairs::wpbld05	437,2,2,{
+lavive_02,75,14,5	script	Stairs::wpbld01	45,2,2,{
 end; // Disable Click
 OnTouch:
 warp "la_bld01",17,8;
@@ -96,7 +28,7 @@ end;
 
 }
 
-la_bld01,17,4,0	script	Stairs::wpbld05	437,2,2,{
+la_bld01,17,4,0	script	Stairs::wpbld02	45,2,2,{
 end; // Disable Click
 OnTouch:
 warp "lavive_02",75,10;
@@ -112,6 +44,5 @@ end;
 
 }
 
-
-//lavive_02,75,14,0	warp	bld0101	1,1,la_bld01,17,8
-//la_bld01,17,4,0	warp	bld0102	1,1,lavive_02,75,10
+//Lavive Survivor Wars Indoor Warps
+lavive_01,0,48,0	warp	lav001	1,1,lavive_02,92,47
