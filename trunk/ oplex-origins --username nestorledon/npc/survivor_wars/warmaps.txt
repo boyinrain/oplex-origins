@@ -90,7 +90,7 @@ OnAgitEnd:
 disablenpc strnpcinfo(3);
 end;
 
-OnAgitInit:
+OnAgitStart:
 enablenpc strnpcinfo(3);
 end;
 
@@ -106,7 +106,7 @@ OnAgitEnd:
 disablenpc strnpcinfo(3);
 end;
 
-OnAgitInit:
+OnAgitStart:
 enablenpc strnpcinfo(3);
 end;
 
