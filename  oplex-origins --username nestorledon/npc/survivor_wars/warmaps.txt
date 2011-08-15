@@ -46,6 +46,6 @@ end;
 
 //Lavive Survivor Wars Indoor Warps
 la_bld01,12,30,0	warp	labld01	1,1,la_bld01,12,95
-la_bld01,15,95,0	warp	labld01	1,1,la_bld01,15,30
-la_bld01,79,93,0	warp	labld01	1,1,la_bld01,18,93
-la_bld01,16,93,0	warp	labld01	1,1,la_bld01,76,94
+la_bld01,15,94,0	warp	labld02	1,1,la_bld01,15,30
+la_bld01,18,93,0	warp	labld03	1,1,la_bld01,76,94
+la_bld01,79,93,0	warp	labld04	1,1,la_bld01,21,93
