@@ -25,5 +25,6 @@ function	script	searchBase	-1,{
 	message strcharinfo(0), "Nothing Useful...";
 	}
 	end;
+}
 
 op_tut01,70,57,0	duplicate(searchBase)	searchBase::1	111
