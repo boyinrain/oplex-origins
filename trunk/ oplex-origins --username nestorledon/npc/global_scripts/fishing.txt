@@ -1,7 +1,7 @@
 blank_01,10,10,5	script	Fish::fish	111,{
 
 	set .@n$,"[Fishing]";
-	setarray .@catch[1],;
+	setarray .@catch[1],1;
 
 	if(countitem(1056) > 0) {
 		callfunc "fishing_func";
