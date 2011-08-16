@@ -1,14 +1,3 @@
-function	script	searchBase	{
-	if(gettimetick(2) >= getd(".nextavail_" + strnpcinfo(2))) {
-	getitem groupranditem(19), 1;
-	setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
-	message strcharinfo(0), "You found something...";
-	} else {
-	message strcharinfo(0), "Nothing Useful...";
-	}
-	end;
-}
-
 function	script	func_bullet_9mm	{
 	message strcharinfo(0), "Reloading!";
 	delitem 1101, countitem(1101);
@@ -207,6 +196,62 @@ sleep_1min:
 	sleep2 6000;
 	percentheal 25,75;
 	cutin "",255;
+	close;
+	end;
+}
+
+function	script	fishing_func	{
+	mes "How long would you like to fish for?";
+	next;
+	menu "30 seconds",fish_30sec,"1 minute",fish_1min,"Nevermind",-;
+	close;
+	end;
+sleep_30sec:
+	mes "Fishing...";
+	sc_start SC_SILENCE,30000,0; 
+	sleep2 3000;
+	mes "[|---------]";
+	sleep2 3000;
+	mes "[||--------]";
+	sleep2 3000;
+	mes "[|||-------]";
+	sleep2 3000;
+	mes "[||||------]";
+	sleep2 3000;
+	mes "[|||||-----]";
+	sleep2 3000;
+	mes "[||||||----]";
+	sleep2 3000;
+	mes "[|||||||---]";
+	sleep2 3000;
+	mes "[||||||||--]";
+	sleep2 3000;
+	mes "[|||||||||-]";
+	sleep2 3000;
+	close;
+	end;
+sleep_1min:
+	mes "Fishing...";
+	sc_start SC_SILENCE,60000,0;
+	sleep2 6000;
+	mes "[|---------]";
+	sleep2 6000;
+	mes "[||--------]";
+	sleep2 6000;
+	mes "[|||-------]";
+	sleep2 6000;
+	mes "[||||------]";
+	sleep2 6000;
+	mes "[|||||-----]";
+	sleep2 6000;
+	mes "[||||||----]";
+	sleep2 6000;
+	mes "[|||||||---]";
+	sleep2 6000;
+	mes "[||||||||--]";
+	sleep2 6000;
+	mes "[|||||||||-]";
+	sleep2 6000;
 	close;
 	end;
 }
