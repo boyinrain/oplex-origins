@@ -15,7 +15,7 @@ blank_01,10,10,5	script	Fish::fish	111,{
 	}
 
 	If(countitem(1056) == 0) {
-		message "Might be able to fish with a rod..."
+		message "Might be able to fish with a rod...";
 		end;
 		}
 }
