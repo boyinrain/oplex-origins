@@ -12,19 +12,20 @@
 //= v1.0 - Original release
 //============================================================
 
-op_tut01,68,51,0	script	Search::search	111,{
-	callfunc "searchBase";
-}
-
-function	script	searchBase	-1,{
+-	script	searchBase	-1,	{
 	if(gettimetick(2) >= getd(".nextavail_" + strnpcinfo(2))) {
-	getitem groupranditem(19), 1;
-	setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
-	message strcharinfo(0), "You found something...";
+		getitem groupranditem(19), 1;
+		setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
+		message strcharinfo(0), "You found something...";
 	} else {
-	message strcharinfo(0), "Nothing Useful...";
+		message strcharinfo(0), "Nothing Useful...";
 	}
 	end;
+
+OnInit:
+	set .availTimeout, 1800; //time in seconds
+	set .nextavail, gettimetick(2);
 }
 
-op_tut01,70,57,0	duplicate(searchBase)	searchBase::1	111
+op_tut01,68,51,5 duplicate(searchBase) Search#s1 111
+op_tut01,70,57,5 duplicate(searchBase) Search#s2 111
