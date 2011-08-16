@@ -19,7 +19,7 @@
 		message strcharinfo(0), "You found something...";
 	} else {
 		message strcharinfo(0), "Nothing Useful...";
-	}
+		}
 	end;
 
 OnInit:
