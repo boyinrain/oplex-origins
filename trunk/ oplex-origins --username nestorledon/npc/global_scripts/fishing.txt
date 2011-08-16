@@ -1,0 +1,20 @@
+blank01,10,10,5	script	Fish::fish	111,{
+
+	set .@n$,"[Fishing]"
+	setarray .@catch[0],536,536,536,536,536,536,536,536,536; //Fish IDs
+
+	if(countitem(1056) > 0) {
+		callfunc "fishing_func";
+		set .@rand,rand(0,8);
+		getitem .@catch[.@rand],1;
+		if(.@catch[.@rand] == 000) {
+			message "Nice catch!";
+		}else{
+		end;
+	}
+
+	If(countitem(1056) == 0) {
+		message "Might be able to fish with a rod..."
+		end;
+		}
+}
