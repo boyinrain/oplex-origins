@@ -1,0 +1,25 @@
+//===== Oplex Origins Script =================================
+//= Searchable Locations
+//===== By: ================================================== 
+//= Sigma
+//===== Current Version: ===================================== 
+//= 1.0
+//===== Compatible With: ===================================== 
+//= Any Oplex Version 
+//===== Description: ========================================= 
+//= Searchable locations.
+//===== Changelog: ===========================================
+//= v1.0 - Original release
+//============================================================
+
+-	script	searchBase	-1,{
+	if(gettimetick(2) >= getd(".nextavail_" + strnpcinfo(2))) {
+	getitem groupranditem(19), 1;
+	setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
+	message strcharinfo(0), "You found something...";
+	} else {
+	message strcharinfo(0), "Nothing Useful...";
+	}
+	end;
+
+op_tut01,68,51,0	duplicate(searchBase)	searchBase::1	111
