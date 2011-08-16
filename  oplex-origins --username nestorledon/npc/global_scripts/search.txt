@@ -25,6 +25,7 @@
 OnInit:
 	set .availTimeout, 1800; //time in seconds
 	set .nextavail, gettimetick(2);
+}
 
 op_tut01,68,51,5	duplicate(searchBase)	Search#s1	111
 op_tut01,70,57,5	duplicate(searchBase)	Search#s2	111

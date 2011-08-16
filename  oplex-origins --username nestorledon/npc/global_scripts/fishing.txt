@@ -8,14 +8,14 @@ blank_01,10,10,5	script	Fish	111,{
 		set .@rand,rand(0,8);
 		getitem .@catch[.@rand],1;
 		if(.@catch[.@rand] == 000) {
-			message "Nice catch!";
+			message strcharinfo(0), "Nice catch!";
 		}else{
 		end;
 		}
 	}
 
 	If(countitem(1056) == 0) {
-		message "Might be able to fish with a rod...";
+		message strcharinfo(0), "Might be able to fish with a rod...";
 		end;
 		}
 }
