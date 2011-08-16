@@ -1,3 +1,14 @@
+function	script	searchBase	-1,{
+	if(gettimetick(2) >= getd(".nextavail_" + strnpcinfo(2))) {
+	getitem groupranditem(19), 1;
+	setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
+	message strcharinfo(0), "You found something...";
+	} else {
+	message strcharinfo(0), "Nothing Useful...";
+	}
+	end;
+}
+
 function	script	func_bullet_9mm	{
 	message strcharinfo(0), "Reloading!";
 	delitem 1101, countitem(1101);
