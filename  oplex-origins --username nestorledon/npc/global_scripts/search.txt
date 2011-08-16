@@ -17,10 +17,11 @@
 		getitem groupranditem(19), 1;
 		setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
 		message strcharinfo(0), "You found something...";
+		close;
 	} else {
 		message strcharinfo(0), "Nothing Useful...";
+		close;
 		}
-	close;
 
 OnInit:
 	set .availTimeout, 1800; //time in seconds
