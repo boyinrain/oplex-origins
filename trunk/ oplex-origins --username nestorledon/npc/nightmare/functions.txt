@@ -208,7 +208,7 @@ function	script	fishing_func	{
 	end;
 sleep_30sec:
 	mes "Fishing...";
-	sc_start SC_SILENCE,30000,0; 
+	sc_start SC_SLEEP,30000,0; 
 	sleep2 3000;
 	mes "[|---------]";
 	sleep2 3000;
@@ -229,9 +229,10 @@ sleep_30sec:
 	mes "[|||||||||-]";
 	sleep2 3000;
 	close;
+	end;
 sleep_1min:
 	mes "Fishing...";
-	sc_start SC_SILENCE,60000,0;
+	sc_start SC_SLEEP,60000,0;
 	sleep2 6000;
 	mes "[|---------]";
 	sleep2 6000;
@@ -252,4 +253,5 @@ sleep_1min:
 	mes "[|||||||||-]";
 	sleep2 6000;
 	close;
+	end;
 }
