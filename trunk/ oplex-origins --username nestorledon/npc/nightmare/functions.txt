@@ -238,13 +238,8 @@ sleep_30sec:
 	setarray @catch[0],536,536,536,536;
 	set .@rand,rand(0,8);
 	getitem .@catch[.@rand],1;
-	if(.@catch[.@rand] == 1056) {
-	message strcharinfo(0), "Nice catch!";
 	close;
 	end;
-	}else{
-	end;
-	}
 
 sleep_1min:
 	setarray @catch[0],536,536,536,536;
