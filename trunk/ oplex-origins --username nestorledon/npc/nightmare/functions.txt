@@ -230,7 +230,22 @@ sleep_30sec:
 	sleep2 3000;
 	percentheal 12,30;
 	cutin "",255;
-	close2;
+	setarray @catch[0],536,536,536,536;
+	if(countitem(1056) > 0) {
+		set .@rand,rand(0,8);
+		getitem .@catch[.@rand],1;
+		if(.@catch[.@rand] == 000) {
+			message strcharinfo(0), "Nice catch!";
+		}else{
+		end;
+		}
+	}
+
+	If(countitem(1056) == 0) {
+		message strcharinfo(0), "Might be able to fish with a rod...";
+		end;
+		}
+
 sleep_1min:
 	mes "Fishing...";
 	sc_start SC_SLEEP,60000,0;
@@ -255,5 +270,5 @@ sleep_1min:
 	sleep2 6000;
 	percentheal 25,75;
 	cutin "",255;
-	close2;
+	close;
 }

@@ -11,23 +11,27 @@
 //===== Changelog: ===========================================
 //= v1.0 - Original release
 //============================================================
-blank_01,10,10,5	script	Fish	111,{
-
-	set .@n$,"[Fishing]";
-	setarray @catch[0],536,536,536,536;
-	if(countitem(1056) > 0) {
-		set .@rand,rand(0,8);
+blank_01,10,10,5	script	Fish::fish	111,{
 		callfunc "fishing_func";
-		getitem .@catch[.@rand],1;
-		if(.@catch[.@rand] == 000) {
-			message strcharinfo(0), "Nice catch!";
-		}else{
-		end;
-		}
-	}
-
-	If(countitem(1056) == 0) {
-		message strcharinfo(0), "Might be able to fish with a rod...";
-		end;
-		}
 }
+
+// Here you put all the clones for this script use the format below
+//la_in01,174,138,0	duplicate(beds)	Bed::bed1	111
+
+
+	//set .@n$,"[Fishing]";
+	//setarray @catch[0],536,536,536,536;
+	//if(countitem(1056) > 0) {
+	//	set .@rand,rand(0,8);
+	//	getitem .@catch[.@rand],1;
+	//	if(.@catch[.@rand] == 000) {
+	//		message strcharinfo(0), "Nice catch!";
+	//	}else{
+	//	end;
+	//	}
+	//}
+
+	//If(countitem(1056) == 0) {
+	//	message strcharinfo(0), "Might be able to fish with a rod...";
+	//	end;
+	//	}
