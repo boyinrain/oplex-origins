@@ -201,13 +201,13 @@ sleep_1min:
 }
 
 function	script	fishing_func	{
-	mes "How long would you like to sleep for?";
+	mes "How long would you like to fish for?";
 	next;
 	menu "30 seconds",sleep_30sec,"1 minute",sleep_1min,"Nevermind",-;
 	close;
 	end;
 sleep_30sec:
-	mes "It's time to get some rest...";
+	mes "Fishing...";
 	sc_start SC_SLEEP,30000,0;
 	sleep2 3000;
 	mes "[|---------]";
@@ -233,7 +233,7 @@ sleep_30sec:
 	close;
 	end;
 sleep_1min:
-	mes "It's time to get some rest...";
+	mes "Fishing...";
 	sc_start SC_SLEEP,60000,0;
 	sleep2 6000;
 	mes "[|---------]";
