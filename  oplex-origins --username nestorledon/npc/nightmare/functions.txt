@@ -201,11 +201,18 @@ sleep_1min:
 }
 
 function	script	fishing_func	{
+	setarray @catch[0],536,536,536,536;
+	if(countitem(1056) > 0) {
 	mes "How long would you like to fish for?";
 	next;
 	menu "30 seconds",sleep_30sec,"1 minute",sleep_1min,"Nevermind",-;
 	close;
 	end;
+	}
+	If(countitem(1056) == 0) {
+	message strcharinfo(0), "Might be able to fish with a rod...";
+	end;
+	}
 sleep_30sec:
 	mes "Fishing...";
 	sc_start SC_SLEEP,30000,0;
@@ -228,23 +235,13 @@ sleep_30sec:
 	sleep2 3000;
 	mes "[|||||||||-]";
 	sleep2 3000;
-	percentheal 12,30;
-	cutin "",255;
-	setarray @catch[0],536,536,536,536;
-	if(countitem(1056) > 0) {
-		set .@rand,rand(0,8);
-		getitem .@catch[.@rand],1;
-		if(.@catch[.@rand] == 000) {
-			message strcharinfo(0), "Nice catch!";
-		}else{
-		end;
-		}
+	set .@rand,rand(0,8);
+	getitem .@catch[.@rand],1;
+	if(.@catch[.@rand] == 000) {
+	message strcharinfo(0), "Nice catch!";
+	}else{
+	end;
 	}
-
-	If(countitem(1056) == 0) {
-		message strcharinfo(0), "Might be able to fish with a rod...";
-		end;
-		}
 
 sleep_1min:
 	mes "Fishing...";
