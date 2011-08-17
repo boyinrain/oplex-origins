@@ -229,7 +229,6 @@ sleep_30sec:
 	mes "[|||||||||-]";
 	sleep2 3000;
 	close;
-	end;
 sleep_1min:
 	mes "Fishing...";
 	sc_start SC_SILENCE,60000,0;
@@ -253,5 +252,4 @@ sleep_1min:
 	mes "[|||||||||-]";
 	sleep2 6000;
 	close;
-	end;
 }
