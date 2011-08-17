@@ -215,6 +215,7 @@ function	script	fishing_func	{
 
 sleep_30sec:
 	setarray @catch[0],536,536,536,536;
+	set .@rand,rand(0,8);
 	mes "Fishing...";
 	sc_start SC_SLEEP,30000,0;
 	sleep2 3000;
@@ -236,9 +237,8 @@ sleep_30sec:
 	sleep2 3000;
 	mes "[|||||||||-]";
 	sleep2 3000;
-	set .@rand,rand(0,8);
 	getitem .@catch[.@rand],1;
-	if(.@catch[.@rand] == 000) {
+	if(.@catch[.@rand] == 1056) {
 	message strcharinfo(0), "Nice catch!";
 	close;
 	end;
