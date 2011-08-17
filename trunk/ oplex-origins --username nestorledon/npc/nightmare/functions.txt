@@ -231,7 +231,6 @@ sleep_30sec:
 	percentheal 12,30;
 	cutin "",255;
 	close;
-	end;
 sleep_1min:
 	mes "Fishing...";
 	sc_start SC_SLEEP,60000,0;
@@ -257,5 +256,4 @@ sleep_1min:
 	percentheal 25,75;
 	cutin "",255;
 	close;
-	end;
 }
