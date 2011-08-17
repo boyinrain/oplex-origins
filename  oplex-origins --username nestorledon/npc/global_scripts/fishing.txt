@@ -1,7 +1,20 @@
+//===== Oplex Origins Script ======================================= 
+//= Fishing
+//===== By: ================================================== 
+//= Sigma
+//===== Current Version: ===================================== 
+//= 1.0
+//===== Compatible With: ===================================== 
+//= Any Oplex Version 
+//===== Description: ========================================= 
+//= Enables you to fish!
+//===== Changelog: ===========================================
+//= v1.0 - Original release
+//============================================================
 blank_01,10,10,5	script	Fish	111,{
 
 	set .@n$,"[Fishing]";
-	setarray @catch[0],1,2,3,4;
+	setarray @catch[0],536,536,536,536;
 
 	if(countitem(1056) > 0) {
 		callfunc "fishing_func";
