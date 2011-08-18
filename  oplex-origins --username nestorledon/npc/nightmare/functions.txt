@@ -246,7 +246,7 @@ fish_30sec:
 	set .@rand,rand(0,8);
 	getitem .@catch[.@rand],1;
 	set @superrand, rand(1,100);
-	if(@superrand > 70) {	delitem 1056,1;}
+	if(@superrand > 70) {	delitem 1056,1; mes "Crap... It broke.";}
 	close;
 	end;
 
