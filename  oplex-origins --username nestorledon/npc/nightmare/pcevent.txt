@@ -1,4 +1,3 @@
-{
 -	script	survival_mechanic	-1,{
 OnPCLoginEvent:
 	addtimer 500,"survival_mechanic::OnTimeCheck";
@@ -126,6 +125,4 @@ mes "you will be loged off in 5 seconds to reset your name";
 sleep2 5000;
 atcommand "@kick "+strcharinfo(0)+"";
 end;
-}
-
 }
