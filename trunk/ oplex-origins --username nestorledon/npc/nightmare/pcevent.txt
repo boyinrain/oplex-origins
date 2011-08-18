@@ -19,19 +19,19 @@ OnPCDieEvent:
 	end;	
 }
 
--	script	blind_mechanic	-1,{
-OnPCLoginEvent:
-	getmapxy @playermap$,@playerx,@playery,0;
-	if (isnight()) sc_start SC_BLIND;
-	end;
-}
-
--	script	light_mechanic	-1,{
-OnPCLoginEvent:
-	getmapxy @playermap$,@playerx,@playery,0;
-	if (isday()) callfunc "func_light";
-	end;
-}
+//-	script	blind_mechanic	-1,{
+//OnPCLoginEvent:
+//	getmapxy @playermap$,@playerx,@playery,0;
+//	if (isnight()) sc_start SC_BLIND;
+//	end;
+//}
+//
+//-	script	light_mechanic	-1,{
+//OnPCLoginEvent:
+//	getmapxy @playermap$,@playerx,@playery,0;
+//	if (isday()) callfunc "func_light";
+//	end;
+//}
 
 -	script	game_mechanics::gamemechs	-1,{
 
