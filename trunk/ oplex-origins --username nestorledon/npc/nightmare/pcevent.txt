@@ -66,7 +66,7 @@ OnPCDieEvent:
 	makeitem 501,1,@playermap$,@playerx,@playery;	//Drops Uncooked Meat
 //	makeitem 1001,1,@playermap$,@playerx,@playery;	//Drops Skull
 	set @superrand, rand(1,100);
-	if(@superrand > 80) {	atcommand "@dropall";};	//Drops all items by a chance of 20/100.
+	if(@superrand > 80) {	atcommand "@dropall";}	//Drops all items by a chance of 20/100.
 	soundeffect "dying.wav",0;
 	end;
 
