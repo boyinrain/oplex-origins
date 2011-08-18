@@ -201,7 +201,7 @@ sleep_1min:
 }
 
 function	script	fishing_func	{
-	if(countitem(1056) > 0) {
+	if(countitem(1056,1057) > 0) {
 		mes "How long would you like to fish for?";
 		next;
 		menu "30 seconds",sleep_30sec,"1 minute",sleep_1min,"Nevermind",-;
