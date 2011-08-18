@@ -208,6 +208,13 @@ function	script	fishing_func	{
 		close;
 		end;
 		}
+	if(countitem(1056) > 0) {
+		mes "How long would you like to fish for?";
+		next;
+		menu "30 seconds",fish_30sec,"1 minute",fish_1min,"Nevermind",-;
+		close;
+		end;
+		}
 	If(countitem(1056) == 0) {
 	message strcharinfo(0), "Might be able to fish with a rod...";
 	end;
@@ -238,6 +245,8 @@ fish_30sec:
 	setarray .@catch[0],536,536,536,536;
 	set .@rand,rand(0,8);
 	getitem .@catch[.@rand],1;
+	set @superrand, rand(1,100);
+	if(@superrand > 70) {	delitem 1056,1;}
 	close;
 	end;
 
