@@ -276,7 +276,7 @@ fish_1min:
 }
 
 function	script	fishing_func2	{
-	setarray .@failrate[0],70,80,90;
+	setarray .@failrate[0],70,80,10;
 	setarray .@fishingrodIDs[0],1056,1057,1058;
 	for(set .@i,getarraysize(.@fishingrodIDs) - 1; .@i >= 0; set .@i,.@i-1) {
     		if(countitem(.@fishingrodIDs[.@i]) > 0) {
@@ -285,7 +285,6 @@ function	script	fishing_func2	{
         		break;
     		}
 	}
-
 	if(.@i > 0) {
 		mes "How long would you like to fish for?";
 		next;
@@ -352,9 +351,9 @@ fish_1min:
 	sleep2 6000;
 	setarray .@catch[0],536,536,536,536,536,536,536,536,536;
 	set .@rand,rand(0,8);
-	getitem .@catch[.@rand],2;
+	getitem .@catch[.@rand],1;
 	set @superrand, rand(1,100);
-	if(@superrand > 70) {	delitem 1056,1; message strcharinfo(0), "Crap... The rod broke.";}
+	if(@superrand > .@failrate2) {	delitem .@fishingrodIDs[.@rodindex],1; message strcharinfo(0), "Crap... The rod broke.";}
 	close;
 	end;
 }
