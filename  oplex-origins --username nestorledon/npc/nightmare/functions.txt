@@ -242,7 +242,7 @@ fish_30sec:
 	sleep2 3000;
 	mes "Fishing........";
 	sleep2 3000;
-	setarray .@catch[0],536,536,536,536,536,536,536,536,536,;
+	setarray .@catch[0],536,536,536,536,536,536,536,536,536;
 	set .@rand,rand(0,8);
 	getitem .@catch[.@rand],1;
 	set @superrand, rand(1,100);
@@ -273,7 +273,7 @@ fish_1min:
 	sleep2 6000;
 	mes "Fishing........";
 	sleep2 6000;
-	setarray .@catch[0],536,536,536,536,536,536,536,536,536,;
+	setarray .@catch[0],536,536,536,536,536,536,536,536,536;
 	set .@rand,rand(0,8);
 	getitem .@catch[.@rand],2;
 	set @superrand, rand(1,100);
