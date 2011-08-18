@@ -201,10 +201,10 @@ sleep_1min:
 }
 
 function	script	fishing_func	{
-	if(countitem(1056,1057) > 0) {
+	if(countitem(1056) > 0) {
 		mes "How long would you like to fish for?";
 		next;
-		menu "30 seconds",sleep_30sec,"1 minute",sleep_1min,"Nevermind",-;
+		menu "30 seconds",fish_30sec,"1 minute",fish_1min,"Nevermind",-;
 		close;
 		end;
 		}
@@ -213,7 +213,7 @@ function	script	fishing_func	{
 	end;
 	}
 
-sleep_30sec:
+fish_30sec:
 	mes "Fishing...";
 	sc_start SC_SLEEP,30000,0;
 	sleep2 3000;
@@ -235,13 +235,13 @@ sleep_30sec:
 	sleep2 3000;
 	mes "[|||||||||-]";
 	sleep2 3000;
-	setarray @catch[0],536,536,536,536;
+	setarray .@catch[0],536,536,536,536;
 	set .@rand,rand(0,8);
 	getitem .@catch[.@rand],1;
 	close;
 	end;
 
-sleep_1min:
+fish_1min:
 	setarray @catch[0],536,536,536,536;
 	mes "Fishing...";
 	sc_start SC_SLEEP,60000,0;
