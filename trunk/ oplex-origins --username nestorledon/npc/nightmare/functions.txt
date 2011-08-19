@@ -276,7 +276,7 @@ fish_1min:
 }
 
 function	script	fishing_func2	{
-	setarray .@failrate[0],70,80,10;
+	setarray .@failrate[0],70,80,90;
 	setarray .@fishingrodIDs[0],1056,1057,1058;
 	for(set .@i,getarraysize(.@fishingrodIDs) - 1; .@i >= 0; set .@i,.@i-1) {
     		if(countitem(.@fishingrodIDs[.@i]) > 0) {
@@ -285,7 +285,7 @@ function	script	fishing_func2	{
         		break;
     		}
 	}
-	if(.@i > 0) {
+	if(.@i >= 0) {
 		mes "How long would you like to fish for?";
 		next;
 		menu "30 seconds",fish_30sec,"1 minute",fish_1min,"Nevermind",-;
@@ -293,7 +293,7 @@ function	script	fishing_func2	{
 		end;
 		}
 	if(.@i < 0)
-	dispbottom "No rod = no fishing";
+	dispbottom "Might be able to fish with a rod...";
 	end;
 
 fish_30sec:
