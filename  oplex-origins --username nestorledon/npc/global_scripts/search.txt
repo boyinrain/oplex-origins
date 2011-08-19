@@ -37,7 +37,6 @@ dispbottom "npc is in front of you";
 OnInit:
 	set .availTimeout, 1800; //time in seconds
 	set .nextavail, gettimetick(2);
-	}
 }
 
 //Cars - All Fixed
