@@ -20,7 +20,7 @@ OnTouch:
         if ( .@circle <= getbattleflag("area_size") || .@rect > 19 ) break;
         sleep2 500;
 
-    if(.@rect => 5) {
+    if(.@rect < 5) {
 
 	if(gettimetick(2) >= getd(".nextavail_" + strnpcinfo(2))) {
 		getitem groupranditem(19), 1;
