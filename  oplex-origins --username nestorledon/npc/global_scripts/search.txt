@@ -12,7 +12,16 @@
 //= v1.0 - Original release
 //============================================================
 
--	script	searchBase	-1,3,3,{
+-	script	searchBase	-1,{
+	
+OnTouch:
+    while( !getmapxy( .@map$, .@x, .@y, 0 ) ) {
+        getmapxy .@map$, .@x1, .@y1, 1;
+        dispbottom "entered rectangular cells ["+ set( .@rect, distance( .@x, .@y, .@x1, .@y1 ) ) +"] circular ("+ set( .@circle, sqrt( pow( .@x - .@x1, 2 ) + pow( .@y - .@y1, 2 ) ) ) +") {"+ set( .@c, .@c +1 ) +"}";
+        if ( .@circle <= getbattleflag("area_size") || .@rect > 19 ) break;
+        sleep2 500;
+    
+	
 	if(gettimetick(2) >= getd(".nextavail_" + strnpcinfo(2))) {
 		getitem groupranditem(19), 1;
 		setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
@@ -25,6 +34,7 @@
 OnInit:
 	set .availTimeout, 1800; //time in seconds
 	set .nextavail, gettimetick(2);
+	}
 }
 
 //Cars - All Fixed
