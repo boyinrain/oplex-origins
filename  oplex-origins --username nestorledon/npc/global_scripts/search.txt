@@ -19,7 +19,9 @@ OnTouch:
         dispbottom "entered rectangular cells ["+ set( .@rect, distance( .@x, .@y, .@x1, .@y1 ) ) +"] circular ("+ set( .@circle, sqrt( pow( .@x - .@x1, 2 ) + pow( .@y - .@y1, 2 ) ) ) +") {"+ set( .@c, .@c +1 ) +"}";
         if ( .@circle <= getbattleflag("area_size") || .@rect > 19 ) break;
         sleep2 500;
-    
+
+    if(.@rect => 5)) {
+
 	if(gettimetick(2) >= getd(".nextavail_" + strnpcinfo(2))) {
 		getitem groupranditem(19), 1;
 		setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
@@ -29,7 +31,7 @@ OnTouch:
 		}
 }
 	end;
-
+	}
 OnInit:
 	set .availTimeout, 1800; //time in seconds
 	set .nextavail, gettimetick(2);
