@@ -40,16 +40,16 @@ la_in01,136,64,0	duplicate(beds)	Bed::bed19	111
 la_in01,40,30,0	duplicate(beds)	Bed::bed20	111
 
 // Safe House Beds
-// bld_01 - bed30 - beb41
-la_in01,6,81,0	duplicate(beds)	Bed::bed30	111
-la_in01,6,76,0	duplicate(beds)	Bed::bed31	111
-la_in01,6,71,0	duplicate(beds)	Bed::bed32	111
-la_in01,13,81,0	duplicate(beds)	Bed::bed33	111
-la_in01,13,76,0	duplicate(beds)	Bed::bed34	111
-la_in01,13,71,0	duplicate(beds)	Bed::bed35	111
-la_in01,22,81,0	duplicate(beds)	Bed::bed36	111
-la_in01,22,76,0	duplicate(beds)	Bed::bed37	111
-la_in01,22,71,0	duplicate(beds)	Bed::bed38	111
-la_in01,29,81,0	duplicate(beds)	Bed::bed39	111
-la_in01,29,76,0	duplicate(beds)	Bed::bed40	111
-la_in01,29,71,0	duplicate(beds)	Bed::bed41	111
+// la_bld01  bed30-bed41
+la_bld01,6,81,0	duplicate(beds)	Bed::bed30	111
+la_bld01,6,76,0	duplicate(beds)	Bed::bed31	111
+la_bld01,6,71,0	duplicate(beds)	Bed::bed32	111
+la_bld01,13,81,0	duplicate(beds)	Bed::bed33	111
+la_bld01,13,76,0	duplicate(beds)	Bed::bed34	111
+la_bld01,13,71,0	duplicate(beds)	Bed::bed35	111
+la_bld01,22,81,0	duplicate(beds)	Bed::bed36	111
+la_bld01,22,76,0	duplicate(beds)	Bed::bed37	111
+la_bld01,22,71,0	duplicate(beds)	Bed::bed38	111
+la_bld01,29,81,0	duplicate(beds)	Bed::bed39	111
+la_bld01,29,76,0	duplicate(beds)	Bed::bed40	111
+la_bld01,29,71,0	duplicate(beds)	Bed::bed41	111
