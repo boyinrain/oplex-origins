@@ -27,8 +27,6 @@ OnInit:
 	set .nextavail, gettimetick(2);
 }
 
-op_tut01,68,51,5	duplicate(searchBase)	Search#s68	111
-
 //Cars	
 lavive_01,43,16,0	duplicate(searchBase)	Search#s1	111
 lavive_01,12,81,0	duplicate(searchBase)	Search#s2	111
@@ -47,16 +45,16 @@ lavive_02,60,29,0	duplicate(searchBase)	Search#s14	111
 lavive_03,58,13,0	duplicate(searchBase)	Search#s15	111
 
 //Crates
-op_tut01,27,48,0	duplicate(searchBase)	Search#s17	111
-op_tut01,21,47,0	duplicate(searchBase)	Search#s18	111
-op_tut01,17,46,0	duplicate(searchBase)	Search#s19	111
-op_tut01,19,40,0	duplicate(searchBase)	Search#s20	111
-op_tut01,24,41,0	duplicate(searchBase)	Search#s21	111
+op_tut01,29,48,0	duplicate(searchBase)	Search#s17	111
+op_tut01,22,49,0	duplicate(searchBase)	Search#s18	111
+op_tut01,14,47,0	duplicate(searchBase)	Search#s19	111
+op_tut01,15,40,0	duplicate(searchBase)	Search#s20	111
+op_tut01,26,42,0	duplicate(searchBase)	Search#s21	111
 
 //Book Shelves
-op_tut01,64,50,0	duplicate(searchBase)	Search#s23	111
-op_tut01,67,50,0	duplicate(searchBase)	Search#s24	111
-op_tut01,76,48,0	duplicate(searchBase)	Search#s25	111
+op_tut01,64,51,0	duplicate(searchBase)	Search#s23	111
+op_tut01,68,51,0	duplicate(searchBase)	Search#s24	111
+op_tut01,77,48,0	duplicate(searchBase)	Search#s25	111
 la_in01,45,102,0	duplicate(searchBase)	Search#s26	111
 la_in01,92,102,0	duplicate(searchBase)	Search#s27	111
 la_eden,17,27,0	duplicate(searchBase)	Search#s28	111
@@ -89,9 +87,9 @@ la_in01,46,138,0	duplicate(searchBase)	Search#s53	111
 la_in01,46,30,0	duplicate(searchBase)	Search#s54	111
 
 //Refrigerators
+op_tut01,67,7,0	duplicate(searchBase)	Search#s58	111
 la_jack,7,15,0	duplicate(searchBase)	Search#s56	111
 la_eden,10,31,0	duplicate(searchBase)	Search#s57	111
-op_tut01,67,8,0	duplicate(searchBase)	Search#s58	111
 
 //Stoves
 la_eden,13,31,0	duplicate(searchBase)	Search#s60	111
