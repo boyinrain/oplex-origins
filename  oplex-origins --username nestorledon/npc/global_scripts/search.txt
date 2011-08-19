@@ -15,7 +15,7 @@
 -	script	searchBase	-1,{
 	
 OnTouch:
-    while( !getmapxy( .@map$, .@x, .@y, 0 ) ) {
+    while( !getmapxy( .@map$, .@x, .@y, 3 ) ) {
         getmapxy .@map$, .@x1, .@y1, 1;
         dispbottom "entered rectangular cells ["+ set( .@rect, distance( .@x, .@y, .@x1, .@y1 ) ) +"] circular ("+ set( .@circle, sqrt( pow( .@x - .@x1, 2 ) + pow( .@y - .@y1, 2 ) ) ) +") {"+ set( .@c, .@c +1 ) +"}";
         if ( .@circle <= getbattleflag("area_size") || .@rect > 19 ) break;
