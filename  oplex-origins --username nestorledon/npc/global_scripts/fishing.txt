@@ -12,7 +12,7 @@
 //= v1.0 - Original release
 //============================================================
 blank_01,10,10,5	script	Fish::fish	111,{
-		callfunc "fishing_func2";
+		callfunc "fishing_func";
 }
 
 // Here you put all the clones for this script use the format below
