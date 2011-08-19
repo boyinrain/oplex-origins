@@ -31,11 +31,11 @@ OnInit:
 lavive_01,43,18,0	duplicate(searchBase)	Search#s1	111
 lavive_01,6,86,0	duplicate(searchBase)	Search#s2	111
 lavive_02,57,29,0	duplicate(searchBase)	Search#s14	111
-lavive_02,7,38,0	duplicate(searchBase)	Search#s137	111
-lavive_02,17,34,0	duplicate(searchBase)	Search#s138	111
-lavive_02,17,22,0	duplicate(searchBase)	Search#s139	111
-lavive_02,28,22,0	duplicate(searchBase)	Search#s140	111
-lavive_02,7,10,0	duplicate(searchBase)	Search#s141	111
+lavive_02,7,39,0	duplicate(searchBase)	Search#s137	111
+lavive_02,17,35,0	duplicate(searchBase)	Search#s138	111
+lavive_02,17,23,0	duplicate(searchBase)	Search#s139	111
+lavive_02,28,23,0	duplicate(searchBase)	Search#s140	111
+lavive_02,7,11,0	duplicate(searchBase)	Search#s141	111
 
 
 lavive_06,51,40,0	duplicate(searchBase)	Search#s3	111
