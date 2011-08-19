@@ -27,7 +27,7 @@ OnInit:
 	set .nextavail, gettimetick(2);
 }
 
-//Cars	
+//Cars - All Fixed
 lavive_01,43,18,0	duplicate(searchBase)	Search#s1	111
 lavive_01,6,86,0	duplicate(searchBase)	Search#s2	111
 lavive_02,57,29,0	duplicate(searchBase)	Search#s14	111
@@ -36,20 +36,20 @@ lavive_02,17,35,0	duplicate(searchBase)	Search#s138	111
 lavive_02,17,23,0	duplicate(searchBase)	Search#s139	111
 lavive_02,28,23,0	duplicate(searchBase)	Search#s140	111
 lavive_02,7,11,0	duplicate(searchBase)	Search#s141	111
-
-
-lavive_06,51,40,0	duplicate(searchBase)	Search#s3	111
-lavive_06,58,32,0	duplicate(searchBase)	Search#s4	111
-lavive_04,47,72,0	duplicate(searchBase)	Search#s5	111
-lavive_04,48,45,0	duplicate(searchBase)	Search#s6	111
-lavive_04,73,41,0	duplicate(searchBase)	Search#s7	111
-lavive_04,96,64,0	duplicate(searchBase)	Search#s8	111
-lavive_05,8,75,0	duplicate(searchBase)	Search#s9	111
-lavive_05,16,76,0	duplicate(searchBase)	Search#s10	111
-lavive_05,27,65,0	duplicate(searchBase)	Search#s11	111
-lavive_05,50,62,0	duplicate(searchBase)	Search#s12	111
-lavive_08,42,29,0	duplicate(searchBase)	Search#s13	111
-lavive_03,58,13,0	duplicate(searchBase)	Search#s15	111
+lavive_03,6,39,0	duplicate(searchBase)	Search#s142	111
+lavive_03,58,15,0	duplicate(searchBase)	Search#s15	111
+lavive_04,49,72,0	duplicate(searchBase)	Search#s5	111
+lavive_04,50,47,0	duplicate(searchBase)	Search#s6	111
+lavive_04,75,39,0	duplicate(searchBase)	Search#s7	111
+lavive_04,94,63,0	duplicate(searchBase)	Search#s8	111
+lavive_04,15,54,0	duplicate(searchBase)	Search#143	111
+lavive_05,8,71,0	duplicate(searchBase)	Search#s9	111
+lavive_05,12,76,0	duplicate(searchBase)	Search#s10	111
+lavive_05,28,68,0	duplicate(searchBase)	Search#s11	111
+lavive_05,50,59,0	duplicate(searchBase)	Search#s12	111
+lavive_06,55,29,0	duplicate(searchBase)	Search#s3	111
+lavive_06,51,42,0	duplicate(searchBase)	Search#s4	111
+lavive_08,41,29,0	duplicate(searchBase)	Search#s13	111
 
 //Crates - All Fixed
 op_tut01,29,48,0	duplicate(searchBase)	Search#s17	111
@@ -58,7 +58,7 @@ op_tut01,14,47,0	duplicate(searchBase)	Search#s19	111
 op_tut01,15,40,0	duplicate(searchBase)	Search#s20	111
 op_tut01,26,42,0	duplicate(searchBase)	Search#s21	111
 
-//Book Shelves
+//Book Shelves - Lib - All Done
 op_tut01,64,51,0	duplicate(searchBase)	Search#s23	111
 op_tut01,68,51,0	duplicate(searchBase)	Search#s24	111
 op_tut01,77,48,0	duplicate(searchBase)	Search#s25	111
@@ -68,24 +68,27 @@ la_eden,17,27,0	duplicate(searchBase)	Search#s28	111
 la_eden,21,22,0	duplicate(searchBase)	Search#s29	111
 la_eden,23,21,0	duplicate(searchBase)	Search#s30	111
 la_eden,23,26,0	duplicate(searchBase)	Search#s31	111
-la_lib01,14,29,0	duplicate(searchBase)	Search#s32	111
-la_lib01,17,29,0	duplicate(searchBase)	Search#s33	111
-la_lib01,20,29,0	duplicate(searchBase)	Search#s34	111
-la_lib01,23,29,0	duplicate(searchBase)	Search#s35	111
-la_lib01,26,29,0	duplicate(searchBase)	Search#s36	111
-la_lib01,14,8,0	duplicate(searchBase)	Search#s37	111
-la_lib01,22,8,0	duplicate(searchBase)	Search#s38	111
+la_lib01,24,28,0	duplicate(searchBase)	Search#s32	111
+la_lib01,21,28,0	duplicate(searchBase)	Search#s33	111
+la_lib01,18,28,0	duplicate(searchBase)	Search#s34	111
+la_lib01,15,28,0	duplicate(searchBase)	Search#s35	111
+la_lib01,12,28,0	duplicate(searchBase)	Search#s36	111
+la_lib01,11,7,0	duplicate(searchBase)	Search#s37	111
+la_lib01,22,10,0	duplicate(searchBase)	Search#s38	111
+la_lib01,25,70,0	duplicate(searchBase)	Search#s145	111
+la_lib01,33,70,0	duplicate(searchBase)	Search#s146	111
 la_in01,44,137,0	duplicate(searchBase)	Search#s39	111
 la_in01,43,30,0	duplicate(searchBase)	Search#s40	111
 
-//Cabinets
-la_jack,7,10,0	duplicate(searchBase)	Search#s42	111
-la_jack,15,91,0	duplicate(searchBase)	Search#s43	111
-la_jack,15,87,0	duplicate(searchBase)	Search#s44	111
-la_jack,15,83,0	duplicate(searchBase)	Search#s45	111
-la_jack,11,83,0	duplicate(searchBase)	Search#s46	111
-la_jack,11,87,0	duplicate(searchBase)	Search#s47	111
-la_jack,11,91,0	duplicate(searchBase)	Search#s48	111
+//Cabinets - All Fixed
+la_jack,5,9,0	duplicate(searchBase)	Search#s42	111
+la_jack,13,91,0	duplicate(searchBase)	Search#s43	111
+la_jack,13,87,0	duplicate(searchBase)	Search#s44	111
+la_jack,13,83,0	duplicate(searchBase)	Search#s45	111
+la_jack,9,83,0	duplicate(searchBase)	Search#s46	111
+la_jack,9,87,0	duplicate(searchBase)	Search#s47	111
+la_jack,9,91,0	duplicate(searchBase)	Search#s48	111
+//
 la_police01,26,33,0	duplicate(searchBase)	Search#s49	111
 la_police01,17,32,0	duplicate(searchBase)	Search#s50	111
 la_in01,47,102,0	duplicate(searchBase)	Search#s51	111
@@ -93,22 +96,22 @@ la_in01,95,102,0	duplicate(searchBase)	Search#s52	111
 la_in01,46,138,0	duplicate(searchBase)	Search#s53	111
 la_in01,46,30,0	duplicate(searchBase)	Search#s54	111
 
-//Refrigerators
+//Refrigerators - All Fixed
 op_tut01,67,7,0	duplicate(searchBase)	Search#s56	111
-la_jack,7,15,0	duplicate(searchBase)	Search#s57	111
-la_eden,10,31,0	duplicate(searchBase)	Search#s58	111
+la_jack,7,18,0	duplicate(searchBase)	Search#s57	111
+la_eden,11,33,0	duplicate(searchBase)	Search#s58	111
 
-//Stoves
-la_eden,13,31,0	duplicate(searchBase)	Search#s60	111
+//Stoves - All Fixed
+la_eden,14,33,0	duplicate(searchBase)	Search#s60	111
 op_tut01,64,82,0	duplicate(searchBase)	Search#s61	111
 
-//Desks
-la_jack,22,9,0	duplicate(searchBase)	Search#s63	111
+//Desks - All Fixed
+la_jack,20,7,0	duplicate(searchBase)	Search#s63	111
 la_eden,13,25,0	duplicate(searchBase)	Search#s64	111
-la_lib01,18,12,0	duplicate(searchBase)	Search#s65	111
+la_lib01,19,11,0	duplicate(searchBase)	Search#s65	111
 
 //Fountain
-lavive_04,50,13,0	duplicate(searchBase)	Search#s67	111
+lavive_04,50,15,0	duplicate(searchBase)	Search#s67	111
 
 //Trees
 //lavive_01,34,87,0	duplicate(searchBase)	Search#s92	111
