@@ -16,7 +16,7 @@
 OnTouch:
     while( !getmapxy( .@map$, .@x, .@y, 0 ) ) {
         getmapxy .@map$, .@x1, .@y1, 1;
-        set( .@rect, distance( .@x, .@y, .@x1, .@y1 ))
+        set( .@rect, distance( .@x, .@y, .@x1, .@y1 ));
 
 	if ( .@rect <= 3 ) {
 		if(gettimetick(2) >= getd(".nextavail_" + strnpcinfo(2))) {
