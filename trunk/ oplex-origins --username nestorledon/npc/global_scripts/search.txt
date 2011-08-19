@@ -28,8 +28,16 @@ OnInit:
 }
 
 //Cars	
-lavive_01,43,16,0	duplicate(searchBase)	Search#s1	111
-lavive_01,12,81,0	duplicate(searchBase)	Search#s2	111
+lavive_01,43,18,0	duplicate(searchBase)	Search#s1	111
+lavive_01,6,86,0	duplicate(searchBase)	Search#s2	111
+lavive_02,57,29,0	duplicate(searchBase)	Search#s14	111
+lavive_02,7,38,0	duplicate(searchBase)	Search#s137	111
+lavive_02,17,34,0	duplicate(searchBase)	Search#s138	111
+lavive_02,17,22,0	duplicate(searchBase)	Search#s139	111
+lavive_02,28,22,0	duplicate(searchBase)	Search#s140	111
+lavive_02,7,10,0	duplicate(searchBase)	Search#s141	111
+
+
 lavive_06,51,40,0	duplicate(searchBase)	Search#s3	111
 lavive_06,58,32,0	duplicate(searchBase)	Search#s4	111
 lavive_04,47,72,0	duplicate(searchBase)	Search#s5	111
@@ -41,10 +49,9 @@ lavive_05,16,76,0	duplicate(searchBase)	Search#s10	111
 lavive_05,27,65,0	duplicate(searchBase)	Search#s11	111
 lavive_05,50,62,0	duplicate(searchBase)	Search#s12	111
 lavive_08,42,29,0	duplicate(searchBase)	Search#s13	111
-lavive_02,60,29,0	duplicate(searchBase)	Search#s14	111
 lavive_03,58,13,0	duplicate(searchBase)	Search#s15	111
 
-//Crates
+//Crates - All Fixed
 op_tut01,29,48,0	duplicate(searchBase)	Search#s17	111
 op_tut01,22,49,0	duplicate(searchBase)	Search#s18	111
 op_tut01,14,47,0	duplicate(searchBase)	Search#s19	111
@@ -87,9 +94,9 @@ la_in01,46,138,0	duplicate(searchBase)	Search#s53	111
 la_in01,46,30,0	duplicate(searchBase)	Search#s54	111
 
 //Refrigerators
-op_tut01,67,7,0	duplicate(searchBase)	Search#s58	111
-la_jack,7,15,0	duplicate(searchBase)	Search#s56	111
-la_eden,10,31,0	duplicate(searchBase)	Search#s57	111
+op_tut01,67,7,0	duplicate(searchBase)	Search#s56	111
+la_jack,7,15,0	duplicate(searchBase)	Search#s57	111
+la_eden,10,31,0	duplicate(searchBase)	Search#s58	111
 
 //Stoves
 la_eden,13,31,0	duplicate(searchBase)	Search#s60	111
@@ -104,32 +111,32 @@ la_lib01,18,12,0	duplicate(searchBase)	Search#s65	111
 lavive_04,50,13,0	duplicate(searchBase)	Search#s67	111
 
 //Trees
-lavive_01,34,87,0	duplicate(searchBase)	Search#s92	111
-lavive_01,11,61,0	duplicate(searchBase)	Search#s93	111
-lavive_01,12,33,0	duplicate(searchBase)	Search#s94	111
-lavive_01,36,10,0	duplicate(searchBase)	Search#s95	111
-lavive_01,64,8,0	duplicate(searchBase)	Search#s96	111
-lavive_01,87,33,0	duplicate(searchBase)	Search#s97	111
-lavive_01,89,61,0	duplicate(searchBase)	Search#s98	111
-lavive_01,63,89,0	duplicate(searchBase)	Search#s99	111
-lavive_02,92,63,0	duplicate(searchBase)	Search#s100	111
-lavive_02,96,64,0	duplicate(searchBase)	Search#s101	111
-lavive_02,97,81,0	duplicate(searchBase)	Search#s102	111
-lavive_02,93,83,0	duplicate(searchBase)	Search#s103	111
+//lavive_01,34,87,0	duplicate(searchBase)	Search#s92	111
+//lavive_01,11,61,0	duplicate(searchBase)	Search#s93	111
+//lavive_01,12,33,0	duplicate(searchBase)	Search#s94	111
+//lavive_01,36,10,0	duplicate(searchBase)	Search#s95	111
+//lavive_01,64,8,0	duplicate(searchBase)	Search#s96	111
+//lavive_01,87,33,0	duplicate(searchBase)	Search#s97	111
+//lavive_01,89,61,0	duplicate(searchBase)	Search#s98	111
+//lavive_01,63,89,0	duplicate(searchBase)	Search#s99	111
+//lavive_02,92,63,0	duplicate(searchBase)	Search#s100	111
+//lavive_02,96,64,0	duplicate(searchBase)	Search#s101	111
+//lavive_02,97,81,0	duplicate(searchBase)	Search#s102	111
+//lavive_02,93,83,0	duplicate(searchBase)	Search#s103	111
 
 //Fire Hydrant
-lavive_01,38,63,0	duplicate(searchBase)	Search#s116	111
-lavive_01,59,32,0	duplicate(searchBase)	Search#s117	111
-lavive_08,39,31,0	duplicate(searchBase)	Search#s118	111
+//lavive_01,38,63,0	duplicate(searchBase)	Search#s116	111
+//lavive_01,59,32,0	duplicate(searchBase)	Search#s117	111
+//lavive_08,39,31,0	duplicate(searchBase)	Search#s118	111
 
 //Remnants of a Camp Fire
-lavive_01,70,78,0	duplicate(searchBase)	Search#s129	111
-lavive_01,81,11,0	duplicate(searchBase)	Search#s130	111
-lavive_01,18,9,0	duplicate(searchBase)	Search#s131	111
-lavive_01,18,77,0	duplicate(searchBase)	Search#s132	111
+//lavive_01,70,78,0	duplicate(searchBase)	Search#s129	111
+//lavive_01,81,11,0	duplicate(searchBase)	Search#s130	111
+//lavive_01,18,9,0	duplicate(searchBase)	Search#s131	111
+//lavive_01,18,77,0	duplicate(searchBase)	Search#s132	111
 
 //Barrels
-lavive_01,20,82,0	duplicate(searchBase)	Search#s134	111
+lavive_01,17,82,0	duplicate(searchBase)	Search#s134	111
 
 //Altar Thing
 la_church01,51,51,0	duplicate(searchBase)	Search#s136	111
