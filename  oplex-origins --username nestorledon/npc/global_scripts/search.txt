@@ -18,8 +18,6 @@ OnTouch:
         getmapxy .@map$, .@x1, .@y1, 1;
         set( .@rect, distance( .@x, .@y, .@x1, .@y1 ))
 
-//dispbottom "entered rectangular cells ["+ set( .@rect, distance( .@x, .@y, .@x1, .@y1 ) ) +"] circular ("+ set( .@circle, sqrt( pow( .@x - .@x1, 2 ) + pow( .@y - .@y1, 2 ) ) ) +") {"+ set( .@c, .@c +1 ) +"}";
-        
 	if ( .@rect <= 3 ) {
 		if(gettimetick(2) >= getd(".nextavail_" + strnpcinfo(2))) {
 			getitem groupranditem(19), 1;
