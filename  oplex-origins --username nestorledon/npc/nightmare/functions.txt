@@ -222,7 +222,7 @@ function	script	fishing_func	{
 	end;
 
 fish_30sec:
-	message strcharinfo(0), "Here goes nothing...";
+	mes "Here goes nothing...";
 	sc_start SC_SLEEP,30000,0;
 	sleep2 3000;
 	disbottom "Fishing";
@@ -253,7 +253,7 @@ fish_30sec:
 
 fish_1min:
 	setarray @catch[0],536,536,536,536;
-	message strcharinfo(0), "Here goes nothing...";
+	mes "Here goes nothing...";
 	sc_start SC_SLEEP,60000,0;
 	sleep2 6000;
 	disbottom "Fishing";
