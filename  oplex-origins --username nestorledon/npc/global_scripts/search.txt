@@ -21,7 +21,7 @@ OnTouch:
         sleep2 500;
 
     if(.@rect < 5) {
-
+	mes "It's Working!";
 	if(gettimetick(2) >= getd(".nextavail_" + strnpcinfo(2))) {
 		getitem groupranditem(19), 1;
 		setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
