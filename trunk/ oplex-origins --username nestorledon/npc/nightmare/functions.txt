@@ -257,6 +257,7 @@ fish_1min:
 	sc_start SC_SLEEP,60000,0;
 	sleep2 6000;
 	dispbottom "Fishing";
+	atcommand "/ho";
 	sleep2 6000;
 	dispbottom "Fishing.";
 	sleep2 6000;
