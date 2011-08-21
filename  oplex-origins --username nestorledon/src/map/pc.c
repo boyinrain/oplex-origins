@@ -951,8 +951,6 @@ int pc_reg_received(struct map_session_data *sd)
 	
 	sd->change_level = pc_readglobalreg(sd,"jobchange_level");
 	sd->die_counter = pc_readglobalreg(sd,"PC_DIE_COUNTER");
-	// faction aura
-	sd->status.aura = pc_readregistry(sd,"##USERAURA",1);
 
 	// Cash shop
 	sd->cashPoints = pc_readaccountreg(sd,"#CASHPOINTS");
@@ -5086,6 +5084,9 @@ void pc_damage(struct map_session_data *sd,struct block_list *src,unsigned int h
 		skill_sit(sd,0);
 	}
 
+	if( sd->progressbar.npc_id )
+		clif_progressbar_abort(sd);
+
 	clif_updatestatus(sd,SP_HP);
 
 	if(!src || src == &sd->bl)
@@ -6160,11 +6161,6 @@ int pc_readregistry(struct map_session_data *sd,const char *reg,int type)
 
 	ARR_FIND( 0, max, i, strcmp(sd_reg[i].str,reg) == 0 );
 	return ( i < max ) ? atoi(sd_reg[i].value) : 0;
-}
-
-int pc_getfaction(struct map_session_data *sd) //Rad's Faction Mod
-{
-return pc_readregistry(sd,"##faction",1);
 }
 
 char* pc_readregistry_str(struct map_session_data *sd,const char *reg,int type)
