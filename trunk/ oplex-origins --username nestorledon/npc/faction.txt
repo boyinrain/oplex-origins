@@ -1,4 +1,4 @@
-blank_01,5,11,3 script Faction Monsters 55,{
+blank_01,5,11,3	script	Faction Monsters	55,{
 mes "You can summon a guardian";
 mes " to protect the base";
 mes "for 100 zeny";
