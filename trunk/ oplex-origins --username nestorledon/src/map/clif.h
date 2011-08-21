@@ -449,8 +449,8 @@ void clif_mercenary_updatestatus(struct map_session_data *sd, int type);
 void clif_rental_time(int fd, int nameid, int seconds);
 void clif_rental_expired(int fd, int nameid);
 
-//Rad's Faction Mod
-void clif_sendauras(struct map_session_data *sd, enum send_target type);
-void clif_getareachar_char(struct block_list *bl, short flag);
+// Progress Bar [Inkfish]
+void clif_progressbar(struct map_session_data * sd, unsigned long color, unsigned int second);
+void clif_progressbar_abort(struct map_session_data * sd);
 
 #endif /* _CLIF_H_ */

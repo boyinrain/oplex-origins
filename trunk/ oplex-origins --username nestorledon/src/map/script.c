@@ -329,8 +329,7 @@ enum {
 	MF_LOADEVENT,
 	MF_NOCHAT,
 	MF_NOEXPPENALTY,
-	MF_GUILDLOCK,
-	MF_HOSTILE //rad417's Faction Mod
+	MF_GUILDLOCK
 };
 
 const char* script_op2name(int op)
@@ -8886,7 +8885,6 @@ BUILDIN_FUNC(getmapflag)
 			case MF_NOCHAT:			script_pushint(st,map[m].flag.nochat); break;
 			case MF_PARTYLOCK:		script_pushint(st,map[m].flag.partylock); break;
 			case MF_GUILDLOCK:		script_pushint(st,map[m].flag.guildlock); break;
-			case MF_HOSTILE: 		script_pushint(st,map[m].flag.hostile); break; //Rad's Faction Mod
 		}
 	}
 
@@ -8951,7 +8949,6 @@ BUILDIN_FUNC(setmapflag)
 			case MF_NOCHAT:        map[m].flag.nochat=1; break;
 			case MF_PARTYLOCK:     map[m].flag.partylock=1; break;
 			case MF_GUILDLOCK:     map[m].flag.guildlock=1; break;
-			case MF_HOSTILE:	map[m].flag.hostile=1; break; //Rad's Faction Mod
 		}
 	}
 
@@ -9013,7 +9010,6 @@ BUILDIN_FUNC(removemapflag)
 			case MF_NOCHAT:        map[m].flag.nochat=0; break;
 			case MF_PARTYLOCK:     map[m].flag.partylock=0; break;
 			case MF_GUILDLOCK:     map[m].flag.guildlock=0; break;
-			case MF_HOSTILE: 	map[m].flag.hostile=0; break; //Rad's Faction Mod
 		}
 	}
 
@@ -12958,6 +12954,29 @@ BUILDIN_FUNC(setcell)
 	return 0;
 }
 
+BUILDIN_FUNC(progressbar)
+{
+#if PACKETVER >= 20080318
+        struct map_session_data * sd = script_rid2sd(st);
+        const char * color;
+        unsigned int second;
+
+        if( !st || !sd )
+                return 0;
+
+        st->state = STOP;
+
+        color = script_getstr(st,2);
+        second = script_getnum(st,3);
+
+        sd->progressbar.npc_id = st->oid;
+        sd->progressbar.timeout = gettick() + second*1000;
+
+        clif_progressbar(sd, strtol(color, (char **)NULL, 0), second);
+#endif
+    return 0;
+}
+
 /*==========================================
  * Mercenary Commands
  *------------------------------------------*/
@@ -13216,41 +13235,6 @@ BUILDIN_FUNC(setqueststatus)
 	return 0;
 }
 
-BUILDIN_FUNC(factionguardian)
-{
-int _class, timeout=0;
-const char *str,*event="";
-TBL_PC *sd;
-struct mob_data *md;
-int tick = gettick();
-
-sd=script_rid2sd(st);
-if (!sd) return 0;
-
-str =script_getstr(st,2);
-_class=script_getnum(st,3);
-if( script_hasdata(st,4) )
-timeout=script_getnum(st,4);
-if( script_hasdata(st,5) ){
-event=script_getstr(st,5);
-check_event(st, event);
-}
-
-clif_skill_poseffect(&sd->bl,AM_CALLHOMUN,1,sd->bl.x,sd->bl.y,tick);
-
-md = mob_once_spawn_sub(&sd->bl, sd->bl.m, sd->bl.x, sd->bl.y, str, _class, event);
-if (md) {
-md->master_id=pc_getfaction(sd);
-md->special_state.ai=1;
-//if( md->deletetimer != INVALID_TIMER )
-// delete_timer(md->deletetimer, mob_timer_delete);
-//md->deletetimer = add_timer(tick+(timeout>0?timeout*1000:60000),mob_timer_delete,md->bl.id,0);
-mob_spawn (md); //Now it is ready for spawning.
-clif_misceffect2(&md->bl,344);
-sc_start4(&md->bl, SC_MODECHANGE, 100, 1, 0, MD_AGGRESSIVE, 0, 60000);
-}
-return 0;
-}
 
 // declarations that were supposed to be exported from npc_chat.c
 #ifdef PCRE_SUPPORT
@@ -13501,7 +13485,6 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(guildchangegm,"is"),
 	BUILDIN_DEF(logmes,"s"), //this command actls as MES but rints info into LOG file either SQL/TXT [Lupus]
 	BUILDIN_DEF(summon,"si*"), // summons a slave monster [Celest]
-	BUILDIN_DEF(factionguardian,"si*"),
 	BUILDIN_DEF(isnight,""), // check whether it is night time [Celest]
 	BUILDIN_DEF(isday,""), // check whether it is day time [Celest]
 	BUILDIN_DEF(isequipped,"i*"), // check whether another item/card has been equipped [Celest]
@@ -13607,9 +13590,43 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(mercenary_get_faith,"i"),
 	BUILDIN_DEF(mercenary_set_calls,"ii"),
 	BUILDIN_DEF(mercenary_set_faith,"ii"),
+	BUILDIN_DEF(progressbar,"si"),
 	// WoE SE
 	BUILDIN_DEF(agitstart2,""),
 	BUILDIN_DEF(agitend2,""),
 	BUILDIN_DEF(agitcheck2,""),
+	// BattleGround
+	BUILDIN_DEF(waitingroom2bg,"siiss?"),
+	BUILDIN_DEF(waitingroom2bg_single,"isiis"),
+	BUILDIN_DEF(bg_team_setxy,"iii"),
+	BUILDIN_DEF(bg_warp,"isii"),
+	BUILDIN_DEF(bg_monster,"isiisi?"),
+	BUILDIN_DEF(bg_monster_set_team,"ii"),
+	BUILDIN_DEF(bg_leave,""),
+	BUILDIN_DEF(bg_destroy,"i"),
+	BUILDIN_DEF(areapercentheal,"siiiiii"),
+	BUILDIN_DEF(bg_get_data,"ii"),
+	BUILDIN_DEF(bg_getareausers,"isiiii"),
+	BUILDIN_DEF(bg_updatescore,"sii"),
+	// Instancing
+	BUILDIN_DEF(instance_create,"si"),
+	BUILDIN_DEF(instance_destroy,"?"),
+	BUILDIN_DEF(instance_attachmap,"si?"),
+	BUILDIN_DEF(instance_detachmap,"s?"),
+	BUILDIN_DEF(instance_attach,"i"),
+	BUILDIN_DEF(instance_id,"?"),
+	BUILDIN_DEF(instance_set_timeout,"ii?"),
+	BUILDIN_DEF(instance_init,"i"),
+	BUILDIN_DEF(instance_announce,"isi?????"),
+	BUILDIN_DEF(instance_npcname,"s?"),
+	BUILDIN_DEF(has_instance,"s?"),
+	BUILDIN_DEF(instance_warpall,"sii?"),
+	//Quest Log System [Inkfish]
+	BUILDIN_DEF(setquest, "i"),
+	BUILDIN_DEF(erasequest, "i"),
+	BUILDIN_DEF(completequest, "i"),
+	BUILDIN_DEF(checkquest, "i?"),
+	BUILDIN_DEF(changequest, "ii"),
+	BUILDIN_DEF(showevent, "ii"),
 	{NULL,NULL,NULL},
 };

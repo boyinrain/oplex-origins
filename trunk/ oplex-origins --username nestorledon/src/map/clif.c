@@ -1306,84 +1306,6 @@ void clif_changemap(struct map_session_data *sd, short map, int x, int y)
 }
 
 /*==========================================
-* @aura
-*------------------------------------------*/
-static int auraTable[][3] = {
-{ -1, -1, -1 },
-// Reserved for PK Mode
-{ 240, 486, 362 },
-{ 239, 418, 362 } //Add more according to the number of factions
-};
-
-int aura_getSize()
-{
-return sizeof(auraTable)/(sizeof(int) * 3) - 1;
-}
-
-int aura_getAuraEffect(struct map_session_data *sd, short pos)
-{
-int aura = sd->status.aura;
-
-if (pos < 0 || pos > 2)
-return -1;
-
-if (aura > aura_getSize() || aura < 0)
-return -1;
-
-return auraTable[aura][pos];
-}
-
-int clif_specialeffecttoone(struct block_list *bl, struct block_list *dst, int type)
-{
-struct map_session_data *sd = (struct map_session_data *)dst;
-
-WFIFOW(sd->fd,0) = 0x1f3;
-WFIFOL(sd->fd,2) = bl->id;
-WFIFOL(sd->fd,6) = type;
-WFIFOSET(sd->fd, packet_len(0x1f3));
-
-return 0;
-}
-
-void clif_sendaurastoone(struct map_session_data *sd, struct map_session_data *dsd)
-{
-int effect1, effect2, effect3;
-
-if (pc_ishiding(sd))
-return;
-
-effect1 = aura_getAuraEffect(sd, 0);
-effect2 = aura_getAuraEffect(sd, 1);
-effect3 = aura_getAuraEffect(sd, 2);
-
-if (effect1 >= 0)
-clif_specialeffecttoone(&sd->bl, &dsd->bl, effect1);
-if (effect2 >= 0)
-clif_specialeffecttoone(&sd->bl, &dsd->bl, effect2);
-if (effect3 >= 0)
-clif_specialeffecttoone(&sd->bl, &dsd->bl, effect3);
-}
-
-void clif_sendauras(struct map_session_data *sd, enum send_target type)
-{
-int effect1, effect2, effect3;
-
-if (pc_ishiding(sd))
-return;
-
-effect1 = aura_getAuraEffect(sd, 0);
-effect2 = aura_getAuraEffect(sd, 1);
-effect3 = aura_getAuraEffect(sd, 2);
-
-if (effect1 >= 0)
-clif_specialeffect(&sd->bl, effect1, type);
-if (effect2 >= 0)
-clif_specialeffect(&sd->bl, effect2, type);
-if (effect3 >= 0)
-clif_specialeffect(&sd->bl, effect3, type);
-}
-
-/*==========================================
  * Tells the client to connect to another map-server
  *------------------------------------------*/
 void clif_changemapserver(struct map_session_data* sd, unsigned short map_index, int x, int y, uint32 ip, uint16 port)
@@ -3422,11 +3344,9 @@ static void clif_getareachar_pc(struct map_session_data* sd,struct map_session_d
 		clif_spiritball_single(sd->fd, dstsd);
 
 	if((sd->status.party_id && dstsd->status.party_id == sd->status.party_id) || //Party-mate, or hpdisp setting.
-(sd->state.bg_id && sd->state.bg_id == dstsd->state.bg_id) || //BattleGround
-((battle_config.disp_hpmeter && (gmlvl = pc_isGM(sd)) >= battle_config.disp_hpmeter && gmlvl >= pc_isGM(dstsd)))
-//Rad's Faction Mod [Show HP Bar]
-|| (pc_getfaction(sd) && (pc_getfaction(sd) == pc_getfaction(dstsd)) && map[sd->bl.m].flag.hostile))
-clif_hpmeter_single(sd->fd, dstsd->bl.id, dstsd->battle_status.hp, dstsd->battle_status.max_hp);
+		(battle_config.disp_hpmeter && (gmlvl = pc_isGM(sd)) >= battle_config.disp_hpmeter && gmlvl >= pc_isGM(dstsd))
+		)
+		clif_hpmeter_single(sd->fd, dstsd->bl.id, dstsd->battle_status.hp, dstsd->battle_status.max_hp);
 
 	// display link (sd - dstsd) to sd
 	ARR_FIND( 0, 5, i, sd->devotion[i] == dstsd->bl.id );
@@ -3464,17 +3384,9 @@ void clif_getareachar_unit(struct map_session_data* sd,struct block_list *bl)
 			TBL_PC* tsd = (TBL_PC*)bl;
 			clif_getareachar_pc(sd, tsd);
 			if(tsd->state.size==2) // tiny/big players [Valaris]
-				clif_specialeffecttoone(bl, &sd->bl, 423);
+				clif_specialeffect_single(bl,423,sd->fd);
 			else if(tsd->state.size==1)
-				clif_specialeffecttoone(bl, &sd->bl, 421);
-			if( tsd->state.user_font )
-				clif_font_single(sd->fd,tsd);
-			if( tsd->state.bg_id && map[tsd->bl.m].flag.battleground )
-				clif_sendbgemblem_single(sd->fd,tsd);
-			if( tsd->sc.count && tsd->sc.data[SC_BANDING] )
-				clif_display_banding(&sd->bl,&tsd->bl,tsd->sc.data[SC_BANDING]->val1);
-			if( map[sd->bl.m].flag.hostile )
-				clif_sendaurastoone(tsd, sd);
+				clif_specialeffect_single(bl,421,sd->fd);
 		}
 		break;
 	case BL_MER: // Devotion Effects
@@ -3506,37 +3418,6 @@ void clif_getareachar_unit(struct map_session_data* sd,struct block_list *bl)
 			clif_pet_equip(sd, (TBL_PET*)bl); // needed to display pet equip properly
 		break;
 	}
-}
-
-int clif_insight2(struct block_list *bl,va_list ap)
-{
-struct block_list *tbl;
-struct map_session_data *sd, *tsd;
-int flag;
-
-tbl = va_arg(ap,struct block_list*);
-flag = va_arg(ap,int);
-
-if (bl == tbl && !flag)
-return 0;
-
-sd=BL_CAST(BL_PC, bl);
-tsd=BL_CAST(BL_PC, tbl);
-
-if (sd && sd->fd)
-{
-if (bl == tbl)
-clif_sendaurastoone(sd, tsd);
-else
-clif_getareachar_unit(sd, tbl);
-}
-
-return 0;
-}
-
-void clif_getareachar_char(struct block_list *bl, short flag)
-{
-map_foreachinarea(clif_insight2, bl->m, bl->x-AREA_SIZE, bl->y-AREA_SIZE, bl->x+AREA_SIZE, bl->y+AREA_SIZE,BL_PC, bl, flag);
 }
 
 //Modifies the type of damage according to status changes [Skotlex]
@@ -8230,6 +8111,37 @@ void clif_parse_Hotkey(int fd, struct map_session_data *sd) {
 #endif
 }
 
+void clif_progressbar(struct map_session_data * sd, unsigned long color, unsigned int second)
+{
+		int fd = sd->fd;
+
+		WFIFOHEAD(fd,packet_len(0x2f0));
+		WFIFOW(fd,0) = 0x2f0;
+		WFIFOL(fd,2) = color;
+		WFIFOL(fd,6) = second;
+		WFIFOSET(fd,packet_len(0x2f0));
+}
+
+void clif_progressbar_abort(struct map_session_data * sd)
+{
+		int fd = sd->fd;
+
+		WFIFOHEAD(fd,packet_len(0x2f2));
+		WFIFOW(fd,0) = 0x2f2;
+		WFIFOSET(fd,packet_len(0x2f2));
+}
+
+void clif_parse_progressbar(int fd, struct map_session_data * sd)
+{
+		int npc_id = sd->progressbar.npc_id;
+
+		if( gettick() < sd->progressbar.timeout && sd->st )
+				sd->st->state = END;
+
+		sd->progressbar.npc_id = sd->progressbar.timeout = 0;
+		npc_scriptcont(sd, npc_id);
+}
+
 /*==========================================
  *
  *------------------------------------------*/
@@ -8245,6 +8157,8 @@ void clif_parse_WalkToXY(int fd, struct map_session_data *sd)
 
 	if (sd->sc.opt1 && sd->sc.opt1 == OPT1_STONEWAIT)
 		; //You CAN walk on this OPT1 value.
+	else if( sd->progressbar.npc_id )
+			clif_progressbar_abort(sd);
 	else if (pc_cant_act(sd))
 		return;
 
@@ -8299,9 +8213,6 @@ void clif_parse_GetCharNameRequest(int fd, struct map_session_data *sd)
 	if( bl == NULL )
 		return;	// Lagged clients could request names of already gone mobs/players. [Skotlex]
 
-if(map[bl->m].flag.hostile && battle_config.hostile_hide_name) //Rad's Faction Mod [hide name]
-return;
-
 	// 'see people in GM hide' cheat detection
 	/* disabled due to false positives (network lag + request name of char that's about to hide = race condition)
 	sc = status_get_sc(bl);
@@ -8330,12 +8241,8 @@ void clif_parse_GlobalMessage(int fd, struct map_session_data* sd)
 	const char* text = (char*)RFIFOP(fd,4);
 	int textlen = RFIFOW(fd,2) - 4;
 
-	int id = RFIFOL(fd,packet_db[sd->packet_ver][RFIFOW(fd,0)].pos[0]);
 	char *name, *message;
 	int namelen, messagelen;
-	struct block_list* bl;
-	id = sd->bl.id;
-	bl = map_id2bl(id);
 
 	// validate packet and retrieve name and message
 	if( !clif_process_message(sd, 0, &name, &namelen, &message, &messagelen) )
@@ -8653,9 +8560,6 @@ void clif_parse_WisMessage(int fd, struct map_session_data* sd)
 		return;
 
 	if (is_atcommand(fd, sd, message) || is_charcommand(fd, sd, message) )
-		return;
-
-	if(map[bl->m].flag.hostile && battle_config.hostile_prevent_chat) //Rad's Faction Mod [prevent chat]
 		return;
 
 	if (sd->sc.data[SC_BERSERK] || (sd->sc.data[SC_NOCHAT] && sd->sc.data[SC_NOCHAT]->val1&MANNER_NOCHAT))
@@ -13238,6 +13142,7 @@ static int packetdb_readdb(void)
 		{clif_parse_ViewPlayerEquip,"viewplayerequip"},
 		{clif_parse_EquipTick,"equiptickbox"},
 		{clif_parse_mercenary_action,"mermenu"},
+		{clif_parse_progressbar,"progressbar"},
 		{NULL,NULL}
 	};
 
@@ -13399,12 +13304,3 @@ int do_init_clif(void)
 	add_timer_func_list(clif_delayquit, "clif_delayquit");
 	return 0;
 }
-
-clif_sendbgemblem_area(sd);
-if( sd->sc.count && sd->sc.data[SC_BANDING] )
-clif_status_change(&sd->bl,SI_BANDING,1,9999,sd->sc.data[SC_BANDING]->val1,0,0);
-if( map[sd->bl.m].flag.hostile )
-clif_sendauras((TBL_PC*)bl, AREA);
-}
-break;
-case BL_MOB:

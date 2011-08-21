@@ -155,6 +155,11 @@ struct map_session_data {
 	time_t idletime;
 
 	struct{
+	int npc_id;
+	unsigned int timeout;
+	} progressbar; //Progress Bar [Inkfish]
+
+	struct{
 		char name[NAME_LENGTH];
 	} ignore[MAX_IGNORE_LIST];
 
@@ -728,7 +733,5 @@ int duel_checktime(struct map_session_data* sd);
 
 int pc_read_motd(void); // [Valaris]
 int pc_disguise(struct map_session_data *sd, int class_);
-
-int pc_getfaction(struct map_session_data *sd); //Rad's Faction Mod
 
 #endif /* _PC_H_ */
