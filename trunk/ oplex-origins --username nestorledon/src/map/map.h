@@ -457,6 +457,7 @@ struct map_data {
 		unsigned nochat :1;
 		unsigned partylock :1;
 		unsigned guildlock :1;
+		unsigned hostile : 1; //Rad's Faction Mod
 	} flag;
 	struct point save;
 	struct npc_data *npc[MAX_NPC_PER_MAP];
