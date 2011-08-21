@@ -21,7 +21,7 @@ OnTouch:
 
 	if ( .@rect <= 3 ) {
 		if(gettimetick(2) >= getd(".nextavail_" + strnpcinfo(2))) {
-			progressbar "00CC00",5;
+			progressbar "", 5;
 			getitem groupranditem(19), 1;
 			setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
 			message strcharinfo(0), "You found something...";
