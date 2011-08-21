@@ -278,6 +278,7 @@ struct mmo_charstatus {
 	short hair,hair_color,clothes_color;
 	int party_id,guild_id,pet_id,hom_id,mer_id;
 	int fame;
+	int aura; // Rad's Faction Mod [aura]
 
 	// Mercenary Guilds Rank
 	int arch_faith, arch_calls;

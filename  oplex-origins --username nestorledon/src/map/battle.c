@@ -3096,6 +3096,13 @@ int battle_check_target( struct block_list *src, struct block_list *target,int f
 		case BL_PC:
 			if (((TBL_PC*)target)->invincible_timer != -1 || pc_isinvisible((TBL_PC*)target))
 				return -1; //Cannot be targeted yet.
+
+//Rad's Faction Mod [check target player]
+if(pc_getfaction((TBL_PC*)target)!=0 && ((TBL_MOB*)src)->master_id==pc_getfaction((TBL_PC*)target))
+return -1;
+if(((TBL_MOB*)src)->master_id>0 && !map[((TBL_PC*)target)->bl.m].flag.pvp)
+return -1;
+
 			break;
 		case BL_MOB:
 			if((((TBL_MOB*)target)->special_state.ai == 2 || //Marine Spheres
@@ -3104,6 +3111,9 @@ int battle_check_target( struct block_list *src, struct block_list *target,int f
 			{	//Targettable by players
 				state |= BCT_ENEMY;
 				strip_enemy = 0;
+//Rad's Faction Mod [check target player]
+if(map[m].flag.hostile && s_bl != t_bl && s_bl->type == BL_PC && pc_getfaction(sd) == pc_getfaction((TBL_PC*)s_bl)) //rad417's Faction mod
+return 0;
 			}
 			break;
 		case BL_SKILL:
@@ -3238,14 +3248,14 @@ int battle_check_target( struct block_list *src, struct block_list *target,int f
 			{ //Normal mobs.
 				if( t_bl->type == BL_MOB && !((TBL_MOB*)t_bl)->special_state.ai )
 					state |= BCT_PARTY; //Normal mobs with no ai are friends.
-				else
-					state |= BCT_ENEMY; //However, all else are enemies.
-			}
-			else
-			{
-				if( t_bl->type == BL_MOB && !((TBL_MOB*)t_bl)->special_state.ai )
-					state |= BCT_ENEMY; //Natural enemy for AI mobs are normal mobs.
-			}
+//Rad's Faction Mod [check target mob]
+if(map[((TBL_MOB*)src)->bl.m].flag.pvp && t_bl->type == BL_MOB && ((TBL_MOB*)src)->master_id != ((TBL_MOB*)t_bl)->master_id )
+state |= BCT_ENEMY;
+if(((TBL_MOB*)src)->master_id>0 && !map[((TBL_MOB*)src)->bl.m].flag.pvp)
+return -1;
+else
+return 0;
+}
 			break;
 		}
 		default:
@@ -3839,3 +3849,12 @@ void do_final_battle(void)
 {
 	ers_destroy(delay_damage_ers);
 }
+
+// Casting Time Renewal Settings
+{ "renewal_cast_enable", &battle_config.renewal_cast_enable, 1, 0, 1, },
+{ "warg_can_falcon", &battle_config.warg_can_falcon, 0, 0, 1, },
+
+//Rad's Faction Mod Settings
+{ "hostile_hide_name", &battle_config.hostile_hide_name, 1, 0, 1, },
+{ "hostile_prevent_chat", &battle_config.hostile_prevent_chat, 1, 0, 1, },
+};

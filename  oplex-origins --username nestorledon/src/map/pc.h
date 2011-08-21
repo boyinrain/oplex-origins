@@ -729,4 +729,6 @@ int duel_checktime(struct map_session_data* sd);
 int pc_read_motd(void); // [Valaris]
 int pc_disguise(struct map_session_data *sd, int class_);
 
+int pc_getfaction(struct map_session_data *sd); //Rad's Faction Mod
+
 #endif /* _PC_H_ */

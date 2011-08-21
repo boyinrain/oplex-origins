@@ -8738,3 +8738,73 @@ int atcommand_commands(const int fd, struct map_session_data* sd, const char* co
 	
 	return 0;
 }
+
+/*==========================================
+ * Rad's Faction Mod [hostile]
+ * @hostile toggles hostile mapflag on/off
+ *------------------------------------------*/
+int atcommand_hostile(const int fd, struct map_session_data* sd, const char* command, const char* message)
+{
+nullpo_retr(-1, sd);
+
+if (map[sd->bl.m].flag.hostile) {
+map[sd->bl.m].flag.hostile = 0;
+clif_displaymessage(fd, "Hostile: Off");
+return 0;
+}
+map[sd->bl.m].flag.hostile = 1;
+clif_displaymessage(fd, "Hostile: On");
+return 0;
+}
+
+/*==========================================
+ * Rad's Faction Mod [setfaction]
+ * @setfaction Allows GM or players
+ * to change their Faction
+ *------------------------------------------*/
+int atcommand_setfaction(const int fd, struct map_session_data* sd, const char* command, const char* message)
+{
+int faction;
+
+
+if( !message || !*message )
+{
+clif_displaymessage(fd, "Please fill in all fields for the @setfaction command.");
+clif_displaymessage(fd, "@setfaction <#>");
+return -1;
+}
+
+faction = atoi(message);
+
+if (pc_getfaction(sd) == faction + 1 )
+{
+sprintf(atcmd_output, "This character is already in faction %d", faction);
+clif_displaymessage(fd, atcmd_output);
+}
+else
+{
+pc_setregistry(sd,"##faction", faction+1, 1);
+pc_setregistry(sd,"##USERAURA",faction, 1);
+sd->status.aura = faction;
+sprintf(atcmd_output, "You are now in faction %d.", faction);
+clif_displaymessage(fd, atcmd_output);
+pc_setpos(sd, sd->mapindex, sd->bl.x, sd->bl.y, 3); //refresh
+}
+
+return 0;
+}
+
+
+
+/*==========================================
+* atcommand_info[] structure definition
+*------------------------------------------*/
+
+AtCommandInfo atcommand_info[] = {
+//Rad's Faction Mod
+{ "setfaction", 40,40, atcommand_setfaction },
+{ "hostile", 40,40, atcommand_hostile },
+
+{ "rura", 40,40, atcommand_mapmove },
+{ "warp", 40,40, atcommand_mapmove },
+{ "mapmove", 40,40, atcommand_mapmove }, // + /mm
