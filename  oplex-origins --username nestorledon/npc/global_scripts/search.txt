@@ -24,7 +24,6 @@ OnTouch:
 		if(gettimetick(2) >= getd(".nextavail_" + strnpcinfo(2))) {
 			set @superrand, rand(1,100);
 			mes "Searching...";
-			set @loadreturn, yes;
 			callfunc "loading_func";
 			if(@superrand > 60) {
 				getitem groupranditem(19), 1;
