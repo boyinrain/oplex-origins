@@ -240,6 +240,7 @@ fish_15sec:
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
+	soundeffect "splash.wav",0;
 	setarray .@catch[0],536,536,536,536,536,536,536,536,536;
 	set .@rand,rand(0,8);
 	getitem .@catch[.@rand],1;
@@ -267,6 +268,7 @@ fish_30sec:
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
+	soundeffect "splash.wav",0;
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
@@ -282,6 +284,7 @@ fish_30sec:
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
+	soundeffect "splash.wav",0;
 	setarray .@catch[0],536,536,536,536,536,536,536,536,536;
 	set .@rand,rand(0,8);
 	getitem .@catch[.@rand],2;
@@ -368,6 +371,7 @@ lum_15sec:
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
+	soundeffect "wood_chopping.wav",0;
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
@@ -402,6 +406,7 @@ lum_30sec:
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
+	soundeffect "wood_chopping.wav",0;
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
