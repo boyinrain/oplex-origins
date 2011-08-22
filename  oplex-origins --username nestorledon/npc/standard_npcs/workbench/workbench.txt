@@ -423,21 +423,25 @@ switch(select("Melee Weapons:Guns:Accessories:Tools:Foot Wear:Bags and Etc")) {
 		menu	"" +@item_name_00$+ "",WBPKnife,"" +@item_name_01$+ "",WBCKnife,"" +@item_name_02$+ "",WBSAKnife,"" +@item_name_03$+ "",WBBKnife,"" +@item_name_04$+ "",WBWKnife,"" +@item_name_5$+ "",WBAxe,"" +@item_name_06$+ "",WBPAxe,"" +@item_name_07$+ "",WBHammer,"" +@item_name_08$+ "",WBTomahawk,"" +@item_name_09$+"",WBIPickBack,"Back",L_Decomp,"Never Mind",-;
 
 	case 2://Guns
+		next;
 		menu	"" +@item_name_10$+ "",WBHandgun,"" +@item_name_11$+ "",WBM9,"" +@item_name_12$+ "",WBShotgun,"" +@item_name_13$+ "",WBSARifle,"" +@item_name_14$+ "",WBM16,"" +@item_name_15$+ "",WBSRifle,"" +@item_name_16$+ "",WBM82G,"Back",L_Decomp,"Never Mind",-;
 
 	case 3://Accessories
+		next;
 		menu	"" +@item_name_17$+ "",WBEarring,"" +@item_name_18$+ "",WBRing,"" +@item_name_19$+ "",WBBelt,""+@item_name_20$+ "",WBGlove,"" +@item_name_21$+ "",WBHandcuffs,"Back",L_Decomp,"Never Mind",-;
 
 	case 4://Tools
+		next;
 		menu	"" +@item_name_22$+ "",WBFlashlight,"" +@item_name_23$+ "",WBSleepingbag,"" +@item_name_24$+ "",WBMegaphone,"" +@item_name_25$+ "",WBRadio,"" +@item_name_26$+ "",WBWatch,"" +@item_name_27$+ "",WBWrench,"" +@item_name_28$+ "",WBFRodP,"" +@item_name_29$+ "",WBFRod,"Back",L_Decomp,"Never Mind",-;
 		
 	case 5://Foot Wear
+		next;
 		menu	"" +@item_name_30$+ "",II_D,"" +@item_name_31$+ "",II_E,"" +@item_name_32$+ "",II_F,"" +@item_name_33$+ "",II_G,"" +@item_name_34$+ "",II_H,"" +@item_name_35$+ "",II_I,"" +@item_name_36$+ "",II_J,"Back",L_Decomp,"Never Mind",-;
 		
 	case 6://Storage and Etc
+		next;
 		menu	"" +@item_name_36$+ "",II_A,"" +@item_name_37$+ "",II_B,"" +@item_name_38$+ "",II_C,"" +@item_name_39$+ "",II_AA,"" +@item_name_40$+ "",II_BB,"" +@item_name_41$+ "",II_CC,"Back",L_Decomp,"Never Mind",-;
 	}
-close;
 
 
 DWBPKnife:
