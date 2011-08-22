@@ -287,21 +287,18 @@ function	script	CountDownFunc	{
 if($@timeritem != 0) { end; }
 	set $@timeritem,1;
 	if(getmapxy(@mapname$,@mapx,@mapy,0) !=0 ) goto Notfound;
-	pcblock getcharid(3),1
 	announce "[Event Timer]: 5!!!",bc_self,0xCC0033;
-	sleep2 2000;
+	sleep1 2000;
 	announce "[Event Timer]: 4!!!",bc_self,0xFF3333;
-	sleep2 2000;
+	sleep1 2000;
 	announce "[Event Timer]: 3!!!",bc_self,0xFF9933;
-	sleep2 2000;
+	sleep1 2000;
 	announce "[Event Timer]: 2!!!",bc_self,0xCCFF33;
-	sleep2 2000;
+	sleep1 2000;
 	announce "[Event Timer]: 1!!!",bc_self,0xCCFF99;
-	sleep2 2000;
+	sleep1 2000;
 	announce "[Event Timer]: GO!!!",bc_self,0x00FF00;
-	pcblock getcharid(3),0
-	set $@timeritem,0;
-	close;
+	end;
 Notfound:
-	close;
+	end;
 }
