@@ -300,6 +300,7 @@ if($@timeritem != 0) { end; }
 	sleep2 2000;
 	announce "[Event Timer]: GO!!!",bc_self,0x00FF00;
 	close;
+	end;
 Notfound:
 	end;
 }
