@@ -1,0 +1,26 @@
+//===== Oplex Origins Script =================================
+//= Ladder
+//===== By: ================================================== 
+//= Ducky and Epsynus
+//===== Current Version: ===================================== 
+//= 1.2
+//===== Compatible With: ===================================== 
+//= Any Oplex Version 
+//===== Description: ========================================= 
+//= Climbing ladders
+//===== Changelog: ===========================================
+//= v1.0 - Original release
+//= v1.1 - Fixed sprite
+//= v1.2 - Made it requier a crowbar.
+//============================================================
+lavive_01.gat,50,48,0	script	Ladder::ladder_la01	111,{
+	set @crowbarid, 500; //place crowbar ID here before using the script
+	set @crowbarname$, "Crowbar";
+	sleep2 500;	//Give the script a half second delay before allowing player to go through (limits abuse)
+	if(countitem(@crowbarid) < 1) goto ladder_fail;
+	message strcharinfo(0), "You use your " +@crowbarname$+ " too unlock the ladder.";
+	warp "la_sewer01",36,32;	//Place appropriate coordinates
+	end;
+ladder_fail:
+	message strcharinfo(0),"It would seem you need some sort of item to open this";
+}

@@ -1,0 +1,284 @@
+function	script	func_bullet_9mm	{
+	message strcharinfo(0), "Reloading!";
+	delitem 1101, countitem(1101);
+	delitem 1102, 1;
+	sleep2 100;
+	getitem 1101, 15;
+	soundeffect "reload.wav",0;
+	return;
+	end;
+}
+
+function	script	func_bullet_12gauge	{
+	message strcharinfo(0), "Reloading!";
+	delitem 1103, countitem(1103);
+	delitem 1104, 1;
+	getitem 1103, 10;
+	soundeffect "reload.wav",0;
+	return;
+	end;
+}
+
+function	script	func_bullet_556mm	{
+	message strcharinfo(0), "Reloading!";
+	delitem 1105, countitem(1105);
+	delitem 1106, 1;
+	getitem 1105, 5;
+	soundeffect "reload.wav",0;
+	return;
+	end;
+}
+
+
+function	script	func_light	{
+	sc_end 	SC_BLIND;
+	sleep2 60000;
+//	sc_start SC_BLIND,1800000,0;
+	end;
+}
+
+//Item Functions
+
+function	script	func_watch	{
+	message strcharinfo(0),"The current time is: " + gettime(3) + ":" + gettime(2) + ":" + gettime(1);
+	if (isday()) 	message strcharinfo(0),"It is currently day time.";
+	if (isnight()) 	message strcharinfo(0),"It is currently night time.";
+	message strcharinfo(0),"You have survived for a total of " + survival + " days.";
+	set @break, rand(1,100);
+	if (@break>99) goto clock_broke;
+	close;
+	end;
+
+clock_broke:
+	next;
+	message strcharinfo(0),"The clock stopped working..."; 
+	delitem 605,1;
+	end;
+}
+
+function	script	func_flashlight	{
+	sc_end 	SC_BLIND;
+	soundeffect "_stonecurse.wav",0;
+	sleep2 600000;
+	if (isnight()) sc_start SC_BLIND,1800000,0;
+	end;
+}
+
+function	script	func_megaphone	{
+	message strcharinfo(0),"You decide to yell into a megaphone...";
+	set @announce1$, strcharinfo(0);
+	input @announce2$;
+	announce @announce1$ + " : " + @announce2$,bc_area;
+	end;
+}
+
+
+function	script	func_radio	{
+	mes "Select an option:";
+	menu "Send a message",func_radio_send,"Check messages",func_radio_recieve,"Nevermind",-;
+	close;
+	end;
+func_radio_send:
+	callfunc "func_radio_send";
+	close;
+	end;
+func_radio_recieve:
+	callfunc "func_radio_recieve";
+	close;	
+	end;
+}
+
+
+function	script	func_radio_send	{
+	mes "Select a channel (1-10):";
+	input @channel;
+	if (@channel < 1 || @channel > 10) goto send_mes_fail;
+	mes "Input your message :";
+	next;
+	set $message_name$[@channel], strcharinfo(0);
+	input $message_text$[@channel];
+	next;
+	mes "Radio transmission complete.";
+	close;
+	end;
+
+send_mes_fail:
+	next;
+	mes ". . .";
+	next;
+	mes "Radio transmition failed to connect. Transmission failed.";
+	close;
+	end;
+}
+
+function	script	func_radio_recieve	{
+	mes "Radio has been connected.";
+	next;
+	mes "Channel 1: " + $message_name$[1] + ": " + $message_text$[1];
+	mes "Channel 2: " + $message_name$[2] + ": " + $message_text$[2];
+	mes "Channel 3: " + $message_name$[3] + ": " + $message_text$[3];
+	mes "Channel 4: " + $message_name$[4] + ": " + $message_text$[4];
+	mes "Channel 5: " + $message_name$[5] + ": " + $message_text$[5];
+	next;
+	mes "Channel 6: " + $message_name$[6] + ": " + $message_text$[6];
+	mes "Channel 7: " + $message_name$[7] + ": " + $message_text$[7];
+	mes "Channel 8: " + $message_name$[8] + ": " + $message_text$[8];
+	mes "Channel 9: " + $message_name$[9] + ": " + $message_text$[9];
+	mes "Channel 10: " + $message_name$[10] + ": " + $message_text$[10];
+	next;
+	mes "Radio has disconnected.";
+	close;
+	end;
+
+send_mes_fail:
+	next;
+	mes ". . .";
+	next;
+	mes "Radio transmition failed to connect. Transmission failed.";
+	end;
+}
+
+function	script	sleep_func	{
+	mes "How long would you like to sleep for?";
+	next;
+	menu "30 seconds",sleep_30sec,"1 minute",sleep_1min,"Nevermind",-;
+	close;
+	end;
+sleep_30sec:
+	mes "It's time to get some rest...";
+	sc_start SC_SLEEP,30000,0;
+//	cutin"sleep",3; 
+	sleep2 3000;
+	mes "[|---------]";
+	sleep2 3000;
+	mes "[||--------]";
+	sleep2 3000;
+	mes "[|||-------]";
+	sleep2 3000;
+	mes "[||||------]";
+	sleep2 3000;
+	mes "[|||||-----]";
+	sleep2 3000;
+	mes "[||||||----]";
+	sleep2 3000;
+	mes "[|||||||---]";
+	sleep2 3000;
+	mes "[||||||||--]";
+	sleep2 3000;
+	mes "[|||||||||-]";
+	sleep2 3000;
+	percentheal 12,30;
+	cutin "",255;
+	close;
+	end;
+sleep_1min:
+	mes "It's time to get some rest...";
+	sc_start SC_SLEEP,60000,0;
+//	cutin"sleep",3;
+	sleep2 6000;
+	mes "[|---------]";
+	sleep2 6000;
+	mes "[||--------]";
+	sleep2 6000;
+	mes "[|||-------]";
+	sleep2 6000;
+	mes "[||||------]";
+	sleep2 6000;
+	mes "[|||||-----]";
+	sleep2 6000;
+	mes "[||||||----]";
+	sleep2 6000;
+	mes "[|||||||---]";
+	sleep2 6000;
+	mes "[||||||||--]";
+	sleep2 6000;
+	mes "[|||||||||-]";
+	sleep2 6000;
+	percentheal 25,75;
+	cutin "",255;
+	close;
+	end;
+}
+
+function	script	fishing_func	{
+	setarray .@failrate[0],70,80,90;
+	setarray .@fishingrodIDs[0],1056,1057,1058;
+	for(set .@i,getarraysize(.@fishingrodIDs) - 1; .@i >= 0; set .@i,.@i-1) {
+    		if(countitem(.@fishingrodIDs[.@i]) > 0) {
+        		set .@failrate2,.@failrate[.@i];
+        		set .@rodindex,.@i;
+        		break;
+    		}
+	}
+	if(.@i >= 0) {
+		mes "How long would you like to fish for?";
+		next;
+		menu "30 seconds",fish_30sec,"1 minute",fish_1min,"Nevermind",-;
+		close;
+		end;
+		}
+	if(.@i < 0)
+	dispbottom "Might be able to fish with a rod...";
+	end;
+
+fish_30sec:
+	mes "Here goes nothing...";
+	sc_start SC_SLEEP,30000,0;
+	sleep2 3000;
+	dispbottom "Fishing";
+	sleep2 3000;
+	dispbottom "Fishing.";
+	sleep2 3000;
+	dispbottom "Fishing..";
+	sleep2 3000;
+	dispbottom "Fishing...";
+	sleep2 3000;
+	dispbottom "Fishing....";
+	sleep2 3000;
+	dispbottom "Fishing.....";
+	sleep2 3000;
+	dispbottom "Fishing......";
+	sleep2 3000;
+	dispbottom "Fishing.......";
+	sleep2 3000;
+	dispbottom "Fishing........";
+	sleep2 3000;
+	setarray .@catch[0],536,536,536,536,536,536,536,536,536;
+	set .@rand,rand(0,8);
+	getitem .@catch[.@rand],1;
+	set @superrand, rand(1,100);
+	if(@superrand > .@failrate2) {	delitem .@fishingrodIDs[.@rodindex],1; message strcharinfo(0), "Crap... The rod broke.";}
+	close;
+	end;
+
+fish_1min:
+	setarray @catch[0],536,536,536,536;
+	mes "Here goes nothing...";
+	sc_start SC_SLEEP,60000,0;
+	sleep2 6000;
+	dispbottom "Fishing";
+	sleep2 6000;
+	dispbottom "Fishing.";
+	sleep2 6000;
+	dispbottom "Fishing..";
+	sleep2 6000;
+	dispbottom "Fishing...";
+	sleep2 6000;
+	dispbottom "Fishing....";
+	sleep2 6000;
+	dispbottom "Fishing.....";
+	sleep2 6000;
+	dispbottom "Fishing......";
+	sleep2 6000;
+	dispbottom "Fishing.......";
+	sleep2 6000;
+	dispbottom "Fishing........";
+	sleep2 6000;
+	setarray .@catch[0],536,536,536,536,536,536,536,536,536;
+	set .@rand,rand(0,8);
+	getitem .@catch[.@rand],1;
+	set @superrand, rand(1,100);
+	if(@superrand > .@failrate2) {	delitem .@fishingrodIDs[.@rodindex],1; message strcharinfo(0), "Crap... The rod broke.";}
+	close;
+	end;
+}

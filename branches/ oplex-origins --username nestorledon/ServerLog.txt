@@ -1,0 +1,11 @@
+7/19/2011 6:01:16 PM	login-server_sql.exe fail to start.
+	autorestart ignored
+7/19/2011 6:02:17 PM	login-server_sql.exe started.
+7/19/2011 6:02:19 PM	char-server_sql.exe started.
+7/19/2011 6:02:25 PM	map-server_sql.exe started.
+7/19/2011 6:04:16 PM	login-server_sql.exe shutdown.
+7/19/2011 6:04:17 PM	char-server_sql.exe shutdown.
+7/19/2011 6:04:18 PM	map-server_sql.exe shutdown.
+7/19/2011 6:04:19 PM	login-server_sql.exe started.
+7/19/2011 6:04:20 PM	char-server_sql.exe started.
+7/19/2011 6:04:24 PM	map-server_sql.exe started.
