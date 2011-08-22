@@ -20,6 +20,7 @@ OnTouch:
         set( .@rect, distance( .@x, .@y, .@x1, .@y1 ));
 
 	if ( .@rect <= 3 ) {
+		callfunc "CountDownFunc";
 		if(gettimetick(2) >= getd(".nextavail_" + strnpcinfo(2))) {
 			getitem groupranditem(19), 1;
 			setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
