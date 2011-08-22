@@ -34,7 +34,7 @@ OnTouch:
 				setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
 				message strcharinfo(0), "You found something...";
 				close;
-			}
+			} else { close; end; }
 		} else {
 			message strcharinfo(0), "Nothing useful...";
 			}
