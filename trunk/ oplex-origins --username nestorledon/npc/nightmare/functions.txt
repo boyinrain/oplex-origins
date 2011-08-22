@@ -249,7 +249,6 @@ fish_15sec:
 	end;
 
 fish_30sec:
-	setarray @catch[0],536,536,536,536;
 	mes "Here goes nothing...";
 	soundeffect "splash.wav",0;
 	sc_start SC_SLEEP,30000,0;
@@ -285,7 +284,7 @@ fish_30sec:
 	callfunc "loading_func";
 	setarray .@catch[0],536,536,536,536,536,536,536,536,536;
 	set .@rand,rand(0,8);
-	getitem .@catch[.@rand],1;
+	getitem .@catch[.@rand],2;
 	set @superrand, rand(1,100);
 	if(@superrand > .@failrate2) {	delitem .@fishingrodIDs[.@rodindex],1; message strcharinfo(0), "Crap... The rod broke.";}
 	close;
@@ -334,4 +333,95 @@ function	script	loading_func	{
 	sleep2 125;
 	cutin "",255;
 	return; // Return to initial script.
+}
+
+function	script	lumber_func	{
+	setarray .@failrate[0],70,80,90;
+	setarray .@axeIDs[0],1301,1301,1301;
+	for(set .@i,getarraysize(.@axeIDs) - 1; .@i >= 0; set .@i,.@i-1) {
+    		if(countitem(.@axeIDs[.@i]) > 0) {
+        		set .@failrate2,.@failrate[.@i];
+        		set .@axeindex,.@i;
+        		break;
+    		}
+	}
+	if(.@i >= 0) {
+		mes "How long would you like to lumber for?";
+		next;
+		menu "15 seconds",lum_15sec,"30 seconds",lum_30sec,"Nevermind",-;
+		close;
+		end;
+		}
+	if(.@i < 0)
+	dispbottom "Might be able to get some wood with an axe...";
+	end;
+
+lum_15sec:
+	mes "Here goes nothing...";
+	soundeffect "wood_chopping.wav",0;
+	sc_start SC_SLEEP,15000,0;
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	setarray .@catch[0],1007,1007,1007,1007,1007,1007,1007,1007,1007;
+	set .@rand,rand(0,8);
+	getitem .@catch[.@rand],1;
+	set @superrand, rand(1,100);
+	if(@superrand > .@failrate2) {	delitem .@axeIDs[.@axeindex],1; message strcharinfo(0), "Crap... The axe broke.";}
+	close;
+	end;
+
+lum_30sec:
+	mes "Here goes nothing...";
+	soundeffect "wood_chopping.wav",0;
+	sc_start SC_SLEEP,30000,0;
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	setarray .@catch[0],1007,1007,1007,1007,1007,1007,1007,1007,1007;
+	set .@rand,rand(0,8);
+	getitem .@catch[.@rand],2;
+	set @superrand, rand(1,100);
+	if(@superrand > .@failrate2) {	delitem .@axeIDs[.@axeindex],1; message strcharinfo(0), "Crap... The axe broke.";}
+	close;
+	end;
 }
