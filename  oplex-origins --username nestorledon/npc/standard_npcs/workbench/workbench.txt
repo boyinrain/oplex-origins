@@ -431,7 +431,7 @@ switch(select("Melee Weapons:Guns:Tools:Accessories:Electronics")) {
 		
 	case 5://Electronics
 		menu	"" +@item_name_39$+ "",II_AA,"" +@item_name_40$+ "",II_BB,"" +@item_name_41$+ "",II_CC,"Back",L_Decomp,"Never Mind",-;
-		}
+	}
 close;
 
 
