@@ -25,11 +25,11 @@ OnTouch:
 			set @superrand, rand(1,100);
 			mes "...";
 			announce "Searching...",bc_self,0xCC0033;
-			sleep2 2000;
+			sleep2 1000;
 			announce "Searching...",bc_self,0xFF9933;
-			sleep2 2000;
+			sleep2 1000;
 			announce "Searching...",bc_self,0x00FF00;
-			sleep2 2000;
+			sleep2 1000;
 			if(@superrand > 60) {
 				getitem groupranditem(19), 1;
 				setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
