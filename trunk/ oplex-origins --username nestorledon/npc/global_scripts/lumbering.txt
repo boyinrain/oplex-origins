@@ -11,7 +11,7 @@
 //===== Changelog: ===========================================
 //= v1.0 - Original release
 //============================================================
-blank_01,5,5,5	script	Lumbering::lumbering	111,{
+blank_01,5,5,5	script	Lumber::lumber	111,{
 		callfunc "lumber_func";
 }
 
