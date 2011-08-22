@@ -261,6 +261,8 @@ fish_30sec:
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
+	soundeffect "splash.wav",0;
+	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
@@ -277,7 +279,7 @@ fish_30sec:
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
-	callfunc "loading_func";
+	soundeffect "splash.wav",0;
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
@@ -399,6 +401,8 @@ lum_30sec:
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
+	soundeffect "wood_chopping.wav",0;
+	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
@@ -415,7 +419,7 @@ lum_30sec:
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
-	callfunc "loading_func";
+	soundeffect "wood_chopping.wav",0;
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
