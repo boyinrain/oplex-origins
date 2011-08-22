@@ -408,13 +408,16 @@ set @material_name_07$, "Nail";
 mes	"[Work Bench]";
 mes	"You look on the Work Bench and wonder what you should do at it";
 next;
-menu	"Create item.",L_Create,"Break down items into their basic parts",L_Decomp;
+switch(select("Create item:Break down items into their basic parts")) {
 
-L_Create:
+case 1:
 mes	"Sorry this fuction is not done yet";
 close;
 		
 //Decomposer / item break down
+case 2: 
+goto L_Decomp;
+
 L_Decomp:
 mes	"[Work Bench]";
 mes	"What item do you want to break down?";
@@ -422,7 +425,7 @@ next;
 switch(select("Melee Weapons:Guns:Accessories:Tools:Foot Wear:Bags and Etc")) {
 	case 1://Melee
 		next;
-		menu	"" +@item_name_00$+ "",DWBPKnife,"" +@item_name_01$+ "",DWBCKnife,"" +@item_name_02$+ "",DWBSAKnife,"" +@item_name_03$+ "",DWBBKnife,"" +@item_name_04$+ "",DWBWKnife,"" +@item_name_05$+ "",DWBAxe,"" +@item_name_06$+ "",DWBPAxe,"" +@item_name_07$+ "",DWBHammer,"" +@item_name_08$+ "",DWBTomahawk,"" +@item_name_09$+"",DWBIPickBack,"Back",L_Decomp,"Never Mind",-;
+		menu	"" +@item_name_00$+ "",DWBPKnife,"" +@item_name_01$+ "",DWBCKnife,"" +@item_name_02$+ "",DWBSAKnife,"" +@item_name_03$+ "",DWBBKnife,"" +@item_name_04$+ "",DWBWKnife,"" +@item_name_05$+ "",DWBAxe,"" +@item_name_06$+ "",DWBPAxe,"" +@item_name_07$+ "",DWBHammer,"" +@item_name_08$+ "",DWBTomahawk,"" +@item_name_09$+"",DWBIPick,"Back",L_Decomp,"Never Mind",-;
 
 	case 2://Guns
 		next;
@@ -444,6 +447,8 @@ switch(select("Melee Weapons:Guns:Accessories:Tools:Foot Wear:Bags and Etc")) {
 		next;
 		menu	"" +@item_name_36$+ "",DWBBBackpack,"" +@item_name_37$+ "",DWBGBackpack,"" +@item_name_38$+ "",DWBRBackpack,"" +@item_name_39$+ "",DWBLWagon,"" +@item_name_40$+ "",DWBHWagon,"" +@item_name_41$+ "",DWBSHWagon,"" +@item_name_42$+ "",DWBCSoup,"Back",L_Decomp,"Never Mind",-;
 	}
+	
+}
 
 
 DWBPKnife:
