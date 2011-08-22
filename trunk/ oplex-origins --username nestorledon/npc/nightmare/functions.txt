@@ -147,7 +147,7 @@ function	script	sleep_func	{
 sleep_30sec:
 	mes "It's time to get some rest...";
 	sc_start SC_SLEEP,30000,0;
-//	cutin"sleep",3; 
+	cutin "sleep.bmp",4;
 	sleep2 3000;
 	mes "[|---------]";
 	sleep2 3000;
