@@ -23,7 +23,7 @@ OnTouch:
 	if ( .@rect <= 3 ) {
 		if(gettimetick(2) >= getd(".nextavail_" + strnpcinfo(2))) {
 			set @superrand, rand(1,100);
-			mes "...";
+			mes "Searching...";
 			cutin "loading.bmp",4;
 			sleep2 125;
 			cutin "loading1.bmp",4;
@@ -41,12 +41,6 @@ OnTouch:
 			cutin "loading7.bmp",4;
 			sleep2 125;
 			cutin "",255;
-			announce "•",bc_self,0xCC0033;
-			sleep2 1000;
-			announce "••",bc_self,0xFF9933;
-			sleep2 1000;
-			announce "•••",bc_self,0x00FF00;
-			sleep2 1000;
 			if(@superrand > 60) {
 				getitem groupranditem(19), 1;
 				setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
