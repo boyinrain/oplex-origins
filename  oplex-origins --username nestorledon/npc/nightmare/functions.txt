@@ -324,5 +324,5 @@ function	script	loading_func	{
 	cutin "loading7.bmp",4;
 	sleep2 125;
 	cutin "",255;
-	return (1); // Will be used to return to initial script.
+	return; // Will be used to return to initial script.
 }
