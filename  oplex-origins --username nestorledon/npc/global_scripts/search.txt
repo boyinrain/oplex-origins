@@ -3,7 +3,7 @@
 //===== By: ================================================== 
 //= Sigma
 //===== Current Version: ===================================== 
-//= 1.1
+//= 1.2
 //===== Compatible With: ===================================== 
 //= Any Oplex Version 
 //===== Description: ========================================= 
@@ -11,6 +11,7 @@
 //===== Changelog: ===========================================
 //= v1.0 - Original release
 //= v1.1 - Added Distance Check - Sigma
+//= v1.2 - Added Flavor Text & random chance - Sigma
 //============================================================
 
 -	script	searchBase	-1,{	
@@ -29,12 +30,12 @@ OnTouch:
 			sleep2 2000;
 			announce "Searching...",bc_self,0x00FF00;
 			sleep2 2000;
-			if(@superrand > 100) {
+			if(@superrand > 70) {
 				getitem groupranditem(19), 1;
 				setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
 				message strcharinfo(0), "You found something...";
 				close;
-			} else { close; end; }
+			} else { mes "Couldn't find a thing..."; close; end; }
 		} else {
 			message strcharinfo(0), "Nothing useful...";
 			}
