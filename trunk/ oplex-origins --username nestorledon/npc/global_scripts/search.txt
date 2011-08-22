@@ -33,6 +33,7 @@ OnTouch:
 			cutin "loading.bmp",4;
 			sleep2 100;
 			cutin "loading1",4;
+			cutin "",255;
 			announce "•",bc_self,0xCC0033;
 			sleep2 1000;
 			announce "••",bc_self,0xFF9933;
