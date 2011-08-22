@@ -430,7 +430,7 @@ switch(select("Weapons:Accessories:Tools:Foot Wear:Bags and Etc:Never Mind")) {
 			menu	"" +@item_name_00$+ "",DWBPKnife,"" +@item_name_01$+ "",DWBCKnife,"" +@item_name_02$+ "",DWBSAKnife,"" +@item_name_03$+ "",DWBBKnife,"" +@item_name_04$+ "",DWBWKnife,"" +@item_name_05$+ "",DWBAxe,"" +@item_name_06$+ "",DWBPAxe,"" +@item_name_07$+ "",DWBHammer,"" +@item_name_08$+ "",DWBTomahawk,"" +@item_name_09$+"",DWBIPick,"Back",L_Decomp;
 			close;
 			case 2://Guns
-			menu	"" +@item_name_10$+ "",DWBHandgun,"" +@item_name_11$+ "",DWBM9,"" +@item_name_12$+ "",DWBShotgun,"" +@item_name_13$+ "",DWBSARifle,"" +@item_name_14$+ "",DWBM16,"" +@item_name_15$+ "",DWBSRifle,"" +@item_name_16$+ "",DWBM82,"Back",L_Decomp;
+			menu	"" +@item_name_10$+ "",DWBHandgun,"" +@item_name_11$+ "",DWBM9,"" +@item_name_12$+ "",DWBShotgun,"" +@item_name_13$+ "",DWBM4,"" +@item_name_14$+ "",DWBM16,"" +@item_name_15$+ "",DWBSRifle,"" +@item_name_16$+ "",DWBM82,"Back",L_Decomp;
 			close;
 			}
 	case 2://Accessories
