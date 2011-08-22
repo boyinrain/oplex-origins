@@ -422,7 +422,7 @@ next;
 switch(select("Melee Weapons:Guns:Accessories:Tools:Foot Wear:Bags and Etc")) {
 	case 1://Melee
 		next;
-		menu	"" +@item_name_00$+ "",DWBPKnife,"" +@item_name_01$+ "",DWBCKnife,"" +@item_name_02$+ "",DWBSAKnife,"" +@item_name_03$+ "",DWBBKnife,"" +@item_name_04$+ "",DWBWKnife,"" +@item_name_5$+ "",DWBAxe,"" +@item_name_06$+ "",DWBPAxe,"" +@item_name_07$+ "",DWBHammer,"" +@item_name_08$+ "",DWBTomahawk,"" +@item_name_09$+"",DWBIPickBack,"Back",L_Decomp,"Never Mind",-;
+		menu	"" +@item_name_00$+ "",DWBPKnife,"" +@item_name_01$+ "",DWBCKnife,"" +@item_name_02$+ "",DWBSAKnife,"" +@item_name_03$+ "",DWBBKnife,"" +@item_name_04$+ "",DWBWKnife,"" +@item_name_05$+ "",DWBAxe,"" +@item_name_06$+ "",DWBPAxe,"" +@item_name_07$+ "",DWBHammer,"" +@item_name_08$+ "",DWBTomahawk,"" +@item_name_09$+"",DWBIPickBack,"Back",L_Decomp,"Never Mind",-;
 
 	case 2://Guns
 		next;
