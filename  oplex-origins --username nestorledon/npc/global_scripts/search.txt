@@ -24,15 +24,15 @@ OnTouch:
 		if(gettimetick(2) >= getd(".nextavail_" + strnpcinfo(2))) {
 			set @superrand, rand(1,100);
 			mes "...";
-			cutin "bar.bmp",4;
+			cutin "loading.bmp",4;
 			sleep2 100;
-			cutin "bar1.bmp",4;
+			cutin "loading1.bmp",4;
 			sleep2 100;
-			cutin "bar2.bmp",4;
+			cutin "loading2.bmp",4;
 			sleep2 100;
-			cutin "bar3.bmp",4;
+			cutin "loading.bmp",4;
 			sleep2 100;
-			cutin "bar4.bmp",4;
+			cutin "loading1",4;
 			announce "•",bc_self,0xCC0033;
 			sleep2 1000;
 			announce "••",bc_self,0xFF9933;
