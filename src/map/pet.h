@@ -27,7 +27,8 @@ struct s_pet_db {
 	int attack_rate;
 	int defence_attack_rate;
 	int change_target_rate;
-	struct script_code *script;
+	struct script_code *equip_script;
+	struct script_code *pet_script;
 };
 extern struct s_pet_db pet_db[MAX_PET_DB];
 
@@ -101,6 +102,7 @@ struct pet_data {
 
 int pet_create_egg(struct map_session_data *sd, int item_id);
 int pet_hungry_val(struct pet_data *pd);
+void pet_set_intimate(struct pet_data *pd, int value);
 int pet_target_check(struct map_session_data *sd,struct block_list *bl,int type);
 int pet_unlocktarget(struct pet_data *pd);
 int pet_sc_check(struct map_session_data *sd, int type); //Skotlex
@@ -119,10 +121,10 @@ int pet_change_name_ack(struct map_session_data *sd, char* name, int flag);
 int pet_equipitem(struct map_session_data *sd,int index);
 int pet_lootitem_drop(struct pet_data *pd,struct map_session_data *sd);
 int pet_attackskill(struct pet_data *pd, int target_id);
-int pet_skill_support_timer(int tid, unsigned int tick, int id, intptr data); // [Skotlex]
-int pet_skill_bonus_timer(int tid, unsigned int tick, int id, intptr data); // [Valaris]
-int pet_recovery_timer(int tid, unsigned int tick, int id, intptr data); // [Valaris]
-int pet_heal_timer(int tid, unsigned int tick, int id, intptr data); // [Valaris]
+int pet_skill_support_timer(int tid, unsigned int tick, int id, intptr_t data); // [Skotlex]
+int pet_skill_bonus_timer(int tid, unsigned int tick, int id, intptr_t data); // [Valaris]
+int pet_recovery_timer(int tid, unsigned int tick, int id, intptr_t data); // [Valaris]
+int pet_heal_timer(int tid, unsigned int tick, int id, intptr_t data); // [Valaris]
 
 #define pet_stop_walking(pd, type) unit_stop_walking(&(pd)->bl, type)
 #define pet_stop_attack(pd) unit_stop_attack(&(pd)->bl)

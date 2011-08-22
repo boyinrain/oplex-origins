@@ -4,6 +4,17 @@
 #ifndef _CHAR_SQL_H_
 #define _CHAR_SQL_H_
 
+#include "../common/core.h" // CORE_ST_LAST
+
+#ifndef TXT_SQL_CONVERT
+enum E_CHARSERVER_ST
+{
+	CHARSERVER_ST_RUNNING = CORE_ST_LAST,
+	CHARSERVER_ST_SHUTDOWN,
+	CHARSERVER_ST_LAST
+};
+#endif
+
 struct mmo_charstatus;
 
 #define MAX_MAP_SERVERS 30
@@ -59,7 +70,6 @@ extern char pet_db[256];
 extern char mail_db[256];
 extern char auction_db[256];
 extern char quest_db[256];
-extern char quest_obj_db[256];
 
 extern int db_use_sqldbs; // added for sql item_db read for char server [Valaris]
 
