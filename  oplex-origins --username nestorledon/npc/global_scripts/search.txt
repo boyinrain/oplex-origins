@@ -89,7 +89,7 @@ la_in01,44,137,0	duplicate(searchBase)	Search#s39	111
 la_in01,43,30,0	duplicate(searchBase)	Search#s40	111
 
 //Cabinets - All Fixed
-la_jack,5,9,0	duplicate(searchBase)	Search#s42	111
+la_jack,6,9,0	duplicate(searchBase)	Search#s42	111
 la_jack,13,91,0	duplicate(searchBase)	Search#s43	111
 la_jack,13,87,0	duplicate(searchBase)	Search#s44	111
 la_jack,13,83,0	duplicate(searchBase)	Search#s45	111
@@ -106,7 +106,7 @@ la_in01,46,30,0	duplicate(searchBase)	Search#s54	111
 
 //Refrigerators - All Fixed
 op_tut01,67,7,0	duplicate(searchBase)	Search#s56	111
-la_jack,7,18,0	duplicate(searchBase)	Search#s57	111
+la_jack,7,17,0	duplicate(searchBase)	Search#s57	111
 la_eden,11,33,0	duplicate(searchBase)	Search#s58	111
 
 //Stoves - All Fixed
