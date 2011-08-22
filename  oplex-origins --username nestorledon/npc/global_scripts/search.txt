@@ -29,7 +29,7 @@ OnTouch:
 			announce "Searching...",bc_self,0x00FF00;
 			sleep2 2000;
 			set @superrand, rand(1,100);
-			if(@superrand > 1) {
+			if(@superrand > 100) {
 				getitem groupranditem(19), 1;
 				setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
 				message strcharinfo(0), "You found something...";
