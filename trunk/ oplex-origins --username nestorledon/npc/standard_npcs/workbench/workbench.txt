@@ -447,8 +447,8 @@ switch(select("Melee Weapons:Guns:Accessories:Tools:Foot Wear:Bags and Etc")) {
 		next;
 		menu	"" +@item_name_36$+ "",DWBBBackpack,"" +@item_name_37$+ "",DWBGBackpack,"" +@item_name_38$+ "",DWBRBackpack,"" +@item_name_39$+ "",DWBLWagon,"" +@item_name_40$+ "",DWBHWagon,"" +@item_name_41$+ "",DWBSHWagon,"" +@item_name_42$+ "",DWBCSoup,"Back",L_Decomp,"Never Mind",-;
 	}
-	
-}
+end;
+
 
 
 DWBPKnife:
