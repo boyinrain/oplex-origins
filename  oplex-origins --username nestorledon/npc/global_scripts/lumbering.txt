@@ -13,7 +13,6 @@
 //============================================================
 blank_01,5,5,5	script	Lumber::lumber	111,{
 		mes "test";
-		callfunc "lumber_func";
 }
 
 // Here you put all the clones for this script use the format below
