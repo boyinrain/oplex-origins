@@ -223,6 +223,7 @@ function	script	fishing_func	{
 
 fish_15sec:
 	mes "Here goes nothing...";
+	soundeffect "splash.wav",0;
 	sc_start SC_SLEEP,15000,0;
 	callfunc "loading_func";
 	callfunc "loading_func";
@@ -250,6 +251,7 @@ fish_15sec:
 fish_30sec:
 	setarray @catch[0],536,536,536,536;
 	mes "Here goes nothing...";
+	soundeffect "splash.wav",0;
 	sc_start SC_SLEEP,30000,0;
 	callfunc "loading_func";
 	callfunc "loading_func";
