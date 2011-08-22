@@ -95,7 +95,7 @@ set	@item_08_plastic_ammount,0;
 set	@item_08_rubber_ammount,0;
 set	@item_08_wood_ammount,5;
 
-set @item_id_09,1206
+set @item_id_09,1206;
 set @item_name_09$, "Ice Pick";
 set	@item_09_metal_ammount,2;
 set	@item_09_fabric_ammount,0;
@@ -432,8 +432,8 @@ switch(select("Melee Weapons:Guns:Tools:Accessories:Electronics")) {
 	case 5://Electronics
 		menu	"" +@item_name_39$+ "",II_AA,"" +@item_name_40$+ "",II_BB,"" +@item_name_41$+ "",II_CC,"Back",L_Decomp,"Never Mind",-;
 		}
-		
 close;
+
 
 DWBPKnife:
 mes	"You selected " +@item_name_00$+ "";
