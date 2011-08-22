@@ -30,10 +30,10 @@ OnTouch:
 			sleep2 2000;
 			announce "Searching...",bc_self,0x00FF00;
 			sleep2 2000;
-			if(@superrand > 70) {
+			if(@superrand > 60) {
 				getitem groupranditem(19), 1;
 				setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
-				message strcharinfo(0), "You found something...";
+				mes "You found something...";
 				close;
 			} else { mes "Couldn't find a thing..."; close; end; }
 		} else {
