@@ -25,6 +25,10 @@ OnTouch:
 			set @superrand, rand(1,100);
 			mes "...";
 			cutin "bar.bmp",4;
+			cutin "bar1.bmp",4;
+			cutin "bar2.bmp",4;
+			cutin "bar3.bmp",4;
+			cutin "bar4.bmp",4;
 			announce "•",bc_self,0xCC0033;
 			sleep2 1000;
 			announce "••",bc_self,0xFF9933;
