@@ -21,6 +21,7 @@ OnTouch:
 
 	if ( .@rect <= 3 ) {
 		if(gettimetick(2) >= getd(".nextavail_" + strnpcinfo(2))) {
+			set @superrand, rand(1,100);
 			mes "...";
 			announce "Searching...",bc_self,0xCC0033;
 			sleep2 2000;
@@ -28,7 +29,6 @@ OnTouch:
 			sleep2 2000;
 			announce "Searching...",bc_self,0x00FF00;
 			sleep2 2000;
-			set @superrand, rand(1,100);
 			if(@superrand > 100) {
 				getitem groupranditem(19), 1;
 				setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
