@@ -422,31 +422,34 @@ L_Decomp:
 mes	"[Work Bench]";
 mes	"What item do you want to break down?";
 next;
-switch(select("Melee Weapons:Guns:Accessories:Tools:Foot Wear:Bags and Etc")) {
+switch(select("Melee Weapons:Guns:Accessories:Tools:Foot Wear:Bags and Etc:Never Mind")) {
 	case 1://Melee
 		next;
-		menu	"" +@item_name_00$+ "",DWBPKnife,"" +@item_name_01$+ "",DWBCKnife,"" +@item_name_02$+ "",DWBSAKnife,"" +@item_name_03$+ "",DWBBKnife,"" +@item_name_04$+ "",DWBWKnife,"" +@item_name_05$+ "",DWBAxe,"" +@item_name_06$+ "",DWBPAxe,"" +@item_name_07$+ "",DWBHammer,"" +@item_name_08$+ "",DWBTomahawk,"" +@item_name_09$+"",DWBIPick,"Back",L_Decomp,"Never Mind",-;
-		end;
+		menu	"" +@item_name_00$+ "",DWBPKnife,"" +@item_name_01$+ "",DWBCKnife,"" +@item_name_02$+ "",DWBSAKnife,"" +@item_name_03$+ "",DWBBKnife,"" +@item_name_04$+ "",DWBWKnife,"" +@item_name_05$+ "",DWBAxe,"" +@item_name_06$+ "",DWBPAxe,"" +@item_name_07$+ "",DWBHammer,"" +@item_name_08$+ "",DWBTomahawk,"" +@item_name_09$+"",DWBIPick,"Back",L_Decomp;
+		close;
 	case 2://Guns
 		next;
-		menu	"" +@item_name_10$+ "",DWBHandgun,"" +@item_name_11$+ "",DWBM9,"" +@item_name_12$+ "",DWBShotgun,"" +@item_name_13$+ "",DWBSARifle,"" +@item_name_14$+ "",DWBM16,"" +@item_name_15$+ "",DWBSRifle,"" +@item_name_16$+ "",DWBM82G,"Back",L_Decomp,"Never Mind",-;
-		end;
+		menu	"" +@item_name_10$+ "",DWBHandgun,"" +@item_name_11$+ "",DWBM9,"" +@item_name_12$+ "",DWBShotgun,"" +@item_name_13$+ "",DWBSARifle,"" +@item_name_14$+ "",DWBM16,"" +@item_name_15$+ "",DWBSRifle,"" +@item_name_16$+ "",DWBM82G,"Back",L_Decomp;
+		close;
 	case 3://Accessories
 		next;
 		menu	"" +@item_name_17$+ "",DWBEarring,"" +@item_name_18$+ "",DWBRing,"" +@item_name_19$+ "",DWBBelt,""+@item_name_20$+ "",DWBGlove,"" +@item_name_21$+ "",DWBHandcuffs,"Back",L_Decomp,"Never Mind",-;
-		end;
+		close;
 	case 4://Tools
 		next;
-		menu	"" +@item_name_22$+ "",DWBFlashlight,"" +@item_name_23$+ "",DWBSleepingbag,"" +@item_name_24$+ "",DWBMegaphone,"" +@item_name_25$+ "",DWBRadio,"" +@item_name_26$+ "",DWBWatch,"" +@item_name_27$+ "",DWBWrench,"" +@item_name_28$+ "",DWBFRodP,"" +@item_name_29$+ "",DWBFRod,"Back",L_Decomp,"Never Mind",-;
-		end;
+		menu	"" +@item_name_22$+ "",DWBFlashlight,"" +@item_name_23$+ "",DWBSleepingbag,"" +@item_name_24$+ "",DWBMegaphone,"" +@item_name_25$+ "",DWBRadio,"" +@item_name_26$+ "",DWBWatch,"" +@item_name_27$+ "",DWBWrench,"" +@item_name_28$+ "",DWBFRodP,"" +@item_name_29$+ "",DWBFRod,"Back",L_Decomp;
+		close;
 	case 5://Foot Wear
 		next;
-		menu	"" +@item_name_30$+ "",DWBSneakers,"" +@item_name_31$+ "",DWBBoots,"" +@item_name_32$+ "",DWBHHeals,"" +@item_name_33$+ "",DWBABoots,"" +@item_name_34$+ "",DWBSBoots,"" +@item_name_35$+ "",DWBRShoes,"Back",L_Decomp,"Never Mind",-;
-		end;
+		menu	"" +@item_name_30$+ "",DWBSneakers,"" +@item_name_31$+ "",DWBBoots,"" +@item_name_32$+ "",DWBHHeals,"" +@item_name_33$+ "",DWBABoots,"" +@item_name_34$+ "",DWBSBoots,"" +@item_name_35$+ "",DWBRShoes,"Back",L_Decomp;
+		close;
 	case 6://Storage and Etc
 		next;
-		menu	"" +@item_name_36$+ "",DWBBBackpack,"" +@item_name_37$+ "",DWBGBackpack,"" +@item_name_38$+ "",DWBRBackpack,"" +@item_name_39$+ "",DWBLWagon,"" +@item_name_40$+ "",DWBHWagon,"" +@item_name_41$+ "",DWBSHWagon,"" +@item_name_42$+ "",DWBCSoup,"Back",L_Decomp,"Never Mind",-;
-		end;
+		menu	"" +@item_name_36$+ "",DWBBBackpack,"" +@item_name_37$+ "",DWBGBackpack,"" +@item_name_38$+ "",DWBRBackpack,"" +@item_name_39$+ "",DWBLWagon,"" +@item_name_40$+ "",DWBHWagon,"" +@item_name_41$+ "",DWBSHWagon,"" +@item_name_42$+ "",DWBCSoup,"Back",L_Decomp;
+		close;
+	case 7:
+	next;
+	close;
 	}
 	
 }
