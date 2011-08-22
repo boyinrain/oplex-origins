@@ -466,10 +466,10 @@ DY_WBPKnife:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
-if (countitem(@item_id_00) < .@ammount) {
+if (countitem(1201) < .@ammount) {
 			mes	"You carefully start working on the item";
 			next;
-			delitem @item_id_00,.@ammount;
+			delitem 1201,.@ammount;
 			getitem @material_id_01,@item_00_fabric_ammount;
 			getitem @material_id_02,@item_00_metal_ammount;
 			getitem @material_id_03,@item_00_plastic_ammount;
@@ -493,10 +493,10 @@ DY_WBCKnife:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
-if (countitem(@item_id_01) < .@ammount) {
+if (countitem(1202) < .@ammount) {
 			mes	"You carefully start working on the item";
 			next;
-			delitem @item_id_01,.@ammount;
+			delitem 1202,.@ammount;
 			getitem @material_id_01,@item_01_fabric_ammount;
 			getitem @material_id_02,@item_01_metal_ammount;
 			getitem @material_id_03,@item_01_plastic_ammount;
@@ -520,10 +520,10 @@ DY_WBSAKnife:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
-if (countitem(@item_id_02) < .@ammount) {
+if (countitem(1203) < .@ammount) {
 			mes	"You carefully start working on the item";
 			next;
-			delitem @item_id_02,.@ammount;
+			delitem 1203,.@ammount;
 			getitem @material_id_01,@item_02_fabric_ammount;
 			getitem @material_id_02,@item_02_metal_ammount;
 			getitem @material_id_03,@item_02_plastic_ammount;
@@ -547,10 +547,10 @@ DY_WBBKnife:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
-if (countitem(@item_id_03) < .@ammount) {
+if (countitem(1204) < .@ammount) {
 			mes	"You carefully start working on the item";
 			next;
-			delitem @item_id_03,.@ammount;
+			delitem 1204,.@ammount;
 			getitem @material_id_01,@item_03_fabric_ammount;
 			getitem @material_id_02,@item_03_metal_ammount;
 			getitem @material_id_03,@item_03_plastic_ammount;
@@ -574,10 +574,10 @@ DY_WBWKnife:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
-if (countitem(@item_id_04) < .@ammount) {
+if (countitem(1205) < .@ammount) {
 			mes	"You carefully start working on the item";
 			next;
-			delitem @item_id_04,.@ammount;
+			delitem 1205,.@ammount;
 			getitem @material_id_01,@item_04_fabric_ammount;
 			getitem @material_id_02,@item_04_metal_ammount;
 			getitem @material_id_03,@item_04_plastic_ammount;
@@ -601,10 +601,10 @@ DY_WBAxe:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
-if (countitem(@item_id_05) < .@ammount) {
+if (countitem(1301) < .@ammount) {
 			mes	"You carefully start working on the item";
 			next;
-			delitem @item_id_05,.@ammount;
+			delitem 1301,.@ammount;
 			getitem @material_id_01,@item_05_fabric_ammount;
 			getitem @material_id_02,@item_05_metal_ammount;
 			getitem @material_id_03,@item_05_plastic_ammount;
@@ -628,7 +628,7 @@ DY_WBPAxe:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
-if (countitem(@item_id_06) < .@ammount) {
+if (countitem(1302) < .@ammount) {
 			mes	"You carefully start working on the item";
 			next;
 			delitem @item_id_06,.@ammount;
@@ -655,7 +655,7 @@ DY_WBHammer:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
-if (countitem(@item_id_07) < .@ammount) {
+if (countitem(1351) < .@ammount) {
 			mes	"You carefully start working on the item";
 			next;
 			delitem @item_id_07,.@ammount;
@@ -682,7 +682,7 @@ DY_WBTomahawk:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
-if (countitem(@item_id_08) < .@ammount) {
+if (countitem(1352) < .@ammount) {
 			mes	"You carefully start working on the item";
 			next;
 			delitem @item_id_08,.@ammount;
@@ -709,7 +709,7 @@ DY_WBIPick:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
-if (countitem(@item_id_09) < .@ammount) {
+if (countitem(1206) < .@ammount) {
 			mes	"You carefully start working on the item";
 			next;
 			delitem @item_id_09,.@ammount;
@@ -736,7 +736,7 @@ DY_WBHandgun:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
-if (countitem(@item_id_10) < .@ammount) {
+if (countitem(13100) < .@ammount) {
 			mes	"You carefully start working on the item";
 			next;
 			delitem @item_id_10,.@ammount;
@@ -762,7 +762,7 @@ DY_WBM9:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
-if (countitem(@item_id_11) < .@ammount) {
+if (countitem(13101) < .@ammount) {
 			mes	"You carefully start working on the item";
 			next;
 			delitem @item_id_11,.@ammount;
@@ -788,7 +788,7 @@ DY_WBShotgun:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
-if (countitem(@item_id_12) < .@ammount) {
+if (countitem(13152) < .@ammount) {
 			mes	"You carefully start working on the item";
 			next;
 			delitem @item_id_12,.@ammount;
