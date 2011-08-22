@@ -419,6 +419,7 @@ mes	"What item do you want to break down?";
 next;
 switch(select("Melee Weapons:Guns:Accessories:Tools:Foot Wear:Bags and Etc")) {
 	case 1://Melee
+		next;
 		menu	"" +@item_name_00$+ "",WBPKnife,"" +@item_name_01$+ "",WBCKnife,"" +@item_name_02$+ "",WBSAKnife,"" +@item_name_03$+ "",WBBKnife,"" +@item_name_04$+ "",WBWKnife,"" +@item_name_5$+ "",WBAxe,"" +@item_name_06$+ "",WBPAxe,"" +@item_name_07$+ "",WBHammer,"" +@item_name_08$+ "",WBTomahawk,"" +@item_name_09$+"",WBIPickBack,"Back",L_Decomp,"Never Mind",-;
 
 	case 2://Guns
