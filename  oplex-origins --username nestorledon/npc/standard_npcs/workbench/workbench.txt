@@ -429,7 +429,7 @@ switch(select("Melee Weapons:Guns:Accessories:Tools:Foot Wear:Bags and Etc:Never
 		close;
 	case 2://Guns
 		next;
-		menu	"" +@item_name_10$+ "",DWBHandgun,"" +@item_name_11$+ "",DWBM9,"" +@item_name_12$+ "",DWBShotgun,"" +@item_name_13$+ "",DWBSARifle,"" +@item_name_14$+ "",DWBM16,"" +@item_name_15$+ "",DWBSRifle,"" +@item_name_16$+ "",DWBM82G,"Back",L_Decomp;
+		menu	"" +@item_name_10$+ "",DWBHandgun,"" +@item_name_11$+ "",DWBM9,"" +@item_name_12$+ "",DWBShotgun,"" +@item_name_13$+ "",DWBSARifle,"" +@item_name_14$+ "",DWBM16,"" +@item_name_15$+ "",DWBSRifle,"" +@item_name_16$+ "",DWBM82,"Back",L_Decomp;
 		close;
 	case 3://Accessories
 		next;
@@ -448,7 +448,6 @@ switch(select("Melee Weapons:Guns:Accessories:Tools:Foot Wear:Bags and Etc:Never
 		menu	"" +@item_name_36$+ "",DWBBBackpack,"" +@item_name_37$+ "",DWBGBackpack,"" +@item_name_38$+ "",DWBRBackpack,"" +@item_name_39$+ "",DWBLWagon,"" +@item_name_40$+ "",DWBHWagon,"" +@item_name_41$+ "",DWBSHWagon,"" +@item_name_42$+ "",DWBCSoup,"Back",L_Decomp;
 		close;
 	case 7:
-	next;
 	close;
 	}
 	
