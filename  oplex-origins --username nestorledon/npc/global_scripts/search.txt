@@ -20,11 +20,20 @@ OnTouch:
         set( .@rect, distance( .@x, .@y, .@x1, .@y1 ));
 
 	if ( .@rect <= 3 ) {
-		callfunc "CountDownFunc";
 		if(gettimetick(2) >= getd(".nextavail_" + strnpcinfo(2))) {
-			getitem groupranditem(19), 1;
-			setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
-			message strcharinfo(0), "You found something...";
+			mes "...";
+			announce "Searching...",bc_self,0xCC0033;
+			sleep2 2000;
+			announce "Searching...",bc_self,0xFF9933;
+			sleep2 2000;
+			announce "Searching...",bc_self,0x00FF00;
+			sleep2 2000;
+			set @superrand, rand(1,100);
+			if(@superrand > 30) {
+				getitem groupranditem(19), 1;
+				setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
+				message strcharinfo(0), "You found something...";
+			}
 		} else {
 			message strcharinfo(0), "Nothing useful...";
 			}
