@@ -18,7 +18,7 @@ lavive_03.gat,26,95,0	script	Door::door_la01	111,{
 	sleep2 500;	//Give the script a half second delay before allowing player to go through (limits abuse)
 	if(countitem(@keyitemid) < 1) goto door_fail;
 	message strcharinfo(0), "You inserted the " +@keyname$+ " and opened the door.";
-//	soundeffect "door_open",0;	//NOT IMPLEMENTED YET - Add door_open.wav to data/wav before uncommenting this
+//	soundeffect "door.wav",0;	//NOT IMPLEMENTED YET - Add door_open.wav to data/wav before uncommenting this
 //	warp "la_in01",47,21;	//Place appropriate coordinates
 	end;
 door_fail:
