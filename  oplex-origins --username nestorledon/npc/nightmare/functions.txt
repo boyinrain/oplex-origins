@@ -306,6 +306,7 @@ Notfound:
 }
 
 function	script	loading_func	{
+//This function lasts a total of one (1) second.
 	cutin "loading.bmp",4;
 	sleep2 125;
 	cutin "loading1.bmp",4;
@@ -323,4 +324,5 @@ function	script	loading_func	{
 	cutin "loading7.bmp",4;
 	sleep2 125;
 	cutin "",255;
+	return (1); // Will be used to return to initial script.
 }
