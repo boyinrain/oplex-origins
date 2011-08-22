@@ -283,7 +283,7 @@ fish_1min:
 	end;
 }
 
-function	script	CountDownFunc	{
+function	script	countdown_func	{
 if($@timeritem != 0) { end; }
 	set $@timeritem,1;
 	if(getmapxy(@mapname$,@mapx,@mapy,0) !=0 ) goto Notfound;
@@ -303,4 +303,24 @@ if($@timeritem != 0) { end; }
 	end;
 Notfound:
 	end;
+}
+
+function	script	loading_func	{
+	cutin "loading.bmp",4;
+	sleep2 125;
+	cutin "loading1.bmp",4;
+	sleep2 125;
+	cutin "loading2.bmp",4;
+	sleep2 125;
+	cutin "loading3.bmp",4;
+	sleep2 125;
+	cutin "loading4.bmp",4;
+	sleep2 125;
+	cutin "loading5.bmp",4;
+	sleep2 125;
+	cutin "loading6.bmp",4;
+	sleep2 125;
+	cutin "loading7.bmp",4;
+	sleep2 125;
+	cutin "",255;
 }
