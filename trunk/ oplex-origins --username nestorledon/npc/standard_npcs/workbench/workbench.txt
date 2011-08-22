@@ -266,104 +266,106 @@ set	@item_29_plastic_ammount,0;
 set	@item_29_rubber_ammount,0;
 set	@item_29_wood_ammount,5;
 
-set @item_id_30,2601;
-set @item_name_30$, "Light Wagon";
-set	@item_30_metal_ammount,3;
-set	@item_30_fabric_ammount,0;
-set	@item_30_plastic_ammount,0;
-set	@item_30_rubber_ammount,0;
-set	@item_30_wood_ammount,1;
 
-set @item_id_31,2602;
-set @item_name_31$, "Heavy Wagon";
-set	@item_31_metal_ammount,4;
-set	@item_31_fabric_ammount,0;
-set	@item_31_plastic_ammount,0;
-set	@item_31_rubber_ammount,0;
-set	@item_31_wood_ammount,1;
-
-set @item_id_32,2603;
-set @item_name_32$, "Super Heavy Wagon";
-set	@item_32_metal_ammount,10;
-set	@item_32_fabric_ammount,0;
-set	@item_32_plastic_ammount,0;
-set	@item_32_rubber_ammount,0;
-set	@item_32_wood_ammount,3;
 
 //Shoes
 
-set @item_id_33,2401;
-set @item_name_33$, "Sneakers";
-set	@item_33_metal_ammount,0;
-set	@item_33_fabric_ammount,2;
-set	@item_33_plastic_ammount,0;
-set	@item_33_rubber_ammount,2;
+set @item_id_30,2401;
+set @item_name_30$, "Sneakers";
+set	@item_30_metal_ammount,0;
+set	@item_30_fabric_ammount,2;
+set	@item_30_plastic_ammount,0;
+set	@item_30_rubber_ammount,2;
+set	@item_30_wood_ammount,0;
+
+set @item_id_31,2402;
+set @item_name_31$, "Boots";
+set	@item_31_metal_ammount,0;
+set	@item_31_fabric_ammount,4;
+set	@item_31_plastic_ammount,0;
+set	@item_31_rubber_ammount,0;
+set	@item_31_wood_ammount,0;
+
+set @item_id_32,2403;
+set @item_name_32$, "High Heels";
+set	@item_32_metal_ammount,0;
+set	@item_32_fabric_ammount,4;
+set	@item_32_plastic_ammount,2;
+set	@item_32_rubber_ammount,0;
+set	@item_32_wood_ammount,0;
+
+set @item_id_33,2404;
+set @item_name_33$, "Army Boots";
+set	@item_33_metal_ammount,1;
+set	@item_33_fabric_ammount,0;
+set	@item_33_plastic_ammount,2;
+set	@item_33_rubber_ammount,0;
 set	@item_33_wood_ammount,0;
 
-set @item_id_34,2402;
-set @item_name_34$, "Boots";
+set @item_id_34,2405;
+set @item_name_34$, "Safety Boots";
 set	@item_34_metal_ammount,0;
-set	@item_34_fabric_ammount,4;
+set	@item_34_fabric_ammount,3;
 set	@item_34_plastic_ammount,0;
-set	@item_34_rubber_ammount,0;
+set	@item_34_rubber_ammount,1;
 set	@item_34_wood_ammount,0;
 
-set @item_id_35,2403;
-set @item_name_35$, "High Heels";
+set @item_id_35,2406;
+set @item_name_35$, "Running Shoes";
 set	@item_35_metal_ammount,0;
-set	@item_35_fabric_ammount,4;
-set	@item_35_plastic_ammount,2;
-set	@item_35_rubber_ammount,0;
+set	@item_35_fabric_ammount,5;
+set	@item_35_plastic_ammount,0;
+set	@item_35_rubber_ammount,1;
 set	@item_35_wood_ammount,0;
 
-set @item_id_36,2404;
-set @item_name_36$, "Army Boots";
-set	@item_36_metal_ammount,1;
-set	@item_36_fabric_ammount,0;
-set	@item_36_plastic_ammount,2;
-set	@item_36_rubber_ammount,0;
+//Bags and Etc
+set @item_id_36,2201;
+set @item_name_36$, "Blue Backpack";
+set	@item_36_metal_ammount,0;
+set	@item_36_fabric_ammount,4;
+set	@item_36_plastic_ammount,0;
+set	@item_36_rubber_ammount,2;
 set	@item_36_wood_ammount,0;
 
-set @item_id_37,2405;
-set @item_name_37$, "Safety Boots";
+set @item_id_37,2202;
+set @item_name_37$, "Green Backpack";
 set	@item_37_metal_ammount,0;
-set	@item_37_fabric_ammount,3;
+set	@item_37_fabric_ammount,4;
 set	@item_37_plastic_ammount,0;
-set	@item_37_rubber_ammount,1;
+set	@item_37_rubber_ammount,2;
 set	@item_37_wood_ammount,0;
 
-set @item_id_38,2406;
-set @item_name_38$, "Running Shoes";
+set @item_id_38,2203;
+set @item_name_38$, "Red Backpack";
 set	@item_38_metal_ammount,0;
-set	@item_38_fabric_ammount,5;
+set	@item_38_fabric_ammount,4;
 set	@item_38_plastic_ammount,0;
-set	@item_38_rubber_ammount,1;
+set	@item_38_rubber_ammount,2;
 set	@item_38_wood_ammount,0;
 
-//Bags and Etc
-set @item_id_39,2201;
-set @item_name_39$, "Blue Backpack";
-set	@item_39_metal_ammount,0;
-set	@item_39_fabric_ammount,4;
+set @item_id_39,2601;
+set @item_name_39$, "Light Wagon";
+set	@item_39_metal_ammount,3;
+set	@item_39_fabric_ammount,0;
 set	@item_39_plastic_ammount,0;
-set	@item_39_rubber_ammount,2;
-set	@item_39_wood_ammount,0;
+set	@item_39_rubber_ammount,0;
+set	@item_39_wood_ammount,1;
 
-set @item_id_40,2202;
-set @item_name_40$, "Green Backpack";
-set	@item_40_metal_ammount,0;
-set	@item_40_fabric_ammount,4;
+set @item_id_40,2602;
+set @item_name_40$, "Heavy Wagon";
+set	@item_40_metal_ammount,4;
+set	@item_40_fabric_ammount,0;
 set	@item_40_plastic_ammount,0;
-set	@item_40_rubber_ammount,2;
-set	@item_40_wood_ammount,0;
+set	@item_40_rubber_ammount,0;
+set	@item_40_wood_ammount,1;
 
-set @item_id_41,2203;
-set @item_name_41$, "Red Backpack";
-set	@item_41_metal_ammount,0;
-set	@item_41_fabric_ammount,4;
+set @item_id_41,2603;
+set @item_name_41$, "Super Heavy Wagon";
+set	@item_41_metal_ammount,10;
+set	@item_41_fabric_ammount,0;
 set	@item_41_plastic_ammount,0;
-set	@item_41_rubber_ammount,2;
-set	@item_41_wood_ammount,0;
+set	@item_41_rubber_ammount,0;
+set	@item_41_wood_ammount,3;
 
 set @item_id_42,519;	// Id of item 00
 set @item_name_42$, "Can of Soup";	//Name of the item
@@ -420,27 +422,27 @@ next;
 switch(select("Melee Weapons:Guns:Accessories:Tools:Foot Wear:Bags and Etc")) {
 	case 1://Melee
 		next;
-		menu	"" +@item_name_00$+ "",WBPKnife,"" +@item_name_01$+ "",WBCKnife,"" +@item_name_02$+ "",WBSAKnife,"" +@item_name_03$+ "",WBBKnife,"" +@item_name_04$+ "",WBWKnife,"" +@item_name_5$+ "",WBAxe,"" +@item_name_06$+ "",WBPAxe,"" +@item_name_07$+ "",WBHammer,"" +@item_name_08$+ "",WBTomahawk,"" +@item_name_09$+"",WBIPickBack,"Back",L_Decomp,"Never Mind",-;
+		menu	"" +@item_name_00$+ "",DWBPKnife,"" +@item_name_01$+ "",DWBCKnife,"" +@item_name_02$+ "",DWBSAKnife,"" +@item_name_03$+ "",DWBBKnife,"" +@item_name_04$+ "",DWBWKnife,"" +@item_name_5$+ "",DWBAxe,"" +@item_name_06$+ "",DWBPAxe,"" +@item_name_07$+ "",DWBHammer,"" +@item_name_08$+ "",DWBTomahawk,"" +@item_name_09$+"",DWBIPickBack,"Back",L_Decomp,"Never Mind",-;
 
 	case 2://Guns
 		next;
-		menu	"" +@item_name_10$+ "",WBHandgun,"" +@item_name_11$+ "",WBM9,"" +@item_name_12$+ "",WBShotgun,"" +@item_name_13$+ "",WBSARifle,"" +@item_name_14$+ "",WBM16,"" +@item_name_15$+ "",WBSRifle,"" +@item_name_16$+ "",WBM82G,"Back",L_Decomp,"Never Mind",-;
+		menu	"" +@item_name_10$+ "",DWBHandgun,"" +@item_name_11$+ "",DWBM9,"" +@item_name_12$+ "",DWBShotgun,"" +@item_name_13$+ "",DWBSARifle,"" +@item_name_14$+ "",DWBM16,"" +@item_name_15$+ "",DWBSRifle,"" +@item_name_16$+ "",DWBM82G,"Back",L_Decomp,"Never Mind",-;
 
 	case 3://Accessories
 		next;
-		menu	"" +@item_name_17$+ "",WBEarring,"" +@item_name_18$+ "",WBRing,"" +@item_name_19$+ "",WBBelt,""+@item_name_20$+ "",WBGlove,"" +@item_name_21$+ "",WBHandcuffs,"Back",L_Decomp,"Never Mind",-;
+		menu	"" +@item_name_17$+ "",DWBEarring,"" +@item_name_18$+ "",DWBRing,"" +@item_name_19$+ "",DWBBelt,""+@item_name_20$+ "",DWBGlove,"" +@item_name_21$+ "",DWBHandcuffs,"Back",L_Decomp,"Never Mind",-;
 
 	case 4://Tools
 		next;
-		menu	"" +@item_name_22$+ "",WBFlashlight,"" +@item_name_23$+ "",WBSleepingbag,"" +@item_name_24$+ "",WBMegaphone,"" +@item_name_25$+ "",WBRadio,"" +@item_name_26$+ "",WBWatch,"" +@item_name_27$+ "",WBWrench,"" +@item_name_28$+ "",WBFRodP,"" +@item_name_29$+ "",WBFRod,"Back",L_Decomp,"Never Mind",-;
+		menu	"" +@item_name_22$+ "",DWBFlashlight,"" +@item_name_23$+ "",DWBSleepingbag,"" +@item_name_24$+ "",DWBMegaphone,"" +@item_name_25$+ "",DWBRadio,"" +@item_name_26$+ "",DWBWatch,"" +@item_name_27$+ "",DWBWrench,"" +@item_name_28$+ "",DWBFRodP,"" +@item_name_29$+ "",DWBFRod,"Back",L_Decomp,"Never Mind",-;
 		
 	case 5://Foot Wear
 		next;
-		menu	"" +@item_name_30$+ "",II_D,"" +@item_name_31$+ "",II_E,"" +@item_name_32$+ "",II_F,"" +@item_name_33$+ "",II_G,"" +@item_name_34$+ "",II_H,"" +@item_name_35$+ "",II_I,"" +@item_name_36$+ "",II_J,"Back",L_Decomp,"Never Mind",-;
+		menu	"" +@item_name_30$+ "",DWBSneakers,"" +@item_name_31$+ "",DWBBoots,"" +@item_name_32$+ "",DWBHHeals,"" +@item_name_33$+ "",DWBABoots,"" +@item_name_34$+ "",DWBSBoots,"" +@item_name_35$+ "",DWBRShoes,"Back",L_Decomp,"Never Mind",-;
 		
 	case 6://Storage and Etc
 		next;
-		menu	"" +@item_name_36$+ "",II_A,"" +@item_name_37$+ "",II_B,"" +@item_name_38$+ "",II_C,"" +@item_name_39$+ "",II_AA,"" +@item_name_40$+ "",II_BB,"" +@item_name_41$+ "",II_CC,"Back",L_Decomp,"Never Mind",-;
+		menu	"" +@item_name_36$+ "",DWBBBackpack,"" +@item_name_37$+ "",DWBGBackpack,"" +@item_name_38$+ "",DWBRBackpack,"" +@item_name_39$+ "",DWBLWagon,"" +@item_name_40$+ "",DWBHWagon,"" +@item_name_41$+ "",DWBSHWagon,"" +@item_name_42$+ "",DWBCSoup,"Back",L_Decomp,"Never Mind",-;
 	}
 
 
@@ -1239,12 +1241,12 @@ if (countitem(@item_id_29) < .@ammount) {
 		close;
 		}
 		
-II_B:
+DWBSneakers:
 mes	"You selected " +@item_name_30$+ "";
 mes	"Was this the correct item?";
-menu	"Yes.",KL_ccorr,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+menu	"Yes.",DY_WBSneakers,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
 close;
-KL_ccorr:
+DY_WBSneakers:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
@@ -1265,12 +1267,12 @@ if (countitem(@item_id_30) < .@ammount) {
 		mes	"Seems like you dont have the item(s) you want to break down.";
 		close;
 		}
-II_C:
+DWBBoots:
 mes	"You selected " +@item_name_31$+ "";
 mes	"Was this the correct item?";
-menu	"Yes.",KK_coor,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+menu	"Yes.",DY_WBBoots,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
 close;
-KK_coor:
+DY_WBBoots:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
@@ -1291,12 +1293,12 @@ if (countitem(@item_id_31) < .@ammount) {
 		mes	"Seems like you dont have the item(s) you want to break down.";
 		close;
 		}
-II_D:
+DWBHHeels:
 mes	"You selected " +@item_name_32$+ "";
 mes	"Was this the correct item?";
-menu	"Yes.",YYY_ccor,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+menu	"Yes.",DY_WBHHeels,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
 close;
-YYY_ccor:
+DY_WBHHeels:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
@@ -1317,12 +1319,12 @@ if (countitem(@item_id_32) < .@ammount) {
 		mes	"Seems like you dont have the item(s) you want to break down.";
 		close;
 		}		
-II_E:
+DWBABoots:
 mes	"You selected " +@item_name_33$+ "";
 mes	"Was this the correct item?";
-menu	"Yes.",YYY_ccorr,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+menu	"Yes.",DY_WBABoots,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
 close;
-YYY_ccorr:
+DY_WBABoots:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
@@ -1343,12 +1345,12 @@ if (countitem(@item_id_33) < .@ammount) {
 		mes	"Seems like you dont have the item(s) you want to break down.";
 		close;
 		}
-II_F:
+DWBSBoots:
 mes	"You selected " +@item_name_34$+ "";
 mes	"Was this the correct item?";
-menu	"Yes.",YYY_coorr,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+menu	"Yes.",DY_WBSBoots,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
 close;
-YYY_coorr:
+DY_WBSBoots:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
@@ -1369,12 +1371,12 @@ if (countitem(@item_id_34) < .@ammount) {
 		mes	"Seems like you dont have the item(s) you want to break down.";
 		close;
 		}
-II_G:
+DWBRShoes:
 mes	"You selected " +@item_name_35$+ "";
 mes	"Was this the correct item?";
-menu	"Yes.",YYY_ccoorr,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+menu	"Yes.",DY_WBRShoes,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
 close;
-YYY_ccoorr:
+DY_WBRShoes:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
@@ -1396,12 +1398,12 @@ if (countitem(@item_id_35) < .@ammount) {
 		close;
 		}
 		
-II_H:
+DWBBBackpack:
 mes	"You selected " +@item_name_36$+ "";
 mes	"Was this the correct item?";
-menu	"Yes.",XXF_corr,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+menu	"Yes.",DY_WBBBackpack,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
 close;
-XXF_corr:
+DY_WBBBackpack:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
@@ -1422,12 +1424,12 @@ if (countitem(@item_id_36) < .@ammount) {
 		mes	"Seems like you dont have the item(s) you want to break down.";
 		close;
 		}
-II_I:
+DWBGBackpack:
 mes	"You selected " +@item_name_37$+ "";
 mes	"Was this the correct item?";
-menu	"Yes.",XX_corr,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+menu	"Yes.",DY_WBGBackpack,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
 close;
-XX_corr:
+DY_WBGBackpack:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
@@ -1448,12 +1450,12 @@ if (countitem(@item_id_37) < .@ammount) {
 		mes	"Seems like you dont have the item(s) you want to break down.";
 		close;
 		}
-II_J:
+DWBRBackpack:
 mes	"You selected " +@item_name_38$+ "";
 mes	"Was this the correct item?";
-menu	"Yes.",U_ccor,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+menu	"Yes.",DY_WBRBackpack,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
 close;
-U_ccor:
+DY_WBRBackpack:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
@@ -1474,12 +1476,12 @@ if (countitem(@item_id_38) < .@ammount) {
 		mes	"Seems like you dont have the item(s) you want to break down.";
 		close;
 		}
-II_AA:
+DWBLWagon:
 mes	"You selected " +@item_name_39$+ "";
 mes	"Was this the correct item?";
-menu	"Yes.",L_Lcor,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+menu	"Yes.",DY_WBLWagon,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
 close;
-L_Lcor:
+DY_WBLWagon:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
@@ -1500,12 +1502,12 @@ if (countitem(@item_id_39) < .@ammount) {
 		mes	"Seems like you dont have the item(s) you want to break down.";
 		close;
 		}
-II_BB:
+DWBHWagon:
 mes	"You selected " +@item_name_40$+ "";
 mes	"Was this the correct item?";
-menu	"Yes.",LL_cor,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+menu	"Yes.",DY_WBHWagon,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
 close;
-LL_cor:
+DY_WBHWagon:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
@@ -1526,12 +1528,12 @@ if (countitem(@item_id_40) < .@ammount) {
 		mes	"Seems like you dont have the item(s) you want to break down.";
 		close;
 		}
-II_CC:
+DWBSHWagon:
 mes	"You selected " +@item_name_41$+ "";
 mes	"Was this the correct item?";
-menu	"Yes.",LLL_ccor,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+menu	"Yes.",DY_WBSHWagon,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
 close;
-LLL_ccor:
+DY_WBSHWagon:
 next;
 mes	"Please write how many of the item you want to break down";
 input	.@ammount;
@@ -1552,7 +1554,33 @@ if (countitem(@item_id_41) < .@ammount) {
 		mes	"Seems like you dont have the item(s) you want to break down.";
 		close;
 		}
-
+		
+DWBCSoup:
+mes	"You selected " +@item_name_42$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",DY_WBCSoup,"No, I want to select another item",L_Decomp,"No and i want to leave this Work bench",-;
+close;
+DY_WBCSoup:
+next;
+mes	"Please write how many of the item you want to break down";
+input	.@ammount;
+if (countitem(@item_id_42) < .@ammount) {
+			mes	"You carefully start working on the item";
+			next;
+			delitem @item_id_42,.@ammount;
+			getitem @material_id_01,@item_42_fabric_ammount;
+			getitem @material_id_02,@item_42_metal_ammount;
+			getitem @material_id_03,@item_42_plastic_ammount;
+			getitem @material_id_04,@item_42_rubber_ammount;
+			getitem @material_id_05,@item_42_wood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
 
 }
 // Here you put all the clones for this script using this format(Including an example)
