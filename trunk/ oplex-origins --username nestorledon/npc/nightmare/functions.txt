@@ -282,3 +282,24 @@ fish_1min:
 	close;
 	end;
 }
+
+function	script	CountDownFunc	{
+if($@timeritem != 0) { end; }
+	set $@timeritem,1;
+	if(getmapxy(@mapname$,@mapx,@mapy,0) !=0 ) goto Notfound;
+	mapannounce @mapname$+".gat","[Event Timer]: 5!!!",0,0xCC0033;
+	sleep2 2000;
+	mapannounce @mapname$+".gat","[Event Timer]: 4!!!",0,0xFF3333;
+	sleep2 2000;
+	mapannounce @mapname$+".gat","[Event Timer]: 3!!!",0,0xFF9933;
+	sleep2 2000;
+	mapannounce @mapname$+".gat","[Event Timer]: 2!!!",0,0xCCFF33;
+	sleep2 2000;
+	mapannounce @mapname$+".gat","[Event Timer]: 1!!!",0,0xCCFF99;
+	sleep2 2000;
+	mapannounce @mapname$+".gat","[Event Timer]: GO!!!",0,0x00FF00;
+	set $@timeritem,0;
+	end;
+Notfound:
+	end;
+}
