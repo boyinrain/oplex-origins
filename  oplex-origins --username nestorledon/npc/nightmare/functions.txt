@@ -213,7 +213,7 @@ function	script	fishing_func	{
 	if(.@i >= 0) {
 		mes "How long would you like to fish for?";
 		next;
-		menu "30 seconds",fish_30sec,"1 minute",fish_1min,"Nevermind",-;
+		menu "15 seconds",fish_15sec,"30 seconds",fish_30sec,"Nevermind",-;
 		close;
 		end;
 		}
@@ -221,7 +221,34 @@ function	script	fishing_func	{
 	dispbottom "Might be able to fish with a rod...";
 	end;
 
-fish_30sec:
+fish_15sec:
+	mes "Here goes nothing...";
+	sc_start SC_SLEEP,15000,0;
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	setarray .@catch[0],536,536,536,536,536,536,536,536,536;
+	set .@rand,rand(0,8);
+	getitem .@catch[.@rand],1;
+	set @superrand, rand(1,100);
+	if(@superrand > .@failrate2) {	delitem .@fishingrodIDs[.@rodindex],1; message strcharinfo(0), "Crap... The rod broke.";}
+	close;
+	end;
+
+fish_30sec
+	setarray @catch[0],536,536,536,536;
 	mes "Here goes nothing...";
 	sc_start SC_SLEEP,30000,0;
 	callfunc "loading_func";
@@ -254,37 +281,6 @@ fish_30sec:
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
-	setarray .@catch[0],536,536,536,536,536,536,536,536,536;
-	set .@rand,rand(0,8);
-	getitem .@catch[.@rand],1;
-	set @superrand, rand(1,100);
-	if(@superrand > .@failrate2) {	delitem .@fishingrodIDs[.@rodindex],1; message strcharinfo(0), "Crap... The rod broke.";}
-	close;
-	end;
-
-fish_1min:
-	setarray @catch[0],536,536,536,536;
-	mes "Here goes nothing...";
-	sc_start SC_SLEEP,60000,0;
-	sleep2 6000;
-	dispbottom "Fishing";
-	sleep2 6000;
-	dispbottom "Fishing.";
-	sleep2 6000;
-	dispbottom "Fishing..";
-	sleep2 6000;
-	dispbottom "Fishing...";
-	sleep2 6000;
-	dispbottom "Fishing....";
-	sleep2 6000;
-	dispbottom "Fishing.....";
-	sleep2 6000;
-	dispbottom "Fishing......";
-	sleep2 6000;
-	dispbottom "Fishing.......";
-	sleep2 6000;
-	dispbottom "Fishing........";
-	sleep2 6000;
 	setarray .@catch[0],536,536,536,536,536,536,536,536,536;
 	set .@rand,rand(0,8);
 	getitem .@catch[.@rand],1;
