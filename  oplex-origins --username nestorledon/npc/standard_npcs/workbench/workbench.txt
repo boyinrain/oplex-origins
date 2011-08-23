@@ -464,9 +464,11 @@ menu	"Yes.",DY_WBPKnife,"No, I want to select another item",L_Decomp,"No and i w
 close;
 DY_WBPKnife:
 next;
-mes	"Please write how many of the item you want to break down";
-input	@ammount;
-if(countitem(1202) == @ammount) {
+
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(1202) >= 1) {
+
 			mes	"You carefully start working on the item";
 			next;
 			delitem 1201,1;
