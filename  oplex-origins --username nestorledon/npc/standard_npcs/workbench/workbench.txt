@@ -30,6 +30,11 @@ set	@item_00_fabric_ammount,0;
 set	@item_00_plastic_ammount,0;
 set	@item_00_rubber_ammount,0;
 set	@item_00_wood_ammount,0;
+set @item_00_cmetal_ammount,4;
+set @item_00_cfabric_ammount,0;
+set @item_00_cplastic_ammount,0;
+set @item_00_crubber_ammount,0;
+set @item_00_cwood_ammount,0;
 
 set @item_id_01,1202;
 set @item_name_01$, "Combat Knife";
@@ -38,6 +43,12 @@ set	@item_01_fabric_ammount,0;
 set	@item_01_plastic_ammount,0;
 set	@item_01_rubber_ammount,0;
 set	@item_01_wood_ammount,0;
+set @item_01_cmetal_ammount,20;
+set @item_01_cfabric_ammount,0;
+set @item_01_cplastic_ammount,0;
+set @item_01_crubber_ammount,0;
+set @item_01_cwood_ammount,0;
+
 
 set @item_id_02,1203;
 set @item_name_02$, "Swiss Army Knife";
@@ -46,6 +57,11 @@ set	@item_02_fabric_ammount,0;
 set	@item_02_plastic_ammount,0;
 set	@item_02_rubber_ammount,0;
 set	@item_02_wood_ammount,0;
+set @item_02_cmetal_ammount,14;
+set @item_02_cfabric_ammount,0;
+set @item_02_cplastic_ammount,0;
+set @item_02_crubber_ammount,0;
+set @item_02_cwood_ammount,0;
 
 set @item_id_03,1204;
 set @item_name_03$, "Butcher Knife";
@@ -53,7 +69,12 @@ set	@item_03_metal_ammount,2;
 set	@item_03_fabric_ammount,0;
 set	@item_03_plastic_ammount,0;
 set	@item_03_rubber_ammount,0;
-set	@item_03_wood_ammount,0;
+set	@item_03_wood_ammount,1;
+set @item_03_cmetal_ammount,4;
+set @item_03_cfabric_ammount,0;
+set @item_03_cplastic_ammount,0;
+set @item_03_crubber_ammount,0;
+set @item_03_cwood_ammount,2;
 
 set @item_id_04,1205;
 set @item_name_04$, "Weeder Knife";
@@ -62,6 +83,11 @@ set	@item_04_fabric_ammount,0;
 set	@item_04_plastic_ammount,1;
 set	@item_04_rubber_ammount,0;
 set	@item_04_wood_ammount,0;
+set @item_04_cmetal_ammount,4;
+set @item_04_cfabric_ammount,0;
+set @item_04_cplastic_ammount,2;
+set @item_04_crubber_ammount,0;
+set @item_04_cwood_ammount,0;
 
 set @item_id_05,1301;
 set @item_name_05$, "Axe";
@@ -70,6 +96,11 @@ set	@item_05_fabric_ammount,0;
 set	@item_05_plastic_ammount,0;
 set	@item_05_rubber_ammount,0;
 set	@item_05_wood_ammount,6;
+set @item_05_cmetal_ammount,20;
+set @item_05_cfabric_ammount,0;
+set @item_05_cplastic_ammount,0;
+set @item_05_crubber_ammount,0;
+set @item_05_cwood_ammount,12;
 
 set @item_id_06,1302;
 set @item_name_06$, "Pick Axe";
@@ -78,6 +109,11 @@ set	@item_06_fabric_ammount,0;
 set	@item_06_plastic_ammount,0;
 set	@item_06_rubber_ammount,0;
 set	@item_06_wood_ammount,5;
+set @item_06_cmetal_ammount,10;
+set @item_06_cfabric_ammount,0;
+set @item_06_cplastic_ammount,0;
+set @item_06_crubber_ammount,0;
+set @item_06_cwood_ammount,10;
 
 set @item_id_07,1351;
 set @item_name_07$, "Hammer";
@@ -86,6 +122,11 @@ set	@item_07_fabric_ammount,0;
 set	@item_07_plastic_ammount,0;
 set	@item_07_rubber_ammount,0;
 set	@item_07_wood_ammount,6;
+set @item_07_cmetal_ammount,8;
+set @item_07_cfabric_ammount,0;
+set @item_07_cplastic_ammount,0;
+set @item_07_crubber_ammount,0;
+set @item_07_cwood_ammount,12;
 
 set @item_id_08,1352;
 set @item_name_08$, "Tomahawk";
@@ -94,6 +135,11 @@ set	@item_08_fabric_ammount,0;
 set	@item_08_plastic_ammount,0;
 set	@item_08_rubber_ammount,0;
 set	@item_08_wood_ammount,5;
+set @item_08_cmetal_ammount,8;
+set @item_08_cfabric_ammount,0;
+set @item_08_cplastic_ammount,0;
+set @item_08_crubber_ammount,0;
+set @item_08_cwood_ammount,10;
 
 set @item_id_09,1206;
 set @item_name_09$, "Ice Pick";
@@ -102,6 +148,11 @@ set	@item_09_fabric_ammount,0;
 set	@item_09_plastic_ammount,0;
 set	@item_09_rubber_ammount,0;
 set	@item_09_wood_ammount,1;
+set @item_09_cmetal_ammount,4;
+set @item_09_cfabric_ammount,0;
+set @item_09_cplastic_ammount,0;
+set @item_09_crubber_ammount,0;
+set @item_09_cwood_ammount,2;
 
 //Guns
 set @item_id_10,13100;
@@ -111,6 +162,11 @@ set	@item_10_fabric_ammount,0;
 set	@item_10_plastic_ammount,2;
 set	@item_10_rubber_ammount,1;
 set	@item_10_wood_ammount,0;
+set @item_10_cmetal_ammount,20;
+set @item_10_cfabric_ammount,0;
+set @item_10_cplastic_ammount,4;
+set @item_10_crubber_ammount,2;
+set @item_10_cwood_ammount,0;
 
 set @item_id_11,13101;
 set @item_name_11$, "M9";
@@ -119,6 +175,11 @@ set	@item_11_fabric_ammount,0;
 set	@item_11_plastic_ammount,2;
 set	@item_11_rubber_ammount,1;
 set	@item_11_wood_ammount,0;
+set @item_11_cmetal_ammount,28;
+set @item_11_cfabric_ammount,0;
+set @item_11_cplastic_ammount,4;
+set @item_11_crubber_ammount,2;
+set @item_11_cwood_ammount,0;
 
 set @item_id_12,13152;
 set @item_name_12$, "Shotgun";
@@ -127,6 +188,11 @@ set	@item_12_fabric_ammount,0;
 set	@item_12_plastic_ammount,2;
 set	@item_12_rubber_ammount,1;
 set	@item_12_wood_ammount,0;
+set @item_12_cmetal_ammount,26;
+set @item_12_cfabric_ammount,0;
+set @item_12_cplastic_ammount,4;
+set @item_12_crubber_ammount,2;
+set @item_12_cwood_ammount,0;
 
 set @item_id_13,13153;
 set @item_name_13$, "M4";
@@ -135,6 +201,11 @@ set	@item_13_fabric_ammount,0;
 set	@item_13_plastic_ammount,1;
 set	@item_13_rubber_ammount,3;
 set	@item_13_wood_ammount,0;
+set @item_13_cmetal_ammount,30;
+set @item_13_cfabric_ammount,0;
+set @item_13_cplastic_ammount,2;
+set @item_13_crubber_ammount,6;
+set @item_13_cwood_ammount,0;
 
 set @item_id_14,13155;
 set @item_name_14$, "M16";
@@ -143,6 +214,11 @@ set	@item_14_fabric_ammount,0;
 set	@item_14_plastic_ammount,1;
 set	@item_14_rubber_ammount,2;
 set	@item_14_wood_ammount,0;
+set @item_14_cmetal_ammount,28;
+set @item_14_cfabric_ammount,0;
+set @item_14_cplastic_ammount,2;
+set @item_14_crubber_ammount,4;
+set @item_14_cwood_ammount,0;
 
 set @item_id_15,13156;
 set @item_name_15$, "Sniper Rifle";
@@ -151,6 +227,11 @@ set	@item_15_fabric_ammount,0;
 set	@item_15_plastic_ammount,3;
 set	@item_15_rubber_ammount,3;
 set	@item_15_wood_ammount,0;
+set @item_15_cmetal_ammount,40;
+set @item_15_cfabric_ammount,0;
+set @item_15_cplastic_ammount,6;
+set @item_15_crubber_ammount,6;
+set @item_15_cwood_ammount,0;
 
 set @item_id_16,13157;
 set @item_name_16$, "M82";
@@ -159,6 +240,11 @@ set	@item_16_fabric_ammount,0;
 set	@item_16_plastic_ammount,4;
 set	@item_16_rubber_ammount,1;
 set	@item_16_wood_ammount,0;
+set @item_16_cmetal_ammount,28;
+set @item_16_cfabric_ammount,0;
+set @item_16_cplastic_ammount,8;
+set @item_16_crubber_ammount,2;
+set @item_16_cwood_ammount,0;
 
 //Accessories
 set @item_id_17,2604;
@@ -168,6 +254,11 @@ set	@item_17_fabric_ammount,0;
 set	@item_17_plastic_ammount,0;
 set	@item_17_rubber_ammount,0;
 set	@item_17_wood_ammount,0;
+set @item_17_cmetal_ammount,2;
+set @item_17_cfabric_ammount,0;
+set @item_17_cplastic_ammount,0;
+set @item_17_crubber_ammount,0;
+set @item_17_cwood_ammount,0;
 
 set @item_id_18,2605;
 set @item_name_18$, "Ring";
@@ -176,6 +267,11 @@ set	@item_18_fabric_ammount,0;
 set	@item_18_plastic_ammount,0;
 set	@item_18_rubber_ammount,0;
 set	@item_18_wood_ammount,0;
+set @item_18_cmetal_ammount,2;
+set @item_18_cfabric_ammount,0;
+set @item_18_cplastic_ammount,0;
+set @item_18_crubber_ammount,0;
+set @item_18_cwood_ammount,0;
 
 set @item_id_19,2606;
 set @item_name_19$, "Belt";
@@ -184,6 +280,11 @@ set	@item_19_fabric_ammount,5;
 set	@item_19_plastic_ammount,0;
 set	@item_19_rubber_ammount,0;
 set	@item_19_wood_ammount,0;
+set @item_19_cmetal_ammount,2;
+set @item_19_cfabric_ammount,10;
+set @item_19_cplastic_ammount,0;
+set @item_19_crubber_ammount,0;
+set @item_19_cwood_ammount,0;
 
 set @item_id_20,2607;
 set @item_name_20$, "Glove";
@@ -192,6 +293,11 @@ set	@item_20_fabric_ammount,2;
 set	@item_20_plastic_ammount,0;
 set	@item_20_rubber_ammount,0;
 set	@item_20_wood_ammount,0;
+set @item_20_cmetal_ammount,0;
+set @item_20_cfabric_ammount,4;
+set @item_20_cplastic_ammount,0;
+set @item_20_crubber_ammount,0;
+set @item_20_cwood_ammount,0;
 
 set @item_id_21,2608;
 set @item_name_21$, "Handcuffs";
@@ -200,6 +306,11 @@ set	@item_21_fabric_ammount,0;
 set	@item_21_plastic_ammount,0;
 set	@item_21_rubber_ammount,0;
 set	@item_21_wood_ammount,0;
+set @item_21_cmetal_ammount,6;
+set @item_21_cfabric_ammount,0;
+set @item_21_cplastic_ammount,0;
+set @item_21_crubber_ammount,0;
+set @item_21_cwood_ammount,0;
 
 //Tools
 set @item_id_22,601;
@@ -209,6 +320,11 @@ set	@item_22_fabric_ammount,0;
 set	@item_22_plastic_ammount,2;
 set	@item_22_rubber_ammount,0;
 set	@item_22_wood_ammount,0;
+set @item_22_cmetal_ammount,0;
+set @item_22_cfabric_ammount,0;
+set @item_22_cplastic_ammount,4;
+set @item_22_crubber_ammount,0;
+set @item_22_cwood_ammount,0;
 
 set @item_id_23,602;
 set @item_name_23$, "Sleeping Bag";
@@ -217,6 +333,11 @@ set	@item_23_fabric_ammount,4;
 set	@item_23_plastic_ammount,0;
 set	@item_23_rubber_ammount,1;
 set	@item_23_wood_ammount,0;
+set @item_23_cmetal_ammount,0;
+set @item_23_cfabric_ammount,8;
+set @item_23_cplastic_ammount,0;
+set @item_23_crubber_ammount,2;
+set @item_23_cwood_ammount,0;
 
 set @item_id_24,603;
 set @item_name_24$, "Megaphone";
@@ -225,6 +346,11 @@ set	@item_24_fabric_ammount,0;
 set	@item_24_plastic_ammount,0;
 set	@item_24_rubber_ammount,0;
 set	@item_24_wood_ammount,0;
+set @item_24_cmetal_ammount,10;
+set @item_24_cfabric_ammount,0;
+set @item_24_cplastic_ammount,0;
+set @item_24_crubber_ammount,0;
+set @item_24_cwood_ammount,0;
 
 set @item_id_25,604;
 set @item_name_25$, "Radio";
@@ -233,14 +359,24 @@ set	@item_25_fabric_ammount,0;
 set	@item_25_plastic_ammount,5;
 set	@item_25_rubber_ammount,0;
 set	@item_25_wood_ammount,0;
+set @item_25_cmetal_ammount,0;
+set @item_25_cfabric_ammount,0;
+set @item_25_cplastic_ammount,10;
+set @item_25_crubber_ammount,0;
+set @item_25_cwood_ammount,0;
 
 set @item_id_26,605;
 set @item_name_26$, "Watch";
-set	@item_26_metal_ammount,0;
+set	@item_26_metal_ammount,2;
 set	@item_26_fabric_ammount,0;
-set	@item_26_plastic_ammount,0;
-set	@item_26_rubber_ammount,0;
+set	@item_26_plastic_ammount,2;
+set	@item_26_rubber_ammount,2;
 set	@item_26_wood_ammount,0;
+set @item_00_cmetal_ammount,4;
+set @item_00_cfabric_ammount,0;
+set @item_00_cplastic_ammount,4;
+set @item_00_crubber_ammount,4;
+set @item_00_cwood_ammount,0;
 
 set @item_id_27,606;
 set @item_name_27$, "Wrench";
@@ -249,6 +385,11 @@ set	@item_27_fabric_ammount,0;
 set	@item_27_plastic_ammount,0;
 set	@item_27_rubber_ammount,0;
 set	@item_27_wood_ammount,0;
+set @item_27_cmetal_ammount,20;
+set @item_27_cfabric_ammount,0;
+set @item_27_cplastic_ammount,0;
+set @item_27_crubber_ammount,0;
+set @item_27_cwood_ammount,0;
 
 set @item_id_28,1056;
 set @item_name_28$, "Fishing Rod (Poor)";
@@ -257,6 +398,11 @@ set	@item_28_fabric_ammount,0;
 set	@item_28_plastic_ammount,0;
 set	@item_28_rubber_ammount,0;
 set	@item_28_wood_ammount,2;
+set @item_28_cmetal_ammount,0;
+set @item_28_cfabric_ammount,0;
+set @item_28_cplastic_ammount,0;
+set @item_28_crubber_ammount,0;
+set @item_28_cwood_ammount,4;
 
 set @item_id_29,1057;
 set @item_name_29$, "Fishing Rod";
@@ -265,7 +411,11 @@ set	@item_29_fabric_ammount,0;
 set	@item_29_plastic_ammount,0;
 set	@item_29_rubber_ammount,0;
 set	@item_29_wood_ammount,5;
-
+set @item_29_cmetal_ammount,0;
+set @item_29_cfabric_ammount,0;
+set @item_29_cplastic_ammount,0;
+set @item_29_crubber_ammount,0;
+set @item_29_cwood_ammount,10;
 
 
 //Shoes
@@ -277,6 +427,11 @@ set	@item_30_fabric_ammount,2;
 set	@item_30_plastic_ammount,0;
 set	@item_30_rubber_ammount,2;
 set	@item_30_wood_ammount,0;
+set @item_30_cmetal_ammount,0;
+set @item_30_cfabric_ammount,4;
+set @item_30_cplastic_ammount,0;
+set @item_30_crubber_ammount,4;
+set @item_30_cwood_ammount,0;
 
 set @item_id_31,2402;
 set @item_name_31$, "Boots";
@@ -285,6 +440,11 @@ set	@item_31_fabric_ammount,4;
 set	@item_31_plastic_ammount,0;
 set	@item_31_rubber_ammount,0;
 set	@item_31_wood_ammount,0;
+set @item_31_cmetal_ammount,0;
+set @item_31_cfabric_ammount,8;
+set @item_31_cplastic_ammount,0;
+set @item_31_crubber_ammount,0;
+set @item_31_cwood_ammount,0;
 
 set @item_id_32,2403;
 set @item_name_32$, "High Heels";
@@ -293,6 +453,11 @@ set	@item_32_fabric_ammount,4;
 set	@item_32_plastic_ammount,2;
 set	@item_32_rubber_ammount,0;
 set	@item_32_wood_ammount,0;
+set @item_32_cmetal_ammount,0;
+set @item_32_cfabric_ammount,8;
+set @item_32_cplastic_ammount,4;
+set @item_32_crubber_ammount,0;
+set @item_32_cwood_ammount,0;
 
 set @item_id_33,2404;
 set @item_name_33$, "Army Boots";
@@ -301,6 +466,11 @@ set	@item_33_fabric_ammount,0;
 set	@item_33_plastic_ammount,2;
 set	@item_33_rubber_ammount,0;
 set	@item_33_wood_ammount,0;
+set @item_33_cmetal_ammount,2;
+set @item_33_cfabric_ammount,0;
+set @item_33_cplastic_ammount,4;
+set @item_33_crubber_ammount,0;
+set @item_33_cwood_ammount,0;
 
 set @item_id_34,2405;
 set @item_name_34$, "Safety Boots";
@@ -309,6 +479,11 @@ set	@item_34_fabric_ammount,3;
 set	@item_34_plastic_ammount,0;
 set	@item_34_rubber_ammount,1;
 set	@item_34_wood_ammount,0;
+set @item_34_cmetal_ammount,0;
+set @item_34_cfabric_ammount,6;
+set @item_34_cplastic_ammount,0;
+set @item_34_crubber_ammount,2;
+set @item_34_cwood_ammount,0;
 
 set @item_id_35,2406;
 set @item_name_35$, "Running Shoes";
@@ -317,6 +492,11 @@ set	@item_35_fabric_ammount,5;
 set	@item_35_plastic_ammount,0;
 set	@item_35_rubber_ammount,1;
 set	@item_35_wood_ammount,0;
+set @item_35_cmetal_ammount,0;
+set @item_35_cfabric_ammount,10;
+set @item_35_cplastic_ammount,0;
+set @item_35_crubber_ammount,2;
+set @item_35_cwood_ammount,0;
 
 //Bags and Etc
 set @item_id_36,2201;
@@ -326,6 +506,11 @@ set	@item_36_fabric_ammount,4;
 set	@item_36_plastic_ammount,0;
 set	@item_36_rubber_ammount,2;
 set	@item_36_wood_ammount,0;
+set @item_36_cmetal_ammount,0;
+set @item_36_cfabric_ammount,8;
+set @item_36_cplastic_ammount,0;
+set @item_36_crubber_ammount,4;
+set @item_36_cwood_ammount,0;
 
 set @item_id_37,2202;
 set @item_name_37$, "Green Backpack";
@@ -334,6 +519,11 @@ set	@item_37_fabric_ammount,4;
 set	@item_37_plastic_ammount,0;
 set	@item_37_rubber_ammount,2;
 set	@item_37_wood_ammount,0;
+set @item_37_cmetal_ammount,0;
+set @item_37_cfabric_ammount,8;
+set @item_37_cplastic_ammount,0;
+set @item_37_crubber_ammount,4;
+set @item_37_cwood_ammount,0;
 
 set @item_id_38,2203;
 set @item_name_38$, "Red Backpack";
@@ -342,6 +532,11 @@ set	@item_38_fabric_ammount,4;
 set	@item_38_plastic_ammount,0;
 set	@item_38_rubber_ammount,2;
 set	@item_38_wood_ammount,0;
+set @item_38_cmetal_ammount,0;
+set @item_38_cfabric_ammount,8;
+set @item_38_cplastic_ammount,0;
+set @item_38_crubber_ammount,4;
+set @item_38_cwood_ammount,0;
 
 set @item_id_39,2601;
 set @item_name_39$, "Light Wagon";
@@ -350,6 +545,11 @@ set	@item_39_fabric_ammount,0;
 set	@item_39_plastic_ammount,0;
 set	@item_39_rubber_ammount,0;
 set	@item_39_wood_ammount,1;
+set @item_39_cmetal_ammount,6;
+set @item_39_cfabric_ammount,0;
+set @item_39_cplastic_ammount,0;
+set @item_39_crubber_ammount,0;
+set @item_39_cwood_ammount,2;
 
 set @item_id_40,2602;
 set @item_name_40$, "Heavy Wagon";
@@ -358,6 +558,11 @@ set	@item_40_fabric_ammount,0;
 set	@item_40_plastic_ammount,0;
 set	@item_40_rubber_ammount,0;
 set	@item_40_wood_ammount,1;
+set @item_40_cmetal_ammount,8;
+set @item_40_cfabric_ammount,0;
+set @item_40_cplastic_ammount,0;
+set @item_40_crubber_ammount,0;
+set @item_40_cwood_ammount,2;
 
 set @item_id_41,2603;
 set @item_name_41$, "Super Heavy Wagon";
@@ -366,6 +571,11 @@ set	@item_41_fabric_ammount,0;
 set	@item_41_plastic_ammount,0;
 set	@item_41_rubber_ammount,0;
 set	@item_41_wood_ammount,3;
+set @item_41_cmetal_ammount,20;
+set @item_41_cfabric_ammount,0;
+set @item_41_cplastic_ammount,0;
+set @item_41_crubber_ammount,0;
+set @item_41_cwood_ammount,6;
 
 set @item_id_42,519;	// Id of item 00
 set @item_name_42$, "Can of Soup";	//Name of the item
@@ -374,7 +584,6 @@ set	@item_42_fabric_ammount,0;	// how much fabric will they recive from decompos
 set	@item_42_plastic_ammount,0;	// how much plastic will they recive from decomposing this
 set	@item_42_rubber_ammount,0;	// how much rubber will they recive from decomposing this
 set	@item_42_wood_ammount,0;	// how much wood will they recive from decomposing this
-
 
 
 
@@ -411,12 +620,49 @@ next;
 switch(select("Create item:Break down items into their basic parts")) {
 
 case 1:
-mes	"Sorry this fuction is not done yet";
-close;
+goto L_comp;
+
 		
 //Decomposer / item break down
 case 2: 
 goto L_Decomp;
+
+L_comp:
+mes	"[Work Bench]";
+mes	"What type of item do you want to create?";
+next;
+switch(select("Weapons:Accessories:Tools:Foot Wear:Bags and Etc:Never Mind")) {
+	case 1://Weapons
+		next;
+		switch(select("Melee:Guns")) {
+			case 1://Melee
+			menu	"" +@item_name_00$+ "",CWBPKnife,"" +@item_name_01$+ "",CWBCKnife,"" +@item_name_02$+ "",CWBSAKnife,"" +@item_name_03$+ "",CWBBKnife,"" +@item_name_04$+ "",CWBWKnife,"" +@item_name_05$+ "",CWBAxe,"" +@item_name_06$+ "",CWBPAxe,"" +@item_name_07$+ "",CWBHammer,"" +@item_name_08$+ "",CWBTomahawk,"" +@item_name_09$+"",CWBIPick,"Back",L_comp;
+			close;
+			case 2://Guns
+			menu	"" +@item_name_10$+ "",CWBHandgun,"" +@item_name_11$+ "",CWBM9,"" +@item_name_12$+ "",CWBShotgun,"" +@item_name_13$+ "",CWBM4,"" +@item_name_14$+ "",CWBM16,"" +@item_name_15$+ "",CWBSRifle,"" +@item_name_16$+ "",CWBM82,"Back",L_comp;
+			close;
+			}
+	case 2://Accessories
+		next;
+		menu	"" +@item_name_17$+ "",CWBEarring,"" +@item_name_18$+ "",CWBRing,"" +@item_name_19$+ "",CWBBelt,""+@item_name_20$+ "",CWBGlove,"" +@item_name_21$+ "",CWBHandcuffs,"Back",L_comp,"Never Mind",-;
+		close;
+	case 3://Tools
+		next;
+		menu	"" +@item_name_22$+ "",CWBFlashlight,"" +@item_name_23$+ "",CWBSleepingbag,"" +@item_name_24$+ "",CWBMegaphone,"" +@item_name_25$+ "",CWBRadio,"" +@item_name_26$+ "",CWBWatch,"" +@item_name_27$+ "",CWBWrench,"" +@item_name_28$+ "",CWBFRodP,"" +@item_name_29$+ "",CWBFRod,"Back",L_comp;
+		close;
+	case 4://Foot Wear
+		next;
+		menu	"" +@item_name_30$+ "",CWBSneakers,"" +@item_name_31$+ "",CWBBoots,"" +@item_name_32$+ "",CWBHHeals,"" +@item_name_33$+ "",CWBABoots,"" +@item_name_34$+ "",CWBSBoots,"" +@item_name_35$+ "",CWBRShoes,"Back",L_comp;
+		close;
+	case 5://Storage and Etc
+		next;
+		menu	"" +@item_name_36$+ "",CWBBBackpack,"" +@item_name_37$+ "",CWBGBackpack,"" +@item_name_38$+ "",CWBRBackpack,"" +@item_name_39$+ "",CWBLWagon,"" +@item_name_40$+ "",CWBHWagon,"" +@item_name_41$+ "",CWBSHWagon,"Back",L_comp;
+		close;
+	case 6:
+	close;
+	}
+	
+}// do I need this? 
 
 L_Decomp:
 mes	"[Work Bench]";
@@ -999,7 +1245,7 @@ DY_WBGlove:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_01) > 0) {
+if (countitem(@item_id_20) > 0) {
 			mes	"You carefully start working on the item";
 			next;
 			delitem @item_id_20,1;
@@ -1593,7 +1839,1117 @@ if (countitem(@item_id_42) > 0) {
 		mes	"Seems like you dont have the item(s) you want to break down.";
 		close;
 		}
+//Fun starts
 
+CWBPKnife:
+mes	"You selected " +@item_name_00$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBPKnife,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBPKnife:
+next;
+
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(1201) < 99) {
+
+			mes	"You carefully start working on the item";
+			next;
+			getitem 1201,1;
+			delitem @material_id_01,@item_00_cfabric_ammount;
+			delitem @material_id_02,@item_00_cmetal_ammount;
+			delitem @material_id_03,@item_00_cplastic_ammount;
+			delitem @material_id_04,@item_00_crubber_ammount;
+			delitem @material_id_05,@item_00_cwood_ammount;
+			mes "Success!";
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+		
+CWBCKnife:
+mes	"You selected " +@item_name_01$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBCKnife,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBCKnife:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(1202) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem 1202,1;
+			delitem @material_id_01,@item_01_cfabric_ammount;
+			delitem @material_id_02,@item_01_cmetal_ammount;
+			delitem @material_id_03,@item_01_cplastic_ammount;
+			delitem @material_id_04,@item_01_crubber_ammount;
+			delitem @material_id_05,@item_01_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+		
+CWBSAKnife:
+mes	"You selected " +@item_name_02$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBSAKnife,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBSAKnife:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(1203) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem 1203,1;
+			delitem @material_id_01,@item_02_cfabric_ammount;
+			delitem @material_id_02,@item_02_cmetal_ammount;
+			delitem @material_id_03,@item_02_cplastic_ammount;
+			delitem @material_id_04,@item_02_crubber_ammount;
+			delitem @material_id_05,@item_02_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+		
+CWBBKnife:
+mes	"You selected " +@item_name_03$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBBKnife,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBBKnife:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(1204) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem 1204,1;
+			delitem @material_id_01,@item_03_cfabric_ammount;
+			delitem @material_id_02,@item_03_cmetal_ammount;
+			delitem @material_id_03,@item_03_cplastic_ammount;
+			delitem @material_id_04,@item_03_crubber_ammount;
+			delitem @material_id_05,@item_03_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+		
+CWBWKnife:
+mes	"You selected " +@item_name_04$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBWKnife,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBWKnife:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(1205) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem 1205,1;
+			delitem @material_id_01,@item_04_cfabric_ammount;
+			delitem @material_id_02,@item_04_cmetal_ammount;
+			delitem @material_id_03,@item_04_cplastic_ammount;
+			delitem @material_id_04,@item_04_crubber_ammount;
+			delitem @material_id_05,@item_04_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+		
+CWBAxe:
+mes	"You selected " +@item_name_05$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBAxe,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBAxe:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(1301) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem 1301,1;
+			delitem @material_id_01,@item_05_cfabric_ammount;
+			delitem @material_id_02,@item_05_cmetal_ammount;
+			delitem @material_id_03,@item_05_cplastic_ammount;
+			delitem @material_id_04,@item_05_crubber_ammount;
+			delitem @material_id_05,@item_05_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+		
+CWBPAxe:
+mes	"You selected " +@item_name_06$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBPAxe,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBPAxe:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(1302) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_06,1;
+			delitem @material_id_01,@item_06_cfabric_ammount;
+			delitem @material_id_02,@item_06_cmetal_ammount;
+			delitem @material_id_03,@item_06_cplastic_ammount;
+			delitem @material_id_04,@item_06_crubber_ammount;
+			delitem @material_id_05,@item_06_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+
+CWBHammer:
+mes	"You selected " +@item_name_07$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBHammer,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBHammer:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(1351) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_07,1;
+			delitem @material_id_01,@item_07_cfabric_ammount;
+			delitem @material_id_02,@item_07_cmetal_ammount;
+			delitem @material_id_03,@item_07_cplastic_ammount;
+			delitem @material_id_04,@item_07_crubber_ammount;
+			delitem @material_id_05,@item_07_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+		
+CWBTomahawk:
+mes	"You selected " +@item_name_08$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBTomahawk,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBTomahawk:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(1352) < 99) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_08,1;
+			delitem @material_id_01,@item_08_cfabric_ammount;
+			delitem @material_id_02,@item_08_cmetal_ammount;
+			delitem @material_id_03,@item_08_cplastic_ammount;
+			delitem @material_id_04,@item_08_crubber_ammount;
+			delitem @material_id_05,@item_08_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+
+CWBIPick:
+mes	"You selected " +@item_name_09$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBIPick,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBIPick:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(1206) < 99) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_09,1;
+			delitem @material_id_01,@item_09_cfabric_ammount;
+			delitem @material_id_02,@item_09_cmetal_ammount;
+			delitem @material_id_03,@item_09_cplastic_ammount;
+			delitem @material_id_04,@item_09_crubber_ammount;
+			delitem @material_id_05,@item_09_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+		
+CWBHandgun:
+mes	"You selected " +@item_name_10$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBHandgun,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBHandgun:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(13100) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_10,1;
+			delitem @material_id_01,@item_10_cfabric_ammount;
+			delitem @material_id_02,@item_10_cmetal_ammount;
+			delitem @material_id_03,@item_10_cplastic_ammount;
+			delitem @material_id_04,@item_10_crubber_ammount;
+			delitem @material_id_05,@item_10_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBM9:
+mes	"You selected " +@item_name_11$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBM9,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBM9:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(13101) < 99) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_11,1;
+			delitem @material_id_01,@item_11_fabric_ammount;
+			delitem @material_id_02,@item_11_metal_ammount;
+			delitem @material_id_03,@item_11_plastic_ammount;
+			delitem @material_id_04,@item_11_rubber_ammount;
+			delitem @material_id_05,@item_11_wood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBShotgun:
+mes	"You selected " +@item_name_12$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBShotgun,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBShotgun:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(13152) < 99) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_12,1;
+			delitem @material_id_01,@item_12_fabric_ammount;
+			delitem @material_id_02,@item_12_metal_ammount;
+			delitem @material_id_03,@item_12_plastic_ammount;
+			delitem @material_id_04,@item_12_rubber_ammount;
+			delitem @material_id_05,@item_12_wood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}		
+CWBM4:
+mes	"You selected " +@item_name_13$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBM4,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBM4:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_13) < 99) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_13,1;
+			delitem @material_id_01,@item_13_fabric_ammount;
+			delitem @material_id_02,@item_13_metal_ammount;
+			delitem @material_id_03,@item_13_plastic_ammount;
+			delitem @material_id_04,@item_13_rubber_ammount;
+			delitem @material_id_05,@item_13_wood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBM16:
+mes	"You selected " +@item_name_14$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBM16,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBM16:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_14) < 99) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_14,1;
+			delitem @material_id_01,@item_14_fabric_ammount;
+			delitem @material_id_02,@item_14_metal_ammount;
+			delitem @material_id_03,@item_14_plastic_ammount;
+			delitem @material_id_04,@item_14_rubber_ammount;
+			delitem @material_id_05,@item_14_wood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBSRifle:
+mes	"You selected " +@item_name_15$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBSRifle,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBSRfile:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_15) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_15,1;
+			delitem @material_id_01,@item_15_cfabric_ammount;
+			delitem @material_id_02,@item_15_cmetal_ammount;
+			delitem @material_id_03,@item_15_cplastic_ammount;
+			delitem @material_id_04,@item_15_crubber_ammount;
+			delitem @material_id_05,@item_15_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+		
+CWBM82:
+mes	"You selected " +@item_name_16$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBM82,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBM82:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_16) < 99) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_16,1;
+			delitem @material_id_01,@item_16_fabric_ammount;
+			delitem @material_id_02,@item_16_metal_ammount;
+			delitem @material_id_03,@item_16_plastic_ammount;
+			delitem @material_id_04,@item_16_rubber_ammount;
+			delitem @material_id_05,@item_16_wood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBEarring:
+mes	"You selected " +@item_name_17$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBEarring,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBEarring:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_17) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			delitem @item_id_17,1;
+			getitem @material_id_01,@item_17_fabric_ammount;
+			getitem @material_id_02,@item_17_metal_ammount;
+			getitem @material_id_03,@item_17_plastic_ammount;
+			getitem @material_id_04,@item_17_rubber_ammount;
+			getitem @material_id_05,@item_17_wood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBRing:
+mes	"You selected " +@item_name_18$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBRing,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBRing:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_18) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			delitem @item_id_18,1;
+			getitem @material_id_01,@item_18_fabric_ammount;
+			getitem @material_id_02,@item_18_metal_ammount;
+			getitem @material_id_03,@item_18_plastic_ammount;
+			getitem @material_id_04,@item_18_rubber_ammount;
+			getitem @material_id_05,@item_18_wood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBBelt:
+mes	"You selected " +@item_name_19$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBBelt,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBBelt:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_19) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			delitem @item_id_19,1;
+			getitem @material_id_01,@item_19_fabric_ammount;
+			getitem @material_id_02,@item_19_metal_ammount;
+			getitem @material_id_03,@item_19_plastic_ammount;
+			getitem @material_id_04,@item_19_rubber_ammount;
+			getitem @material_id_05,@item_19_wood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+		
+CWBGlove:
+mes	"You selected " +@item_name_20$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBGlove,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBGlove:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_20) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			delitem @item_id_20,1;
+			getitem @material_id_01,@item_20_fabric_ammount;
+			getitem @material_id_02,@item_20_metal_ammount;
+			getitem @material_id_03,@item_20_plastic_ammount;
+			getitem @material_id_04,@item_20_rubber_ammount;
+			getitem @material_id_05,@item_20_wood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBHandcuffs:
+mes	"You selected " +@item_name_21$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBHandcuffs,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBHandcuffs:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_21) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			delitem @item_id_21,1;
+			getitem @material_id_01,@item_21_fabric_ammount;
+			getitem @material_id_02,@item_21_metal_ammount;
+			getitem @material_id_03,@item_21_plastic_ammount;
+			getitem @material_id_04,@item_21_rubber_ammount;
+			getitem @material_id_05,@item_21_wood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBFlashlight:
+mes	"You selected " +@item_name_22$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBFlashlight,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBFlashlight:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_22) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			delitem @item_id_22,1;
+			getitem @material_id_01,@item_22_fabric_ammount;
+			getitem @material_id_02,@item_22_metal_ammount;
+			getitem @material_id_03,@item_22_plastic_ammount;
+			getitem @material_id_04,@item_22_rubber_ammount;
+			getitem @material_id_05,@item_22_wood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}		
+CWBSleepingbag:
+mes	"You selected " +@item_name_23$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBSleepingbag,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBSleepingbag:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_23) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			delitem @item_id_23,1;
+			getitem @material_id_01,@item_23_fabric_ammount;
+			getitem @material_id_02,@item_23_metal_ammount;
+			getitem @material_id_03,@item_23_plastic_ammount;
+			getitem @material_id_04,@item_23_rubber_ammount;
+			getitem @material_id_05,@item_23_wood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBMegaphone:
+mes	"You selected " +@item_name_24$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBMegaphone,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBMegaphone:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_24) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			delitem @item_id_24,1;
+			getitem @material_id_01,@item_24_fabric_ammount;
+			getitem @material_id_02,@item_24_metal_ammount;
+			getitem @material_id_03,@item_24_plastic_ammount;
+			getitem @material_id_04,@item_24_rubber_ammount;
+			getitem @material_id_05,@item_24_wood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBRadio:
+mes	"You selected " +@item_name_25$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBRadio,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBRadio:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_25) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			delitem @item_id_25,1;
+			getitem @material_id_01,@item_25_fabric_ammount;
+			getitem @material_id_02,@item_25_metal_ammount;
+			getitem @material_id_03,@item_25_plastic_ammount;
+			getitem @material_id_04,@item_25_rubber_ammount;
+			getitem @material_id_05,@item_25_wood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+		
+CWBWatch:
+mes	"You selected " +@item_name_26$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBWatch,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBWatch:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_26) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			delitem @item_id_26,1;
+			getitem @material_id_01,@item_26_fabric_ammount;
+			getitem @material_id_02,@item_26_metal_ammount;
+			getitem @material_id_03,@item_26_plastic_ammount;
+			getitem @material_id_04,@item_26_rubber_ammount;
+			getitem @material_id_05,@item_26_wood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBWrench:
+mes	"You selected " +@item_name_27$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBWrench,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBWrench:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_27) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			delitem @item_id_27,1;
+			getitem @material_id_01,@item_27_fabric_ammount;
+			getitem @material_id_02,@item_27_metal_ammount;
+			getitem @material_id_03,@item_27_plastic_ammount;
+			getitem @material_id_04,@item_27_rubber_ammount;
+			getitem @material_id_05,@item_27_wood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBFRodP:
+mes	"You selected " +@item_name_28$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBFRodP,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBFRodP:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_28) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			delitem @item_id_28,1;
+			getitem @material_id_01,@item_28_fabric_ammount;
+			getitem @material_id_02,@item_28_metal_ammount;
+			getitem @material_id_03,@item_28_plastic_ammount;
+			getitem @material_id_04,@item_28_rubber_ammount;
+			getitem @material_id_05,@item_28_wood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+		
+CWBFRod:
+mes	"You selected " +@item_name_29$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBFRod,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBFRod:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_29) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			delitem @item_id_29,1;
+			getitem @material_id_01,@item_29_fabric_ammount;
+			getitem @material_id_02,@item_29_metal_ammount;
+			getitem @material_id_03,@item_29_plastic_ammount;
+			getitem @material_id_04,@item_29_rubber_ammount;
+			getitem @material_id_05,@item_29_wood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+		
+CWBSneakers:
+mes	"You selected " +@item_name_30$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBSneakers,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBSneakers:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_30) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_30,1;
+			delitem @material_id_01,@item_30_cfabric_ammount;
+			delitem @material_id_02,@item_30_cmetal_ammount;
+			delitem @material_id_03,@item_30_cplastic_ammount;
+			delitem @material_id_04,@item_30_crubber_ammount;
+			delitem @material_id_05,@item_30_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBBoots:
+mes	"You selected " +@item_name_31$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBBoots,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBBoots:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_31) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_31,1;
+			delitem @material_id_01,@item_31_cfabric_ammount;
+			delitem @material_id_02,@item_31_cmetal_ammount;
+			delitem @material_id_03,@item_31_cplastic_ammount;
+			delitem @material_id_04,@item_31_crubber_ammount;
+			delitem @material_id_05,@item_31_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBHHeels:
+mes	"You selected " +@item_name_32$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBHHeels,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBHHeels:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_32) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_32,1;
+			delitem @material_id_01,@item_32_cfabric_ammount;
+			delitem @material_id_02,@item_32_cmetal_ammount;
+			delitem @material_id_03,@item_32_cplastic_ammount;
+			delitem @material_id_04,@item_32_crubber_ammount;
+			delitem @material_id_05,@item_32_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}		
+CWBABoots:
+mes	"You selected " +@item_name_33$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBABoots,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBABoots:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_33) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_33,1;
+			delitem @material_id_01,@item_33_cfabric_ammount;
+			delitem @material_id_02,@item_33_cmetal_ammount;
+			delitem @material_id_03,@item_33_cplastic_ammount;
+			delitem @material_id_04,@item_33_crubber_ammount;
+			delitem @material_id_05,@item_33_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBSBoots:
+mes	"You selected " +@item_name_34$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBSBoots,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBSBoots:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_34) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_34,1;
+			delitem @material_id_01,@item_34_cfabric_ammount;
+			delitem @material_id_02,@item_34_cmetal_ammount;
+			delitem @material_id_03,@item_34_cplastic_ammount;
+			delitem @material_id_04,@item_34_crubber_ammount;
+			delitem @material_id_05,@item_34_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBRShoes:
+mes	"You selected " +@item_name_35$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBRShoes,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBRShoes:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_35) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_35,1;
+			delitem @material_id_01,@item_35_cfabric_ammount;
+			delitem @material_id_02,@item_35_cmetal_ammount;
+			delitem @material_id_03,@item_35_cplastic_ammount;
+			delitem @material_id_04,@item_35_crubber_ammount;
+			delitem @material_id_05,@item_35_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+		
+CWBBBackpack:
+mes	"You selected " +@item_name_36$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBBBackpack,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBBBackpack:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_36) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_36,1;
+			delitem @material_id_01,@item_36_cfabric_ammount;
+			delitem @material_id_02,@item_36_cmetal_ammount;
+			delitem @material_id_03,@item_36_cplastic_ammount;
+			delitem @material_id_04,@item_36_crubber_ammount;
+			delitem @material_id_05,@item_36_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBGBackpack:
+mes	"You selected " +@item_name_37$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBGBackpack,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBGBackpack:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_37) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_37,1;
+			delitem @material_id_01,@item_37_cfabric_ammount;
+			delitem @material_id_02,@item_37_cmetal_ammount;
+			delitem @material_id_03,@item_37_cplastic_ammount;
+			delitem @material_id_04,@item_37_crubber_ammount;
+			delitem @material_id_05,@item_37_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBRBackpack:
+mes	"You selected " +@item_name_38$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBRBackpack,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBRBackpack:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_38) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_38,1;
+			delitem @material_id_01,@item_38_cfabric_ammount;
+			delitem @material_id_02,@item_38_cmetal_ammount;
+			delitem @material_id_03,@item_38_cplastic_ammount;
+			delitem @material_id_04,@item_38_crubber_ammount;
+			delitem @material_id_05,@item_38_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBLWagon:
+mes	"You selected " +@item_name_39$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBLWagon,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBLWagon:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_39) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_39,1;
+			delitem @material_id_01,@item_39_cfabric_ammount;
+			delitem @material_id_02,@item_39_cmetal_ammount;
+			delitem @material_id_03,@item_39_cplastic_ammount;
+			delitem @material_id_04,@item_39_crubber_ammount;
+			delitem @material_id_05,@item_39_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBHWagon:
+mes	"You selected " +@item_name_40$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBHWagon,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBHWagon:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_40) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_40,1;
+			delitem @material_id_01,@item_40_cfabric_ammount;
+			delitem @material_id_02,@item_40_cmetal_ammount;
+			delitem @material_id_03,@item_40_cplastic_ammount;
+			delitem @material_id_04,@item_40_crubber_ammount;
+			delitem @material_id_05,@item_40_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
+CWBSHWagon:
+mes	"You selected " +@item_name_41$+ "";
+mes	"Was this the correct item?";
+menu	"Yes.",CY_WBSHWagon,"No, I want to select another item",L_comp,"No and i want to leave this Work bench",-;
+close;
+CY_WBSHWagon:
+next;
+//mes	"Please write how many of the item you want to break down";
+//input	.@ammount;
+if (countitem(@item_id_41) > 0) {
+			mes	"You carefully start working on the item";
+			next;
+			getitem @item_id_41,1;
+			delitem @material_id_01,@item_41_cfabric_ammount;
+			delitem @material_id_02,@item_41_cmetal_ammount;
+			delitem @material_id_03,@item_41_cplastic_ammount;
+			delitem @material_id_04,@item_41_crubber_ammount;
+			delitem @material_id_05,@item_41_cwood_ammount;
+			mes "Success!";
+			set	.@ammount,0; // failsafe so it cleans that out for each time.
+			close;
+		}
+		else {
+		mes	"Seems like you dont have the item(s) you want to break down.";
+		close;
+		}
 }
 // Here you put all the clones for this script using this format(Including an example)
 // mapname,X,Y,0 TAB duplicate(workbenchs) TAB Work Bench::wrkbnch then a unique number TAB 111
