@@ -467,7 +467,7 @@ next;
 
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(1202) >= 1) {
+if (countitem(1202) > 0) {
 
 			mes	"You carefully start working on the item";
 			next;
