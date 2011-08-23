@@ -465,18 +465,16 @@ close;
 DY_WBPKnife:
 next;
 mes	"Please write how many of the item you want to break down";
-input	.@ammount;
-if (countitem(1201) < .@ammount) {
+if (countitem(1201) < 1) {
 			mes	"You carefully start working on the item";
 			next;
-			delitem 1201,.@ammount;
+			delitem 1201,1;
 			getitem @material_id_01,@item_00_fabric_ammount;
 			getitem @material_id_02,@item_00_metal_ammount;
 			getitem @material_id_03,@item_00_plastic_ammount;
 			getitem @material_id_04,@item_00_rubber_ammount;
 			getitem @material_id_05,@item_00_wood_ammount;
 			mes "Success!";
-			set	.@ammount,0; // failsafe so it cleans that out for each time.
 			close;
 		}
 		else {
