@@ -342,7 +342,7 @@ function	script	loading_func	{
 
 function	script	lumber_func	{
 	setarray .@failrate[0],70,80,90;
-	setarray .@axeIDs[0],1301,1301,1301;
+	setarray .@axeIDs[0],1300,1301,1302;
 	for(set .@i,getarraysize(.@axeIDs) - 1; .@i >= 0; set .@i,.@i-1) {
     		if(countitem(.@axeIDs[.@i]) > 0) {
         		set .@failrate2,.@failrate[.@i];
@@ -384,6 +384,7 @@ lum_15sec:
 	setarray .@catch[0],1007,1007,1007,1007,1007,1007,1007,1007,1007;
 	set .@rand,rand(0,8);
 	getitem .@catch[.@rand],1;
+	getitem 1005,1;
 	set @superrand, rand(1,100);
 	if(@superrand > .@failrate2) {	delitem .@axeIDs[.@axeindex],1; message strcharinfo(0), "Crap... The axe broke.";}
 	close;
@@ -429,6 +430,7 @@ lum_30sec:
 	setarray .@catch[0],1007,1007,1007,1007,1007,1007,1007,1007,1007;
 	set .@rand,rand(0,8);
 	getitem .@catch[.@rand],2;
+	getitem 1005,1;
 	set @superrand, rand(1,100);
 	if(@superrand > .@failrate2) {	delitem .@axeIDs[.@axeindex],1; message strcharinfo(0), "Crap... The axe broke.";}
 	close;
