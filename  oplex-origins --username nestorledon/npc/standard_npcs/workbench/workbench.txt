@@ -465,7 +465,7 @@ close;
 DY_WBPKnife:
 next;
 //mes	"Please write how many of the item you want to break down";
-if (countitem(1201) < 1) {
+if (countitem(1201) > 1) {
 			mes	"You carefully start working on the item";
 			next;
 			delitem 1201,1;
