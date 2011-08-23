@@ -627,6 +627,8 @@ goto L_comp;
 case 2: 
 goto L_Decomp;
 
+} this should be here in theory?
+
 L_comp:
 mes	"[Work Bench]";
 mes	"What type of item do you want to create?";
@@ -662,7 +664,7 @@ switch(select("Weapons:Accessories:Tools:Foot Wear:Bags and Etc:Never Mind")) {
 	close;
 	}
 	
-}// do I need this? 
+
 
 L_Decomp:
 mes	"[Work Bench]";
@@ -699,7 +701,7 @@ switch(select("Weapons:Accessories:Tools:Foot Wear:Bags and Etc:Never Mind")) {
 	close;
 	}
 	
-}
+//Don't think I need this}
 
 
 
