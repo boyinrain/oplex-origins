@@ -465,8 +465,8 @@ close;
 DY_WBPKnife:
 next;
 mes	"Please write how many of the item you want to break down";
-input	.@ammount;
-if(countitem(1202) == .@ammount) {
+input	@ammount;
+if(countitem(1202) == @ammount) {
 			mes	"You carefully start working on the item";
 			next;
 			delitem 1201,1;
