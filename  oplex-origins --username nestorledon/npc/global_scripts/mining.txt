@@ -1,5 +1,5 @@
 //===== Oplex Origins Script ======================================= 
-//= Lumbering
+//= Mining
 //===== By: ================================================== 
 //= Sigma
 //===== Current Version: ===================================== 
@@ -7,13 +7,13 @@
 //===== Compatible With: ===================================== 
 //= Any Oplex Version 
 //===== Description: ========================================= 
-//= Enables you chop down trees!
+//= Enables you to mine!
 //===== Changelog: ===========================================
 //= v1.0 - Original release
 //============================================================
-blank_01,5,5,5	script	Lumber::lumber	111,{
-		callfunc "lumber_func";
+blank_01,7,7,5	script	Mine::mine	111,{
+		callfunc "mining_func";
 }
 
 // Here you put all the clones for this script use the format below
-//la_in01,174,138,0	duplicate(lumber)	Lumber::lumber1	111
+//la_in01,174,138,0	duplicate(mine)	Mine::mine1	111
