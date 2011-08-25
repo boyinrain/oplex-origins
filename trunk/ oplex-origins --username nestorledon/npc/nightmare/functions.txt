@@ -384,7 +384,7 @@ lum_15sec:
 	setarray .@catch[0],1007,1007,1007,1007,1007,1007,1007,1007,1007;
 	set .@rand,rand(0,8);
 	getitem .@catch[.@rand],1;
-	getitem 1005,1;
+	getitem 1005, rand(1,5);
 	set @superrand, rand(1,100);
 	if(@superrand > .@failrate2) {	delitem .@axeIDs[.@axeindex],1; message strcharinfo(0), "Crap... The axe broke.";}
 	close;
@@ -430,9 +430,106 @@ lum_30sec:
 	setarray .@catch[0],1007,1007,1007,1007,1007,1007,1007,1007,1007;
 	set .@rand,rand(0,8);
 	getitem .@catch[.@rand],2;
-	getitem 1005,1;
+	getitem 1005, rand(1,3);
 	set @superrand, rand(1,100);
 	if(@superrand > .@failrate2) {	delitem .@axeIDs[.@axeindex],1; message strcharinfo(0), "Crap... The axe broke.";}
+	close;
+	end;
+}
+
+function	script	mining_func	{
+	setarray .@failrate[0],70,80,90;
+	setarray .@axeIDs[0],1303,1304,1305;
+	for(set .@i,getarraysize(.@axeIDs) - 1; .@i >= 0; set .@i,.@i-1) {
+    		if(countitem(.@axeIDs[.@i]) > 0) {
+        		set .@failrate2,.@failrate[.@i];
+        		set .@axeindex,.@i;
+        		break;
+    		}
+	}
+	if(.@i >= 0) {
+		mes "How long would you like to mine for?";
+		next;
+		menu "15 seconds",mine_15sec,"30 seconds",mine_30sec,"Nevermind",-;
+		close;
+		end;
+		}
+	if(.@i < 0)
+	dispbottom "Might be able to mine for minerals with a pickaxe...";
+	end;
+
+mine_15sec:
+	mes "Here goes nothing...";
+	soundeffect "wood_chopping.wav",0;
+	sc_start SC_SLEEP,15000,0;
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	soundeffect "wood_chopping.wav",0;
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	setarray .@catch[0],1019,1017,1003;
+	set .@rand,rand(0,2);
+	getitem .@catch[.@rand],2;
+	getitem 1011, rand(1,5);
+	set @superrand, rand(1,100);
+	if(@superrand > .@failrate2) {	delitem .@axeIDs[.@axeindex],1; message strcharinfo(0), "Crap... The pickaxe broke.";}
+	close;
+	end;
+
+mine_30sec:
+	mes "Here goes nothing...";
+	soundeffect "wood_chopping.wav",0;
+	sc_start SC_SLEEP,30000,0;
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	soundeffect "wood_chopping.wav",0;
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	soundeffect "wood_chopping.wav",0;
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	soundeffect "wood_chopping.wav",0;
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	callfunc "loading_func";
+	setarray .@catch[0],1019,1017,1003;
+	set .@rand,rand(0,2);
+	getitem .@catch[.@rand],4;
+	getitem 1011, rand(1,3);
+	set @superrand, rand(1,100);
+	if(@superrand > .@failrate2) {	delitem .@axeIDs[.@axeindex],1; message strcharinfo(0), "Crap... The pickaxe broke.";}
 	close;
 	end;
 }
