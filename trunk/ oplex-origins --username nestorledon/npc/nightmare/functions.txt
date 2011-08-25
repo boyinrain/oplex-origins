@@ -455,12 +455,12 @@ function	script	mining_func	{
 		end;
 		}
 	if(.@i < 0)
-	dispbottom "Might be able to mine for minerals with a pickaxe...";
+	dispbottom "Might be able to mine minerals with a pickaxe...";
 	end;
 
 mine_15sec:
 	mes "Here goes nothing...";
-	soundeffect "wood_chopping.wav",0;
+	soundeffect "mining.wav",0;
 	sc_start SC_SLEEP,15000,0;
 	callfunc "loading_func";
 	callfunc "loading_func";
@@ -470,7 +470,7 @@ mine_15sec:
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
-	soundeffect "wood_chopping.wav",0;
+	soundeffect "mining.wav",0;
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
@@ -489,7 +489,7 @@ mine_15sec:
 
 mine_30sec:
 	mes "Here goes nothing...";
-	soundeffect "wood_chopping.wav",0;
+	soundeffect "mining.wav",0;
 	sc_start SC_SLEEP,30000,0;
 	callfunc "loading_func";
 	callfunc "loading_func";
@@ -499,7 +499,7 @@ mine_30sec:
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
-	soundeffect "wood_chopping.wav",0;
+	soundeffect "mining.wav",0;
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
@@ -508,7 +508,7 @@ mine_30sec:
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
-	soundeffect "wood_chopping.wav",0;
+	soundeffect "mining.wav",0;
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
@@ -517,7 +517,7 @@ mine_30sec:
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
-	soundeffect "wood_chopping.wav",0;
+	soundeffect "mining.wav",0;
 	callfunc "loading_func";
 	callfunc "loading_func";
 	callfunc "loading_func";
