@@ -17,7 +17,8 @@
 la_in01,40,102,0	script	Bed::beds	111,{
 		callfunc "sleep_func";
 }
-// Here you put all the clones for this script use the format below
+// Safe House Beds
+// la_in01 bed1-bed20
 la_in01,174,138,0	duplicate(beds)	Bed::bed1	111
 la_in01,174,30,0	duplicate(beds)	Bed::bed2	111
 la_in01,136,30,0	duplicate(beds)	Bed::bed3	111
