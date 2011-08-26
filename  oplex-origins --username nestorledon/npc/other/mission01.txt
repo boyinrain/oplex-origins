@@ -3,17 +3,18 @@
 //===== By: ================================================== 
 //= Epsynus
 //===== Current Version: ===================================== 
-//= 1.0
+//= 1.1
 //===== Compatible With: ===================================== 
 //= Any Oplex Version 
 //===== Description: ========================================= 
 //= The first mission people do.
 //===== Changelog: ===========================================
 //= v1.0 - Original release
+//= v1.1 - Added the morgue and changed some other parts
 //==== Note: =================================================
 //= This info is taken from
 //= http://theonlyhome.com/oplex/showthread.php?tid=83
-//= It's not fully done it's missing some maps & the morgue so dont enable it yet.
+//= It's not fully done it's missing maps and ID's
 //============================================================
 // Lavive. It should be possible to just make copies of most of these npc's for the other cities
 //the Patient Terminal is now placed on the computer in the la_hosp room (move to somewhere else if you make a model for it instead of this.)
