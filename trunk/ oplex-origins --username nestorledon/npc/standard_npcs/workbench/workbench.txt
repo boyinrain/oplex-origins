@@ -1,9 +1,9 @@
 //===== Oplex Origins Script =================================
 //= Work Bench
 //===== By: ================================================== 
-//= Epsynus
+//= Epsynus and ScriptingPhailure
 //===== Current Version: ===================================== 
-//= 2.0
+//= 2.5
 //===== Compatible With: ===================================== 
 //= Any Oplex Version 
 //===== Description: ========================================= 
@@ -11,6 +11,9 @@
 //= and also breaks things down into their spare parts
 //= Everything can be changed in the config section.
 //===== Changelog: ===========================================
+//= v2.5 - Made deconstruction functional and added construction aspect
+//= v2.2 - Uncluttered the deconstrution menu
+//= v2.1 - Took out a menu for a switch
 //= v2.0 - Practically remade the npc.
 //= v1.0 - Original release
 //============================================================
@@ -691,7 +694,7 @@ switch(select("Weapons:Accessories:Tools:Foot Wear:Bags and Etc:Never Mind")) {
 		close;
 	case 4://Foot Wear
 		next;
-		menu	"" +@item_name_30$+ "",DWBSneakers,"" +@item_name_31$+ "",DWBBoots,"" +@item_name_32$+ "",DWBHHeals,"" +@item_name_33$+ "",DWBABoots,"" +@item_name_34$+ "",DWBSBoots,"" +@item_name_35$+ "",DWBRShoes,"Back",L_Decomp;
+		menu	"" +@item_name_30$+ "",DWBSneakers,"" +@item_name_31$+ "",DWBBoots,"" +@item_name_32$+ "",DWBHHeels,"" +@item_name_33$+ "",DWBABoots,"" +@item_name_34$+ "",DWBSBoots,"" +@item_name_35$+ "",DWBRShoes,"Back",L_Decomp;
 		close;
 	case 5://Storage and Etc
 		next;
@@ -1853,7 +1856,7 @@ next;
 
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(1201) < 99) {
+if (countitem(@material_id_01) >= @item_00_cfabric_ammount && countitem(@material_id_02) >= @item_00_cmetal_ammount && countitem(@material_id_03) >= @item_00_cplastic_ammount && countitem(@material_id_04) >= @item_00_crubber_ammount && countitem(@material_id_05) >= @item_00_cwood_ammount)
 
 			mes	"You carefully start working on the item";
 			next;
@@ -1880,7 +1883,7 @@ CY_WBCKnife:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(1202) > 0) {
+if (countitem(@material_id_01) >= @item_01_cfabric_ammount && countitem(@material_id_02) >= @item_01_cmetal_ammount && countitem(@material_id_03) >= @item_01_cplastic_ammount && countitem(@material_id_04) >= @item_01_crubber_ammount && countitem(@material_id_05) >= @item_01_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem 1202,1;
@@ -1907,7 +1910,7 @@ CY_WBSAKnife:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(1203) > 0) {
+if (countitem(@material_id_01) >= @item_02_cfabric_ammount && countitem(@material_id_02) >= @item_02_cmetal_ammount && countitem(@material_id_03) >= @item_02_cplastic_ammount && countitem(@material_id_04) >= @item_02_crubber_ammount && countitem(@material_id_05) >= @item_02_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem 1203,1;
@@ -1934,7 +1937,7 @@ CY_WBBKnife:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(1204) > 0) {
+if (countitem(@material_id_01) >= @item_03_cfabric_ammount && countitem(@material_id_02) >= @item_03_cmetal_ammount && countitem(@material_id_03) >= @item_03_cplastic_ammount && countitem(@material_id_04) >= @item_03_crubber_ammount && countitem(@material_id_05) >= @item_03_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem 1204,1;
@@ -1961,7 +1964,7 @@ CY_WBWKnife:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(1205) > 0) {
+if (countitem(@material_id_01) >= @item_04_cfabric_ammount && countitem(@material_id_02) >= @item_04_cmetal_ammount && countitem(@material_id_03) >= @item_04_cplastic_ammount && countitem(@material_id_04) >= @item_04_crubber_ammount && countitem(@material_id_05) >= @item_04_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem 1205,1;
@@ -1988,7 +1991,7 @@ CY_WBAxe:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(1301) > 0) {
+if (countitem(@material_id_01) >= @item_05_cfabric_ammount && countitem(@material_id_02) >= @item_05_cmetal_ammount && countitem(@material_id_03) >= @item_05_cplastic_ammount && countitem(@material_id_04) >= @item_05_crubber_ammount && countitem(@material_id_05) >= @item_05_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem 1301,1;
@@ -2015,7 +2018,7 @@ CY_WBPAxe:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(1302) > 0) {
+if (countitem(@material_id_01) >= @item_06_cfabric_ammount && countitem(@material_id_02) >= @item_06_cmetal_ammount && countitem(@material_id_03) >= @item_06_cplastic_ammount && countitem(@material_id_04) >= @item_06_crubber_ammount && countitem(@material_id_05) >= @item_06_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_06,1;
@@ -2042,7 +2045,7 @@ CY_WBHammer:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(1351) > 0) {
+if (countitem(@material_id_01) >= @item_07_cfabric_ammount && countitem(@material_id_02) >= @item_07_cmetal_ammount && countitem(@material_id_03) >= @item_07_cplastic_ammount && countitem(@material_id_04) >= @item_07_crubber_ammount && countitem(@material_id_05) >= @item_07_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_07,1;
@@ -2069,7 +2072,7 @@ CY_WBTomahawk:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(1352) < 99) {
+if (countitem(@material_id_01) >= @item_08_cfabric_ammount && countitem(@material_id_02) >= @item_08_cmetal_ammount && countitem(@material_id_03) >= @item_08_cplastic_ammount && countitem(@material_id_04) >= @item_08_crubber_ammount && countitem(@material_id_05) >= @item_08_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_08,1;
@@ -2096,7 +2099,7 @@ CY_WBIPick:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(1206) < 99) {
+if (countitem(@material_id_01) >= @item_09_cfabric_ammount && countitem(@material_id_02) >= @item_09_cmetal_ammount && countitem(@material_id_03) >= @item_09_cplastic_ammount && countitem(@material_id_04) >= @item_09_crubber_ammount && countitem(@material_id_05) >= @item_09_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_09,1;
@@ -2123,7 +2126,7 @@ CY_WBHandgun:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(13100) > 0) {
+if (countitem(@material_id_01) >= @item_10_cfabric_ammount && countitem(@material_id_02) >= @item_10_cmetal_ammount && countitem(@material_id_03) >= @item_10_cplastic_ammount && countitem(@material_id_04) >= @item_10_crubber_ammount && countitem(@material_id_05) >= @item_10_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_10,1;
@@ -2149,15 +2152,15 @@ CY_WBM9:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(13101) < 99) {
+if (countitem(@material_id_01) >= @item_11_cfabric_ammount && countitem(@material_id_02) >= @item_11_cmetal_ammount && countitem(@material_id_03) >= @item_11_cplastic_ammount && countitem(@material_id_04) >= @item_11_crubber_ammount && countitem(@material_id_05) >= @item_11_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_11,1;
-			delitem @material_id_01,@item_11_fabric_ammount;
-			delitem @material_id_02,@item_11_metal_ammount;
-			delitem @material_id_03,@item_11_plastic_ammount;
-			delitem @material_id_04,@item_11_rubber_ammount;
-			delitem @material_id_05,@item_11_wood_ammount;
+			delitem @material_id_01,@item_11_cfabric_ammount;
+			delitem @material_id_02,@item_11_cmetal_ammount;
+			delitem @material_id_03,@item_11_cplastic_ammount;
+			delitem @material_id_04,@item_11_crubber_ammount;
+			delitem @material_id_05,@item_11_cwood_ammount;
 			mes "Success!";
 			set	.@ammount,0; // failsafe so it cleans that out for each time.
 			close;
@@ -2175,15 +2178,15 @@ CY_WBShotgun:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(13152) < 99) {
+if (countitem(@material_id_01) >= @item_12_cfabric_ammount && countitem(@material_id_02) >= @item_12_cmetal_ammount && countitem(@material_id_03) >= @item_12_cplastic_ammount && countitem(@material_id_04) >= @item_12_crubber_ammount && countitem(@material_id_05) >= @item_12_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_12,1;
-			delitem @material_id_01,@item_12_fabric_ammount;
-			delitem @material_id_02,@item_12_metal_ammount;
-			delitem @material_id_03,@item_12_plastic_ammount;
-			delitem @material_id_04,@item_12_rubber_ammount;
-			delitem @material_id_05,@item_12_wood_ammount;
+			delitem @material_id_01,@item_12_cfabric_ammount;
+			delitem @material_id_02,@item_12_cmetal_ammount;
+			delitem @material_id_03,@item_12_cplastic_ammount;
+			delitem @material_id_04,@item_12_crubber_ammount;
+			delitem @material_id_05,@item_12_cwood_ammount;
 			mes "Success!";
 			set	.@ammount,0; // failsafe so it cleans that out for each time.
 			close;
@@ -2199,17 +2202,17 @@ menu	"Yes.",CY_WBM4,"No, I want to select another item",L_comp,"No and i want to
 close;
 CY_WBM4:
 next;
-//mes	"Please write how many of the item you want to break down";
-//input	.@ammount;
-if (countitem(@item_id_13) < 99) {
+//mes "Please write how many of the item you want to break down";
+//input .@ammount;
+if (countitem(@material_id_01) >= @item_13_cfabric_ammount && countitem(@material_id_02) >= @item_13_cmetal_ammount && countitem(@material_id_03) >= @item_13_cplastic_ammount && countitem(@material_id_04) >= @item_13_crubber_ammount && countitem(@material_id_05) >= @item_13_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_13,1;
-			delitem @material_id_01,@item_13_fabric_ammount;
-			delitem @material_id_02,@item_13_metal_ammount;
-			delitem @material_id_03,@item_13_plastic_ammount;
-			delitem @material_id_04,@item_13_rubber_ammount;
-			delitem @material_id_05,@item_13_wood_ammount;
+			delitem @material_id_01,@item_13_cfabric_ammount;
+			delitem @material_id_02,@item_13_cmetal_ammount;
+			delitem @material_id_03,@item_13_cplastic_ammount;
+			delitem @material_id_04,@item_13_crubber_ammount;
+			delitem @material_id_05,@item_13_cwood_ammount;
 			mes "Success!";
 			set	.@ammount,0; // failsafe so it cleans that out for each time.
 			close;
@@ -2227,15 +2230,15 @@ CY_WBM16:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_14) < 99) {
+if (countitem(@material_id_01) >= @item_14_cfabric_ammount && countitem(@material_id_02) >= @item_14_cmetal_ammount && countitem(@material_id_03) >= @item_14_cplastic_ammount && countitem(@material_id_04) >= @item_14_crubber_ammount && countitem(@material_id_05) >= @item_14_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_14,1;
-			delitem @material_id_01,@item_14_fabric_ammount;
-			delitem @material_id_02,@item_14_metal_ammount;
-			delitem @material_id_03,@item_14_plastic_ammount;
-			delitem @material_id_04,@item_14_rubber_ammount;
-			delitem @material_id_05,@item_14_wood_ammount;
+			delitem @material_id_01,@item_14_cfabric_ammount;
+			delitem @material_id_02,@item_14_cmetal_ammount;
+			delitem @material_id_03,@item_14_cplastic_ammount;
+			delitem @material_id_04,@item_14_crubber_ammount;
+			delitem @material_id_05,@item_14_cwood_ammount;
 			mes "Success!";
 			set	.@ammount,0; // failsafe so it cleans that out for each time.
 			close;
@@ -2253,7 +2256,7 @@ CY_WBSRfile:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_15) > 0) {
+if (countitem(@material_id_01) >= @item_15_cfabric_ammount && countitem(@material_id_02) >= @item_15_cmetal_ammount && countitem(@material_id_03) >= @item_15_cplastic_ammount && countitem(@material_id_04) >= @item_15_crubber_ammount && countitem(@material_id_05) >= @item_15_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_15,1;
@@ -2280,15 +2283,15 @@ CY_WBM82:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_16) < 99) {
+if (countitem(@material_id_01) >= @item_16_cfabric_ammount && countitem(@material_id_02) >= @item_16_cmetal_ammount && countitem(@material_id_03) >= @item_16_cplastic_ammount && countitem(@material_id_04) >= @item_16_crubber_ammount && countitem(@material_id_05) >= @item_16_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_16,1;
-			delitem @material_id_01,@item_16_fabric_ammount;
-			delitem @material_id_02,@item_16_metal_ammount;
-			delitem @material_id_03,@item_16_plastic_ammount;
-			delitem @material_id_04,@item_16_rubber_ammount;
-			delitem @material_id_05,@item_16_wood_ammount;
+			delitem @material_id_01,@item_16_cfabric_ammount;
+			delitem @material_id_02,@item_16_cmetal_ammount;
+			delitem @material_id_03,@item_16_cplastic_ammount;
+			delitem @material_id_04,@item_16_crubber_ammount;
+			delitem @material_id_05,@item_16_cwood_ammount;
 			mes "Success!";
 			set	.@ammount,0; // failsafe so it cleans that out for each time.
 			close;
@@ -2306,15 +2309,15 @@ CY_WBEarring:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_17) > 0) {
+if (countitem(@material_id_01) >= @item_17_cfabric_ammount && countitem(@material_id_02) >= @item_17_cmetal_ammount && countitem(@material_id_03) >= @item_17_cplastic_ammount && countitem(@material_id_04) >= @item_17_crubber_ammount && countitem(@material_id_05) >= @item_17_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
-			delitem @item_id_17,1;
-			getitem @material_id_01,@item_17_fabric_ammount;
-			getitem @material_id_02,@item_17_metal_ammount;
-			getitem @material_id_03,@item_17_plastic_ammount;
-			getitem @material_id_04,@item_17_rubber_ammount;
-			getitem @material_id_05,@item_17_wood_ammount;
+			getitem @item_id_17,1;
+			delitem @material_id_01,@item_17_cfabric_ammount;
+			delitem @material_id_02,@item_17_cmetal_ammount;
+			delitem @material_id_03,@item_17_cplastic_ammount;
+			delitem @material_id_04,@item_17_crubber_ammount;
+			delitem @material_id_05,@item_17_cwood_ammount;
 			mes "Success!";
 			set	.@ammount,0; // failsafe so it cleans that out for each time.
 			close;
@@ -2332,15 +2335,15 @@ CY_WBRing:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_18) > 0) {
+if (countitem(@material_id_01) >= @item_18_cfabric_ammount && countitem(@material_id_02) >= @item_18_cmetal_ammount && countitem(@material_id_03) >= @item_18_cplastic_ammount && countitem(@material_id_04) >= @item_18_crubber_ammount && countitem(@material_id_05) >= @item_18_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
-			delitem @item_id_18,1;
-			getitem @material_id_01,@item_18_fabric_ammount;
-			getitem @material_id_02,@item_18_metal_ammount;
-			getitem @material_id_03,@item_18_plastic_ammount;
-			getitem @material_id_04,@item_18_rubber_ammount;
-			getitem @material_id_05,@item_18_wood_ammount;
+			getitem @item_id_18,1;
+			delitem @material_id_01,@item_18_cfabric_ammount;
+			delitem @material_id_02,@item_18_cmetal_ammount;
+			delitem @material_id_03,@item_18_cplastic_ammount;
+			delitem @material_id_04,@item_18_crubber_ammount;
+			delitem @material_id_05,@item_18_cwood_ammount;
 			mes "Success!";
 			set	.@ammount,0; // failsafe so it cleans that out for each time.
 			close;
@@ -2358,15 +2361,15 @@ CY_WBBelt:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_19) > 0) {
+if (countitem(@material_id_01) >= @item_19_cfabric_ammount && countitem(@material_id_02) >= @item_19_cmetal_ammount && countitem(@material_id_03) >= @item_19_cplastic_ammount && countitem(@material_id_04) >= @item_19_crubber_ammount && countitem(@material_id_05) >= @item_19_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
-			delitem @item_id_19,1;
-			getitem @material_id_01,@item_19_fabric_ammount;
-			getitem @material_id_02,@item_19_metal_ammount;
-			getitem @material_id_03,@item_19_plastic_ammount;
-			getitem @material_id_04,@item_19_rubber_ammount;
-			getitem @material_id_05,@item_19_wood_ammount;
+			getitem @item_id_19,1;
+			delitem @material_id_01,@item_19_cfabric_ammount;
+			delitem @material_id_02,@item_19_cmetal_ammount;
+			delitem @material_id_03,@item_19_cplastic_ammount;
+			delitem @material_id_04,@item_19_crubber_ammount;
+			delitem @material_id_05,@item_19_cwood_ammount;
 			mes "Success!";
 			set	.@ammount,0; // failsafe so it cleans that out for each time.
 			close;
@@ -2385,15 +2388,15 @@ CY_WBGlove:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_20) > 0) {
+if (countitem(@material_id_01) >= @item_20_cfabric_ammount && countitem(@material_id_02) >= @item_20_cmetal_ammount && countitem(@material_id_03) >= @item_20_cplastic_ammount && countitem(@material_id_04) >= @item_20_crubber_ammount && countitem(@material_id_05) >= @item_20_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
-			delitem @item_id_20,1;
-			getitem @material_id_01,@item_20_fabric_ammount;
-			getitem @material_id_02,@item_20_metal_ammount;
-			getitem @material_id_03,@item_20_plastic_ammount;
-			getitem @material_id_04,@item_20_rubber_ammount;
-			getitem @material_id_05,@item_20_wood_ammount;
+			getitem @item_id_20,1;
+			delitem @material_id_01,@item_20_cfabric_ammount;
+			delitem @material_id_02,@item_20_cmetal_ammount;
+			delitem @material_id_03,@item_20_cplastic_ammount;
+			delitem @material_id_04,@item_20_crubber_ammount;
+			delitem @material_id_05,@item_20_cwood_ammount;
 			mes "Success!";
 			set	.@ammount,0; // failsafe so it cleans that out for each time.
 			close;
@@ -2411,15 +2414,15 @@ CY_WBHandcuffs:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_21) > 0) {
+if (countitem(@material_id_01) >= @item_21_cfabric_ammount && countitem(@material_id_02) >= @item_21_cmetal_ammount && countitem(@material_id_03) >= @item_21_cplastic_ammount && countitem(@material_id_04) >= @item_21_crubber_ammount && countitem(@material_id_05) >= @item_21_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
-			delitem @item_id_21,1;
-			getitem @material_id_01,@item_21_fabric_ammount;
-			getitem @material_id_02,@item_21_metal_ammount;
-			getitem @material_id_03,@item_21_plastic_ammount;
-			getitem @material_id_04,@item_21_rubber_ammount;
-			getitem @material_id_05,@item_21_wood_ammount;
+			getitem @item_id_21,1;
+			delitem @material_id_01,@item_21_cfabric_ammount;
+			delitem @material_id_02,@item_21_cmetal_ammount;
+			delitem @material_id_03,@item_21_cplastic_ammount;
+			delitem @material_id_04,@item_21_crubber_ammount;
+			delitem @material_id_05,@item_21_cwood_ammount;
 			mes "Success!";
 			set	.@ammount,0; // failsafe so it cleans that out for each time.
 			close;
@@ -2437,15 +2440,15 @@ CY_WBFlashlight:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_22) > 0) {
+if (countitem(@material_id_01) >= @item_22_cfabric_ammount && countitem(@material_id_02) >= @item_22_cmetal_ammount && countitem(@material_id_03) >= @item_22_cplastic_ammount && countitem(@material_id_04) >= @item_22_crubber_ammount && countitem(@material_id_05) >= @item_22_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
-			delitem @item_id_22,1;
-			getitem @material_id_01,@item_22_fabric_ammount;
-			getitem @material_id_02,@item_22_metal_ammount;
-			getitem @material_id_03,@item_22_plastic_ammount;
-			getitem @material_id_04,@item_22_rubber_ammount;
-			getitem @material_id_05,@item_22_wood_ammount;
+			getitem @item_id_22,1;
+			delitem @material_id_01,@item_22_cfabric_ammount;
+			delitem @material_id_02,@item_22_cmetal_ammount;
+			delitem @material_id_03,@item_22_cplastic_ammount;
+			delitem @material_id_04,@item_22_crubber_ammount;
+			delitem @material_id_05,@item_22_cwood_ammount;
 			mes "Success!";
 			set	.@ammount,0; // failsafe so it cleans that out for each time.
 			close;
@@ -2463,15 +2466,15 @@ CY_WBSleepingbag:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_23) > 0) {
+if (countitem(@material_id_01) >= @item_23_cfabric_ammount && countitem(@material_id_02) >= @item_23_cmetal_ammount && countitem(@material_id_03) >= @item_23_cplastic_ammount && countitem(@material_id_04) >= @item_23_crubber_ammount && countitem(@material_id_05) >= @item_23_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
-			delitem @item_id_23,1;
-			getitem @material_id_01,@item_23_fabric_ammount;
-			getitem @material_id_02,@item_23_metal_ammount;
-			getitem @material_id_03,@item_23_plastic_ammount;
-			getitem @material_id_04,@item_23_rubber_ammount;
-			getitem @material_id_05,@item_23_wood_ammount;
+			getitem @item_id_23,1;
+			delitem @material_id_01,@item_23_cfabric_ammount;
+			delitem @material_id_02,@item_23_cmetal_ammount;
+			delitem @material_id_03,@item_23_cplastic_ammount;
+			delitem @material_id_04,@item_23_crubber_ammount;
+			delitem @material_id_05,@item_23_cwood_ammount;
 			mes "Success!";
 			set	.@ammount,0; // failsafe so it cleans that out for each time.
 			close;
@@ -2489,15 +2492,15 @@ CY_WBMegaphone:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_24) > 0) {
+if (countitem(@material_id_01) >= @item_24_cfabric_ammount && countitem(@material_id_02) >= @item_24_cmetal_ammount && countitem(@material_id_03) >= @item_24_cplastic_ammount && countitem(@material_id_04) >= @item_24_crubber_ammount && countitem(@material_id_05) >= @item_24_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
-			delitem @item_id_24,1;
-			getitem @material_id_01,@item_24_fabric_ammount;
-			getitem @material_id_02,@item_24_metal_ammount;
-			getitem @material_id_03,@item_24_plastic_ammount;
-			getitem @material_id_04,@item_24_rubber_ammount;
-			getitem @material_id_05,@item_24_wood_ammount;
+			getitem @item_id_24,1;
+			delitem @material_id_01,@item_24_cfabric_ammount;
+			delitem @material_id_02,@item_24_cmetal_ammount;
+			delitem @material_id_03,@item_24_cplastic_ammount;
+			delitem @material_id_04,@item_24_crubber_ammount;
+			delitem @material_id_05,@item_24_cwood_ammount;
 			mes "Success!";
 			set	.@ammount,0; // failsafe so it cleans that out for each time.
 			close;
@@ -2515,15 +2518,15 @@ CY_WBRadio:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_25) > 0) {
+if (countitem(@material_id_01) >= @item_25_cfabric_ammount && countitem(@material_id_02) >= @item_25_cmetal_ammount && countitem(@material_id_03) >= @item_25_cplastic_ammount && countitem(@material_id_04) >= @item_25_crubber_ammount && countitem(@material_id_05) >= @item_25_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
-			delitem @item_id_25,1;
-			getitem @material_id_01,@item_25_fabric_ammount;
-			getitem @material_id_02,@item_25_metal_ammount;
-			getitem @material_id_03,@item_25_plastic_ammount;
-			getitem @material_id_04,@item_25_rubber_ammount;
-			getitem @material_id_05,@item_25_wood_ammount;
+			getitem @item_id_25,1;
+			delitem @material_id_01,@item_25_cfabric_ammount;
+			delitem @material_id_02,@item_25_cmetal_ammount;
+			delitem @material_id_03,@item_25_cplastic_ammount;
+			delitem @material_id_04,@item_25_crubber_ammount;
+			delitem @material_id_05,@item_25_cwood_ammount;
 			mes "Success!";
 			set	.@ammount,0; // failsafe so it cleans that out for each time.
 			close;
@@ -2542,15 +2545,15 @@ CY_WBWatch:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_26) > 0) {
+if (countitem(@material_id_01) >= @item_26_cfabric_ammount && countitem(@material_id_02) >= @item_26_cmetal_ammount && countitem(@material_id_03) >= @item_26_cplastic_ammount && countitem(@material_id_04) >= @item_26_crubber_ammount && countitem(@material_id_05) >= @item_26_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
-			delitem @item_id_26,1;
-			getitem @material_id_01,@item_26_fabric_ammount;
-			getitem @material_id_02,@item_26_metal_ammount;
-			getitem @material_id_03,@item_26_plastic_ammount;
-			getitem @material_id_04,@item_26_rubber_ammount;
-			getitem @material_id_05,@item_26_wood_ammount;
+			getitem @item_id_26,1;
+			delitem @material_id_01,@item_26_cfabric_ammount;
+			delitem @material_id_02,@item_26_cmetal_ammount;
+			delitem @material_id_03,@item_26_cplastic_ammount;
+			delitem @material_id_04,@item_26_crubber_ammount;
+			delitem @material_id_05,@item_26_cwood_ammount;
 			mes "Success!";
 			set	.@ammount,0; // failsafe so it cleans that out for each time.
 			close;
@@ -2568,15 +2571,15 @@ CY_WBWrench:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_27) > 0) {
+if (countitem(@material_id_01) >= @item_27_cfabric_ammount && countitem(@material_id_02) >= @item_27_cmetal_ammount && countitem(@material_id_03) >= @item_27_cplastic_ammount && countitem(@material_id_04) >= @item_27_crubber_ammount && countitem(@material_id_05) >= @item_27_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
-			delitem @item_id_27,1;
-			getitem @material_id_01,@item_27_fabric_ammount;
-			getitem @material_id_02,@item_27_metal_ammount;
-			getitem @material_id_03,@item_27_plastic_ammount;
-			getitem @material_id_04,@item_27_rubber_ammount;
-			getitem @material_id_05,@item_27_wood_ammount;
+			getitem @item_id_27,1;
+			delitem @material_id_01,@item_27_cfabric_ammount;
+			delitem @material_id_02,@item_27_cmetal_ammount;
+			delitem @material_id_03,@item_27_cplastic_ammount;
+			delitem @material_id_04,@item_27_crubber_ammount;
+			delitem @material_id_05,@item_27_cwood_ammount;
 			mes "Success!";
 			set	.@ammount,0; // failsafe so it cleans that out for each time.
 			close;
@@ -2594,15 +2597,15 @@ CY_WBFRodP:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_28) > 0) {
+if (countitem(@material_id_01) >= @item_28_cfabric_ammount && countitem(@material_id_02) >= @item_28_cmetal_ammount && countitem(@material_id_03) >= @item_28_cplastic_ammount && countitem(@material_id_04) >= @item_28_crubber_ammount && countitem(@material_id_05) >= @item_28_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
-			delitem @item_id_28,1;
-			getitem @material_id_01,@item_28_fabric_ammount;
-			getitem @material_id_02,@item_28_metal_ammount;
-			getitem @material_id_03,@item_28_plastic_ammount;
-			getitem @material_id_04,@item_28_rubber_ammount;
-			getitem @material_id_05,@item_28_wood_ammount;
+			getitem @item_id_28,1;
+			delitem @material_id_01,@item_28_cfabric_ammount;
+			delitem @material_id_02,@item_28_cmetal_ammount;
+			delitem @material_id_03,@item_28_cplastic_ammount;
+			delitem @material_id_04,@item_28_crubber_ammount;
+			delitem @material_id_05,@item_28_cwood_ammount;
 			mes "Success!";
 			set	.@ammount,0; // failsafe so it cleans that out for each time.
 			close;
@@ -2621,15 +2624,15 @@ CY_WBFRod:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_29) > 0) {
+if (countitem(@material_id_01) >= @item_29_cfabric_ammount && countitem(@material_id_02) >= @item_29_cmetal_ammount && countitem(@material_id_03) >= @item_29_cplastic_ammount && countitem(@material_id_04) >= @item_29_crubber_ammount && countitem(@material_id_05) >= @item_29_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
-			delitem @item_id_29,1;
-			getitem @material_id_01,@item_29_fabric_ammount;
-			getitem @material_id_02,@item_29_metal_ammount;
-			getitem @material_id_03,@item_29_plastic_ammount;
-			getitem @material_id_04,@item_29_rubber_ammount;
-			getitem @material_id_05,@item_29_wood_ammount;
+			getitem @item_id_29,1;
+			delitem @material_id_01,@item_29_cfabric_ammount;
+			delitem @material_id_02,@item_29_cmetal_ammount;
+			delitem @material_id_03,@item_29_cplastic_ammount;
+			delitem @material_id_04,@item_29_crubber_ammount;
+			delitem @material_id_05,@item_29_cwood_ammount;
 			mes "Success!";
 			set	.@ammount,0; // failsafe so it cleans that out for each time.
 			close;
@@ -2648,7 +2651,7 @@ CY_WBSneakers:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_30) > 0) {
+if (countitem(@material_id_01) >= @item_30_cfabric_ammount && countitem(@material_id_02) >= @item_30_cmetal_ammount && countitem(@material_id_03) >= @item_30_cplastic_ammount && countitem(@material_id_04) >= @item_30_crubber_ammount && countitem(@material_id_05) >= @item_30_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_30,1;
@@ -2674,7 +2677,7 @@ CY_WBBoots:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_31) > 0) {
+if (countitem(@material_id_01) >= @item_31_cfabric_ammount && countitem(@material_id_02) >= @item_31_cmetal_ammount && countitem(@material_id_03) >= @item_31_cplastic_ammount && countitem(@material_id_04) >= @item_31_crubber_ammount && countitem(@material_id_05) >= @item_31_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_31,1;
@@ -2700,7 +2703,7 @@ CY_WBHHeels:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_32) > 0) {
+if (countitem(@material_id_01) >= @item_32_cfabric_ammount && countitem(@material_id_02) >= @item_32_cmetal_ammount && countitem(@material_id_03) >= @item_32_cplastic_ammount && countitem(@material_id_04) >= @item_32_crubber_ammount && countitem(@material_id_05) >= @item_32_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_32,1;
@@ -2726,7 +2729,7 @@ CY_WBABoots:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_33) > 0) {
+if (countitem(@material_id_01) >= @item_33_cfabric_ammount && countitem(@material_id_02) >= @item_33_cmetal_ammount && countitem(@material_id_03) >= @item_33_cplastic_ammount && countitem(@material_id_04) >= @item_33_crubber_ammount && countitem(@material_id_05) >= @item_33_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_33,1;
@@ -2752,7 +2755,7 @@ CY_WBSBoots:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_34) > 0) {
+if (countitem(@material_id_01) >= @item_34_cfabric_ammount && countitem(@material_id_02) >= @item_34_cmetal_ammount && countitem(@material_id_03) >= @item_34_cplastic_ammount && countitem(@material_id_04) >= @item_34_crubber_ammount && countitem(@material_id_05) >= @item_34_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_34,1;
@@ -2778,7 +2781,7 @@ CY_WBRShoes:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_35) > 0) {
+if (countitem(@material_id_01) >= @item_35_cfabric_ammount && countitem(@material_id_02) >= @item_35_cmetal_ammount && countitem(@material_id_03) >= @item_35_cplastic_ammount && countitem(@material_id_04) >= @item_35_crubber_ammount && countitem(@material_id_05) >= @item_35_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_35,1;
@@ -2805,7 +2808,7 @@ CY_WBBBackpack:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_36) > 0) {
+if (countitem(@material_id_01) >= @item_36_cfabric_ammount && countitem(@material_id_02) >= @item_36_cmetal_ammount && countitem(@material_id_03) >= @item_36_cplastic_ammount && countitem(@material_id_04) >= @item_36_crubber_ammount && countitem(@material_id_05) >= @item_36_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_36,1;
@@ -2831,7 +2834,7 @@ CY_WBGBackpack:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_37) > 0) {
+if (countitem(@material_id_01) >= @item_37_cfabric_ammount && countitem(@material_id_02) >= @item_37_cmetal_ammount && countitem(@material_id_03) >= @item_37_cplastic_ammount && countitem(@material_id_04) >= @item_37_crubber_ammount && countitem(@material_id_05) >= @item_37_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_37,1;
@@ -2857,7 +2860,7 @@ CY_WBRBackpack:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_38) > 0) {
+if (countitem(@material_id_01) >= @item_38_cfabric_ammount && countitem(@material_id_02) >= @item_38_cmetal_ammount && countitem(@material_id_03) >= @item_38_cplastic_ammount && countitem(@material_id_04) >= @item_38_crubber_ammount && countitem(@material_id_05) >= @item_38_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_38,1;
@@ -2883,7 +2886,7 @@ CY_WBLWagon:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_39) > 0) {
+if (countitem(@material_id_01) >= @item_39_cfabric_ammount && countitem(@material_id_02) >= @item_39_cmetal_ammount && countitem(@material_id_03) >= @item_39_cplastic_ammount && countitem(@material_id_04) >= @item_39_crubber_ammount && countitem(@material_id_05) >= @item_39_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_39,1;
@@ -2909,7 +2912,7 @@ CY_WBHWagon:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_40) > 0) {
+if (countitem(@material_id_01) >= @item_40_cfabric_ammount && countitem(@material_id_02) >= @item_40_cmetal_ammount && countitem(@material_id_03) >= @item_40_cplastic_ammount && countitem(@material_id_04) >= @item_40_crubber_ammount && countitem(@material_id_05) >= @item_40_cwood_ammount)
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_40,1;
@@ -2935,7 +2938,7 @@ CY_WBSHWagon:
 next;
 //mes	"Please write how many of the item you want to break down";
 //input	.@ammount;
-if (countitem(@item_id_41) > 0) {
+if (countitem(@material_id_01) >= @item_41_cfabric_ammount && countitem(@material_id_02) >= @item_41_cmetal_ammount && countitem(@material_id_03) >= @item_41_cplastic_ammount && countitem(@material_id_04) >= @item_41_crubber_ammount && countitem(@material_id_05) >= @item_41_cwood_ammount) {
 			mes	"You carefully start working on the item";
 			next;
 			getitem @item_id_41,1;
