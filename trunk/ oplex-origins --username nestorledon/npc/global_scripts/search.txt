@@ -3,7 +3,7 @@
 //===== By: ================================================== 
 //= Sigma
 //===== Current Version: ===================================== 
-//= 1.2
+//= 1.3
 //===== Compatible With: ===================================== 
 //= Any Oplex Version 
 //===== Description: ========================================= 
@@ -12,6 +12,7 @@
 //= v1.0 - Original release
 //= v1.1 - Added Distance Check - Sigma
 //= v1.2 - Added Flavor Text & random chance - Sigma
+//= v1.3 - Added different search types depending on NPC name - Sigma
 //============================================================
 
 -	script	searchBase	-1,{	
@@ -19,21 +20,46 @@ OnTouch:
     while( !getmapxy( .@map$, .@x, .@y, 0 ) ) {
         getmapxy .@map$, .@x1, .@y1, 1;
         set( .@rect, distance( .@x, .@y, .@x1, .@y1 ));
-
 	if ( .@rect <= 3 ) {
+	set .@searchtype,strnpcinfo(1);
 		if(gettimetick(2) >= getd(".nextavail_" + strnpcinfo(2))) {
 			set @superrand, rand(1,100);
 			mes "Searching...";
 			callfunc "loading_func";
-			if(@superrand > 60) {
+			if(@superrand > 60) && (.@searchtype == Search) {
 				getitem groupranditem(19), 1;
 				setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
 				mes "You found something...";
 				close;
-			} else { mes "Couldn't find a thing..."; close; end; }
-		} else {
-			message strcharinfo(0), "Nothing useful...";
 			}
+			if(@superrand > 60) && (.@searchtype == Refrigerator) {
+				getitem groupranditem(1), 1;
+				if(@superrand > 75) { getitem groupranditem(2), 1; }
+				if(@superrand > 90) { getitem groupranditem(3), 1; }
+				setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
+				mes "You found some food...";
+				close;
+			}
+			if(@superrand > 60) && (.@searchtype == Tree) {
+				getitem 525, 1;
+				if(@superrand > 75) { getitem 525, 2; }
+				if(@superrand > 90) { getitem 525, 3; }
+				if(@superrand > 100) { getitem 524, 20; }
+				setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
+				mes "You found some food...";
+				close;
+			}
+			if(@superrand > 60) && (.@searchtype == Pile) {
+				getitem 1018, 1;
+				if(@superrand > 75) { getitem 1018, 2; }
+				if(@superrand > 90) { getitem 1018, 3; }
+				if(@superrand > 100) { getitem 1018, 20; }
+				setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
+				mes "You found some charcoal...";
+				close;
+			}
+			else { mes "Couldn't find a thing..."; close; end; }
+		} else { message strcharinfo(0), "Nothing useful..."; }	
 	}
 	end;
 	}
@@ -41,7 +67,13 @@ OnInit:
 	set .availTimeout, 1800; //time in seconds
 	set .nextavail, gettimetick(2);
 }
-
+//============================================================
+// There are currently (4) search types. Use < SearchType#UniqueName >
+// Search: Gives random items from group 19.
+// Refrigerator: Gives random items from groups 1,2,3.
+// Tree: Gives apples and acorns.
+// Pile: Gives charcoal.
+//============================================================
 //Cars - All Fixed
 lavive_01,43,18,0	duplicate(searchBase)	Search#s1	111
 lavive_01,6,86,0	duplicate(searchBase)	Search#s2	111
@@ -112,9 +144,9 @@ la_in01,46,138,0	duplicate(searchBase)	Search#s53	111
 la_in01,46,30,0	duplicate(searchBase)	Search#s54	111
 
 //Refrigerators - All Fixed
-op_tut01,67,7,0	duplicate(searchBase)	Search#s56	111
-la_jack,7,17,0	duplicate(searchBase)	Search#s57	111
-la_eden,11,33,0	duplicate(searchBase)	Search#s58	111
+op_tut01,67,7,0	duplicate(searchBase)	Refrigerator#s56	111
+la_jack,7,17,0	duplicate(searchBase)	Refrigerator#s57	111
+la_eden,11,33,0	duplicate(searchBase)	Refrigerator#s58	111
 
 //Stoves - All Fixed
 la_eden,14,33,0	duplicate(searchBase)	Search#s60	111
@@ -129,18 +161,18 @@ la_lib01,19,11,0	duplicate(searchBase)	Search#s65	111
 lavive_04,50,15,0	duplicate(searchBase)	Search#s67	111
 
 //Trees
-//lavive_01,34,87,0	duplicate(searchBase)	Search#s92	111
-//lavive_01,11,61,0	duplicate(searchBase)	Search#s93	111
-//lavive_01,12,33,0	duplicate(searchBase)	Search#s94	111
-//lavive_01,36,10,0	duplicate(searchBase)	Search#s95	111
-//lavive_01,64,8,0	duplicate(searchBase)	Search#s96	111
-//lavive_01,87,33,0	duplicate(searchBase)	Search#s97	111
-//lavive_01,89,61,0	duplicate(searchBase)	Search#s98	111
-//lavive_01,63,89,0	duplicate(searchBase)	Search#s99	111
-//lavive_02,92,63,0	duplicate(searchBase)	Search#s100	111
-//lavive_02,96,64,0	duplicate(searchBase)	Search#s101	111
-//lavive_02,97,81,0	duplicate(searchBase)	Search#s102	111
-//lavive_02,93,83,0	duplicate(searchBase)	Search#s103	111
+lavive_01,34,87,0	duplicate(searchBase)	Tree#s92	111
+lavive_01,11,61,0	duplicate(searchBase)	Tree#s93	111
+lavive_01,12,33,0	duplicate(searchBase)	Tree#s94	111
+lavive_01,36,10,0	duplicate(searchBase)	Tree#s95	111
+lavive_01,64,8,0	duplicate(searchBase)	Tree#s96	111
+lavive_01,87,33,0	duplicate(searchBase)	Tree#s97	111
+lavive_01,89,61,0	duplicate(searchBase)	Tree#s98	111
+lavive_01,63,89,0	duplicate(searchBase)	Tree#s99	111
+lavive_02,92,63,0	duplicate(searchBase)	Tree#s100	111
+lavive_02,96,64,0	duplicate(searchBase)	Tree#s101	111
+lavive_02,97,81,0	duplicate(searchBase)	Tree#s102	111
+lavive_02,93,83,0	duplicate(searchBase)	Tree#s103	111
 
 //Fire Hydrant
 //lavive_01,38,63,0	duplicate(searchBase)	Search#s116	111
@@ -148,10 +180,10 @@ lavive_04,50,15,0	duplicate(searchBase)	Search#s67	111
 //lavive_08,39,31,0	duplicate(searchBase)	Search#s118	111
 
 //Remnants of a Camp Fire
-//lavive_01,70,78,0	duplicate(searchBase)	Search#s129	111
-//lavive_01,81,11,0	duplicate(searchBase)	Search#s130	111
-//lavive_01,18,9,0	duplicate(searchBase)	Search#s131	111
-//lavive_01,18,77,0	duplicate(searchBase)	Search#s132	111
+//lavive_01,70,78,0	duplicate(searchBase)	Pile#s129	111
+//lavive_01,81,11,0	duplicate(searchBase)	Pile#s130	111
+//lavive_01,18,9,0	duplicate(searchBase)	Pile#s131	111
+//lavive_01,18,77,0	duplicate(searchBase)	Pile#s132	111
 
 //Barrels
 lavive_01,17,82,0	duplicate(searchBase)	Search#s134	111
