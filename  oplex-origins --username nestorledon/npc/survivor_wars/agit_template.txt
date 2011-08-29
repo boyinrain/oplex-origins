@@ -466,21 +466,21 @@ OnRecvCastle:
 	
 	mes "[ Steward " + .@name$ + " ]";
 	if (.@GID == 0) {
-		mes "I'm waiting for my master to return.";
-		mes "If you wish to speak with him, you will have to wait as well. ";
+		mes "You do not have authorization to access this terminal.";
+		mes "Please provide proper identification.";
 		close;
 	}
 	if (getcharid(2) != .@GID || strcharinfo(0) != getguildmaster(.@GID)){
 		mes "I am loyal and I will follow my master ^ff0000" + getguildmaster(.@GID) + "^000000. We are Guardians! We defend to the bitter end!";
 		close;
 	}
-	mes "Welcome. My honorable master, ^ff0000" + getguildmaster(.@GID) + "^000000...";
-	mes "Whatever you need, I am at your service. I will be faithful in my duties.";
+	mes "Welcome, ^ff0000" + getguildmaster(.@GID) + "^000000...";
+	mes "What can I do for you?";
 	next;
 	switch(select("castle briefing:Invest in commercial growth:Invest in safeguard:Summon Guardian:Employ / discharge storehouse staff:Go into Master's room")) {
 	case 1:
 		mes "[ Steward " + .@name$ + " ]";
-		mes "I will report the Castle briefing, Master.";
+		mes "Here is a briefing on the development of the Safe House.";
 		mes " ";
 		mes " ^0000ffNow, commercial growth level is " + GetCastleData(strnpcinfo(2),2) + ".";
 		if (GetCastleData(strnpcinfo(2),4)) {
@@ -491,7 +491,7 @@ OnRecvCastle:
 			mes " ^0000ff- You invested " + GetCastleData(strnpcinfo(2),5) + "times in last 1 day.^000000";
 		}
 		mes " ";
-		mes "That's all to report, Master.";
+		mes "That's all there is to report.";
 		close;
 	case 2:
 		set .@Economy,GetCastleData(strnpcinfo(2),2);
@@ -909,7 +909,7 @@ OnGuardianDied:
 	end;
 }	
 
-// Kafra Template
+// Kafra Template - Survival Terminal - Survivor Save
 //============================================================
 -	script	Gld_Kafra_Template::Gld_Kafra_Template	-1,{
 	// Store the Guild ID of castle occupant.
@@ -938,9 +938,9 @@ OnGuardianDied:
 
 	cutin "kafra_01",2;
 	if (getcharid(2) == .@GID) {
-		mes "[Kafra staff]";
+		mes "[Storage]";
 		mes "Welcome. ^ff0000" + getguildname(.@GID) + "^000000 Member.";
-		mes "The Kafra Coporation will stay with you wherever you go.";
+		mes "You can use this to store your items.;
 		next;
 		switch(select("Use Storage:Use Guild Storage:Use Warp Service:Rent a Cart:Cancel")) {
 		case 1:
