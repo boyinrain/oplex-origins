@@ -180,10 +180,10 @@ lavive_02,93,83,0	duplicate(searchBase)	Tree#s103	111
 //lavive_08,39,31,0	duplicate(searchBase)	Search#s118	111
 
 //Remnants of a Camp Fire
-//lavive_01,70,78,0	duplicate(searchBase)	Pile#s129	111
-//lavive_01,81,11,0	duplicate(searchBase)	Pile#s130	111
-//lavive_01,18,9,0	duplicate(searchBase)	Pile#s131	111
-//lavive_01,18,77,0	duplicate(searchBase)	Pile#s132	111
+lavive_01,70,78,0	duplicate(searchBase)	Pile#s129	111
+lavive_01,81,11,0	duplicate(searchBase)	Pile#s130	111
+lavive_01,18,9,0	duplicate(searchBase)	Pile#s131	111
+lavive_01,18,77,0	duplicate(searchBase)	Pile#s132	111
 
 //Barrels
 lavive_01,17,82,0	duplicate(searchBase)	Search#s134	111
