@@ -32,7 +32,7 @@ OnTouch:
 				mes "You found something...";
 				close;
 			}
-			else if(@superrand > 60) && (.@searchtype == Refrigerator) {
+			if(@superrand > 60) && (.@searchtype == Refrigerator) {
 				getitem groupranditem(1), 1;
 				if(@superrand > 75) { getitem groupranditem(2), 1; }
 				if(@superrand > 90) { getitem groupranditem(3), 1; }
@@ -40,7 +40,7 @@ OnTouch:
 				mes "You found some food...";
 				close;
 			}
-			else if(@superrand > 60) && (.@searchtype == Tree) {
+			if(@superrand > 60) && (.@searchtype == Tree) {
 				getitem 525, 1;
 				if(@superrand > 75) { getitem 525, 2; }
 				if(@superrand > 90) { getitem 525, 3; }
@@ -49,7 +49,7 @@ OnTouch:
 				mes "You found some food...";
 				close;
 			}
-			else if(@superrand > 60) && (.@searchtype == "Pile") {
+			if(@superrand > 60) && (.@searchtype == Pile) {
 				getitem 1018, 1;
 				if(@superrand > 75) { getitem 1018, 2; }
 				if(@superrand > 90) { getitem 1018, 3; }
