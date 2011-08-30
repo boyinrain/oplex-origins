@@ -710,275 +710,6 @@ switch(select("Weapons:Accessories:Tools:Foot Wear:Bags and Etc:Never Mind")) {
 	close;
 	}
 
-WBRefine:
-
-		set .@features,getarg(1);
-	mes "Hmmm.... what should I temper?";
-	next;
-
-	setarray .@position$[1], "Head","Body","Left hand","Right hand","Robe","Shoes","Accessory 1","Accessory 2","Head 2","Head 3";
-	set .@menu$,"";
-	for( set .@i,1; .@i <= 10; set .@i,.@i+1 )
-	{
-		if( getequipisequiped(.@i) )
-			set .@menu$, .@menu$ + .@position$[.@i] + "-" + "[" + getequipname(.@i) + "]";
-
-		set .@menu$, .@menu$ + ":";
-	}
-	set .@part,select(.@menu$);
-	if(!getequipisequiped(.@part)) {
-		mes "I'm not wearing";
-		mes "anything there that";
-		mes "can be tempered.";
-		emotion 6;
-		close;
-	}
-	//Check if the item is refinable...
-	if(!getequipisenableref(.@part)) {
-		mes "I don't think I can";
-		mes "temper this item at all...";
-		close;
-	}
-	//Check if the item is identified... (Don't know why this is in here... but kept it anyway)
-	if(!getequipisidentify(.@part)) {
-		mes "I can't temper this";
-		mes "if I don't what it is";
-		mes "it first. Better make sure my";
-		mes "stuff is identified before";
-		mes "I temper it.";
-		close;
-	}
-	//Check to see if the items is already +10
-	if(getequiprefinerycnt(.@part) >= 10) {
-		mes "I can't temper this";
-		mes "anymore. This is as";
-		mes "refined as it gets!";
-		close;
-	}
-	set .@refineitemid, getequipid(.@part); // save id of the item
-	set .@refinerycnt, getequiprefinerycnt(.@part); //save refinery count
-	switch(getequipweaponlv(.@part)){
-	case 0: 	//Refine Armor
-		//set .@price,2000;
-		set .@material,985;
-		set .@safe,4;
-		break;
-	case 1: 	//Refine Level 1 Weapon
-		//set .@price,50;
-		set .@material,1010;
-		set .@safe,7; 
-		break;
-	case 2: 	//Refine Level 2 Weapon
-		//set .@price,200;
-		set .@material,1011;
-		set .@safe,6; 
-		break;
-	case 3: 	//Refine Level 3 Weapon
-		//set .@price,5000;
-		set .@material,984;
-		set .@safe,5; 
-		break;
-	case 4: 	//Refine Level 4 Weapon
-		//set .@price,20000;
-		set .@material,984;
-		set .@safe,4; 
-		break;
-	case 5: 	//Refine other stuff?
-		//set .@price,2000;
-		set .@material,985;
-		set .@safe,4; 
-		break;
-	}
-	if(.@features != 1) {
-		mes "To refine this I need";
-		mes "one ^003366"+getitemname(.@material)+"^000000 and";
-		mes "a service fee of " + .@price + " Zeny.";
-		mes "Do you really wish to continue?";
-		next;
-		if(select("Yes:No") == 2){
-			mes "Yeah...";
-			mes "There's no need to";
-			mes "rush. Take your time.";
-			close;
-		}
-		if(getequippercentrefinery(.@part) < 100) {
-			mes "If I continue to";
-			mes "temper this, there's a risk it could";
-			switch(.@material) {
-			case 985:
-				mes "be destroyed! That means that ^FF0000this equipment^000000, ^FF0000will be gone^000000.";
-				break;
-			default:
-				mes "be destroyed, and you'd ^FF0000lose the weapon^000000";
-				break;
-			}
-			next;
-			mes "Am I really sure?";
-			mes "Once a weapon is destroyed,";	
-			mes "there's no getting it back.";
-			mes "Do I still want to temper this?";
-			next;
-			if(select("Yes:No") == 2){
-				mes "[" + getarg(0) + "]";
-				mes "I completely agree...";
-				mes "I might be a great refiner, but sometimes even I make mistakes.";
-				close;
-			}
-		}
-		if((countitem(.@material) < 1) || (Zeny < .@price)) {
-			mes "I don't seem to have";
-			mes "any "+getitemname(.@material)+"...";
-			mes "I better go get some more. This work bench";
-			mes "will be here all day if I need.";
-			close;
-		}
-		set Zeny,Zeny-.@price;
-		delitem .@material,1;
-		if(getequipisequiped(.@part) == 0) { // hacker has removed the item (not changed, why?)
-			mes "[" + getarg(0) + "]";
-			mes "Look here... you don't have any Items on...";
-			close;
-		}
-		if(getequiprefinerycnt(.@part) != .@refinerycnt || getequipid(.@part) != .@refineitemid) { // hacker has changed the item
-			mes "[" + getarg(0) + "]";
-			Emotion e_an;
-			mes "Wait a second...";
-			mes "Do you think I'm stupid?!";
-			mes "You switched the item while I wasn't looking! Get out of here!";
-			close;
-		}
-		if(getequippercentrefinery(.@part) <= rand(100)) {
-			failedrefitem .@part;
-			set .@emo,rand(1,5);
-			if (.@emo == 1) {
-				Emotion e_cash;
-			} else {
-				Emotion e_swt;
-			}
-			set .@lose,rand(1,3);
-			if (.@lose == 1) {
-				mes "Damn it!";
-				mes "It's gone for good now.";
-			} else if(.@lose == 2) {
-				mes "Argh!";
-				mes "It broke!";
-			} else {
-				mes "Crap!";
-				mes "It couldn't take";
-				mes "much more tempering!";
-			}
-			close;
-		}
-		successrefitem .@part;
-		Emotion e_heh;
-		set .@win,rand(1,3);
-		if (.@win == 1) {
-			mes "Perfect!";
-			mes "Heh heh!";
-			mes "flawless work";
-		} else if(.@win == 2) {
-			mes "Success...!";
-			mes "Lucky me";
-
-		} else {
-			mes "Heh heh!";
-			mes "All done.";
-		}
-		close;
-	}
-	
-	if(getequiprefinerycnt(.@part) < .@safe) {
-		mes "I can refine this to the safe limit or a desired number of times... I have two options...";
-		next;
-		set .@menu2,select("To the safe limit.","I'll decide how many times.","I've changed my mind...");
-	} else set .@menu2,2;
-	switch(.@menu2){
-	case 1: 
-		set .@refinecnt,.@safe - getequiprefinerycnt(.@part);
-		break;
-	case 2:
-		next;
-		mes "So how many times would I like to temper my item?";
-		next;
-		input .@refinecnt;
-		set .@refinecheck,.@refinecnt + getequiprefinerycnt(.@part);
-		if (.@refinecnt < 1 || .@refinecheck > 10) {
-			mes "I can't refine this item that many times.";
-			close;
-		}
-		if(.@refinecheck > .@safe) {
-			set .@refinecheck,.@refinecheck - .@safe;
-			mes "I will try to temper the equipment " + .@refinecheck + " times past the safe limit. My equipment may be destroyed... is that ok?";
-			next;
-			if(select("Yes...","No...") == 2){
-				mes "Oh well, so be it...";
-				close;
-			}
-		}
-		break;
-	case 3:
-		next;
-		mes "Oh well, so be it...";
-		close;
-	}
-	set .@fullprice,.@price * .@refinecnt;
-	mes "This will take up " + .@refinecnt + " " + getitemname(.@material) + " and " + .@fullprice + " Zeny. Can I afford this?";
-	next;
-	if(select("Yes","No...") == 2){
-		mes "Oh well.";
-		close;
-	}
-	if(countitem(.@material) < .@refinecnt || Zeny < .@fullprice) {
-		mes "Doesn't seem like I have enough to work with here.";
-		close;
-	}
-	set Zeny,Zeny - .@fullprice;
-	delitem .@material,.@refinecnt;
-	while(.@refinecnt){
-		if (getequipisequiped(.@part) == 0) {
-			mes "Look here... you don't have any Items on...";
-			close;
-		}
-		if (getequipid(.@part) != .@refineitemid || (.@menu2 == 1 && getequippercentrefinery(.@part) < 100)) {
-			mes "Clan... No, How could I be so stupid !?!";
-			mes "I have changed it...";
-			mes "What's going on?";
-			close;
-		} 
-		mes "Clang, clang!!!";
-		if(.@menu2 == 2 && getequippercentrefinery(.@part) <= rand(100)) {
-			failedrefitem .@part;
-			emotion 23;
-			mes "Argh I knew this could happen...";
-			set .@refinecnt,.@refinecnt - 1;
-			if(.@refinecnt == 0) close;
-			mes "This is what I'm left with...";
-			getitem .@material,.@refinecnt;
-			set .@fullprice,.@refinecnt * .@price;
-			set Zeny,Zeny + .@fullprice;
-			close;
-		}
-		successrefitem .@part;
-		emotion 21;
-		set .@refinecnt,.@refinecnt - 1;
-		next;
-	}
-	mes "All finished...";
-	close;		
-
-
-
-
-	
-L_WBCook:
-
-mes "Work In Progress";
-mes "- Sigma"
-close;	
-	
-//Don't think I need this}
-
-
 
 DWBPKnife:
 mes	"You selected " +@item_name_00$+ "";
@@ -3227,6 +2958,273 @@ if (countitem(@material_id_01) >= @item_41_cfabric_ammount && countitem(@materia
 		mes	"Seems like you dont have the item(s) you want to break down.";
 		close;
 		}
+WBRefine:
+
+		set .@features,getarg(1);
+	mes "Hmmm.... what should I temper?";
+	next;
+
+	setarray .@position$[1], "Head","Body","Left hand","Right hand","Robe","Shoes","Accessory 1","Accessory 2","Head 2","Head 3";
+	set .@menu$,"";
+	for( set .@i,1; .@i <= 10; set .@i,.@i+1 )
+	{
+		if( getequipisequiped(.@i) )
+			set .@menu$, .@menu$ + .@position$[.@i] + "-" + "[" + getequipname(.@i) + "]";
+
+		set .@menu$, .@menu$ + ":";
+	}
+	set .@part,select(.@menu$);
+	if(!getequipisequiped(.@part)) {
+		mes "I'm not wearing";
+		mes "anything there that";
+		mes "can be tempered.";
+		emotion 6;
+		close;
+	}
+	//Check if the item is refinable...
+	if(!getequipisenableref(.@part)) {
+		mes "I don't think I can";
+		mes "temper this item at all...";
+		close;
+	}
+	//Check if the item is identified... (Don't know why this is in here... but kept it anyway)
+	if(!getequipisidentify(.@part)) {
+		mes "I can't temper this";
+		mes "if I don't what it is";
+		mes "it first. Better make sure my";
+		mes "stuff is identified before";
+		mes "I temper it.";
+		close;
+	}
+	//Check to see if the items is already +10
+	if(getequiprefinerycnt(.@part) >= 10) {
+		mes "I can't temper this";
+		mes "anymore. This is as";
+		mes "refined as it gets!";
+		close;
+	}
+	set .@refineitemid, getequipid(.@part); // save id of the item
+	set .@refinerycnt, getequiprefinerycnt(.@part); //save refinery count
+	switch(getequipweaponlv(.@part)){
+	case 0: 	//Refine Armor
+		//set .@price,2000;
+		set .@material,985;
+		set .@safe,4;
+		break;
+	case 1: 	//Refine Level 1 Weapon
+		//set .@price,50;
+		set .@material,1010;
+		set .@safe,7; 
+		break;
+	case 2: 	//Refine Level 2 Weapon
+		//set .@price,200;
+		set .@material,1011;
+		set .@safe,6; 
+		break;
+	case 3: 	//Refine Level 3 Weapon
+		//set .@price,5000;
+		set .@material,984;
+		set .@safe,5; 
+		break;
+	case 4: 	//Refine Level 4 Weapon
+		//set .@price,20000;
+		set .@material,984;
+		set .@safe,4; 
+		break;
+	case 5: 	//Refine other stuff?
+		//set .@price,2000;
+		set .@material,985;
+		set .@safe,4; 
+		break;
+	}
+	if(.@features != 1) {
+		mes "To refine this I need";
+		mes "one ^003366"+getitemname(.@material)+"^000000 and";
+		mes "a service fee of " + .@price + " Zeny.";
+		mes "Do you really wish to continue?";
+		next;
+		if(select("Yes:No") == 2){
+			mes "Yeah...";
+			mes "There's no need to";
+			mes "rush. Take your time.";
+			close;
+		}
+		if(getequippercentrefinery(.@part) < 100) {
+			mes "If I continue to";
+			mes "temper this, there's a risk it could";
+			switch(.@material) {
+			case 985:
+				mes "be destroyed! That means that ^FF0000this equipment^000000, ^FF0000will be gone^000000.";
+				break;
+			default:
+				mes "be destroyed, and you'd ^FF0000lose the weapon^000000";
+				break;
+			}
+			next;
+			mes "Am I really sure?";
+			mes "Once a weapon is destroyed,";	
+			mes "there's no getting it back.";
+			mes "Do I still want to temper this?";
+			next;
+			if(select("Yes:No") == 2){
+				mes "[" + getarg(0) + "]";
+				mes "I completely agree...";
+				mes "I might be a great refiner, but sometimes even I make mistakes.";
+				close;
+			}
+		}
+		if((countitem(.@material) < 1) || (Zeny < .@price)) {
+			mes "I don't seem to have";
+			mes "any "+getitemname(.@material)+"...";
+			mes "I better go get some more. This work bench";
+			mes "will be here all day if I need.";
+			close;
+		}
+		set Zeny,Zeny-.@price;
+		delitem .@material,1;
+		if(getequipisequiped(.@part) == 0) { // hacker has removed the item (not changed, why?)
+			mes "[" + getarg(0) + "]";
+			mes "Look here... you don't have any Items on...";
+			close;
+		}
+		if(getequiprefinerycnt(.@part) != .@refinerycnt || getequipid(.@part) != .@refineitemid) { // hacker has changed the item
+			mes "[" + getarg(0) + "]";
+			Emotion e_an;
+			mes "Wait a second...";
+			mes "Do you think I'm stupid?!";
+			mes "You switched the item while I wasn't looking! Get out of here!";
+			close;
+		}
+		if(getequippercentrefinery(.@part) <= rand(100)) {
+			failedrefitem .@part;
+			set .@emo,rand(1,5);
+			if (.@emo == 1) {
+				Emotion e_cash;
+			} else {
+				Emotion e_swt;
+			}
+			set .@lose,rand(1,3);
+			if (.@lose == 1) {
+				mes "Damn it!";
+				mes "It's gone for good now.";
+			} else if(.@lose == 2) {
+				mes "Argh!";
+				mes "It broke!";
+			} else {
+				mes "Crap!";
+				mes "It couldn't take";
+				mes "much more tempering!";
+			}
+			close;
+		}
+		successrefitem .@part;
+		Emotion e_heh;
+		set .@win,rand(1,3);
+		if (.@win == 1) {
+			mes "Perfect!";
+			mes "Heh heh!";
+			mes "flawless work";
+		} else if(.@win == 2) {
+			mes "Success...!";
+			mes "Lucky me";
+
+		} else {
+			mes "Heh heh!";
+			mes "All done.";
+		}
+		close;
+	}
+	
+	if(getequiprefinerycnt(.@part) < .@safe) {
+		mes "I can refine this to the safe limit or a desired number of times... I have two options...";
+		next;
+		set .@menu2,select("To the safe limit.","I'll decide how many times.","I've changed my mind...");
+	} else set .@menu2,2;
+	switch(.@menu2){
+	case 1: 
+		set .@refinecnt,.@safe - getequiprefinerycnt(.@part);
+		break;
+	case 2:
+		next;
+		mes "So how many times would I like to temper my item?";
+		next;
+		input .@refinecnt;
+		set .@refinecheck,.@refinecnt + getequiprefinerycnt(.@part);
+		if (.@refinecnt < 1 || .@refinecheck > 10) {
+			mes "I can't refine this item that many times.";
+			close;
+		}
+		if(.@refinecheck > .@safe) {
+			set .@refinecheck,.@refinecheck - .@safe;
+			mes "I will try to temper the equipment " + .@refinecheck + " times past the safe limit. My equipment may be destroyed... is that ok?";
+			next;
+			if(select("Yes...","No...") == 2){
+				mes "Oh well, so be it...";
+				close;
+			}
+		}
+		break;
+	case 3:
+		next;
+		mes "Oh well, so be it...";
+		close;
+	}
+	set .@fullprice,.@price * .@refinecnt;
+	mes "This will take up " + .@refinecnt + " " + getitemname(.@material) + " and " + .@fullprice + " Zeny. Can I afford this?";
+	next;
+	if(select("Yes","No...") == 2){
+		mes "Oh well.";
+		close;
+	}
+	if(countitem(.@material) < .@refinecnt || Zeny < .@fullprice) {
+		mes "Doesn't seem like I have enough to work with here.";
+		close;
+	}
+	set Zeny,Zeny - .@fullprice;
+	delitem .@material,.@refinecnt;
+	while(.@refinecnt){
+		if (getequipisequiped(.@part) == 0) {
+			mes "Look here... you don't have any Items on...";
+			close;
+		}
+		if (getequipid(.@part) != .@refineitemid || (.@menu2 == 1 && getequippercentrefinery(.@part) < 100)) {
+			mes "Clan... No, How could I be so stupid !?!";
+			mes "I have changed it...";
+			mes "What's going on?";
+			close;
+		} 
+		mes "Clang, clang!!!";
+		if(.@menu2 == 2 && getequippercentrefinery(.@part) <= rand(100)) {
+			failedrefitem .@part;
+			emotion 23;
+			mes "Argh I knew this could happen...";
+			set .@refinecnt,.@refinecnt - 1;
+			if(.@refinecnt == 0) close;
+			mes "This is what I'm left with...";
+			getitem .@material,.@refinecnt;
+			set .@fullprice,.@refinecnt * .@price;
+			set Zeny,Zeny + .@fullprice;
+			close;
+		}
+		successrefitem .@part;
+		emotion 21;
+		set .@refinecnt,.@refinecnt - 1;
+		mes "All finished...";
+		close;		
+
+	}
+
+
+
+
+	
+L_WBCook:
+
+mes "Work In Progress";
+mes "- Sigma"
+close;	
+	
+//Don't think I need this}
 }
 // Here you put all the clones for this script using this format(Including an example)
 // mapname,X,Y,0 TAB duplicate(workbenchs) TAB Work Bench::wrkbnch then a unique number TAB 111
