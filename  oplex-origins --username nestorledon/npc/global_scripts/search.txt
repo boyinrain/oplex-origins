@@ -49,7 +49,7 @@ OnTouch:
 				mes "You found some food...";
 				close;
 			}
-			if(@superrand > 60) && (.@searchtype == Pile) {
+			if(@superrand > 60) && (.@searchtype == "Pile") {
 				getitem 1018, 1;
 				if(@superrand > 75) { getitem 1018, 2; }
 				if(@superrand > 90) { getitem 1018, 3; }
