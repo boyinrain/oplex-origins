@@ -2958,7 +2958,7 @@ if (countitem(@material_id_01) >= @item_41_cfabric_ammount && countitem(@materia
 		mes	"Seems like you dont have the item(s) you want to break down.";
 		close;
 		}
-WBRefine:
+L_WBRefine:
 
 		set .@features,getarg(1);
 	mes "Hmmm.... what should I temper?";
