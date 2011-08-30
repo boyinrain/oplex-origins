@@ -1037,7 +1037,7 @@ if (countitem(13101) > 0) {
 DWBShotgun:
 mes	"You selected " +@item_name_12$+ "";
 mes	"Was this the correct item?";
-menu	"Yes.",DY_WBShotgun,"No, I want to select another item",L_Decomp,"No, I'm done for now,-;
+menu	"Yes.",DY_WBShotgun,"No, I want to select another item",L_Decomp,"No, I'm done for now",-;
 close;
 DY_WBShotgun:
 next;
