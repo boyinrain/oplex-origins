@@ -21,18 +21,18 @@ OnTouch:
         getmapxy .@map$, .@x1, .@y1, 1;
         set( .@rect, distance( .@x, .@y, .@x1, .@y1 ));
 	if ( .@rect <= 3 ) {
-	set .@searchtype,strnpcinfo(1);
+	set .@searchtype$,strnpcinfo(1);
 		if(gettimetick(2) >= getd(".nextavail_" + strnpcinfo(2))) {
 			set @superrand, rand(1,100);
 			mes "Searching...";
 			callfunc "loading_func";
-			if(@superrand > 60) && (.@searchtype == "Search") {
+			if(@superrand > 60) && (.@searchtype$ == "Search") {
 				getitem groupranditem(19), 1;
 				setd(".nextavail_" + strnpcinfo(2), gettimetick(2) + .availTimeout);
 				mes "You found something...";
 				close;
 			}
-			if(@superrand > 60) && (.@searchtype == "Refrigerator") {
+			if(@superrand > 60) && (.@searchtype$ == "Refrigerator") {
 				getitem groupranditem(1), 1;
 				if(@superrand > 75) { getitem groupranditem(2), 1; }
 				if(@superrand > 90) { getitem groupranditem(3), 1; }
@@ -40,7 +40,7 @@ OnTouch:
 				mes "You found some food...";
 				close;
 			}
-			if(@superrand > 60) && (.@searchtype == "Tree") {
+			if(@superrand > 60) && (.@searchtype$ == "Tree") {
 				getitem 525, 1;
 				if(@superrand > 75) { getitem 525, 2; }
 				if(@superrand > 90) { getitem 525, 3; }
@@ -49,7 +49,7 @@ OnTouch:
 				mes "You found some food...";
 				close;
 			}
-			if(@superrand > 60) && (.@searchtype == "Pile") {
+			if(@superrand > 60) && (.@searchtype$ == "Pile") {
 				getitem 1018, 1;
 				if(@superrand > 75) { getitem 1018, 2; }
 				if(@superrand > 90) { getitem 1018, 3; }
