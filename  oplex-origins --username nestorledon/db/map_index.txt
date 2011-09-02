@@ -866,4 +866,9 @@ la_sewer07
 la_sewer08
 la_sewer09
 la_sewer10
+//Lavive Safe Houses
 la_bld01
+//Lavive Mines
+la_minfild00
+la_minfild01
+la_minfild02
