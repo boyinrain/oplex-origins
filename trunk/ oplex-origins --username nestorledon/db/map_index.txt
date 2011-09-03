@@ -868,7 +868,7 @@ la_sewer09
 la_sewer10
 la_bld01
 //Lavive Mines
-la_minfild00
-la_minfild01
-la_minfild02
+la_mfild00
+la_mfild01
+la_mfild02
 la_mine00
