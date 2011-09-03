@@ -146,3 +146,10 @@ la_sewer08, 0,47,0	warp	las32	1,1,la_sewer09,94,47
 
 la_sewer09, 98,47,0	warp	las34	1,1,la_sewer08,4,47
 la_sewer09, 50,0,0	warp	las35	1,1,la_sewer02,49,94
+
+//Lavive Mine Warps
+lavive_07, 51,97,0	warp	lam00	1,1,la_mfild00,48,6
+la_mfild00, 48,2,0	warp	lam01	1,1,lavive_07,51,93
+
+la_mfild00, 25,59,0	warp	lam02	1,1,la_mine00,25,20
+la_mime00, 25,16,0	warp	lam02	1,1,la_mfild00,25,55
