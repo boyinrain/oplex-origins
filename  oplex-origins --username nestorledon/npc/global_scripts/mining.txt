@@ -11,7 +11,7 @@
 //===== Changelog: ===========================================
 //= v1.0 - Original release
 //============================================================
-blank_01,7,7,5	script	Mine::mine	111,{
+blank_01,7,7,5	script	Mine::mine	57,{
 		callfunc "mining_func";
 }
 
