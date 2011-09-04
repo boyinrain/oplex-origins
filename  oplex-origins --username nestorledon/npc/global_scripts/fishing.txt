@@ -16,4 +16,4 @@ blank_01,10,10,5	script	Fish::fish	111,{
 }
 
 // Here you put all the clones for this script use the format below
-//la_in01,174,138,0	duplicate(fish)	Fish::fish1	111
+la_mfild01,43,77,0	duplicate(fish)	Fish::fish1	52
