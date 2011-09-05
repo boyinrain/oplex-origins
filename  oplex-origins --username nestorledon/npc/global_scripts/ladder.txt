@@ -15,12 +15,12 @@
 //= v1.3 - Modified to better suit duplication. - Sigma
 //============================================================
 -	script	ladderBase	-1,{
-	set @crowbarid, 500; //place crowbar ID here before using the script
+	set @crowbarid, 1120; //place crowbar ID here before using the script
 	set @crowbarname$, "Crowbar";
 	set .@ladder, strnpcinfo(2);
 	sleep2 500;	//Give the script a half second delay before allowing player to go through (limits abuse)
 	if(countitem(@crowbarid) < 1) goto ladder_fail;
-	message strcharinfo(0), "You use your " +@crowbarname$+ " to remove the cover.";
+	message strcharinfo(0), "You use your " +@crowbarname$+ " to remove the lid.";
 		// Lavive - Enter Sewers - From Top Side
 		if(.@ladder == l1) { warp "la_sewer01",39,32; }
 		if(.@ladder == l2) { warp "la_sewer02",39,32; }
@@ -43,7 +43,7 @@
 		if(.@ladder == l18) { warp "lavive_09",50,50; }
 	end;
 ladder_fail:
-	message strcharinfo(0),"It would seem you need some sort of item to open this";
+	message strcharinfo(0),"It would seem you need some sort of tool to open this";
 }
 
 //============================================================
