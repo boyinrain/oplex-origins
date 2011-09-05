@@ -16,4 +16,6 @@ la_fild01	mapflag	nightenabled
 la_fild02	mapflag	nightenabled
 la_fild03	mapflag	nightenabled
 la_fild04	mapflag	nightenabled
-la_park	mapflag	nightenabled
+la_mfild00	mapflag	nightenabled
+la_mfild01	mapflag	nightenabled
+la_mfild02	mapflag	nightenabled
