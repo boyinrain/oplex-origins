@@ -37,15 +37,9 @@ OnPCDieEvent:
 
 OnPCLoginEvent:
 	getmapxy @playermap$,@playerx,@playery,0;
-	if (isday()) {	
-		announce "It is day time.",bc_self,0xFFFF00;
-	}
-	if (isnight()) {	
-		announce "It is night time.",bc_self,0xFFFF00;
-		sc_start SC_BLIND,1800000,0;
-		sleep2 1800000;
-		end;
-	}
+	if (isday()) announce "It is day time.",bc_self,0xFFFF00;
+	if (isnight()) announce "It is night time.",bc_self,0xFFFF00;
+	if (isnight()) sc_start SC_BLIND,1800000,0;
 	if(@playermap$=="op_tut01"){ end; };
 	addtimer 500,"vitality_timer::OnTimeCheck";
 	end;
