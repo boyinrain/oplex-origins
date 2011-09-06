@@ -19,20 +19,6 @@ OnPCDieEvent:
 	end;	
 }
 
-//-	script	blind_mechanic	-1,{
-//OnPCLoginEvent:
-//	getmapxy @playermap$,@playerx,@playery,0;
-//	if (isnight()) sc_start SC_BLIND;
-//	end;
-//}
-//
-//-	script	light_mechanic	-1,{
-//OnPCLoginEvent:
-//	getmapxy @playermap$,@playerx,@playery,0;
-//	if (isday()) callfunc "func_light";
-//	end;
-//}
-
 -	script	game_mechanics::gamemechs	-1,{
 
 OnPCLoginEvent:
@@ -46,14 +32,6 @@ OnPCLoginEvent:
 	addtimer 500,"vitality_timer::OnTimeCheck";
 	end;
 
-OnPCLoadMapEvent:
-	getmapxy @playermap$,@playerx,@playery,0;
-	attachrid(3);
-	set @char_id, getcharid(0);
-	if (isnight()) {	
-		announce "It's night.",bc_self,0xFFFF00;
-		atcommand"@effect 334";
-	}
 OnPCLogOutEvent:
 	deltimer "vitality_timer::OnTimeCheck";
 	awake "survival_mechanic::OnTimeCheck";
