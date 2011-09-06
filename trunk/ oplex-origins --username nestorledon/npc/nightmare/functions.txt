@@ -174,7 +174,7 @@ sleep_30sec:
 sleep_1min:
 	mes "It's time to get some rest...";
 	sc_start SC_SLEEP,60000,0;
-//	cutin"sleep",3;
+	cutin "sleep.bmp",1;
 	sleep2 6000;
 	mes "[|---------]";
 	sleep2 6000;
