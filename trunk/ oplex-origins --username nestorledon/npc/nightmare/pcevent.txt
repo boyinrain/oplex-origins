@@ -54,8 +54,6 @@ OnPCLoadMapEvent:
 		announce "It's night.",bc_self,0xFFFF00;
 		atcommand"@effect 334";
 	}
-	end;
-
 OnPCLogOutEvent:
 	deltimer "vitality_timer::OnTimeCheck";
 	awake "survival_mechanic::OnTimeCheck";
