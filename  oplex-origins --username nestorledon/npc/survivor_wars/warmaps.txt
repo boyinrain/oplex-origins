@@ -85,18 +85,23 @@ end; // Disable Click
 //============================================================
 //= Elevator
 //============================================================
-la_bld01,94,91,0	script	Elevator::Elevator1	111,{
+la_bld01,94,92,0	script	Elevator::Elevator1	111,{
 OnTouch:
     while( !getmapxy( .@map$, .@x, .@y, 0 ) ) {
         getmapxy .@map$, .@x1, .@y1, 1;
         set( .@rect, distance( .@x, .@y, .@x1, .@y1 ));
-	if ( .@rect <= 3 ) {
-		mes "The elevator doors are open.";
-		mes "Climb down?";
-		menu "Yes",yes,
+		if ( .@rect <= 3 ) {
+			mes "The elevator doors are open.";
+			mes "Climb down?";
+			menu "Yes",yes,"No",-;
+			close;
+			end;
+yes:
+warp "la_bl01",94,26;
+end;
+		}
 	}
-	else{	message strcharinfo(0), "Get closer to use the elevator.";}
-
+		else{	message strcharinfo(0), "Get closer to use the elevator.";}
 }
 
 //============================================================
