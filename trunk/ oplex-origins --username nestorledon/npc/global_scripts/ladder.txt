@@ -17,7 +17,7 @@
 -	script	ladderBase	-1,{
 	set @crowbarid, 1120; //place crowbar ID here before using the script
 	set @crowbarname$, "Crowbar";
-	set .@ladder$, strnpcinfo(2);
+	set .@ladder$, strnpcinfo(3);
 	sleep2 500;	//Give the script a half second delay before allowing player to go through (limits abuse)
 	if(countitem(@crowbarid) < 1) goto ladder_fail;
 	message strcharinfo(0), "You use your " +@crowbarname$+ " to remove the lid.";
