@@ -14,9 +14,7 @@
 //============================================================
 //= Main Entrance & Exit
 //============================================================
-lavive_02,75,12,0	script	Warp::wpbld01	45,{
-end; // Disable Click
-OnTouch:
+lavive_02,75,14,0	script	Warp::wpbld01	45,{
 warp "la_bld01",17,8;
 end;
 }
@@ -24,7 +22,7 @@ end;
 la_bld01,17,4,0	script	Warp::wpbld02	45,2,2,{
 end; // Disable Click
 OnTouch:
-warp "lavive_02",75,14;
+warp "lavive_02",75,10;
 end;
 }
 
