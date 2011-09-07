@@ -50,7 +50,7 @@ clock_broke:
 }
 
 function	script	func_flashlight	{
-	sc_end 	SC_BLIND;
+	atcommand"@refresh";
 	soundeffect "_stonecurse.wav",0;
 	sleep2 600000;
 	if (isnight()) sc_start SC_BLIND,1800000,0;
