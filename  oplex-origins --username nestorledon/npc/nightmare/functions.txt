@@ -50,13 +50,12 @@ clock_broke:
 }
 
 function	script	func_flashlight	{
-	if(countitem(1012) > 0) {
 		delitem 1012,1;
 		atcommand"@refresh";
 		soundeffect "_stonecurse.wav",0;
 		sleep2 300000;
 		if (isnight()) { atcommand"@effect 334"; }
-	} else if { end; }
+		end;
 }
 
 function	script	func_megaphone	{
