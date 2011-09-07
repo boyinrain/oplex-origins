@@ -50,12 +50,13 @@ clock_broke:
 }
 
 function	script	func_flashlight	{
-		delitem 1012,1;
-		atcommand"@refresh";
-		soundeffect "_stonecurse.wav",0;
-		sleep2 300000;
-		if (isnight()) { atcommand"@effect 334"; }
-		end;
+	delitem 1012,1;
+	dispbottom "You used a battery.";
+	atcommand"@refresh";
+	soundeffect "_stonecurse.wav",0;
+	sleep2 150000;
+	if (isnight()) { atcommand"@effect 334"; }
+	end;
 }
 
 function	script	func_megaphone	{
