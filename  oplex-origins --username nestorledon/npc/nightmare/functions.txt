@@ -51,7 +51,7 @@ clock_broke:
 
 function	script	func_flashlight	{
 	set .@battery,1012;
-	if (countitem .@battery == 0) { dispbottom "Needs batteries..."; end;}
+	if (countitem(.@battery) < 1) { dispbottom "Needs batteries..."; end;}
 	delitem .@battery,1;
 	dispbottom "You used a battery.";
 	atcommand"@refresh";
