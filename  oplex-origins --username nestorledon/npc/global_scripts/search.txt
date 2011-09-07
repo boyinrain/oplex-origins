@@ -161,14 +161,14 @@ la_lib01,19,11,0	duplicate(searchBase)	Search#s65	111
 lavive_04,50,15,0	duplicate(searchBase)	Search#s67	111
 
 //Trees
-lavive_01,34,87,0	duplicate(searchBase)	Tree#s92	111
-lavive_01,11,61,0	duplicate(searchBase)	Tree#s93	111
-lavive_01,12,33,0	duplicate(searchBase)	Tree#s94	111
+lavive_01,34,89,0	duplicate(searchBase)	Tree#s92	111
+lavive_01,10,63,0	duplicate(searchBase)	Tree#s93	111
+lavive_01,10,32,0	duplicate(searchBase)	Tree#s94	111
 lavive_01,36,10,0	duplicate(searchBase)	Tree#s95	111
 lavive_01,64,8,0	duplicate(searchBase)	Tree#s96	111
-lavive_01,87,33,0	duplicate(searchBase)	Tree#s97	111
-lavive_01,89,61,0	duplicate(searchBase)	Tree#s98	111
-lavive_01,63,89,0	duplicate(searchBase)	Tree#s99	111
+lavive_01,89,33,0	duplicate(searchBase)	Tree#s97	111
+lavive_01,89,63,0	duplicate(searchBase)	Tree#s98	111
+lavive_01,65,89,0	duplicate(searchBase)	Tree#s99	111
 lavive_02,92,63,0	duplicate(searchBase)	Tree#s100	111
 lavive_02,96,64,0	duplicate(searchBase)	Tree#s101	111
 lavive_02,97,81,0	duplicate(searchBase)	Tree#s102	111
