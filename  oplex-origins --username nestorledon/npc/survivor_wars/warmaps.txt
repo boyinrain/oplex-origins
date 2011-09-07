@@ -15,7 +15,7 @@
 //= Main Entrance & Exit
 //============================================================
 lavive_02,75,14,5	script	Warp::wpbld01	45,2,2,{
-end; // Disable Click
+// Disable Click
 
 OnAgitEnd:
 disablenpc strnpcinfo(3);
@@ -111,7 +111,7 @@ OnTouch:
 	close;
 	end;
 ele_yes:
-warp "la_bld01",94,89;
+warp "la_bld01",30,26;
 end;
 }
 //============================================================
