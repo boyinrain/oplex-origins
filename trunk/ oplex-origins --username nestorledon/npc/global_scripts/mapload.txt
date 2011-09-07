@@ -16,7 +16,7 @@
 
 -	script	OnMapLoad	-1,{
 end;	// Disable Click
-set .@npc$, strnpcinfo(2);
+set .@npc$,strnpcinfo(1);
 hideonnpc ".@npc$";
 
 OnTouch:	//Your OnMapLoad Scripts Below
