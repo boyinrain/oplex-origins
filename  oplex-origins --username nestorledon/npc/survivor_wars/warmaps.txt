@@ -95,7 +95,7 @@ OnTouch:
 	close;
 	end;
 ele_yes:
-warp "la_bld01",94,26;
+warp "la_bld01",94,24;
 end;
 }
 
