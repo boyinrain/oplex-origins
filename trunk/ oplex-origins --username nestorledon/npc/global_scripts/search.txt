@@ -177,21 +177,21 @@ lavive_02,89,31,0	duplicate(searchBase)	Tree#s104	111
 lavive_02,96,31,0	duplicate(searchBase)	Tree#s105	111
 lavive_02,90,83,0	duplicate(searchBase)	Tree#s106	111
 lavive_02,98,83,0	duplicate(searchBase)	Tree#s107	111
-lavive_03,29,80,0	duplicate(searchBase)	Tree#s108	111
-lavive_03,6,84,0	duplicate(searchBase)	Tree#s109	111
-lavive_03,6,59,0	duplicate(searchBase)	Tree#s110	111
-lavive_03,6,32,0	duplicate(searchBase)	Tree#s111	111
-lavive_03,6,3,0	duplicate(searchBase)	Tree#s112	111
-lavive_03,36,3,0	duplicate(searchBase)	Tree#s113	111
-lavive_03,64,3,0	duplicate(searchBase)	Tree#s114	111
-lavive_03,93,3,0	duplicate(searchBase)	Tree#s115	111
-lavive_03,71,64,0	duplicate(searchBase)	Tree#s116	111
-lavive_03,70,79,0	duplicate(searchBase)	Tree#s117	111
-lavive_03,33,41,0	duplicate(searchBase)	Tree#s118	111
-lavive_03,26,41,0	duplicate(searchBase)	Tree#s119	111
-lavive_03,69,30,0	duplicate(searchBase)	Tree#s120	111
-lavive_03,89,66,0	duplicate(searchBase)	Tree#s121	111
-lavive_03,93,88,0	duplicate(searchBase)	Tree#s122	111
+lavive_03,29,82,0	duplicate(searchBase)	Tree#s108	111
+lavive_03,6,86,0	duplicate(searchBase)	Tree#s109	111
+lavive_03,6,61,0	duplicate(searchBase)	Tree#s110	111
+lavive_03,6,34,0	duplicate(searchBase)	Tree#s111	111
+lavive_03,6,5,0	duplicate(searchBase)	Tree#s112	111
+lavive_03,36,5,0	duplicate(searchBase)	Tree#s113	111
+lavive_03,64,5,0	duplicate(searchBase)	Tree#s114	111
+lavive_03,93,5,0	duplicate(searchBase)	Tree#s115	111
+lavive_03,71,66,0	duplicate(searchBase)	Tree#s116	111
+lavive_03,70,81,0	duplicate(searchBase)	Tree#s117	111
+lavive_03,33,43,0	duplicate(searchBase)	Tree#s118	111
+lavive_03,26,43,0	duplicate(searchBase)	Tree#s119	111
+lavive_03,69,33,0	duplicate(searchBase)	Tree#s120	111
+lavive_03,89,68,0	duplicate(searchBase)	Tree#s121	111
+lavive_03,93,90,0	duplicate(searchBase)	Tree#s122	111
 
 //Fire Hydrant
 //lavive_01,38,63,0	duplicate(searchBase)	Search#s116	111
