@@ -57,7 +57,7 @@ function	script	func_flashlight	{
 	soundeffect "_stonecurse.wav",0;
 	sleep2 150000;
 	if (isnight()) { atcommand"@effect 334"; }
-	if (.@battery < 1){ dispbottom "Needs batteries..."; }
+	if (.@battery == 0){ dispbottom "Needs batteries..."; }
 	dispbottom "Lights out...";
 	end;
 }
