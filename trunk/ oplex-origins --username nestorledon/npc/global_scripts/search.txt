@@ -206,6 +206,13 @@ lavive_05,71,56,0	duplicate(searchBase)	Tree#s133	111
 lavive_05,82,56,0	duplicate(searchBase)	Tree#s134	111
 lavive_05,71,24,0	duplicate(searchBase)	Tree#s135	111
 lavive_05,82,24,0	duplicate(searchBase)	Tree#s136	111
+lavive_05,96,24,0	duplicate(searchBase)	Tree#s137	111
+lavive_05,71,5,0	duplicate(searchBase)	Tree#s138	111
+lavive_05,82,5,0	duplicate(searchBase)	Tree#s139	111
+lavive_05,96,5,0	duplicate(searchBase)	Tree#s140	111
+la_eden,11,20,0,	duplicate(searchBase)	Tree#s141	111
+la_eden,28,18,0,	duplicate(searchBase)	Tree#s142	111
+la_eden,28,32,0,	duplicate(searchBase)	Tree#s143	111
 
 //Fire Hydrant
 //lavive_01,38,63,0	duplicate(searchBase)	Search#s116	111
