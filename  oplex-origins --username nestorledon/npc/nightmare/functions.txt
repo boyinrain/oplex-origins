@@ -56,7 +56,7 @@ function	script	func_flashlight	{
 	dispbottom "You used a battery.";
 	atcommand"@refresh";
 	soundeffect "_stonecurse.wav",0;
-	sleep2 150000;
+	sleep2 300000;
 	if (isnight()) { atcommand"@effect 334"; }
 	dispbottom "Lights out...";
 	end;
