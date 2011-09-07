@@ -16,8 +16,6 @@
 
 -	script	OnMapLoad	-1,{
 end;	// Disable Click
-set .@npc$,strnpcinfo(1);
-hideonnpc ".@npc$";
 
 OnTouch:	//Your OnMapLoad Scripts Below
 	if (isnight()) { atcommand"@effect 334"; }	else {	end; }
@@ -27,20 +25,20 @@ OnTouch:	//Your OnMapLoad Scripts Below
 //============================================================
 //= NPC Duplicates Below.
 //============================================================
-lavive_01,50,50,0	duplicate(OnMapLoad)	mapload#01	111,1000,1000,
-lavive_02,50,50,0	duplicate(OnMapLoad)	mapload#02	111,1000,1000,
-lavive_03,50,50,0	duplicate(OnMapLoad)	mapload#03	111,1000,1000,
-lavive_04,50,50,0	duplicate(OnMapLoad)	mapload#04	111,1000,1000,
-lavive_05,50,50,0	duplicate(OnMapLoad)	mapload#05	111,1000,1000,
-lavive_06,50,50,0	duplicate(OnMapLoad)	mapload#06	111,1000,1000,
-lavive_07,50,50,0	duplicate(OnMapLoad)	mapload#07	111,1000,1000,
-lavive_08,50,50,0	duplicate(OnMapLoad)	mapload#08	111,1000,1000,
-lavive_09,50,50,0	duplicate(OnMapLoad)	mapload#09	111,1000,1000,
-lavive_10,50,50,0	duplicate(OnMapLoad)	mapload#10	111,1000,1000,
-la_fild01,50,50,0	duplicate(OnMapLoad)	mapload#11	111,1000,1000,
-la_fild02,50,50,0	duplicate(OnMapLoad)	mapload#12	111,1000,1000,
-la_fild03,50,50,0	duplicate(OnMapLoad)	mapload#13	111,1000,1000,
-la_fild04,50,50,0	duplicate(OnMapLoad)	mapload#14	111,1000,1000,
-la_mfild00,50,50,0	duplicate(OnMapLoad)	mapload#15	111,1000,1000,
-la_mfild01,50,50,0	duplicate(OnMapLoad)	mapload#16	111,1000,1000,
-la_mfild02,50,50,0	duplicate(OnMapLoad)	mapload#17	111,1000,1000,
+lavive_01,1,1,0	duplicate(OnMapLoad)	mapload#01	111,1000,1000,
+lavive_02,1,1,0	duplicate(OnMapLoad)	mapload#02	111,1000,1000,
+lavive_03,1,1,0	duplicate(OnMapLoad)	mapload#03	111,1000,1000,
+lavive_04,1,1,0	duplicate(OnMapLoad)	mapload#04	111,1000,1000,
+lavive_05,1,1,0	duplicate(OnMapLoad)	mapload#05	111,1000,1000,
+lavive_06,1,1,0	duplicate(OnMapLoad)	mapload#06	111,1000,1000,
+lavive_07,1,1,0	duplicate(OnMapLoad)	mapload#07	111,1000,1000,
+lavive_08,1,1,0	duplicate(OnMapLoad)	mapload#08	111,1000,1000,
+lavive_09,1,1,0	duplicate(OnMapLoad)	mapload#09	111,1000,1000,
+lavive_10,1,1,0	duplicate(OnMapLoad)	mapload#10	111,1000,1000,
+la_fild01,1,1,0	duplicate(OnMapLoad)	mapload#11	111,1000,1000,
+la_fild02,1,1,0	duplicate(OnMapLoad)	mapload#12	111,1000,1000,
+la_fild03,1,1,0	duplicate(OnMapLoad)	mapload#13	111,1000,1000,
+la_fild04,1,1,0	duplicate(OnMapLoad)	mapload#14	111,1000,1000,
+la_mfild00,1,1,0	duplicate(OnMapLoad)	mapload#15	111,1000,1000,
+la_mfild01,1,1,0	duplicate(OnMapLoad)	mapload#16	111,1000,1000,
+la_mfild02,1,1,0	duplicate(OnMapLoad)	mapload#17	111,1000,1000,
