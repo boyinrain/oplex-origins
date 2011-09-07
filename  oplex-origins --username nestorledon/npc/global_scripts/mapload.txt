@@ -16,8 +16,8 @@
 
 -	script	OnMapLoad	-1,{
 end;	// Disable Click
-set .@npc, strnpcinfo(2);
-hideonnpc ".@npc";
+set .@npc$, strnpcinfo(2);
+hideonnpc ".@npc$";
 
 OnTouch:	//Your OnMapLoad Scripts Below
 	if (isnight()) { atcommand"@effect 334"; }	else {	end; }
