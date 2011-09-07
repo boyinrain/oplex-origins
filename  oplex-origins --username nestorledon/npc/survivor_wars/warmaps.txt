@@ -91,10 +91,10 @@ end; // Disable Click
 OnTouch:
 	mes "The elevator doors are open.";
 	mes "Climb down?";
-	menu "Yes",yes,"No",-;
+	menu "Yes",ele_yes,"No",-;
 	close;
 	end;
-yes:
+ele_yes:
 warp "la_bl01",94,26;
 end;
 }
