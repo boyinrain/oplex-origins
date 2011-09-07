@@ -51,13 +51,13 @@ clock_broke:
 
 function	script	func_flashlight	{
 	set .@battery,1012;
+	if (countitem .@battery == 0) { dispbottom "Needs batteries..."; end;}
 	delitem .@battery,1;
 	dispbottom "You used a battery.";
 	atcommand"@refresh";
 	soundeffect "_stonecurse.wav",0;
 	sleep2 150000;
 	if (isnight()) { atcommand"@effect 334"; }
-	if (countitem .@battery == 0) { dispbottom "Needs batteries..."; }
 	dispbottom "Lights out...";
 	end;
 }
