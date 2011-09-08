@@ -26,7 +26,7 @@ OnTouch:	//Your OnMapLoad Scripts Below
 //= NPC Duplicates Below.
 //============================================================
 lavive_01,1,1,0	duplicate(OnMapLoad)	mapload#01	111,1000,1000,
-lavive_02,1,1,0	duplicate(OnMapLoad)	mapload#02	111,1000,1000,
+//lavive_02,1,1,0	duplicate(OnMapLoad)	mapload#02	111,1000,1000,
 lavive_03,1,1,0	duplicate(OnMapLoad)	mapload#03	111,1000,1000,
 lavive_04,1,1,0	duplicate(OnMapLoad)	mapload#04	111,1000,1000,
 lavive_05,1,1,0	duplicate(OnMapLoad)	mapload#05	111,1000,1000,
