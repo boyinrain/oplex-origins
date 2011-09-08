@@ -261,7 +261,7 @@ OnRecvCastle:
 			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Raydric Archer",1276,5;
 		}
 		// Add custom Guild Castles here.
-		else if (compare(strnpcinfo(2),"labld")) {
+		else if (compare(strnpcinfo(2),"labld01")) {
 			// Normal Spawns
 			monster strnpcinfo(2),0,0,"Undead",1080,10;
 			monster strnpcinfo(2),0,0,"Undead",1086,10;
