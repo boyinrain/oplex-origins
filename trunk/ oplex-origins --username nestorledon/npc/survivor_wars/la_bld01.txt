@@ -83,19 +83,19 @@ prtg_cas01,45,46,4	duplicate(Kriemhild3)	Kriemhild#p1-15	722
 
 // AGIT Manager
 //============================================================
-lavive_01,75,14,0	duplicate(Gld_Agit_Manager)	Agit#la_bld01	-1
+la_bld01,17,14,0	duplicate(Gld_Agit_Manager)	Agit#la_bld01	-1
 
 // Steward
 //============================================================
-prtg_cas01,112,181,0	duplicate(Gld_Mngr_Template)	Ahvray#prtg_cas01	55
+la_bld01,17,14,0	duplicate(Gld_Mngr_Template)	Ahvray#prtg_cas01	55
 
 // Guardians
 //============================================================
-prtg_cas01,112,181,0	duplicate(Gld_Guard_Template)	Guardian#prtg_cas01	-1
+la_bld01,17,14,0	duplicate(Gld_Guard_Template)	Guardian#prtg_cas01	-1
 
 // Kafra Staff
 //============================================================
-prtg_cas01,96,173,0	duplicate(Gld_Kafra_Template)	Kafra Staff#prtg_cas01	117
+la_bld01,17,14,0	duplicate(Gld_Kafra_Template)	Kafra Staff#prtg_cas01	117
 
 // Master's Room Exit
 //============================================================
