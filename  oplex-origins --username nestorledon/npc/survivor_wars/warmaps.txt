@@ -14,7 +14,7 @@
 //============================================================
 //= Main Entrance & Exit
 //============================================================
-lavive_02,75,14,0	warp	bldin	1,1,la_bld,17,8
+lavive_02,75,14,0	warp	bldin	1,1,la_bld01,17,8
 -	script	WarpBase	-1,{
 OnAgitEnd:
 disablenpc strnpcinfo(3);
