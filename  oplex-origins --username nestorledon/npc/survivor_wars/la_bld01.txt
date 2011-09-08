@@ -87,7 +87,7 @@ la_bld01,17,14,0	duplicate(Gld_Agit_Manager)	Agit#la_bld01	-1
 
 // Steward
 //============================================================
-la_bld01,17,14,0	duplicate(Gld_Mngr_Template)	Ahvray#prtg_cas01	55
+la_bld01,83,83,0	duplicate(Gld_Mngr_Template)	Ahvray#prtg_cas01	55
 
 // Guardians
 //============================================================
