@@ -2374,6 +2374,15 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, int 
 	case HFLI_SBR44:	//[orn]
 	case NPC_BLEEDING:
 	case NPC_CRITICALWOUND:
+	case NV_TRAINEDBLOW:		//[Sigma]
+	case NV_WIDESWING:		//[Sigma]
+	case NV_DISARM:			//[Sigma]
+	case NV_CRIPPLE:		//[Sigma]
+	case NV_3ROUNDBURST:		//[Sigma]
+	case NV_SINGLEFIRE:		//[Sigma]
+	case NV_TRAINEDSHOT:		//[Sigma]
+	case NV_M203:			//[Sigma]
+	case NV_M26:			//[Sigma]
 		skill_attack(BF_WEAPON,src,src,bl,skillid,skilllv,tick,flag);
 		break;
 
@@ -2719,6 +2728,11 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, int 
 	case NJ_KOUENKA:
 	case NJ_HYOUSENSOU:
 	case NJ_HUUJIN:
+	case NV_IGNITE:			//[Sigma]
+	case NV_CHEMISTRY:		//[Sigma]
+	case NV_SMITHERY:		//[Sigma]
+	case NV_CULINERY:		//[Sigma]
+	case NV_TRAP:			//[Sigma]
 		skill_attack(BF_MAGIC,src,src,bl,skillid,skilllv,tick,flag);
 		break;
 
