@@ -44,13 +44,33 @@
 // 16 Name
 // 17 Description
 
+//================================================
+//= Oplex Origins Skills [Sigma]
+//================================================
+//id,range,hit,inf,element,nk,splash,max,list_num,castcancel,cast_defence_rate,inf2,maxcount,skill_type,blow_count,name,description
 108,2,6,16,0,0x1,0,1,1,yes,0,0,0,weapon,0,	BS_REPAIRWEAPON,Weapon Repair
 411,0,6,4,0,0x1,0,10,1,yes,0,0,0,misc,4,		TK_RUN,Running
 150,0,6,4,0,0x1,0,1,1,no,0,0,0,weapon,5,	TF_BACKSLIDING,Back Slide
 152,7,6,1,0,0x40,0,1,1,no,0,0,0,misc,0,	TF_THROWSTONE,Stone Fling
 124,3,6,32,0,0x1,0,1,1,no,0,0,0,misc,0,		HT_REMOVETRAP,Remove Trap
 142,0,6,4,0,0x1,0,1,1,no,0,0,0,none,0,		NV_FIRSTAID,First Aid
-
+545,2,6,1,0,0x80,0,1,1,no,0,0,0,weapon,0,	NV_TRAINEDBLOW,Trained Blow
+546,2,6,1,0,0x02,3,1,1,no,0,0,0,weapon,0,	NV_WIDESWING,Wide Swing
+547,7,6,1,0,0x80,0,1,1,no,0,0,0,weapon,0,	NV_DISARM,Disarm
+548,7,6,1,0,0x80,0,1,1,no,0,0,0,weapon,1,	NV_CRIPPLE,Cripple
+549,7,8,1,0,0x80,0,1,-3,no,0,0,0,weapon,0,	NV_3ROUNDBURST,3-Round Burst
+550,7,6,1,0,0x80,0,1,1,no,0,0,0,weapon,0,	NV_SINGLEFIRE,Single Fire
+551,7,6,1,0,0x80,0,1,1,yes,0,0,0,weapon,0,	NV_TRAINEDSHOT,Trained Shot
+552,7,6,1,0,0x02,9,1,1,yes,0,0,0,weapon,0,	NV_M203,M203
+553,7,6,1,0,0x02,6,1,1,no,0,0,0,weapon,3,	NV_M26,M26
+554,7,0,0,0,0x01,0,1,1,no,0,0,0,none,0,	NV_IGNITE,Ignite
+555,7,0,0,0,0x01,0,1,1,no,0,0,0,none,0,	NV_CHEMISTRY,Chemistry
+556,7,0,0,0,0x01,0,1,1,no,0,0,0,none,0,	NV_SMITHERY,Smithery
+557,7,0,0,0,0x01,0,1,1,no,0,0,0,none,0,	NV_CULINERY,Culinery
+558,3,6,2,3,0x42,3,1,1,no,0,0x80,0,misc,6,	NV_TRAP,Trap
+//================================================
+//= Oplex Origins Skills [Sigma]
+//================================================
 
 1,0,0,0,0,0,0,9,0,no,0,0,0,none,0,		NV_BASIC,Basic Skill
 2,0,0,0,0,0,0,10,0,no,0,0,0,weapon,0,		SM_SWORD,Sword Mastery

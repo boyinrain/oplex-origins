@@ -932,6 +932,40 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src,struct blo
 						wd.div_ = sd->spiritball_old;
 				}
 				break;
+//================================================
+//= Oplex Origins Weapon Based Skills [Sigma]
+//================================================
+			case NV_TRAINEDBLOW:
+				skillratio += 50;
+				break;
+			case NV_WIDESWING:
+				skillratio -= 10;
+				break;
+			case NV_DISARM:
+				skillratio += 10;
+				break;
+			case NV_CRIPPLE:
+				skillratio += 10;
+				break;
+			case NV_3ROUNDBURST:
+				skillratio += 50;
+				break;
+			case NV_SINGLEFIRE:
+				skillratio += 75;
+				break;
+			case NV_TRAINEDSHOT:
+				skillratio += 100;
+				break;
+			case NV_M203:
+				skillratio += 300;
+				break;
+			case NV_M26:
+				skillratio -= 20;
+				break;
+//================================================
+//= Oplex Origins Weapon Based Skills END
+//================================================
+
 			case HT_PHANTASMIC:
 				//Since these do not consume ammo, they need to be explicitly set as arrow attacks.
 				flag.arrow = 1;
@@ -2522,6 +2556,22 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
 		md.damage=35;
 		break;
 	case HT_BLITZBEAT:
+//================================================
+//= Oplex Origins Magic Based Skills [Sigma]
+//================================================
+	case NV_IGNITE:
+		break;
+	case NV_CHEMISTRY:
+		break;
+	case NV_SMITHERY:
+		break;
+	case NV_CULINERY:
+		break;
+	case NV_TRAP:
+		break;
+//================================================
+//= Oplex Origins Magic Based Skills END
+//================================================
 	case SN_FALCONASSAULT:
 		//Blitz-beat Damage.
 		if(!sd || (skill = pc_checkskill(sd,HT_STEELCROW)) <= 0)
