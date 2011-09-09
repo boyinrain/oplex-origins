@@ -3,19 +3,19 @@ COMMON_OBJ = ../common/obj_all/core.o ../common/obj_all/socket.o ../common/obj_a
 	../common/obj_all/db.o ../common/obj_all/plugins.o ../common/obj_all/lock.o \
 	../common/obj_all/nullpo.o ../common/obj_all/malloc.o ../common/obj_all/showmsg.o \
 	../common/obj_all/utils.o ../common/obj_all/strlib.o ../common/obj_all/grfio.o \
-	../common/obj_all/mapindex.o ../common/obj_all/ers.o ../common/obj_all/md5calc.o
+	../common/obj_all/mapindex.o ../common/obj_all/ers.o
 COMMON_H = ../common/core.h ../common/socket.h ../common/timer.h \
 	../common/db.h ../common/plugins.h ../common/lock.h \
 	../common/nullpo.h ../common/malloc.h ../common/showmsg.h \
 	../common/utils.h ../common/strlib.h ../common/grfio.h \
-	../common/mapindex.h ../common/ers.h ../common/md5calc.h
+	../common/mapindex.h ../common/ers.h
 
 COMMON_SQL_OBJ = ../common/obj_sql/sql.o
 COMMON_SQL_H = ../common/sql.h
 
 MAP_OBJ = map.o chrif.o clif.o pc.o status.o npc.o \
 	npc_chat.o chat.o path.o itemdb.o mob.o script.o \
-	storage.o skill.o atcommand.o battle.o battleground.o \
+	storage.o skill.o atcommand.o charcommand.o battle.o \
 	intif.o trade.o party.o vending.o guild.o pet.o \
 	log.o mail.o date.o unit.o homunculus.o mercenary.o quest.o
 MAP_TXT_OBJ = $(MAP_OBJ:%=obj_txt/%) \
@@ -24,7 +24,7 @@ MAP_SQL_OBJ = $(MAP_OBJ:%=obj_sql/%) \
 	obj_sql/mapreg_sql.o
 MAP_H = map.h chrif.h clif.h pc.h status.h npc.h \
 	chat.h itemdb.h mob.h script.h path.h \
-	storage.h skill.h atcommand.h battle.h battleground.h \
+	storage.h skill.h atcommand.h charcommand.h battle.h \
 	intif.h trade.h party.h vending.h guild.h pet.h \
 	log.h mail.h date.h unit.h homunculus.h mercenary.h quest.h mapreg.h
 
@@ -37,7 +37,7 @@ else
 	SQL_DEPENDS=needs_mysql
 endif
 
-HAVE_PCRE=
+HAVE_PCRE=yes
 ifeq ($(HAVE_PCRE),yes)
 	PCRE_CFLAGS=-DPCRE_SUPPORT 
 else
@@ -56,7 +56,7 @@ txt: map-server
 sql: $(SQL_DEPENDS)
 
 clean:
-	rm -rf *.o obj_txt obj_sql ../../map-server.exe ../../map-server_sql.exe
+	rm -rf *.o obj_txt obj_sql ../../map-server ../../map-server_sql
 
 help:
 ifeq ($(HAVE_MYSQL),yes)
@@ -85,17 +85,17 @@ obj_sql:
 
 # executables
 map-server: obj_txt $(MAP_TXT_OBJ) $(COMMON_OBJ)
-	gcc  -L/usr/lib -o ../../map-server.exe $(MAP_TXT_OBJ) $(COMMON_OBJ) -lm -lz  
+	gcc  -L/usr/lib -o ../../map-server $(MAP_TXT_OBJ) $(COMMON_OBJ) -lrt -lm -lz  -ldl -lpcre
 
 map-server_sql: obj_sql $(MAP_SQL_OBJ) $(COMMON_OBJ) $(COMMON_SQL_OBJ)
-	gcc  -L/usr/lib -o ../../map-server_sql.exe $(MAP_SQL_OBJ) $(COMMON_OBJ) $(COMMON_SQL_OBJ) -lm -lz   -L/usr/local/lib/mysql -lmysqlclient -lz -lcrypt -lm
+	gcc  -L/usr/lib -o ../../map-server_sql $(MAP_SQL_OBJ) $(COMMON_OBJ) $(COMMON_SQL_OBJ) -lrt -lm -lz  -ldl -lpcre -L/usr/lib/mysql -lmysqlclient
 
 # map object files
 obj_txt/%.o: %.c $(MAP_H) $(COMMON_H)
-	gcc -g -O2 -pipe -ffast-math -Wall -Wno-sign-compare -Wno-unused-parameter -Wno-switch -DHAVE_SETRLIMIT -Wno-unused -Wno-parentheses $(PCRE_CFLAGS) -DTXT_ONLY  -I../common -I/usr/include -DFD_SETSIZE=4096 -DCYGWIN -c $(OUTPUT_OPTION) $<
+	gcc -g -O2 -pipe -ffast-math -Wall -Wno-sign-compare -Wno-unused-parameter -Wno-pointer-sign -Wno-switch -DHAVE_SETRLIMIT -Wno-unused -Wno-parentheses $(PCRE_CFLAGS) -DTXT_ONLY  -I../common -I/usr/include -c $(OUTPUT_OPTION) $<
 
 obj_sql/%.o: %.c $(MAP_H) $(COMMON_H) $(COMMON_SQL_H)
-	gcc -g -O2 -pipe -ffast-math -Wall -Wno-sign-compare -Wno-unused-parameter -Wno-switch -DHAVE_SETRLIMIT -Wno-unused -Wno-parentheses $(PCRE_CFLAGS) -I/usr/local/include/mysql  -I../common -I/usr/include -DFD_SETSIZE=4096 -DCYGWIN -c $(OUTPUT_OPTION) $<
+	gcc -g -O2 -pipe -ffast-math -Wall -Wno-sign-compare -Wno-unused-parameter -Wno-pointer-sign -Wno-switch -DHAVE_SETRLIMIT -Wno-unused -Wno-parentheses $(PCRE_CFLAGS) -I/usr/include/mysql  -I../common -I/usr/include -c $(OUTPUT_OPTION) $<
 
 # missing common object files
 ../common/obj_all/%.o:
