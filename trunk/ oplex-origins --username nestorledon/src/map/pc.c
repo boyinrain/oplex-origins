@@ -5084,9 +5084,6 @@ void pc_damage(struct map_session_data *sd,struct block_list *src,unsigned int h
 		skill_sit(sd,0);
 	}
 
-	if( sd->progressbar.npc_id )
-		clif_progressbar_abort(sd);
-
 	clif_updatestatus(sd,SP_HP);
 
 	if(!src || src == &sd->bl)

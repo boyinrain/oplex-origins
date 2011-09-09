@@ -56,6 +56,37 @@ set @rand9,rand(90,99);
 // M16 is about 4 feet, 4x10=40. 40 Metal | 20 Plastic | 10 Leather. 
 // Just use my super awesome law of 100%|75%|50%|25%
 
+//============================================================
+//= Review
+//============================================================
+//Decompose
+set	@item_00_stone_ammount,0;
+set	@item_00_cyan_ammount,0;
+set	@item_00_leather_ammount,0;
+set	@item_00_sulfur_ammount,0;
+set	@item_00_charcoal_ammount,0;
+set	@item_00_salt_ammount,0;
+set	@item_00_coal_ammount,0;
+set	@item_00_gunpowder_ammount,0;
+set	@item_00_ducttape_ammount,0;
+set	@item_00_nail_ammount,0;
+set	@item_00_salt_ammount,0;
+//Create
+set	@item_00_cstone_ammount,0;
+set	@item_00_ccyan_ammount,0;
+set	@item_00_cleather_ammount,0;
+set	@item_00_csulfur_ammount,0;
+set	@item_00_ccharcoal_ammount,0;
+set	@item_00_csalt_ammount,0;
+set	@item_00_ccoal_ammount,0;
+set	@item_00_cgunpowder_ammount,0;
+set	@item_00_cducttape_ammount,0;
+set	@item_00_cnail_ammount,0;
+set	@item_00_csalt_ammount,0;
+//============================================================
+//= End of Review
+//============================================================
+
 // Melee Weapons
 set @item_id_00,1201;
 set @item_name_00$, "Pocket Knife";
@@ -77,6 +108,17 @@ set	@item_01_fabric_ammount,0;
 set	@item_01_plastic_ammount,0;
 set	@item_01_latex_ammount,0;
 set	@item_01_wood_ammount,0;
+set	@item_00_stone_ammount,0;
+set	@item_00_cyan_ammount,0;
+set	@item_00_leather_ammount,0;
+set	@item_00_sulfur_ammount,0;
+set	@item_00_charcoal_ammount,0;
+set	@item_00_salt_ammount,0;
+set	@item_00_coal_ammount,0;
+set	@item_00_gunpowder_ammount,0;
+set	@item_00_ducttape_ammount,0;
+set	@item_00_nail_ammount,0;
+set	@item_00_salt_ammount,0;
 set @item_01_cmetal_ammount,20;
 set @item_01_cfabric_ammount,0;
 set @item_01_cplastic_ammount,0;
@@ -634,6 +676,9 @@ set @plastic$, "Plastic";
 
 set @mat_latex,1005;
 set @latex$, "Latex";
+
+set @mat_stone,1006;
+set @stone$, "Stone";
 
 set @mat_wood,1007;
 set @wood$, "Wood";

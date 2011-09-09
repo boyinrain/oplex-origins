@@ -12954,29 +12954,6 @@ BUILDIN_FUNC(setcell)
 	return 0;
 }
 
-BUILDIN_FUNC(progressbar)
-{
-#if PACKETVER >= 20080318
-        struct map_session_data * sd = script_rid2sd(st);
-        const char * color;
-        unsigned int second;
-
-        if( !st || !sd )
-                return 0;
-
-        st->state = STOP;
-
-        color = script_getstr(st,2);
-        second = script_getnum(st,3);
-
-        sd->progressbar.npc_id = st->oid;
-        sd->progressbar.timeout = gettick() + second*1000;
-
-        clif_progressbar(sd, strtol(color, (char **)NULL, 0), second);
-#endif
-    return 0;
-}
-
 /*==========================================
  * Mercenary Commands
  *------------------------------------------*/
@@ -13590,43 +13567,9 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(mercenary_get_faith,"i"),
 	BUILDIN_DEF(mercenary_set_calls,"ii"),
 	BUILDIN_DEF(mercenary_set_faith,"ii"),
-	BUILDIN_DEF(progressbar,"si"),
 	// WoE SE
 	BUILDIN_DEF(agitstart2,""),
 	BUILDIN_DEF(agitend2,""),
 	BUILDIN_DEF(agitcheck2,""),
-	// BattleGround
-	BUILDIN_DEF(waitingroom2bg,"siiss?"),
-	BUILDIN_DEF(waitingroom2bg_single,"isiis"),
-	BUILDIN_DEF(bg_team_setxy,"iii"),
-	BUILDIN_DEF(bg_warp,"isii"),
-	BUILDIN_DEF(bg_monster,"isiisi?"),
-	BUILDIN_DEF(bg_monster_set_team,"ii"),
-	BUILDIN_DEF(bg_leave,""),
-	BUILDIN_DEF(bg_destroy,"i"),
-	BUILDIN_DEF(areapercentheal,"siiiiii"),
-	BUILDIN_DEF(bg_get_data,"ii"),
-	BUILDIN_DEF(bg_getareausers,"isiiii"),
-	BUILDIN_DEF(bg_updatescore,"sii"),
-	// Instancing
-	BUILDIN_DEF(instance_create,"si"),
-	BUILDIN_DEF(instance_destroy,"?"),
-	BUILDIN_DEF(instance_attachmap,"si?"),
-	BUILDIN_DEF(instance_detachmap,"s?"),
-	BUILDIN_DEF(instance_attach,"i"),
-	BUILDIN_DEF(instance_id,"?"),
-	BUILDIN_DEF(instance_set_timeout,"ii?"),
-	BUILDIN_DEF(instance_init,"i"),
-	BUILDIN_DEF(instance_announce,"isi?????"),
-	BUILDIN_DEF(instance_npcname,"s?"),
-	BUILDIN_DEF(has_instance,"s?"),
-	BUILDIN_DEF(instance_warpall,"sii?"),
-	//Quest Log System [Inkfish]
-	BUILDIN_DEF(setquest, "i"),
-	BUILDIN_DEF(erasequest, "i"),
-	BUILDIN_DEF(completequest, "i"),
-	BUILDIN_DEF(checkquest, "i?"),
-	BUILDIN_DEF(changequest, "ii"),
-	BUILDIN_DEF(showevent, "ii"),
 	{NULL,NULL,NULL},
 };
