@@ -466,15 +466,4 @@ extern void battle_set_defaults(void);
 int battle_set_value(const char* w1, const char* w2);
 int battle_get_value(const char* w1);
 
-int bg_flee_penalty;
-
-int warg_can_falcon;
-
-// Rad's Faction Mod
-int hostile_hide_name;
-int hostile_prevent_chat;
-
-// Casting Time Renewal Settings
-int renewal_cast_enable;
-
 #endif /* _BATTLE_H_ */

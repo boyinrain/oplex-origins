@@ -1028,9 +1028,8 @@ static int mob_ai_sub_hard_slavemob(struct mob_data *md,unsigned int tick)
 	bl=map_id2bl(md->master_id);
 
 	if (!bl || status_isdead(bl)) {
-		if(md->master_id >2)
 		status_kill(&md->bl);
-		return 0;
+		return 1;
 	}
 	if (bl->prev == NULL)
 		return 0; //Master not on a map? Could be warping, do not process.

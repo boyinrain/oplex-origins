@@ -8111,37 +8111,6 @@ void clif_parse_Hotkey(int fd, struct map_session_data *sd) {
 #endif
 }
 
-void clif_progressbar(struct map_session_data * sd, unsigned long color, unsigned int second)
-{
-		int fd = sd->fd;
-
-		WFIFOHEAD(fd,packet_len(0x2f0));
-		WFIFOW(fd,0) = 0x2f0;
-		WFIFOL(fd,2) = color;
-		WFIFOL(fd,6) = second;
-		WFIFOSET(fd,packet_len(0x2f0));
-}
-
-void clif_progressbar_abort(struct map_session_data * sd)
-{
-		int fd = sd->fd;
-
-		WFIFOHEAD(fd,packet_len(0x2f2));
-		WFIFOW(fd,0) = 0x2f2;
-		WFIFOSET(fd,packet_len(0x2f2));
-}
-
-void clif_parse_progressbar(int fd, struct map_session_data * sd)
-{
-		int npc_id = sd->progressbar.npc_id;
-
-		if( gettick() < sd->progressbar.timeout && sd->st )
-				sd->st->state = END;
-
-		sd->progressbar.npc_id = sd->progressbar.timeout = 0;
-		npc_scriptcont(sd, npc_id);
-}
-
 /*==========================================
  *
  *------------------------------------------*/
@@ -8157,8 +8126,6 @@ void clif_parse_WalkToXY(int fd, struct map_session_data *sd)
 
 	if (sd->sc.opt1 && sd->sc.opt1 == OPT1_STONEWAIT)
 		; //You CAN walk on this OPT1 value.
-	else if( sd->progressbar.npc_id )
-			clif_progressbar_abort(sd);
 	else if (pc_cant_act(sd))
 		return;
 
@@ -13142,7 +13109,6 @@ static int packetdb_readdb(void)
 		{clif_parse_ViewPlayerEquip,"viewplayerequip"},
 		{clif_parse_EquipTick,"equiptickbox"},
 		{clif_parse_mercenary_action,"mermenu"},
-		{clif_parse_progressbar,"progressbar"},
 		{NULL,NULL}
 	};
 
