@@ -3,13 +3,14 @@
 //===== By: ================================================== 
 //= Sigma
 //===== Current Version: ===================================== 
-//= 1.0
+//= 1.1
 //===== Compatible With: ===================================== 
 //= Any Oplex Version 
 //===== Description: ========================================= 
 //= Enables you chop down trees!
 //===== Changelog: ===========================================
 //= v1.0 - Original release
+//= v1.1 - updated lumber locations - Magnus
 //============================================================
 blank_01,5,5,5	script	Lumber::lumber	111,{
 		callfunc "lumber_func";
@@ -17,3 +18,17 @@ blank_01,5,5,5	script	Lumber::lumber	111,{
 
 // Here you put all the clones for this script use the format below
 //la_in01,174,138,0	duplicate(lumber)	Lumber::lumber1	111
+la_fild01,27,72,0	duplicate(lumber)	Lumber::lumber1	111
+la_fild01,5,70,0	duplicate(lumber)	Lumber::lumber2	111
+la_fild01,9,34,0	duplicate(lumber)	Lumber::lumber3	111
+la_fild01,9,10,0	duplicate(lumber)	Lumber::lumber4	111
+la_fild01,27,18,0	duplicate(lumber)	Lumber::lumber5	111
+la_fild01,25,38,0	duplicate(lumber)	Lumber::lumber6	111
+la_fild01,67,26,0	duplicate(lumber)	Lumber::lumber7	111
+la_fild01,73,46,0	duplicate(lumber)	Lumber::lumber8	111
+la_fild01,81,67,0	duplicate(lumber)	Lumber::lumber9	111
+la_fild01,69,84,0	duplicate(lumber)	Lumber::lumber10	111
+la_fild01,79,82,0	duplicate(lumber)	Lumber::lumber11	111
+la_fild01,79,8,0	duplicate(lumber)	Lumber::lumber12	111
+la_fild01,89,11,0	duplicate(lumber)	Lumber::lumber13	111
+la_fild01,83,22,0	duplicate(lumber)	Lumber::lumber14	111
