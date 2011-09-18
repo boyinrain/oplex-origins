@@ -117,8 +117,9 @@ end;
 }
 
 -	script	barricade	-1,{
+
 OnNPCKillEvent:
 	if(KilledRid = 1511)
-	mes "test worked";
+	message strcharinfo(0), "It WORKS!";
 	end;
 }
