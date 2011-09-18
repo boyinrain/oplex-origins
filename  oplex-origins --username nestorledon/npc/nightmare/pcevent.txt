@@ -116,10 +116,12 @@ atcommand "@kick "+strcharinfo(0)+"";
 end;
 }
 
--	script	barricade	-1,{
+-	script	barricade_kill	-1,{
 
 OnNPCKillEvent:
-	if(KilledRid = 1511)
+	if(KilledRid == 1511)
+	getmapxy @playermap$,@playerx,@playery,0;
+	announce "WOOOOOOOOOOOOOO",bc_self,0xFFFF00;
 	message strcharinfo(0), "It WORKS!";
 	end;
 }
