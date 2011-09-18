@@ -21,9 +21,9 @@ function	script	Barricade	{
 		callfunc "loading_func";
 		callfunc "loading_func";
 		set @randid, rand(1,10000);
-		set .@wallname$,"strcharinfo(0) + @randid";
+		set .@wallname$,"Wall + @randid";
 		getmapxy @playermap$,@playerx,@playery,0;					                                 //get and set player x,y & map for use
-		monster @playermap$,@playerx,@playery,.@wallaname$,1511,1,.@wallname$+"::OnbarrierDead";		// place an immobile monster to act as barricade
+		monster @playermap$,@playerx,@playery,Barricade,1511,1,strnpcinfo(0)+"::OnbarrierDead";		// place an immobile monster to act as barricade
 		setwall @playermap$,@playerx,@playery,1,1,1,.@wallname$;		                               //set a wall to make the barricade impassable
 		delitem 1007,10;								                              //Removes 20 wood from the inventory of the player
 		mes "Barricade has been built!!!";
