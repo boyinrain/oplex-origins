@@ -12,7 +12,7 @@
 //============================================================
 function	script	Barricade	{
 
-	if (countitem(1007) >= 10) {			//checks if player has required materials
+	if (countitem(1007) >= 10)	{			//checks if player has required materials
 		mes "Building barricade...";
 		sc_start SC_SLEEP,5000,0;		//starts wait time - 15 seconds
 		callfunc "loading_func";
