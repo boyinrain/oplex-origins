@@ -68,9 +68,8 @@ OnNPCKillEvent:
 
 
 OnNPCKillEvent:
-	if(KilledRid = 1511){
+	if(KilledRid = 1511)
 	mes "test worked";
-	} 
 	end;
 
 
