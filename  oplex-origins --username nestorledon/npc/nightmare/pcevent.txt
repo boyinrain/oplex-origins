@@ -119,9 +119,9 @@ end;
 -	script	barricade_kill	-1,{
 
 OnNPCKillEvent:
-	if(KilledRid == 1511)
-	getmapxy @playermap$,@playerx,@playery,0;
-	announce "WOOOOOOOOOOOOOO",bc_self,0xFFFF00;
-	message strcharinfo(0), "It WORKS!";
-	end;
+	if(KilledRid == 1511) {
+		getmapxy @playermap$,@playerx,@playery,0;
+		announce "Your barricade has been destroyed.",bc_self,0xFFFF00;
+		end;
+		} else {	end;	}
 }
