@@ -8,7 +8,7 @@
 //= Any Oplex Version 
 //===== Description: ========================================= 
 //= Since OnPCLoadmapEvent doesn't want to work, I made my own.
-//= Simply runs the script when the player comed into contact
+//= Simply runs the script when the player comes into contact
 //= with the NPC.
 //===== Changelog: ===========================================
 //= v1.0 - Original release
