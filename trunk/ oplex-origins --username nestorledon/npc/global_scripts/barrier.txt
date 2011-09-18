@@ -28,9 +28,7 @@ function	script	Barricade	{
 		delitem 1007,10;								                              //Removes 20 wood from the inventory of the player
 		mes "Barricade has been built!!!";
 		close;
-		end;
-		
-	}
+		}
 	else {
 		mes "You need more Wood.";
 		close;
