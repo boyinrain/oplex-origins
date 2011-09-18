@@ -66,13 +66,6 @@ OnNPCKillEvent:
 	query_sql "UPDATE `char` SET `monster_kill` = "+monsterkill+" WHERE `char_id` = "+@char_id;
 	end;
 
-
-OnNPCKillEvent:
-	if(KilledRid = 1511)
-	mes "test worked";
-	end;
-
-
 OnPCKillEvent:
 //	getnameditem(501,KilledRid);	//Killed player drops meat
 //	getnameditem(1001,KilledRid);	//Killed player drops skull
@@ -121,4 +114,11 @@ mes "you will be loged off in 5 seconds to reset your name";
 sleep2 5000;
 atcommand "@kick "+strcharinfo(0)+"";
 end;
+}
+
+-	script	barricade	-1,{
+OnNPCKillEvent:
+	if(KilledRid = 1511)
+	mes "test worked";
+	end;
 }
