@@ -6,13 +6,14 @@
 //= v1.0 - Original release - MAG
 //============================================================
 
--	script	Barricade	-1,{
+function	script	Barricade	{
 
 	if (countitem(1007) => 20) {
 	getmapxy @playermap$,@playerx,@playery,0; //get and set player x,y & map for use
 	monster "@playermap$",@playerx,@playery,strcharinfo(0)+"'s Barricade",1511,1;
 	setwall @playermap$,@playerx,@playery,1,1,1,strcharinfo(0)+"wall";
 	delitem 1007,20;
-	}	
+	close;
+	end;
+	}
 }
-	
