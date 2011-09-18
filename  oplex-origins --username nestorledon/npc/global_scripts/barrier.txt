@@ -39,5 +39,9 @@ function	script	Barricade	{
 		close;
 		end;
 	}
-	else {	mes "You need more Wood.";	}
+	else {
+		mes "You need more Wood.";
+		close;
+		end;
+	}
 }
