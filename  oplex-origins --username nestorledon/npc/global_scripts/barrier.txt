@@ -38,6 +38,6 @@ function	script	Barricade	{
 		mes "barricade has been built!!!";
 		close;
 		end;
-	else {	mes "You need more Wood.";	}
 	}
+	else {	mes "You need more Wood.";	}
 }
