@@ -44,8 +44,10 @@ function	script	work_bench	{
 //So .@Item must equal an item ID. Then set them into variables.
 //Query Used - ("SELECT COL, COL, COL FROM `TABLE` WHERE name_english = '" + .@item$"'", .@SetColVar, .@SetColVar);
 
-query_sql("SELECT fabric, metal, plastic, latex, stone, wood, cyan, leather, sulfur, charcoal, salt, coal, ducttape, gunpowder, nails FROM `item_db2` WHERE name_english='"+item$+"'", .@fabric_num, .@metal_num, .@plastic_num, .@latex_num, .@stone_num, .@wood_num, .@cyan_num, .@leather_num, .@sulfur_num, .@charcoal_num, .@salt_num, .@coal_num, .@ducttape_num, .@gunpowder_num, .@nails_num);
-return;
+set getarg(0);
+
+query_sql("SELECT fabric, metal, plastic, latex, stone, wood, cyan, leather, sulfur, charcoal, salt, coal, ducttape, gunpowder, nails FROM `item_db2` WHERE name_english='".@+item$+"'", .@fabric_num, .@metal_num, .@plastic_num, .@latex_num, .@stone_num, .@wood_num, .@cyan_num, .@leather_num, .@sulfur_num, .@charcoal_num, .@salt_num, .@coal_num, .@ducttape_num, .@gunpowder_num, .@nails_num);
+return(.@item$);
 
 }
 
@@ -53,11 +55,12 @@ return;
 //= Dismantle Function
 //============================================================
 function	script	work_bench_dismantle	{
+	set getarg(0);
 	//mes	"Please enter how many of the item you want to break down";
 	//input	.@ammount;
 
 	// Check for the same item ID use in the query.
-	if(countitem("item$")>= 1) {
+	if(countitem(".@item$")>= 1) {
 		mes	"You carefully start working on the item";
 		next;
 		// Delete the decomposed item
@@ -99,6 +102,7 @@ function	script	work_bench_dismantle	{
 //= Create Function - Incomplete
 //============================================================
 function	script	work_bench_create	{
+	set getarg(0);
 	//mes	"Please enter how many of the item you want to create.";
 	//input	.@ammount;
 
