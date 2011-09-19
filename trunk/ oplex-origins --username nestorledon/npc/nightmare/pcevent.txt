@@ -59,7 +59,7 @@ OnPCDieEvent:
 	end;
 
 OnNPCKillEvent:
-	if (KilledRid == 1511)	{
+	if (KilledRid == "1511")	{
 	dispbottom "it works!!!";
 	end;
 	}
