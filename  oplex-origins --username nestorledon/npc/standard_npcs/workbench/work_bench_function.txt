@@ -45,7 +45,7 @@ function	script	work_bench	{
 //Query Used - ("SELECT COL, COL, COL FROM `TABLE` WHERE name_english = '" + .@item$"'", .@SetColVar, .@SetColVar);
 
 set getarg(0), getarg(0);
-mes	"The value of the argument is now: .@item$";
+mes	"The value of the argument is now: ^00FF00" +.@item$+ "^000000 ";
 
 query_sql("SELECT fabric, metal, plastic, latex, stone, wood, cyan, leather, sulfur, charcoal, salt, coal, ducttape, gunpowder, nails FROM `item_db2` WHERE name_english='"+.@item$+"'", .@fabric_num, .@metal_num, .@plastic_num, .@latex_num, .@stone_num, .@wood_num, .@cyan_num, .@leather_num, .@sulfur_num, .@charcoal_num, .@salt_num, .@coal_num, .@ducttape_num, .@gunpowder_num, .@nails_num);
 return(.@item$);
