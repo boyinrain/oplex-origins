@@ -44,7 +44,7 @@ function	script	work_bench	{
 //So .@Item must equal an item ID. Then set them into variables.
 //Query Used - ("SELECT COL, COL, COL FROM `TABLE` WHERE id = " + .@item, .@SetColVar, .@SetColVar);
 
-query_sql("SELECT fabric, metal, plastic, latex, stone, wood, cyan, leather, sulfur, charcoal, salt, coal, ducttape, gunpowder, nails  FROM `item_db2` WHERE id = " + .@item, .@fabric_num, .@metal_num, .@plastic_num, .@latex_num, .@stone_num, .@wood_num, .@cyan_num, .@leather_num, .@sulfur_num, .@charcoal_num, .@salt_num, .@coal_num, .@ducttape_num, .@gunpowder_num, .@nails_num);
+query_sql("SELECT fabric, metal, plastic, latex, stone, wood, cyan, leather, sulfur, charcoal, salt, coal, ducttape, gunpowder, nails  FROM `item_db2` WHERE id = " + .@item$, .@fabric_num, .@metal_num, .@plastic_num, .@latex_num, .@stone_num, .@wood_num, .@cyan_num, .@leather_num, .@sulfur_num, .@charcoal_num, .@salt_num, .@coal_num, .@ducttape_num, .@gunpowder_num, .@nails_num);
 return;
 
 }
