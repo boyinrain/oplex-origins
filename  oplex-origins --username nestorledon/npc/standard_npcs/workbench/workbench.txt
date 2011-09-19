@@ -119,7 +119,7 @@ goto L_WBCook;
 L_Comp:
 mes	"^990000 [ Work Bench ]^000000";
 mes	"What type of item do you want to forge?";
-callfunc("work_bench",.@item$);
+set .@item$, callfunc("work_bench",.@item$);
 if(.@item$)=="Pocket Knife" {goto S_WB;}
 
 else {
