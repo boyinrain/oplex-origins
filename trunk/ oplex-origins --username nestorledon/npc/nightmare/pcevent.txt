@@ -54,13 +54,12 @@ OnPCDieEvent:
 	makeitem 501,1,@playermap$,@playerx,@playery;	//Drops Uncooked Meat
 //	makeitem 1001,1,@playermap$,@playerx,@playery;	//Drops Skull
 	set @superrand, rand(1,100);
-	if(@superrand > 90) {	atcommand "@dropall";}	//Drops all items by a chance of 10/100.
+	if(@superrand > 90)	{	atcommand "@dropall";}	//Drops all items by a chance of 10/100.
 	soundeffect "dying.wav",0;
 	end;
 
 OnNPCKillEvent:
-	set @who, KillerRid;
-	dispbottom @who;
+	if (KilledRid == 1511)	{mes "it works!!!";}
 	if(KilledRid >= 1078 && KilledRid<=1092)		//Remember to update when adding new monsters!
 	set @char_id, getcharid(0);
 	set monsterkill, monsterkill + 1;
