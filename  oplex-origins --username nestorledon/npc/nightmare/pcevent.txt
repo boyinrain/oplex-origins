@@ -59,8 +59,8 @@ OnPCDieEvent:
 	end;
 
 OnNPCKillEvent:
+	dispbottom readparam(122);
 	if(KilledRid >= 1078 && KilledRid<=1092)		//Remember to update when adding new monsters!
-	mes "ignore this message" + @KilledRid;
 	set @char_id, getcharid(0);
 	set monsterkill, monsterkill + 1;
 	//Updates the SQL server on the player's player kills
