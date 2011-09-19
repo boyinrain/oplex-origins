@@ -99,7 +99,7 @@ function	script	work_bench_dismantle	{
 //============================================================
 //= Create Function - Incomplete
 //============================================================
-function	script	work_bench_dismantle	{
+function	script	work_bench_create	{
 	//mes	"Please enter how many of the item you want to create.";
 	//input	.@ammount;
 
