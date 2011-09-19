@@ -94,7 +94,7 @@ set .@nails_name$, "Nails";
 //============================================================
 //= Base NPC
 //============================================================
-mes	"[Work Bench]";
+mes	"^0000FF [Work Bench]^000000";
 mes	"You look on the Work Bench and wonder what you should do at it";
 next;
 switch(select("Forge/Dismantle an item:Temper Equipment:Cook")) {
@@ -117,7 +117,7 @@ goto L_WBCook;
 //= Create/Dismatnle Item Input (L_Comp)
 //============================================================
 L_Comp:
-mes	"[Work Bench]";
+mes	"^0000FF [Work Bench]^000000";
 mes	"What type of item do you want to forge?";
 input .@input$;
 if(.@input$)=="Pocket Knife" {goto WBPKnife;}
@@ -130,7 +130,7 @@ end;
 //============================================================
 //= Item Cases
 //============================================================
-WBPKnife: set .@item$,"Pocket Knife"; callfunc "work_bench"; goto S_WB;
+WBPKnife: set .@item$,"^0000FF Pocket Knife^000000"; callfunc "work_bench"; goto S_WB;
 
 //============================================================
 //= Menus
