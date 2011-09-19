@@ -47,7 +47,7 @@ function	script	work_bench	{
 query_sql("SELECT fabric, metal, plastic, latex, stone, "
 	+"wood, cyan, leather, sulfur, charcoal, "
 	+"salt, coal, ducttape, gunpowder, nails "
-	+"from `item_db2` WHERE name_english = " + .@item$,
+	+"from `item_db2` WHERE name_english = "+.@item$,
 	.@fabric_num, .@metal_num, .@plastic_num, .@latex_num, .@stone_num,
 	.@wood_num, .@cyan_num, .@leather_num, .@sulfur_num, .@charcoal_num,
 	.@salt_num, .@coal_num, .@ducttape_num, .@gunpowder_num, .@nails_num);
