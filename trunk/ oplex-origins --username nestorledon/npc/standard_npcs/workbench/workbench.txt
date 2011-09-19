@@ -29,6 +29,13 @@ la_jack,13,17,5	script	Work Bench::wb	111,{
 //The vars are set to the same name as the columns in the database.
 //This may allow us to dynamically apend the variable in the future,
 //using the output of the retrieved information.
+
+//Resource Vars - For Reference
+//.@fabric, .@metal, .@plastic, .@latex, .@stone, .@wood, .@cyan, .@leather, .@sulfur, .@charcoal, .@salt, .@coal, .@ducttape, .@gunpowder, .@nails
+
+//Resource Amount Vars - For Reference
+//.@fabric_num, .@metal_num, .@plastic_num, .@latex_num, .@stone_num, .@wood_num, .@cyan_num, .@leather_num, .@sulfur_num, .@charcoal_num, .@salt_num, .@coal_num, .@ducttape_num, .@gunpowder_num, .@nails_num
+
 set .@fabric,1002;
 set .@fabric_name$, "Fabric";
 
@@ -125,7 +132,7 @@ L_Comp:
 query_sql("SELECT fabric, metal, plastic, latex, stone, wood, cyan, leather, sulfur, charcoal, salt, coal, ducttape, gunpowder, nails FROM `item_db2` WHERE name_english='"+.@item$+"'", .@fabric_num, .@metal_num, .@plastic_num, .@latex_num, .@stone_num, .@wood_num, .@cyan_num, .@leather_num, .@sulfur_num, .@charcoal_num, .@salt_num, .@coal_num, .@ducttape_num, .@gunpowder_num, .@nails_num);
 
 //============================================================
-// Items go here. You the name from the db column name_english.
+// Items go here. Use the name from the db column name_english.
 //============================================================
 if(.@item$)=="Pocket Knife" {goto S_WB;}
 if(.@item$)=="Combat Knife" {goto S_WB;}
@@ -146,12 +153,14 @@ menu	"Yes.",Y_WB,"No, I want to select another item",L_Comp,"No, I'm done for no
 close;
 
 Y_WB:
-mes	"______";
+next;
 mes	"What would you like to do?";
 menu	"Create",C_WB,"Dismantle",D_WB,"Go back",L_Comp,"Forget it",-;
 
 C_WB:
-callfunc "work_bench_create";
+setarray .@resources[0],.@fabric_num,.@metal_num,.@plastic_num,.@latex_num,.@stone_num,.@wood_num,.@cyan_num,.@leather_num,.@sulfur_num,.@charcoal_num,.@salt_num,.@coal_num,.@ducttape_num,.@gunpowder_num,.@nails_num;
+mes	"+.@metal_num+";
+callfunc("work_bench_create",.@resources);
 
 D_WB:
 callfunc "work_bench_dismantle";
