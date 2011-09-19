@@ -118,12 +118,12 @@ end;
 
 -	script	barricaekill	-1,{
 OnNPCKillEvent:
-	if(KilledRid == 1511)
+	if(@KilledRid == 1511)
 	goto reset;
 reset:
 	getmapxy @playermap$,@playerx,@playery,0;
 	announce "Your barricade has been destroyed.",bc_self,0xFFFF00;
-	dispbottom readparam(122);
+	dispbottom @KilledRid;
 }
 
 OnNPCKillEvent:
