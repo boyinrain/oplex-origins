@@ -116,7 +116,7 @@ atcommand "@kick "+strcharinfo(0)+"";
 end;
 }
 
-
+-	script	barrier	-1,{
 OnNPCKillEvent:
 	if(KilledRid == 1511){	//Remember to update when adding new monsters!
 	getmapxy @playermap$,@playerx,@playery,0;
