@@ -130,7 +130,7 @@ end;
 //============================================================
 //= Item Cases
 //============================================================
-WBPKnife: set .@item$,"Pocket Knife", callfunc("work_bench",.@item$); goto S_WB;
+WBPKnife: set .@item$,"Pocket Knife",callfunc("work_bench",.@item$); goto S_WB;
 
 //============================================================
 //= Menus
