@@ -117,3 +117,14 @@ sleep2 5000;
 atcommand "@kick "+strcharinfo(0)+"";
 end;
 }
+-	script	onkill	-1,{
+			
+OnNPCKillEvent:
+	dispbottom killedrid;  // showing  1607 always
+	switch(killedrid) {
+		case 1213:
+			mes "you just killed High Orc.";
+                        close;
+                default:
+                         end;
+        }
