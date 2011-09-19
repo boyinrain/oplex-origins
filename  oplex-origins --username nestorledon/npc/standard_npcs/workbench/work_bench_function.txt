@@ -57,7 +57,7 @@ function	script	work_bench_dismantle	{
 	//input	.@ammount;
 
 	// Check for the same item ID use in the query.
-	if (countitem(.@item$) >= 1) {
+	if (countitem(".@item$") >= 1) {
 
 		mes	"You carefully start working on the item";
 		next;
@@ -104,7 +104,7 @@ function	script	work_bench_create	{
 	//input	.@ammount;
 
 	// Check for the same item ID use in the query.
-	if (countitem(.@item$) > 0) {
+	if (countitem(".@item$") > 0) {
 
 		mes	"You carefully start working on the item";
 		next;
