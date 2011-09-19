@@ -124,6 +124,8 @@ if(.@item$)=="knife" {goto WB_knife;}
 
 else {
 mes "Sorry, you cannot create or dismatle this item at the moment.";
+close;
+end;
 }
 //============================================================
 //= Item Cases
