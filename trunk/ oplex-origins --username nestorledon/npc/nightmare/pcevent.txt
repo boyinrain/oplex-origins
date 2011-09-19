@@ -123,7 +123,7 @@ OnNPCKillEvent:
 reset:
 	getmapxy @playermap$,@playerx,@playery,0;
 	announce "Your barricade has been destroyed.",bc_self,0xFFFF00;
-	dispbottom killedrid;
+	dispbottom KilledRid;
 }
 
 OnNPCKillEvent:
