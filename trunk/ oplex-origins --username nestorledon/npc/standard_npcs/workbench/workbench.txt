@@ -113,6 +113,7 @@ goto L_WBRefine;
 //= Create/Dismatnle Item Input (L_Comp)
 //============================================================
 L_Comp:
+	next;
 	mes	"^990000 [ Work Bench ]^000000";
 	mes	"What will you attempt to create/dismantle?";
 	next;
