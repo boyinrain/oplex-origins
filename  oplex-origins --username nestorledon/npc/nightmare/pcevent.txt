@@ -118,10 +118,10 @@ end;
 
 
 OnNPCKillEvent:
-	if(KilledRid == 1511)		//Remember to update when adding new monsters!
+	if(KilledRid == 1511){	//Remember to update when adding new monsters!
 	getmapxy @playermap$,@playerx,@playery,0;
 	announce "Your barricade has been destroyed.",bc_self,0xFFFF00;
-        break;
+        }
 }
 
 OnNPCKillEvent:
