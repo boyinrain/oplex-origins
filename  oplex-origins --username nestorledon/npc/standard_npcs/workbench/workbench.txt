@@ -165,7 +165,7 @@ setarray .@resources[0],.@fabric_num,.@metal_num,.@plastic_num,.@latex_num,.@sto
 
 mes	"What "+.@metal_num+" ?";
 
-callfunc "work_bench_dismantle";
+callfunc("work_bench_dismantle",.@resources);
 
 L_WBRefine:
 mes "Sorry but this feature is currently being developed.";
