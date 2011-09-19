@@ -116,14 +116,18 @@ atcommand "@kick "+strcharinfo(0)+"";
 end;
 }
 
--	script	barricaekill	-1,{
+
 OnNPCKillEvent:
-	dispbottom @KilledRid;
-	if(@KilledRid == 1511)
-	goto reset;
-reset:
+	if(KilledRid == 1511)		//Remember to update when adding new monsters!
 	getmapxy @playermap$,@playerx,@playery,0;
 	announce "Your barricade has been destroyed.",bc_self,0xFFFF00;
-	dispbottom @KilledRid;
-	end;
+        break;
 }
+
+OnNPCKillEvent:
+	if(KilledRid >= 1078 && KilledRid<=1092)		//Remember to update when adding new monsters!
+	set @char_id, getcharid(0);
+	set monsterkill, monsterkill + 1;
+	//Updates the SQL server on the player's player kills
+	query_sql "UPDATE `char` SET `monster_kill` = "+monsterkill+" WHERE `char_id` = "+@char_id;
+	end;
