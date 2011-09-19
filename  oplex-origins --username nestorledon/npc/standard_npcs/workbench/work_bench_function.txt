@@ -36,7 +36,6 @@
 //= Dismantle Function
 //============================================================
 function	script	work_bench_dismantle	{
-	set getarg(0);
 	//mes	"Please enter how many of the item you want to break down";
 	//input	.@ammount;
 
@@ -83,7 +82,6 @@ function	script	work_bench_dismantle	{
 //= Create Function - Incomplete
 //============================================================
 function	script	work_bench_create	{
-	set getarg(0);
 	//mes	"Please enter how many of the item you want to create.";
 	//input	.@ammount;
 
