@@ -146,6 +146,7 @@ menu	"Yes.",Y_WB,"No, I want to select another item",L_Comp,"No, I'm done for no
 close;
 
 Y_WB:
+mes	"______";
 mes	"What would you like to do?";
 menu	"Create",C_WB,"Dismantle",D_WB,"Go back",L_Comp,"Forget it",-;
 
