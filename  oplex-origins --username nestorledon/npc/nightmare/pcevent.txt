@@ -128,3 +128,4 @@ OnNPCKillEvent:
                 default:
                          end;
         }
+}
