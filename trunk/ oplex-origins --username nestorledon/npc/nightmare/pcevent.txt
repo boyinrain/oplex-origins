@@ -59,7 +59,7 @@ OnPCDieEvent:
 	end;
 
 OnNPCKillEvent:
-	if(KilledRid >= 1078 && KilledRid<=1092)		//Remember to update when adding new monsters!
+	
 	mes "ignore this message" + @KilledRid;
 	set @char_id, getcharid(0);
 	set monsterkill, monsterkill + 1;
