@@ -36,6 +36,8 @@
 //= Dismantle Function
 //============================================================
 function	script	work_bench_dismantle	{
+	getelementofarray(getarg(0), 1);
+	mes	"Metal Amount = "+.@metal_num+" ?";
 	//mes	"Please enter how many of the item you want to break down";
 	//input	.@ammount;
 
@@ -72,7 +74,7 @@ function	script	work_bench_dismantle	{
 		end;
 	}
 	else {
-		mes	"Seems like you dont have the item(s) you want to break down.";
+		mes	"Seems like you dont have the item(s) you want to dismantle.";
 		close;
 		end;
 	}
