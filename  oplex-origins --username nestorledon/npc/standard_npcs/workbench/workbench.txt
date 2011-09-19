@@ -130,13 +130,13 @@ end;
 //============================================================
 //= Item Cases
 //============================================================
-WBPKnife: set item$,"^0000FF Pocket Knife^000000"; callfunc "work_bench"; goto S_WB;
+WBPKnife: set .@item$,"^0000FF Pocket Knife^000000"; callfunc "work_bench",.@item$; goto S_WB;
 
 //============================================================
 //= Menus
 //============================================================
 S_WB:
-mes	"You selected " +item$+ "";
+mes	"You selected " +.@item$+ "";
 mes	"Is this the correct item?";
 menu	"Yes.",Y_WB,"No, I want to select another item",L_Comp,"No, I'm done for now",-;
 close;
