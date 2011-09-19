@@ -158,11 +158,13 @@ mes	"What would you like to do?";
 menu	"Create",C_WB,"Dismantle",D_WB,"Go back",L_Comp,"Forget it",-;
 
 C_WB:
-setarray .@resources[0],.@fabric_num,.@metal_num,.@plastic_num,.@latex_num,.@stone_num,.@wood_num,.@cyan_num,.@leather_num,.@sulfur_num,.@charcoal_num,.@salt_num,.@coal_num,.@ducttape_num,.@gunpowder_num,.@nails_num;
-mes	"+.@metal_num+";
 callfunc("work_bench_create",.@resources);
 
 D_WB:
+setarray .@resources[0],.@fabric_num,.@metal_num,.@plastic_num,.@latex_num,.@stone_num,.@wood_num,.@cyan_num,.@leather_num,.@sulfur_num,.@charcoal_num,.@salt_num,.@coal_num,.@ducttape_num,.@gunpowder_num,.@nails_num;
+
+mes	"+.@metal_num+";
+
 callfunc "work_bench_dismantle";
 
 L_WBRefine:
