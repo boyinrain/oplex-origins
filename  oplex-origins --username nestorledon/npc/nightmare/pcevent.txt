@@ -59,8 +59,12 @@ OnPCDieEvent:
 	end;
 
 OnNPCKillEvent:
-	getmapxy .@map$,.@x,.@y,3;
-	announce "Mob Location: " + .@map$ + "!",bc_self,0x00FF00;
+	getmapxy .@map1$,.@x1,.@y1,3;
+	announce "Mob Location: " + .@map1$ + "!",bc_self,0x0000FF;
+	getmapxy .@map2$,.@x2,.@y2,2;
+	announce "Mob Location: " + .@map2$ + "!",bc_self,0x0000FF;
+	getmapxy .@map3$,.@x3,.@y3,1;
+	announce "Mob Location: " + .@map3$ + "!",bc_self,0x0000FF;
 	getmapxy .@mapp$,.@xp,.@yp,0;
 	announce "Your Location: " + .@mapp$ + "!",bc_self,0x0000FF;
 	announce "You killed a " + strmobinfo(0, killedrid) + "!",bc_self,0xFF0000;	
