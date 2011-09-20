@@ -66,7 +66,7 @@ OnNPCKillEvent:
 	//Updates the SQL server on the player's player kills
 	query_sql "UPDATE `char` SET `monster_kill` = "+monsterkill+" WHERE `char_id` = "+@char_id;
 	end;
-	if(KilledRid >= 1123){	announce "You killed a Sentry!",bc_self,0xFF0000;end;}
+	if(KilledRid >= 1123){	getmapxy @playermap$,@playerx,@playery,0; announce "You killed a Sentry!",bc_self,0xFF0000;end;}
 
 OnPCKillEvent:
 //	getnameditem(501,KilledRid);	//Killed player drops meat
