@@ -59,7 +59,7 @@ OnPCDieEvent:
 	end;
 
 OnNPCKillEvent:
-	dispbottom readparam(122);	
+	dispbottom KilledRid;	
 	if(KilledRid >= 1078 && KilledRid<=1092)		//Remember to update when adding new monsters!
 	set @char_id, getcharid(0);
 	set monsterkill, monsterkill + 1;
@@ -69,7 +69,7 @@ OnNPCKillEvent:
 	if(KilledRid >= 1123){	getmapxy @playermap$,@playerx,@playery,0; announce "You killed a Sentry!",bc_self,0xFF0000;end;}
 	
 	//mag's barrier check & delete
-	if(readparam(122) == 1511){
+	if(KilledRid == 1511){
 	dispbottom "I fucking works! woooOOT";
 	}
 	
