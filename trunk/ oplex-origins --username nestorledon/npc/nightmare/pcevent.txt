@@ -59,11 +59,11 @@ OnPCDieEvent:
 	end;
 
 OnNPCKillEvent:
-	getmapxy .@map1$,.@x1,.@y1,3,"barricade";
+	getmapxy .@map1$,.@x1,.@y1,3,"Sigma";
 	announce "Mob Location: " + .@map1$ + "!",bc_self,0x0000FF;
-	getmapxy .@map2$,.@x2,.@y2,2,"barricade";
+	getmapxy .@map2$,.@x2,.@y2,2,"Sigma";
 	announce "Mob Location: " + .@map2$ + "!",bc_self,0x0000FF;
-	getmapxy .@map3$,.@x3,.@y3,1,"barricade";
+	getmapxy .@map3$,.@x3,.@y3,1,"Sigma";
 	announce "Mob Location: " + .@map3$ + "!",bc_self,0x0000FF;
 	getmapxy .@mapp$,.@xp,.@yp,0;
 	announce "Your Location: " + .@mapp$ + "!",bc_self,0x0000FF;
