@@ -59,7 +59,7 @@ OnPCDieEvent:
 	end;
 
 OnNPCKillEvent:
-	dispbottom "you just killed a" + getmonsterinfo(killedrid, MOB_NAME);	
+	announce "You killed a " + strmobinfo(1, killedrid) + "!",bc_self,0xFF0000;end;	
 	if(KilledRid >= 1078 && KilledRid<=1092){		//Remember to update when adding new monsters!
 	set @char_id, getcharid(0);
 	set monsterkill, monsterkill + 1;
@@ -69,12 +69,12 @@ OnNPCKillEvent:
 	}
 
 
-	if(KilledRid >= 1123){	getmapxy @playermap$,@playerx,@playery,0; announce "You killed a Sentry!",bc_self,0xFF0000;end;}
+	if(KilledRid == 1123){	getmapxy @playermap$,@playerx,@playery,0; announce "You killed a Sentry!",bc_self,0xFF0000;end;}
 	
 
 	//mag's barrier check & delete
 	if(KilledRid == 1511){
-	dispbottom "I fucking works! woooOOT";
+	announce "You killed a Sentry!",bc_self,0xFF0000;end;
 	end;
 	}
 	
