@@ -131,3 +131,13 @@ sleep2 5000;
 atcommand "@kick "+strcharinfo(0)+"";
 end;
 }
+
+function	script	mob_mechs	{
+OnNPCKillEvent:
+	getmapxy .@map$,.@x,.@y,3;
+	announce "Mob Location: " + .@map$ + "!",bc_self,0x00FF00;
+	getmapxy .@mapp$,.@xp,.@yp,0;
+	announce "Your Location: " + .@mapp$ + "!",bc_self,0x0000FF;
+	end;
+
+}
