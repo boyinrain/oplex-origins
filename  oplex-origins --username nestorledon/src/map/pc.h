@@ -337,7 +337,7 @@ struct map_session_data {
 	int duel_group; // duel vars [LuzZza]
 	int duel_invite;
 	
-	int	killerrid,	killedrid;
+	int	killerrid, killedrid;
 
 	char away_message[128]; // [LuzZza]
 

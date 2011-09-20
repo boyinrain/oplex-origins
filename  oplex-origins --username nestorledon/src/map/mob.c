@@ -2327,12 +2327,12 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 		{
 			if( sd && battle_config.mob_npc_event_type )
 			{
-				pc_setparam(sd,	SP_KILLERRID,	sd->bl.id);
+				pc_setparam(sd, SP_KILLERRID, sd->bl.id);
 				npc_event(sd,md->npc_event,0);
 			}
 			else if( mvp_sd )
 			{
-				pc_setparam(mvp_sd,	SP_KILLERRID,	sd?sd->bl.id:0);
+				pc_setparam(mvp_sd, SP_KILLERRID, sd?sd->bl.id:0);
 				npc_event(mvp_sd,md->npc_event,0);
 			}
 			else
@@ -2340,7 +2340,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 		}
 		else if( mvp_sd && !md->state.npc_killmonster )
 		{
-			pc_setparam(mvp_sd,	SP_KILLEDRID,	md->class_);
+			pc_setparam(mvp_sd, SP_KILLEDRID, md->class_);
 			npc_script_event(mvp_sd, NPCE_KILLNPC); // PCKillNPC [Lance]
 		}
 		
