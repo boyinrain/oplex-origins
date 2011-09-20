@@ -59,7 +59,7 @@ OnPCDieEvent:
 	end;
 
 OnNPCKillEvent:
-	announce "You killed a " + strmobinfo(1, killedrid) + "!",bc_self,0xFF0000;	
+	announce "You killed a " + strmobinfo(2, killedrid) + "!",bc_self,0xFF0000;	
 	if(KilledRid >= 1078 && KilledRid<=1092){		//Remember to update when adding new monsters!
 	set @char_id, getcharid(0);
 	set monsterkill, monsterkill + 1;
