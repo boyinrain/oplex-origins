@@ -23,65 +23,6 @@
 la_jack,13,17,5	script	Work Bench::wb	111,{
 
 //============================================================
-//= Resources
-//============================================================
-//We'll set the variables for the resource ID's & names here.
-//The vars are set to the same name as the columns in the database.
-//This may allow us to dynamically apend the variable in the future,
-//using the output of the retrieved information.
-
-//Resource Vars - For Reference
-//.@fabric, .@metal, .@plastic, .@latex, .@stone, .@wood, .@cyan, .@leather, .@sulfur, .@charcoal, .@salt, .@coal, .@ducttape, .@gunpowder, .@nails
-
-//Resource Amount Vars - For Reference
-//.@fabric_num, .@metal_num, .@plastic_num, .@latex_num, .@stone_num, .@wood_num, .@cyan_num, .@leather_num, .@sulfur_num, .@charcoal_num, .@salt_num, .@coal_num, .@ducttape_num, .@gunpowder_num, .@nails_num
-
-set .@fabric,1002;
-set .@fabric_name$, "Fabric";
-
-set .@metal,1003;
-set .@metal_name$, "Metal";
-
-set .@plastic,1004;
-set .@plastic_name$, "Plastic";
-
-set .@latex,1005;
-set .@latex_name$, "Latex";
-
-set .@stone,1006;
-set .@stone_name$, "Stone";
-
-set .@wood,1007;
-set .@wood_name$, "Wood";
-
-set .@cyan,1015;
-set .@cyan_name$, "Cyanoacrylate";
-
-set .@leather,1016;
-set .@leather_name$, "Leather";
-
-set .@sulfur,1017;
-set .@sulfur_name$, "Sulfur";
-
-set .@charcoal,1018;
-set .@charcoal_name$, "Charcoal";
-
-set .@salt,1019;
-set .@salt_name$, "Salt";
-
-set .@coal,1066;
-set .@coal_name$, "Coal";
-
-set .@ducttape,1068;
-set .@ducttape_name$, "Duct Tape";
-
-set .@gunpowder,1075;
-set .@gunpowder_name$, "Gun Powder";
-
-set .@nails,1150;
-set .@nails_name$, "Nails";
-
-//============================================================
 //= Notes
 //============================================================
 // What we should have at the moment, using one resource as an example:
