@@ -134,8 +134,186 @@ query_sql("SELECT fabric, metal, plastic, latex, stone, wood, cyan, leather, sul
 //============================================================
 // Items go here. Use the name from the db column name_english.
 //============================================================
+if(.@item$)=="Human Meat" {goto S_WB;}
+if(.@item$)=="Energy Drink" {goto S_WB;}
+if(.@item$)=="Ration" {goto S_WB;}
+if(.@item$)=="Water" {goto S_WB;}
+if(.@item$)=="Celerity" {goto S_WB;}
+if(.@item$)=="StamiNax" {goto S_WB;}
+if(.@item$)=="Fix8" {goto S_WB;}
+if(.@item$)=="Celerity DX" {goto S_WB;}
+if(.@item$)=="StamiNax DX" {goto S_WB;}
+if(.@item$)=="Fix8 DX" {goto S_WB;}
+if(.@item$)=="Celerity PURE" {goto S_WB;}
+if(.@item$)=="StamiNax PURE" {goto S_WB;}
+if(.@item$)=="Fix8 PURE" {goto S_WB;}
+if(.@item$)=="Fruit Juice" {goto S_WB;}
+if(.@item$)=="Tea" {goto S_WB;}
+if(.@item$)=="Lettuce" {goto S_WB;}
+if(.@item$)=="Bread" {goto S_WB;}
+if(.@item$)=="Rice" {goto S_WB;}
+if(.@item$)=="Can of Soup" {goto S_WB;}
+if(.@item$)=="Egg" {goto S_WB;}
+if(.@item$)=="Beer" {goto S_WB;}
+if(.@item$)=="Soft Drink" {goto S_WB;}
+if(.@item$)=="Milk" {goto S_WB;}
+if(.@item$)=="Acorn" {goto S_WB;}
+if(.@item$)=="Apple" {goto S_WB;}
+if(.@item$)=="Banana" {goto S_WB;}
+if(.@item$)=="Butter" {goto S_WB;}
+if(.@item$)=="Cake" {goto S_WB;}
+if(.@item$)=="Carrot" {goto S_WB;}
+if(.@item$)=="Cheese" {goto S_WB;}
+if(.@item$)=="Chocolate" {goto S_WB;}
+if(.@item$)=="Chocolate Cake" {goto S_WB;}
+if(.@item$)=="Cookie" {goto S_WB;}
+if(.@item$)=="Dumpling" {goto S_WB;}
+if(.@item$)=="First Aid" {goto S_WB;}
+if(.@item$)=="Fish" {goto S_WB;}
+if(.@item$)=="Fried Potato" {goto S_WB;}
+if(.@item$)=="Grape" {goto S_WB;}
+if(.@item$)=="Honey" {goto S_WB;}
+if(.@item$)=="Lettuce" {goto S_WB;}
+if(.@item$)=="Mushroom" {goto S_WB;}
+if(.@item$)=="Potato" {goto S_WB;}
+if(.@item$)=="Pretzel" {goto S_WB;}
+if(.@item$)=="Shrimp" {goto S_WB;}
+if(.@item$)=="Sushi" {goto S_WB;}
+if(.@item$)=="Wine" {goto S_WB;}
+if(.@item$)=="Uncooked Meat" {goto S_WB;}
+if(.@item$)=="Cooked Meat" {goto S_WB;}
+if(.@item$)=="Hot Soup" {goto S_WB;}
+if(.@item$)=="Sandwich" {goto S_WB;}
+if(.@item$)=="Cooked Eggs" {goto S_WB;}
+if(.@item$)=="Salad" {goto S_WB;}
+if(.@item$)=="Flashlight" {goto S_WB;}
+if(.@item$)=="Sleeping Bag" {goto S_WB;}
+if(.@item$)=="Megaphone" {goto S_WB;}
+if(.@item$)=="Radio" {goto S_WB;}
+if(.@item$)=="Watch" {goto S_WB;}
+if(.@item$)=="Haircut Kit" {goto S_WB;}
+if(.@item$)=="MP3 Player" {goto S_WB;}
+if(.@item$)=="Game" {goto S_WB;}
+if(.@item$)=="Book" {goto S_WB;}
+if(.@item$)=="Family Portrait" {goto S_WB;}
+if(.@item$)=="Food Supply Box (C)" {goto S_WB;}
+if(.@item$)=="Food Supply Box (U)" {goto S_WB;}
+if(.@item$)=="Food Supply Box (R)" {goto S_WB;}
+if(.@item$)=="Drug Supply Box (C)" {goto S_WB;}
+if(.@item$)=="Drug Supply Box (U)" {goto S_WB;}
+if(.@item$)=="Drug Supply Box (R)" {goto S_WB;}
+if(.@item$)=="Tool Supply Box (C)" {goto S_WB;}
+if(.@item$)=="Tool Supply Box (U)" {goto S_WB;}
+if(.@item$)=="Tool Supply Box (R)" {goto S_WB;}
+if(.@item$)=="Weapon Supply Box (C)" {goto S_WB;}
+if(.@item$)=="Weapon Supply Box (U)" {goto S_WB;}
+if(.@item$)=="Weapon Supply Box (R)" {goto S_WB;}
+if(.@item$)=="Accessory Supply Box (C)" {goto S_WB;}
+if(.@item$)=="Accessory Supply Box (U)" {goto S_WB;}
+if(.@item$)=="Accessory Supply Box (R)" {goto S_WB;}
+if(.@item$)=="Resource Supply Box (C)" {goto S_WB;}
+if(.@item$)=="Resource Supply Box (U)" {goto S_WB;}
+if(.@item$)=="Resource Supply Box (R)" {goto S_WB;}
+if(.@item$)=="Random Supply Box (C)" {goto S_WB;}
+if(.@item$)=="Red Dye" {goto S_WB;}
+if(.@item$)=="Blue Dye" {goto S_WB;}
+if(.@item$)=="Green Dye" {goto S_WB;}
+if(.@item$)=="White Dye" {goto S_WB;}
+if(.@item$)=="Black Dye" {goto S_WB;}
+if(.@item$)=="Purple Dye" {goto S_WB;}
+if(.@item$)=="Orange Dye" {goto S_WB;}
+if(.@item$)=="Brown Dye" {goto S_WB;}
+if(.@item$)=="Skull" {goto S_WB;}
+if(.@item$)=="Fabric" {goto S_WB;}
+if(.@item$)=="Metal" {goto S_WB;}
+if(.@item$)=="Plastic" {goto S_WB;}
+if(.@item$)=="Latex" {goto S_WB;}
+if(.@item$)=="Stone" {goto S_WB;}
+if(.@item$)=="Wood" {goto S_WB;}
+if(.@item$)=="Stone" {goto S_WB;}
+if(.@item$)=="Battery" {goto S_WB;}
+if(.@item$)=="Origins Document" {goto S_WB;}
+if(.@item$)=="Cooking Oil" {goto S_WB;}
+if(.@item$)=="Cyanoacrylate" {goto S_WB;}
+if(.@item$)=="Leather" {goto S_WB;}
+if(.@item$)=="Sulfur" {goto S_WB;}
+if(.@item$)=="Charcoal" {goto S_WB;}
+if(.@item$)=="Salt" {goto S_WB;}
+if(.@item$)=="Wrench" {goto S_WB;}
+if(.@item$)=="House Key" {goto S_WB;}
+if(.@item$)=="Lock Pick" {goto S_WB;}
+if(.@item$)=="Key Card" {goto S_WB;}
+if(.@item$)=="Hammer" {goto S_WB;}
+if(.@item$)=="Fishing Rod (Poor)" {goto S_WB;}
+if(.@item$)=="Fishing Rod" {goto S_WB;}
+if(.@item$)=="Fishing Rod (Great)" {goto S_WB;}
+if(.@item$)=="Animal Skin" {goto S_WB;}
+if(.@item$)=="Bearfoot" {goto S_WB;}
+if(.@item$)=="Bent Spoon" {goto S_WB;}
+if(.@item$)=="Bone" {goto S_WB;}
+if(.@item$)=="Bottle" {goto S_WB;}
+if(.@item$)=="Bouquet" {goto S_WB;}
+if(.@item$)=="Bowl" {goto S_WB;}
+if(.@item$)=="Coal" {goto S_WB;}
+if(.@item$)=="Diamond" {goto S_WB;}
+if(.@item$)=="Ducttape" {goto S_WB;}
+if(.@item$)=="Elastic Band" {goto S_WB;}
+if(.@item$)=="Flower" {goto S_WB;}
+if(.@item$)=="Frying Pan" {goto S_WB;}
+if(.@item$)=="Match Stick" {goto S_WB;}
+if(.@item$)=="Alcohol" {goto S_WB;}
+if(.@item$)=="Fertilizer" {goto S_WB;}
+if(.@item$)=="Gun Powder" {goto S_WB;}
+if(.@item$)=="Plywood" {goto S_WB;}
+if(.@item$)=="9mm Bullet" {goto S_WB;}
+if(.@item$)=="9mm Box" {goto S_WB;}
+if(.@item$)=="12 Gauge Cartridge" {goto S_WB;}
+if(.@item$)=="12 Gauge Case" {goto S_WB;}
+if(.@item$)=="556mm" {goto S_WB;}
+if(.@item$)=="556mm Ammo Case" {goto S_WB;}
+if(.@item$)=="Crowbar" {goto S_WB;}
+if(.@item$)=="Nail" {goto S_WB;}
 if(.@item$)=="Pocket Knife" {goto S_WB;}
 if(.@item$)=="Combat Knife" {goto S_WB;}
+if(.@item$)=="Swiss Army Knife" {goto S_WB;}
+if(.@item$)=="Butcher Knife" {goto S_WB;}
+if(.@item$)=="Weeder Knife" {goto S_WB;}
+if(.@item$)=="Ice Pick" {goto S_WB;}
+if(.@item$)=="Axe (Poor)" {goto S_WB;}
+if(.@item$)=="Axe" {goto S_WB;}
+if(.@item$)=="Axe (Great)" {goto S_WB;}
+if(.@item$)=="Pickaxe (Poor)" {goto S_WB;}
+if(.@item$)=="Pickaxe" {goto S_WB;}
+if(.@item$)=="Pickaxe (Great)" {goto S_WB;}
+if(.@item$)=="Hammer" {goto S_WB;}
+if(.@item$)=="Tomahawk" {goto S_WB;}
+if(.@item$)=="Backpack Blue" {goto S_WB;}
+if(.@item$)=="Backpack Green" {goto S_WB;}
+if(.@item$)=="Backpack Red" {goto S_WB;}
+if(.@item$)=="T-Shirt" {goto S_WB;}
+if(.@item$)=="Sneakers" {goto S_WB;}
+if(.@item$)=="Boots" {goto S_WB;}
+if(.@item$)=="High Heels" {goto S_WB;}
+if(.@item$)=="Army Boots" {goto S_WB;}
+if(.@item$)=="Safety Boots" {goto S_WB;}
+if(.@item$)=="Running Shoes" {goto S_WB;}
+if(.@item$)=="Light Wagon" {goto S_WB;}
+if(.@item$)=="Heavy Wagon" {goto S_WB;}
+if(.@item$)=="Super Heavy Wagon" {goto S_WB;}
+if(.@item$)=="Earring" {goto S_WB;}
+if(.@item$)=="Ring" {goto S_WB;}
+if(.@item$)=="Belt" {goto S_WB;}
+if(.@item$)=="Glove" {goto S_WB;}
+if(.@item$)=="Handcuffs" {goto S_WB;}
+if(.@item$)=="Skull_" {goto S_WB;}
+if(.@item$)=="Handgun" {goto S_WB;}
+if(.@item$)=="M9" {goto S_WB;}
+if(.@item$)=="Shotgun" {goto S_WB;}
+if(.@item$)=="M1014" {goto S_WB;}
+if(.@item$)=="Semi-Automatic Rifle" {goto S_WB;}
+if(.@item$)=="M16" {goto S_WB;}
+if(.@item$)=="Sniper Rifle" {goto S_WB;}
+if(.@item$)=="M82" {goto S_WB;}
 //============================================================
 	else {
 		mes "Sorry, you cannot create or dismatle this item at the moment.";
@@ -163,7 +341,6 @@ callfunc("work_bench_create",.@resources);
 D_WB:
 setarray .@resources[0],.@fabric_num,.@metal_num,.@plastic_num,.@latex_num,.@stone_num,.@wood_num,.@cyan_num,.@leather_num,.@sulfur_num,.@charcoal_num,.@salt_num,.@coal_num,.@ducttape_num,.@gunpowder_num,.@nails_num;
 
-mes	"Metal Amount = "+.@metal_num+" ?";
 callfunc("work_bench_dismantle",.@resources);
 
 L_WBRefine:
