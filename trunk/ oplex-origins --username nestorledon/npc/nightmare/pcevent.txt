@@ -69,12 +69,12 @@ OnNPCKillEvent:
 	}
 
 
-	if(KilledRid >= 1123){	getmapxy @playermap$,@playerx,@playery,0; announce "You killed a Sentry!",bc_self,0xFF0000;end;}
+	if(KilledRid == 1123){	getmapxy @playermap$,@playerx,@playery,0; announce "You killed a Sentry!",bc_self,0xFF0000;end;}
 	
 
 	//mag's barrier check & delete
 	if(KilledRid == 1511){
-	dispbottom "I fucking works! woooOOT";
+	announce "You destroyed a barrier!!!",bc_self,0xFF0000;end;
 	end;
 	}
 	
