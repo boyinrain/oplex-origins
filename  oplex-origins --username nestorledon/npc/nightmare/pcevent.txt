@@ -67,7 +67,12 @@ OnNPCKillEvent:
 	query_sql "UPDATE `char` SET `monster_kill` = "+monsterkill+" WHERE `char_id` = "+@char_id;
 	end;
 	if(KilledRid >= 1123){	getmapxy @playermap$,@playerx,@playery,0; announce "You killed a Sentry!",bc_self,0xFF0000;end;}
-
+	
+	//mag's barrier check & delete
+	if(readparam(122) == 1511){
+	dispbottom "I fucking works! woooOOT";
+	}
+	
 OnPCKillEvent:
 //	getnameditem(501,KilledRid);	//Killed player drops meat
 //	getnameditem(1001,KilledRid);	//Killed player drops skull
