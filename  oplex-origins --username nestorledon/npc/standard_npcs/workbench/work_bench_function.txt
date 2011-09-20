@@ -32,42 +32,100 @@
 //= gunpowder	(1075)
 //= nails	(1150)
 //============================================================
+
 //============================================================
 //= Dismantle Function
 //============================================================
 function	script	work_bench_dismantle	{
-	getelementofarray(getarg(0), 0);
-	mes	"Metal Amount = "+.@metal_num+" ?";
+//============================================================
+//= Resources
+//============================================================
+//We'll set the variables for the resource ID's & names here.
+//The vars are set to the same name as the columns in the database.
+//This may allow us to dynamically apend the variable in the future,
+//using the output of the retrieved information.
+
+//Resource Vars - For Reference
+//.@fabric, .@metal, .@plastic, .@latex, .@stone, .@wood, .@cyan, .@leather, .@sulfur, .@charcoal, .@salt, .@coal, .@ducttape, .@gunpowder, .@nails
+
+//Resource Amount Vars - For Reference
+//.@fabric_num, .@metal_num, .@plastic_num, .@latex_num, .@stone_num, .@wood_num, .@cyan_num, .@leather_num, .@sulfur_num, .@charcoal_num, .@salt_num, .@coal_num, .@ducttape_num, .@gunpowder_num, .@nails_num
+
+set .@fabric,1002;
+set .@fabric_name$, "Fabric";
+
+set .@metal,1003;
+set .@metal_name$, "Metal";
+
+set .@plastic,1004;
+set .@plastic_name$, "Plastic";
+
+set .@latex,1005;
+set .@latex_name$, "Latex";
+
+set .@stone,1006;
+set .@stone_name$, "Stone";
+
+set .@wood,1007;
+set .@wood_name$, "Wood";
+
+set .@cyan,1015;
+set .@cyan_name$, "Cyanoacrylate";
+
+set .@leather,1016;
+set .@leather_name$, "Leather";
+
+set .@sulfur,1017;
+set .@sulfur_name$, "Sulfur";
+
+set .@charcoal,1018;
+set .@charcoal_name$, "Charcoal";
+
+set .@salt,1019;
+set .@salt_name$, "Salt";
+
+set .@coal,1066;
+set .@coal_name$, "Coal";
+
+set .@ducttape,1068;
+set .@ducttape_name$, "Duct Tape";
+
+set .@gunpowder,1075;
+set .@gunpowder_name$, "Gun Powder";
+
+set .@nails,1150;
+set .@nails_name$, "Nails";
+
 	//mes	"Please enter how many of the item you want to break down";
-	//input	.@ammount;
+	//input	.@amount;
 
 	// Check for the same item ID use in the query.
-	if(countitem(".@item$")>= 1) {
+	if (countitem(.@item$) >= 1)	{
 		mes	"You carefully start working on the item";
 		next;
 		// Delete the decomposed item
-		delitem item$,1;
+		delitem .@item$,1;
 		// Is there a way we can minus a random % amount from the item ammout?
 		// Example: setarray .@percent[0],10%,20%,30%;
 		// Example: set .@rand,rand(0,2);
 		// Example: getitem @farbric,(.@fabric_num*(1-.@rand[.@percent]);
 		// Above is just an example, would be awesome if it can work.
 		// Resource Allocation
-		getitem .@fabric,.@farbic_num;
-		getitem .@metal,.@metal_num;
-		getitem .@plastic,.@plastic_num;
-		getitem .@latex,.@latex_num;
-		getitem .@stone,.@stone_num;
-		getitem .@wood,.@wood_num;
-		getitem .@cyan,.@cyan_num;
-		getitem .@leather,.@leather_num;
-		getitem .@sulfur,.@sulfur_num;
-		getitem .@charcoal,.@charcoal_num;
-		getitem .@salt,.@salt_num;
-		getitem .@coal,.@coal_num;
-		getitem .@ducttape,.@ducttape_num;
-		getitem .@gunpowder,.@gunpowder_num;
-		getitem .@nails,.@nails_num;
+		getitem .@fabric,getelementofarray(getarg(0),0);
+		getitem .@metal,getelementofarray(getarg(0),1);
+		getitem .@plastic,getelementofarray(getarg(0),2);
+		getitem .@latex,getelementofarray(getarg(0),3);
+		getitem .@stone,getelementofarray(getarg(0),4);
+		getitem .@wood,getelementofarray(getarg(0),5);
+		getitem .@cyan,getelementofarray(getarg(0),6);
+		getitem .@leather,getelementofarray(getarg(0),7);
+		getitem .@sulfur,getelementofarray(getarg(0),8);
+		getitem .@charcoal,getelementofarray(getarg(0),9);
+		getitem .@salt,getelementofarray(getarg(0),10);
+		getitem .@coal,getelementofarray(getarg(0),11);
+		getitem .@ducttape,getelementofarray(getarg(0),12);
+		getitem .@gunpowder,getelementofarray(getarg(0),13);
+		getitem .@nails,getelementofarray(getarg(0),14);
 		// Success Message
 		mes "Success!";
 		close;
