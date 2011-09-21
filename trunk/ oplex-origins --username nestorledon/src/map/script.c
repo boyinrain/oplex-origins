@@ -13214,7 +13214,7 @@ BUILDIN_FUNC(setqueststatus)
 
 // [Kenpachi]
 // DuplicateCreate("sourcename", "targetnameshown", "targetnamehidden", "targetmap", targetx, targety, targetdir{, targetspriteid{, targetxs, targetys}});
-+BUILDIN_FUNC(duplicatecreate)
+BUILDIN_FUNC(duplicatecreate)
 {
 	const char *sourcename = script_getstr(st, 2), *targetnameshown = script_getstr(st, 3), *targetnamehidden = script_getstr(st, 4), *targetmap = script_getstr(st, 5);
 	int targetx = script_getnum(st, 6), targety = script_getnum(st, 7), targetdir = script_getnum(st, 8);
