@@ -75,6 +75,7 @@ OnNPCKillEvent:
 	//mag's barrier check & delete
 	if(KilledRid == 1511){
 	announce "You destroyed a barrier!",bc_self,0xFF0000;end;
+	specialeffect 373;
 	setcell @playermap$,@playerx,@playery,@playerx,@playery,cell_walkable,0;
 	end;
 	}
