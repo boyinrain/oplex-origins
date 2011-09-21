@@ -2,11 +2,22 @@
 //-------------------------------------------------
 blank_01,0,0,5	script	barricade	52,{
 
-mes "KILL IT!!!";
+OnSpawn:
+set @randid, rand(1,10000);
+	getmapxy @playermap$,@playerx,@playery,0;					//get and set player x,y & map for use
+	set @name$,strcharinfo(0) + @randid;
+	monster @playermap$,@playerx,@playery,@name$,1511,1,"barricade::OnDie";		//place an immobile monster to act as barricade
+	setwall @playermap$,@playerx,@playery,1,1,shootable,@name$;			//set a wall to make the barricade impassable
+	delitem 1007,10;								//Removes 20 wood from the inventory of the player
+	mes "Barricade has been built!!!";
+	close;
+	end;
 
-delwall "@npcnamehere";
+OnDie:
+	mes "Barricade destroyed.";
+	delwall @name$;
+	close;
+	end;
 
-close;
-end;
 }
 
