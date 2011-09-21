@@ -1,0 +1,17 @@
+//----======Mock up barricade script V1.0======----
+
+
+
+
+
+
+//-------------------------------------------------
+
+
+
+
+-	script	barricade	-1, {
+
+calfunc "barricade";
+
+}
