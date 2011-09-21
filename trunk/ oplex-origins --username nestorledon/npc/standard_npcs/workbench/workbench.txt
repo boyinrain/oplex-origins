@@ -346,7 +346,7 @@ setarray .@resource_names[0],.@fabric_name$,.@metal_name$,.@plastic_name$,.@late
 // Resource Amounts
 setarray .@resource_nums[0],.@fabric_num,.@metal_num,.@plastic_num,.@latex_num,.@stone_num,.@wood_num,.@cyan_num,.@leather_num,.@sulfur_num,.@charcoal_num,.@salt_num,.@coal_num,.@ducttape_num,.@gunpowder_num,.@nails_num;
 
-callfunc("work_bench_dismantle",.@resource_nums,.@item$,.@resources,.@resource_names);
+callfunc("work_bench_dismantle",.@resource_nums,.@item$,.@resources,.@resource_names$);
 
 L_WBRefine:
 mes "Sorry but this feature is currently being developed.";
