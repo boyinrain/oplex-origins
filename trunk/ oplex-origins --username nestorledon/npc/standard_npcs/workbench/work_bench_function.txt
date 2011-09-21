@@ -37,64 +37,6 @@
 //= Dismantle Function
 //============================================================
 function	script	work_bench_dismantle	{
-//============================================================
-//= Resources
-//============================================================
-//We'll set the variables for the resource ID's & names here.
-//The vars are set to the same name as the columns in the database.
-//This may allow us to dynamically apend the variable in the future,
-//using the output of the retrieved information.
-
-//Resource Vars - For Reference
-//.@fabric, .@metal, .@plastic, .@latex, .@stone, .@wood, .@cyan, .@leather, .@sulfur, .@charcoal, .@salt, .@coal, .@ducttape, .@gunpowder, .@nails
-
-//Resource Amount Vars - For Reference
-//.@fabric_num, .@metal_num, .@plastic_num, .@latex_num, .@stone_num, .@wood_num, .@cyan_num, .@leather_num, .@sulfur_num, .@charcoal_num, .@salt_num, .@coal_num, .@ducttape_num, .@gunpowder_num, .@nails_num
-
-set .@fabric,1002;
-set .@fabric_name$, "Fabric";
-
-set .@metal,1003;
-set .@metal_name$, "Metal";
-
-set .@plastic,1004;
-set .@plastic_name$, "Plastic";
-
-set .@latex,1005;
-set .@latex_name$, "Latex";
-
-set .@stone,1006;
-set .@stone_name$, "Stone";
-
-set .@wood,1007;
-set .@wood_name$, "Wood";
-
-set .@cyan,1015;
-set .@cyan_name$, "Cyanoacrylate";
-
-set .@leather,1016;
-set .@leather_name$, "Leather";
-
-set .@sulfur,1017;
-set .@sulfur_name$, "Sulfur";
-
-set .@charcoal,1018;
-set .@charcoal_name$, "Charcoal";
-
-set .@salt,1019;
-set .@salt_name$, "Salt";
-
-set .@coal,1066;
-set .@coal_name$, "Coal";
-
-set .@ducttape,1068;
-set .@ducttape_name$, "Duct Tape";
-
-set .@gunpowder,1075;
-set .@gunpowder_name$, "Gun Powder";
-
-set .@nails,1150;
-set .@nails_name$, "Nails";
 
 	//mes	"Please enter how many of the item you want to break down";
 	//input	.@amount;
@@ -102,21 +44,21 @@ set .@nails_name$, "Nails";
 	// Check for the same item ID use in the query.
 	next;
 	mes "From dismantling this item, you'll get about:";
-	mes "^0066FF" +.@fabric_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),0)+ "^000000";
-	mes "^0066FF" +.@metal_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),1)+ "^000000";
-	mes "^0066FF" +.@plastic_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),2)+ "^000000";
-	mes "^0066FF" +.@latex_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),3)+ "^000000";
-	mes "^0066FF" +.@stone_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),4)+ "^000000";
-	mes "^0066FF" +.@wood_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),5)+ "^000000";
-	mes "^0066FF" +.@cyan_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),6)+ "^000000";
-	mes "^0066FF" +.@leather_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),7)+ "^000000";
-	mes "^0066FF" +.@sulfur_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),8)+ "^000000";
-	mes "^0066FF" +.@charcoal_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),9)+ "^000000";
-	mes "^0066FF" +.@salt_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),10)+ "^000000";
-	mes "^0066FF" +.@coal_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),11)+ "^000000";
-	mes "^0066FF" +.@ducttape_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),12)+ "^000000";
-	mes "^0066FF" +.@gunpowder_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),13)+ "^000000";
-	mes "^0066FF" +.@nails_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),14)+ "^000000";
+	mes "^0066FF" +getelementofarray(getarg(3),0)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),0)+ "^000000";
+	mes "^0066FF" +getelementofarray(getarg(3),1)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),1)+ "^000000";
+	mes "^0066FF" +getelementofarray(getarg(3),2)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),2)+ "^000000";
+	mes "^0066FF" +getelementofarray(getarg(3),3)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),3)+ "^000000";
+	mes "^0066FF" +getelementofarray(getarg(3),4)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),4)+ "^000000";
+	mes "^0066FF" +getelementofarray(getarg(3),5)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),5)+ "^000000";
+	mes "^0066FF" +getelementofarray(getarg(3),6)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),6)+ "^000000";
+	mes "^0066FF" +getelementofarray(getarg(3),7)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),7)+ "^000000";
+	mes "^0066FF" +getelementofarray(getarg(3),8)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),8)+ "^000000";
+	mes "^0066FF" +getelementofarray(getarg(3),9)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),9)+ "^000000";
+	mes "^0066FF" +getelementofarray(getarg(3),10)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),10)+ "^000000";
+	mes "^0066FF" +getelementofarray(getarg(3),11)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),11)+ "^000000";
+	mes "^0066FF" +getelementofarray(getarg(3),12)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),12)+ "^000000";
+	mes "^0066FF" +getelementofarray(getarg(3),13)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),13)+ "^000000";
+	mes "^0066FF" +getelementofarray(getarg(3),14)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),14)+ "^000000";
 	menu	"Yes.",Y_D,"No, I'm done for now.",-;
 	close;
 
@@ -132,21 +74,21 @@ Y_D:
 		// Example: getitem @farbric,(.@fabric_num*(1-.@rand[.@percent]);
 		// Above is just an example, would be awesome if it can work.
 		// Resource Allocation
-		getitem .@fabric,getelementofarray(getarg(0),0);
-		getitem .@metal,getelementofarray(getarg(0),1);
-		getitem .@plastic,getelementofarray(getarg(0),2);
-		getitem .@latex,getelementofarray(getarg(0),3);
-		getitem .@stone,getelementofarray(getarg(0),4);
-		getitem .@wood,getelementofarray(getarg(0),5);
-		getitem .@cyan,getelementofarray(getarg(0),6);
-		getitem .@leather,getelementofarray(getarg(0),7);
-		getitem .@sulfur,getelementofarray(getarg(0),8);
-		getitem .@charcoal,getelementofarray(getarg(0),9);
-		getitem .@salt,getelementofarray(getarg(0),10);
-		getitem .@coal,getelementofarray(getarg(0),11);
-		getitem .@ducttape,getelementofarray(getarg(0),12);
-		getitem .@gunpowder,getelementofarray(getarg(0),13);
-		getitem .@nails,getelementofarray(getarg(0),14);
+		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),0);
+		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),1);
+		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),2);
+		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),3);
+		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),4);
+		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),5);
+		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),6);
+		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),7);
+		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),8);
+		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),9);
+		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),10);
+		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),11);
+		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),12);
+		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),13);
+		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),14);
 		// Success Message
 		mes "Success!";
 		close;
