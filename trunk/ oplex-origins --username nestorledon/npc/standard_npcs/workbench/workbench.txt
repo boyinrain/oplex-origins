@@ -268,7 +268,7 @@ if(.@item$)=="M82" {goto S_WB;}
 S_WB:
 mes	"^0066FF" +.@item$+ "^000000 is feasible.";
 mes	"Is this what you wanted?";
-menu	"Yes.",Y_WB,"No, I want to select another item",L_Comp,"No, I'm done for now",-;
+menu	"Yes.",Y_WB,"No, I want to select another item",L_Comp,"No, I'm done for now.",-;
 close;
 
 Y_WB:

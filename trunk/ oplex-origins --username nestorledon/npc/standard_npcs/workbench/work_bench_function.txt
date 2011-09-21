@@ -100,9 +100,27 @@ set .@nails_name$, "Nails";
 	//input	.@amount;
 
 	// Check for the same item ID use in the query.
+	next;
 	mes "From dismantling this item, you'll get about:";
 	mes "^0066FF" +.@fabric_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),0)+ "^000000";
+	mes "^0066FF" +.@fabric_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),1)+ "^000000";
+	mes "^0066FF" +.@fabric_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),2)+ "^000000";
+	mes "^0066FF" +.@fabric_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),3)+ "^000000";
+	mes "^0066FF" +.@fabric_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),4)+ "^000000";
+	mes "^0066FF" +.@fabric_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),5)+ "^000000";
+	mes "^0066FF" +.@fabric_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),6)+ "^000000";
+	mes "^0066FF" +.@fabric_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),7)+ "^000000";
+	mes "^0066FF" +.@fabric_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),8)+ "^000000";
+	mes "^0066FF" +.@fabric_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),9)+ "^000000";
+	mes "^0066FF" +.@fabric_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),10)+ "^000000";
+	mes "^0066FF" +.@fabric_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),11)+ "^000000";
+	mes "^0066FF" +.@fabric_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),12)+ "^000000";
+	mes "^0066FF" +.@fabric_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),13)+ "^000000";
+	mes "^0066FF" +.@fabric_name$+ ":^000000 ^FF0000" +getelementofarray(getarg(0),14)+ "^000000";
+	menu	"Yes.",Y_D,"No, I'm done for now.",-;
+	close;
 
+Y_D:
 	if (countitem(getarg(1)) >= 1)	{
 		mes	"You carefully start working on the item";
 		next;
