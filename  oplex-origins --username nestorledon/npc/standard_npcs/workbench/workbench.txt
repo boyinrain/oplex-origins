@@ -40,6 +40,63 @@ la_jack,13,17,5	script	Work Bench::wb	111,{
 // randomization.
 
 //============================================================
+//= Resources
+//============================================================
+// Resource ID Array
+setarray .@resources[0],.@fabric,.@metal,.@plastic,.@latex,.@stone,.@wood,.@cyan,.@leather,.@sulfur,.@charcoal,.@salt,.@coal,.@ducttape,.@gunpowder,.@nails;
+
+// Resource name Array
+setarray .@resource_names[0],.@fabric_name$,.@metal_name$,.@plastic_name$,.@latex_name$,.@stone_name$,.@wood_name$,.@cyan_name$,.@leather_name$,.@sulfur_name$,.@charcoal_name$,.@salt_name$,.@coal_name$,.@ducttape_name$,.@gunpowder_name$,.@nails_name$;
+
+// Resource Amounts
+setarray .@resource_nums[0],.@fabric_num,.@metal_num,.@plastic_num,.@latex_num,.@stone_num,.@wood_num,.@cyan_num,.@leather_num,.@sulfur_num,.@charcoal_num,.@salt_num,.@coal_num,.@ducttape_num,.@gunpowder_num,.@nails_num;
+
+// Resource Values
+set .@fabric,1002;
+set .@fabric_name$, "Fabric";
+
+set .@metal,1003;
+set .@metal_name$, "Metal";
+
+set .@plastic,1004;
+set .@plastic_name$, "Plastic";
+
+set .@latex,1005;
+set .@latex_name$, "Latex";
+
+set .@stone,1006;
+set .@stone_name$, "Stone";
+
+set .@wood,1007;
+set .@wood_name$, "Wood";
+
+set .@cyan,1015;
+set .@cyan_name$, "Cyanoacrylate";
+
+set .@leather,1016;
+set .@leather_name$, "Leather";
+
+set .@sulfur,1017;
+set .@sulfur_name$, "Sulfur";
+
+set .@charcoal,1018;
+set .@charcoal_name$, "Charcoal";
+
+set .@salt,1019;
+set .@salt_name$, "Salt";
+
+set .@coal,1066;
+set .@coal_name$, "Coal";
+
+set .@ducttape,1068;
+set .@ducttape_name$, "Duct Tape";
+
+set .@gunpowder,1075;
+set .@gunpowder_name$, "Gun Powder";
+
+set .@nails,1150;
+set .@nails_name$, "Nails";
+//============================================================
 //= Base NPC
 //============================================================
 mes	"^990000 [ Work Bench ]^000000";
@@ -277,12 +334,10 @@ mes	"What would you like to do?";
 menu	"Create",C_WB,"Dismantle",D_WB,"Go back",L_Comp,"Forget it",-;
 
 C_WB:
-callfunc("work_bench_create",.@resources);
+callfunc("work_bench_create",.@resources_nums);
 
 D_WB:
-setarray .@resources[0],.@fabric_num,.@metal_num,.@plastic_num,.@latex_num,.@stone_num,.@wood_num,.@cyan_num,.@leather_num,.@sulfur_num,.@charcoal_num,.@salt_num,.@coal_num,.@ducttape_num,.@gunpowder_num,.@nails_num;
-
-callfunc("work_bench_dismantle",.@resources,.@item$);
+callfunc("work_bench_dismantle",.@resource_nums,.@item$,.@resources,.@resource_names);
 
 L_WBRefine:
 mes "Sorry but this feature is currently being developed.";
