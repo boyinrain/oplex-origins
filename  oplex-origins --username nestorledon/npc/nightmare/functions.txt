@@ -549,7 +549,7 @@ Build:
 		getmapxy @playermap$,@playerx,@playery,0;					//get and set player x,y & map for use
 		monster @playermap$,@playerx,@playery,strcharinfo(0) + @randid,1511,1;		//place an immobile monster to act as barricade
 		setcell @playermap$,@playerx,@playery,@playerx,@playery,cell_shootable,1;		//set a wall to make the barricade impassable
-		DuplicateCreate("barricade#1","barricade","1",@playermap$,@playerx,@playery,1,111,1,1);
+		DuplicateCreate("barricade#1","barricade","1","@playermap$",@playerx,@playery,1,111,1,1);
 		delitem 1007,10;								//Removes 20 wood from the inventory of the player
 		mes "Barricade has been built!!!";
 		close;
