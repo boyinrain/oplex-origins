@@ -552,7 +552,8 @@ Build:
 		setwall @playermap$,@playerx,@playery,1,1,shootable,@name$;		//set a wall to make the barricade impassable
 		delitem 1007,10;								//Removes 20 wood from the inventory of the player
 		mes "Barricade has been built!!!";
-		close;
+		close2;
+		end;
 
 OnDeath:
 	dispbottom "Barricade destroyed.";
@@ -561,7 +562,6 @@ OnDeath:
 	end;
 
 	}
-
 	else {
 		mes "You need more Wood.";
 		close;
