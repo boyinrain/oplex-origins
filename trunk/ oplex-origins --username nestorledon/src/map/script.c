@@ -13270,7 +13270,7 @@ BUILDIN_FUNC(duplicatecreate)
 	strncat(targetname, "#", 1);
 	strncat(targetname, targetnamehidden, strlen(targetnamehidden));
 
-	safestrncpy(nd_target->name, targetname , sizeof(nd_target->name));
+	safestrncpy(nd_target->name, targetname, sizeof(nd_target->name));
 	safestrncpy(nd_target->exname, targetname, sizeof(nd_target->exname));
 
 	nd_target->bl.prev = nd_target->bl.next = NULL;
