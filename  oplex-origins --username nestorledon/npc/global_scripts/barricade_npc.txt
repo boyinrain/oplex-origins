@@ -10,9 +10,9 @@
 
 
 
--	script	barricade::bar00	-1, {
+-	script	barricade#1::bar00	-1, {
 
-calfunc "barricade";
+mes "KILL IT!!!";
 
 }
 
