@@ -560,6 +560,8 @@ Build:
 		end;
 	}
 Death:
+	mes "Death Script here?";
 	specialeffect 373;
+	close;
 	end;
 }
