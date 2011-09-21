@@ -10,13 +10,9 @@
 
 
 
--	script	barricade	-1, {
+-	script	barricade::bar00	-1, {
 
 calfunc "barricade";
 
 }
 
-
-//============DUPS==================================
-
-DuplicateCreate("SourceName", "TargetNameShown", "TargetNameHidden", @playermap$, @playerx, @playery, TargetDir{, 111{, TargetXS, TargetYS}});
