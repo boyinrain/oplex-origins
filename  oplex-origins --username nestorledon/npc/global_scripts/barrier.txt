@@ -6,7 +6,7 @@
 //to include a sprite and destructability. then
 //places a wall to block passage.
 //=================================================
-
+//
 //===== Changelog: ===========================================
 //= v1.0 - Original release - MAG
 //============================================================
@@ -33,4 +33,4 @@
 //		close;
 //		end;
 //	}
-}
+//}
