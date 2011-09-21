@@ -561,7 +561,7 @@ Build:
 	}
 Death:
 	mes "Death Script here?";
-	delwall @name$;
+	delwall "@name$";
 	close;
 	end;
 }
