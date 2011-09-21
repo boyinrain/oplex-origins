@@ -533,7 +533,7 @@ mine_30sec:
 }
 
 function	script	barricade_func	{
-	if(getarg(0,0)==1)	{mes"Yay, we're going!";specialeffect 373;goto Death;}
+	if(getarg(0,0)==1)	{mes"Yay, we're going!";goto Death;}
 	else {goto Build;}
 
 Build:
@@ -561,6 +561,7 @@ Build:
 	}
 Death:
 	mes "Death Script here?";
+	delwall @name$;
 	close;
 	end;
 }
