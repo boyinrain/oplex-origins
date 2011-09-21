@@ -553,15 +553,18 @@ Build:
 		delitem 1007,10;								//Removes 20 wood from the inventory of the player
 		mes "Barricade has been built!!!";
 		close;
-	}
-	else {
-		mes "You need more Wood.";
-		close;
-		end;
-	}
+
 OnDeath:
 	dispbottom "Barricade destroyed.";
 	delwall @name$;
 	close;
 	end;
+
+	}
+
+	else {
+		mes "You need more Wood.";
+		close;
+		end;
+	}
 }
