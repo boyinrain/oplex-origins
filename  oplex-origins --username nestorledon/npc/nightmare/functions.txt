@@ -534,7 +534,7 @@ mine_30sec:
 
 function	script	barricade_func	{
 	if(getarg(0,0)==1)	{mes"Yay, we're going!";goto Death;}
-	else {mes"Nope";}
+	else {goto Build;}
 
 Build:
 	if (countitem(1007) >= 10)	{			//checks if player has required materials
@@ -548,6 +548,7 @@ Build:
 		set @randid, rand(1,10000);
 		getmapxy @playermap$,@playerx,@playery,0;					//get and set player x,y & map for use
 		monster @playermap$,@playerx,@playery,strcharinfo(0) + @randid,1511,1;		//place an immobile monster to act as barricade
+		@playermap$	setcell	1,@playerx,@playery,@playerx,@playery;
 		setcell @playermap$,@playerx,@playery,@playerx,@playery,cell_walkable,0;		//set a wall to make the barricade impassable
 		DuplicateCreate("barricade", "1", "bar00", @playermap$, @playerx, @playery, 1, 111, TargetXS, TargetYS);
 		delitem 1007,10;								//Removes 20 wood from the inventory of the player
