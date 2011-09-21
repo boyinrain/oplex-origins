@@ -76,7 +76,6 @@ OnNPCKillEvent:
 	if(KilledRid == 1511){
 	set .@switch,1;
 	callfunc("barricade_func",.@switch);
-	announce "You destroyed a barrier!",bc_self,0xFF0000;end;
 	end;
 	}
 
