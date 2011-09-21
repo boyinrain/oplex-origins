@@ -533,35 +533,5 @@ mine_30sec:
 }
 
 function	script	barricade_func	{
-	if(getarg(0,0)==1)	{mes"Yay, we're going!";specialeffect 373;goto Death;}
-	else {goto Build;}
-
-Build:
-	if (countitem(1007) >= 10)	{			//checks if player has required materials
-		mes "Building barricade...";
-		sc_start SC_SLEEP,5000,0;			//starts wait time - 15 seconds
-		callfunc "loading_func";
-		callfunc "loading_func";
-		callfunc "loading_func";
-		callfunc "loading_func";
-		callfunc "loading_func";
-		set @randid, rand(1,10000);
-		getmapxy @playermap$,@playerx,@playery,0;					//get and set player x,y & map for use
-		//monster @playermap$,@playerx,@playery,strcharinfo(0) + @randid,1511,1;		//place an immobile monster to act as barricade
-		//setcell @playermap$,@playerx,@playery,@playerx,@playery,cell_shootable,1;		//set a wall to make the barricade impassable
-		set @playery2,@playery +1;
-		DuplicateCreate("barricade#1","lolBOX","2","blank_01",4,7,1,111,1,1);
-		delitem 1007,10;								//Removes 20 wood from the inventory of the player
-		mes "Barricade has been built!!!";
-		close;
-	}
-	else {
-		mes "You need more Wood.";
-		close;
-		end;
-	}
-Death:
-	mes "Death Script here?";
-	close;
-	end;
+DuplicateCreate("barricade#1","lolBOX","2","blank_01",4,7,1,111,1,1);
 }
