@@ -533,7 +533,7 @@ mine_30sec:
 }
 
 function	script	barricade_func	{
-	if(getarg(0)),0==1)	{mes"Lol +getarg(0)+ ";goto Death;}
+	if(getarg(0)),0==1)	{mes"Yay, we're going!";goto Death;}
 	else {mes"Nope";}
 
 Build:
