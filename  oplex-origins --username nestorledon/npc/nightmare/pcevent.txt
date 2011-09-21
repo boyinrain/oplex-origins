@@ -72,12 +72,12 @@ OnNPCKillEvent:
 	if(KilledRid == 1123||KilledRid == 1122){	getmapxy @playermap$,@playerx,@playery,0; announce "You killed a Sentry!",bc_self,0xFF0000;end;}
 	
 
-	//mag's barrier check & delete
-	if(KilledRid == 1511){
-	set .@switch,1;
-	callfunc("barricade_func",.@switch);
-	end;
-	}
+//	//mag's barrier check & delete
+//	if(KilledRid == 1511){
+//	set .@switch,1;
+//	callfunc("barricade_func",.@switch);
+//	end;
+//	}
 
 	
 OnPCKillEvent:
