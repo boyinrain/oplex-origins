@@ -1,7 +1,11 @@
 //----======Mock up barricade script V1.0======----
 //-------------------------------------------------
 blank_01,0,0,5	script	barricade#1::bar00	52,{
+
 mes "KILL IT!!!";
+
+delwall "@npcnamehere";
+
 close;
 end;
 }

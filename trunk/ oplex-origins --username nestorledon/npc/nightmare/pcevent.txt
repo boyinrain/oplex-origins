@@ -77,7 +77,6 @@ OnNPCKillEvent:
 	set .@switch,1;
 	callfunc("barricade_func",.@switch);
 	announce "You destroyed a barrier!",bc_self,0xFF0000;end;
-	setcell @playermap$,@playerx,@playery,@playerx,@playery,cell_walkable,0;
 	end;
 	}
 
