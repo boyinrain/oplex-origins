@@ -14,7 +14,7 @@ set @randid, rand(1,10000);
 	end;
 
 OnDie:
-	mes "Barricade destroyed.";
+	dispbottom "Barricade destroyed.";
 	delwall @name$;
 	close;
 	end;
