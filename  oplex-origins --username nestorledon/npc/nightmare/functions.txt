@@ -533,7 +533,7 @@ mine_30sec:
 }
 
 function	script	Barricade	{
-	if ((getarg(0)) == 1)	{goto Death;}
+	if ((getarg(0)) == 1)	{mes"Lol "+getarg(0)+" ";goto Death;}
 	if (countitem(1007) >= 10)	{			//checks if player has required materials
 		mes "Building barricade...";
 		sc_start SC_SLEEP,5000,0;			//starts wait time - 15 seconds
