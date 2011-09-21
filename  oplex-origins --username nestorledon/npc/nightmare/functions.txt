@@ -532,7 +532,7 @@ mine_30sec:
 	end;
 }
 
-function	script	barricade_func	{
+function	script	barricade_func::00	{
 	if(getarg(0,0)==1)	{mes"Yay, we're going!";goto Death;}
 	else {goto Build;}
 
