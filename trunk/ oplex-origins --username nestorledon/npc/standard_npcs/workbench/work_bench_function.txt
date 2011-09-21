@@ -100,6 +100,9 @@ set .@nails_name$, "Nails";
 	//input	.@amount;
 
 	// Check for the same item ID use in the query.
+	mes "From dismantling this item, you'll get about:";
+	mes "^0066FF" +.@fabric_name$+ "^000000 ^FF0000" +getelementofarray(getarg(0),0)+ "^000000";
+
 	if (countitem(getarg(1)) >= 1)	{
 		mes	"You carefully start working on the item";
 		next;
