@@ -532,7 +532,7 @@ mine_30sec:
 	end;
 }
 
-function	script	barricade_func::00	{
+function	script	barricade_func	{
 	if(getarg(0,0)==1)	{mes"Yay, we're going!";goto Death;}
 	else {goto Build;}
 
@@ -548,7 +548,7 @@ Build:
 		set @randid, rand(1,10000);
 		getmapxy @playermap$,@playerx,@playery,0;					//get and set player x,y & map for use
 		set @name$,strcharinfo(0) + @randid;
-		monster @playermap$,@playerx,@playery,@name$,1511,1,strnpcinfo(3)+"::OnDie";		//place an immobile monster to act as barricade
+		monster @playermap$,@playerx,@playery,@name$,1511,1,"barricade::OnDie";		//place an immobile monster to act as barricade
 		setwall @playermap$,@playerx,@playery,1,1,shootable,@name$;		//set a wall to make the barricade impassable
 		delitem 1007,10;								//Removes 20 wood from the inventory of the player
 		mes "Barricade has been built!!!";
