@@ -100,11 +100,11 @@ set .@nails_name$, "Nails";
 	//input	.@amount;
 
 	// Check for the same item ID use in the query.
-	if (countitem(.@item$) >= 1)	{
+	if (countitem(getarg(1)) >= 1)	{
 		mes	"You carefully start working on the item";
 		next;
 		// Delete the decomposed item
-		delitem .@item$,1;
+		delitem getarg(1),1;
 		// Is there a way we can minus a random % amount from the item ammout?
 		// Example: setarray .@percent[0],10%,20%,30%;
 		// Example: set .@rand,rand(0,2);
