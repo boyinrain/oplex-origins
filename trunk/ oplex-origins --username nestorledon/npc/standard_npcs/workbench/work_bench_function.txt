@@ -61,20 +61,20 @@ Y_D:
 		// Above is just an example, would be awesome if it can work.
 		// Resource Allocation
 		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),0);
-		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),1);
-		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),2);
-		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),3);
-		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),4);
-		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),5);
-		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),6);
-		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),7);
-		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),8);
-		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),9);
-		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),10);
-		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),11);
-		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),12);
-		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),13);
-		getitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),14);
+		getitem getelementofarray(getarg(2),1),getelementofarray(getarg(0),1);
+		getitem getelementofarray(getarg(2),2),getelementofarray(getarg(0),2);
+		getitem getelementofarray(getarg(2),3),getelementofarray(getarg(0),3);
+		getitem getelementofarray(getarg(2),4),getelementofarray(getarg(0),4);
+		getitem getelementofarray(getarg(2),5),getelementofarray(getarg(0),5);
+		getitem getelementofarray(getarg(2),6),getelementofarray(getarg(0),6);
+		getitem getelementofarray(getarg(2),7),getelementofarray(getarg(0),7);
+		getitem getelementofarray(getarg(2),8),getelementofarray(getarg(0),8);
+		getitem getelementofarray(getarg(2),9),getelementofarray(getarg(0),9);
+		getitem getelementofarray(getarg(2),10),getelementofarray(getarg(0),10);
+		getitem getelementofarray(getarg(2),11),getelementofarray(getarg(0),11);
+		getitem getelementofarray(getarg(2),12),getelementofarray(getarg(0),12);
+		getitem getelementofarray(getarg(2),13),getelementofarray(getarg(0),13);
+		getitem getelementofarray(getarg(2),14),getelementofarray(getarg(0),14);
 		// Success Message
 		mes "Success!";
 		close;
