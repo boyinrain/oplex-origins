@@ -44,11 +44,7 @@ function	script	work_bench_dismantle	{
 	// Check for the same item ID use in the query.
 	next;
 	mes "From dismantling this item, you'll get about:";
-	mes "^0066FF" +getelementofarray(getarg(3),0)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),0)+ "^000000";
-	mes "^0066FF" +getelementofarray(getarg(3),1)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),1)+ "^000000";
-	mes "^0066FF" +getelementofarray(getarg(3),2)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),2)+ "^000000";
-	mes "^0066FF" +getelementofarray(getarg(3),3)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),3)+ "^000000";
-	mes "^0066FF" +getelementofarray(getarg(3),4)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),4)+ "^000000";
+	mes "^0066FF" +getelementofarray(getarg(3),0)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),0)+ "^000000 ^0066FF" +getelementofarray(getarg(3),1)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),1)+ "^000000 ^0066FF" +getelementofarray(getarg(3),2)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),2)+ "^000000 ^0066FF" +getelementofarray(getarg(3),3)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),3)+ "^000000 ^0066FF" +getelementofarray(getarg(3),4)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),4)+ "^000000";
 	mes "^0066FF" +getelementofarray(getarg(3),5)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),5)+ "^000000";
 	mes "^0066FF" +getelementofarray(getarg(3),6)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),6)+ "^000000";
 	mes "^0066FF" +getelementofarray(getarg(3),7)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),7)+ "^000000";
