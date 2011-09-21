@@ -15,3 +15,8 @@
 calfunc "barricade";
 
 }
+
+
+//============DUPS==================================
+
+DuplicateCreate("SourceName", "TargetNameShown", "TargetNameHidden", @playermap$, @playerx, @playery, TargetDir{, 111{, TargetXS, TargetYS}});
