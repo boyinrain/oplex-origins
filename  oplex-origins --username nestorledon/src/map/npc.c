@@ -53,14 +53,6 @@ static int npc_delay_mob=0;
 static int npc_cache_mob=0;
 int npc_get_new_npc_id(void){ return npc_id++; }
 
-static DBMap* ev_db; // const char* event_name -> struct event_data*
-static DBMap* npcname_db; // const char* npc_name -> struct npc_data*
-
-struct event_data {
-	struct npc_data *nd;
-	int pos;
-};
-
 static struct eri *timer_event_ers; //For the npc timer data. [Skotlex]
 
 //For holding the view data of npc classes. [Skotlex]
@@ -3057,4 +3049,9 @@ int do_init_npc(void)
 	// End of initialization
 
 	return 0;
+}
+// created to make npc_unload_dup_sub available in script.c (duplicateremove) [Kenpachi]
+int npc_unload_dup_sub_pub(struct npc_data* nd, va_list args)
+{
+	return npc_unload_dup_sub(nd, args);
 }

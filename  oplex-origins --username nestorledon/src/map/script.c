@@ -13212,6 +13212,210 @@ BUILDIN_FUNC(setqueststatus)
 	return 0;
 }
 
+// [Kenpachi]
+// DuplicateCreate("sourcename", "targetnameshown", "targetnamehidden", "targetmap", targetx, targety, targetdir{, targetspriteid{, targetxs, targetys}});
++BUILDIN_FUNC(duplicatecreate)
+{
+	const char *sourcename = script_getstr(st, 2), *targetnameshown = script_getstr(st, 3), *targetnamehidden = script_getstr(st, 4), *targetmap = script_getstr(st, 5);
+	int targetx = script_getnum(st, 6), targety = script_getnum(st, 7), targetdir = script_getnum(st, 8);
+	int targetspriteid, targetxs = -1, targetys = -1, sourceid, type, targetmapid, i;
+	struct npc_data *nd_source, *nd_target;
+	char targetname[24] = "";
+
+	if(script_hasdata(st, 10))
+		targetxs = (script_getnum(st, 10) < -1) ? -1 : script_getnum(st, 10);
+	if(script_hasdata(st, 11))
+		targetys = (script_getnum(st, 11) < -1) ? -1 : script_getnum(st, 10);
+
+	if(targetxs == -1 && targetys != -1)
+		targetxs = 0;
+	if(targetxs != - 1 && targetys == -1)
+		targetys = 0;
+
+	if(strlen(targetnameshown) + strlen(targetnamehidden) > 23)
+	{
+		ShowError("duplicatecreate: targetnameshown + targetnamehidden is to long (max 23 chars). (%s)\n", sourcename);
+		script_pushint(st, 0);
+		return 0;
+	}
+
+	nd_source = npc_name2id(sourcename);
+
+	if(script_hasdata(st, 9))
+		targetspriteid = (script_getnum(st, 9) < -1) ? -1 : script_getnum(st, 9);
+	else
+		targetspriteid = nd_source->class_;
+
+	if( nd_source == NULL)
+	{
+		ShowError("duplicatecreate: original npc not found for duplicate. (%s)\n", sourcename);
+		script_pushint(st, 0);
+		return 0;
+	}
+	
+	sourceid = nd_source->bl.id;
+	type = nd_source->subtype;
+
+	targetmapid = map_mapname2mapid(targetmap);
+	if(targetmapid < 0)
+	{
+		ShowError("duplicatecreate: target map not found. (%s)\n", targetmap);
+		script_pushint(st, 0);
+		return 0;
+	}
+
+	CREATE(nd_target, struct npc_data, 1);
+	
+	strcat(targetname, targetnameshown);
+	strncat(targetname, "#", 1);
+	strncat(targetname, targetnamehidden, strlen(targetnamehidden));
+
+	safestrncpy(nd_target->name, targetname , sizeof(nd_target->name));
+	safestrncpy(nd_target->exname, targetname, sizeof(nd_target->exname));
+
+	nd_target->bl.prev = nd_target->bl.next = NULL;
+	nd_target->bl.m = targetmapid;
+	nd_target->bl.x = targetx;
+	nd_target->bl.y = targety;
+	nd_target->bl.id = npc_get_new_npc_id();
+	nd_target->class_ = targetspriteid;
+	nd_target->speed = 200;
+	nd_target->src_id = sourceid;
+	nd_target->bl.type = BL_NPC;
+	nd_target->subtype = type;
+	switch(type)
+	{
+		case SCRIPT:
+			nd_target->u.scr.xs = targetxs;
+			nd_target->u.scr.ys = targetys;
+			nd_target->u.scr.script = nd_source->u.scr.script;
+			nd_target->u.scr.label_list = nd_source->u.scr.label_list;
+			nd_target->u.scr.label_list_num = nd_source->u.scr.label_list_num;
+			break;
+
+		case SHOP:
+		case CASHSHOP:
+			nd_target->u.shop.shop_item = nd_source->u.shop.shop_item;
+			nd_target->u.shop.count = nd_source->u.shop.count;
+			break;
+
+		case WARP:
+			if( !battle_config.warp_point_debug )
+				nd_target->class_ = WARP_CLASS;
+			else
+				nd_target->class_ = WARP_DEBUG_CLASS;
+			nd_target->u.warp.xs = targetxs;
+			nd_target->u.warp.ys = targetys;
+			nd_target->u.warp.mapindex = nd_source->u.warp.mapindex;
+			nd_target->u.warp.x = nd_source->u.warp.x;
+			nd_target->u.warp.y = nd_source->u.warp.y;
+			break;
+	}
+
+	map_addnpc(targetmapid, nd_target);
+	status_change_init(&nd_target->bl);
+	unit_dataset(&nd_target->bl);
+	nd_target->ud.dir = targetdir;
+	npc_setcells(nd_target);
+	map_addblock(&nd_target->bl);
+	if(targetspriteid >= 0)
+	{
+		status_set_viewdata(&nd_target->bl, nd_target->class_);
+		clif_spawn(&nd_target->bl);
+	}
+	strdb_put(npcname_db, nd_target->exname, nd_target);
+
+	if(type == SCRIPT)
+	{
+		//Handle labels
+		//-----------------------------------------
+		// イベント用ラベルデータのエクスポート
+		for (i = 0; i < nd_target->u.scr.label_list_num; i++)
+		{
+			char* lname = nd_target->u.scr.label_list[i].name;
+			int pos = nd_target->u.scr.label_list[i].pos;
+
+			if ((lname[0] == 'O' || lname[0] == 'o') && (lname[1] == 'N' || lname[1] == 'n'))
+			{
+				struct event_data* ev;
+				char buf[NAME_LENGTH*2+3]; // 24 for npc name + 24 for label + 2 for a "::" and 1 for EOS
+				snprintf(buf, ARRAYLENGTH(buf), "%s::%s", nd_target->exname, lname);
+
+				// generate the data and insert it
+				CREATE(ev, struct event_data, 1);
+				ev->nd = nd_target;
+				ev->pos = pos;
+				if( strdb_put(ev_db, buf, ev) != NULL )// There was already another event of the same name?
+					ShowWarning("npc_parse_duplicate : duplicate event %s (%s)\n", buf, nd_target->name);
+			}
+		}
+
+		//-----------------------------------------
+		// ラベルデータからタイマーイベント取り込み
+		for (i = 0; i < nd_target->u.scr.label_list_num; i++)
+		{
+			int t = 0, k = 0;
+			char *lname = nd_target->u.scr.label_list[i].name;
+			int pos = nd_target->u.scr.label_list[i].pos;
+			if (sscanf(lname, "OnTimer%d%n", &t, &k) == 1 && lname[k] == '\0')
+			{
+				// タイマーイベント
+				struct npc_timerevent_list *te = nd_target->u.scr.timer_event;
+				int j, k = nd_target->u.scr.timeramount;
+				if (te == NULL)
+					te = (struct npc_timerevent_list *)aMallocA(sizeof(struct npc_timerevent_list));
+				else
+					te = (struct npc_timerevent_list *)aRealloc( te, sizeof(struct npc_timerevent_list) * (k+1) );
+				for (j = 0; j < k; j++)
+				{
+					if (te[j].timer > t)
+					{
+						memmove(te+j+1, te+j, sizeof(struct npc_timerevent_list)*(k-j));
+						break;
+					}
+				}
+				te[j].timer = t;
+				te[j].pos = pos;
+				nd_target->u.scr.timer_event = te;
+				nd_target->u.scr.timeramount++;
+			}
+		}
+		nd_target->u.scr.timerid = INVALID_TIMER;
+	}
+
+	script_pushint(st, 1);
+	return 0;
+}
+
+
+// [Kenpachi]
+// DuplicateRemove({"NPCname"});
+BUILDIN_FUNC(duplicateremove)
+{
+	struct npc_data *nd;
+
+	if(script_hasdata(st, 2))
+	{
+		nd = npc_name2id(script_getstr(st, 2));
+		if(nd == NULL)
+		{
+			ShowError("getnpcgid: NPC not found: %s\n", script_getstr(st, 2));
+			script_pushint(st, -1);
+			return 0;
+		}
+	}
+	else
+		nd = (struct npc_data *)map_id2bl(st->oid);
+
+	if(nd->src_id == NULL)//remove all dupicates for this source npc
+		map_foreachnpc(npc_unload_dup_sub_pub,nd->bl.id);
+	else// just remove this duplicate
+		npc_unload(nd);
+
+	script_pushint(st, 1);
+	return 0;
+}
+
 
 // declarations that were supposed to be exported from npc_chat.c
 #ifdef PCRE_SUPPORT
@@ -13567,6 +13771,10 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(mercenary_get_faith,"i"),
 	BUILDIN_DEF(mercenary_set_calls,"ii"),
 	BUILDIN_DEF(mercenary_set_faith,"ii"),
+	
+	BUILDIN_DEF(duplicatecreate, "ssssiii???"), // [Kenpachi]
+	BUILDIN_DEF(duplicateremove, "?"), // [Kenpachi]
+
 	// WoE SE
 	BUILDIN_DEF(agitstart2,""),
 	BUILDIN_DEF(agitend2,""),

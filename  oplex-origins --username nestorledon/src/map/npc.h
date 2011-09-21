@@ -12,6 +12,10 @@ struct npc_data;
 struct view_data;
 
 
+// created to make npc_unload_dup_sub available in script.c (duplicateremove) [Kenpachi]
+int npc_unload_dup_sub_pub(struct npc_data* nd, va_list args);
+
+
 struct npc_timerevent_list {
 	int timer,pos;
 };
@@ -94,6 +98,15 @@ enum npce_event {
 	NPCE_KILLNPC,
 	NPCE_MAX
 };
+
+// moved here (from npc.c) to make it available in script.c (duplicatecreate) [Kenpachi]
+static DBMap* ev_db; // const char* event_name -> struct event_data*
+DBMap* npcname_db; // const char* npc_name -> struct npc_data*
+struct event_data {
+	struct npc_data *nd;
+	int pos;
+};
+
 struct view_data* npc_get_viewdata(int class_);
 int npc_chat_sub(struct block_list* bl, va_list ap);
 int npc_event_dequeue(struct map_session_data* sd);
