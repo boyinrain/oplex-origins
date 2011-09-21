@@ -550,7 +550,7 @@ Build:
 		//monster @playermap$,@playerx,@playery,strcharinfo(0) + @randid,1511,1;		//place an immobile monster to act as barricade
 		//setcell @playermap$,@playerx,@playery,@playerx,@playery,cell_shootable,1;		//set a wall to make the barricade impassable
 		set @playery2,@playery +1;
-		DuplicateCreate("barricade#1","barricade","1","blank_01",@playerx,@playery2,1,111,1,1);
+		DuplicateCreate("barricade#1","lolBOX","1","blank_01",@playerx,@playery2,1,111,1,1);
 		delitem 1007,10;								//Removes 20 wood from the inventory of the player
 		mes "Barricade has been built!!!";
 		close;
