@@ -10,7 +10,7 @@
 
 
 
-blank_01,0,0,5	script	barricade#1::bar00	111, {
+blank_01,2,2,5	script	barricade#1::bar00	111, {
 
 mes "KILL IT!!!";
 
