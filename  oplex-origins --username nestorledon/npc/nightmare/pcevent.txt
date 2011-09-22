@@ -58,8 +58,7 @@ OnPCDieEvent:
 	soundeffect "dying.wav",0;
 	end;
 
-OnNPCKillEvent:
-	mes	"x:";	
+OnNPCKillEvent:	
 	if(KilledRid >= 1078 && KilledRid<=1092){		//Remember to update when adding new monsters!
 	set @char_id, getcharid(0);
 	set monsterkill, monsterkill + 1;
