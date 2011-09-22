@@ -59,7 +59,6 @@ OnPCDieEvent:
 	end;
 
 OnNPCKillEvent:
-	getmobdata (killedrid,.@mobdata);
 	mes	"x:";	
 	if(KilledRid >= 1078 && KilledRid<=1092){		//Remember to update when adding new monsters!
 	set @char_id, getcharid(0);
