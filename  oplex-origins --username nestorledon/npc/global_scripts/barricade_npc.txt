@@ -31,6 +31,7 @@ OnSpawn:
 OnDie_1:
 	dispbottom "Barricade destroyed.";
 	delwall @name$;
+	specialeffect 373;
 	close;
 	end;
 
