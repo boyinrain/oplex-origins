@@ -7,12 +7,12 @@ OnSpawn:
 	set @count,@count +1;
 	getmapxy @playermap$,@playerx,@playery,0;					//get and set player x,y & map for use
 	set @name$,strcharinfo(0) + @count;
+	if(@count<=6){mes "You cannot build barricades at this time.";close;end;}
 	if(@count==1){monster @playermap$,@playerx,@playery,@name$,1511,1,"barricade::OnDie_1";}
 	if(@count==2){monster @playermap$,@playerx,@playery,@name$,1511,1,"barricade::OnDie_2";}
 	if(@count==3){monster @playermap$,@playerx,@playery,@name$,1511,1,"barricade::OnDie_3";}
 	if(@count==4){monster @playermap$,@playerx,@playery,@name$,1511,1,"barricade::OnDie_4";}
 	if(@count==5){monster @playermap$,@playerx,@playery,@name$,1511,1,"barricade::OnDie_5";}
-	else{mes "You cannot build barricades at this time.";close;end;}
 	setwall @playermap$,@playerx,@playery,1,1,shootable,@name$;			//set a wall to make the barricade impassable
 	delitem 1007,10;								//Removes 20 wood from the inventory of the player
 	mes "Barricade has been built!!!";
