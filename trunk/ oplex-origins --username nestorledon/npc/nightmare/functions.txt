@@ -537,34 +537,18 @@ function	script	barricade_func	{
 	else {goto Build;}
 
 Build:
-	if (countitem(1007) >= 10)	{			//checks if player has required materials
+	if (countitem(1007) >= 10)	{
 		mes "Building barricade...";
-		sc_start SC_SLEEP,5000,0;			//starts wait time - 5 seconds
+		sc_start SC_SLEEP,5000,0;
 		callfunc "loading_func";
 		callfunc "loading_func";
 		callfunc "loading_func";
 		callfunc "loading_func";
 		callfunc "loading_func";
-		set @randid, rand(1,10000);
-		getmapxy @playermap$,@playerx,@playery,0;					//get and set player x,y & map for use
-		set @name$,strcharinfo(0) + @randid;
-		monster @playermap$,@playerx,@playery,@name$,1511,1,"barricade::OnDie";		//place an immobile monster to act as barricade
-		setwall @playermap$,@playerx,@playery,1,1,shootable,@name$;		//set a wall to make the barricade impassable
-		delitem 1007,10;								//Removes 20 wood from the inventory of the player
-		mes "Barricade has been built!!!";
-		close;
-		end;
-
-OnDie:
-	mes "Barricade destroyed.";
-	delwall @name$;
-	close;
-	end;
-
-	}
-	else {
+		doevent "barricade::OnSpawn";
+	} else {
 		mes "You need more Wood.";
 		close;
 		end;
-	}
+		}
 }
