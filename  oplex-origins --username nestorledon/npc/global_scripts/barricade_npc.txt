@@ -7,7 +7,7 @@ OnSpawn:
 	set #count,#count + 1;
 	getmapxy @playermap$,@playerx,@playery,0;
 
-	if(#count==9){mes "You cannot build barricades at this time.";close;end;}
+	if(#count>=9){mes "You cannot build barricades at this time.";close;end;}
 
 	if(#count==1){
 	set #name$, strcharinfo(0) + #count;
