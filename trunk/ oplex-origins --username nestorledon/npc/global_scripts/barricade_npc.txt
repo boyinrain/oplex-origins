@@ -57,7 +57,7 @@ OnSpawn:
 
 OnDie_1:
 	dispbottom "Barricade destroyed.";
-	message strcharinfo(0),"+@name$+";
+	message strcharinfo(0)," " +@name$+ " ";
 	delwall @name$;
 	specialeffect 373;
 	set @count, @count - 1;
@@ -66,7 +66,7 @@ OnDie_1:
 
 OnDie_2:
 	dispbottom "Barricade destroyed.";
-	message strcharinfo(0),"+@name2$+";
+	message strcharinfo(0)," " +@name2$+ " ";
 	delwall @name2$;
 	set @count, @count - 1;
 	close;
@@ -74,7 +74,7 @@ OnDie_2:
 
 OnDie_3:
 	dispbottom "Barricade destroyed.";
-	message strcharinfo(0),"+@name3$+";
+	message strcharinfo(0)," " +@name3$+ " ";
 	delwall @name3$;
 	set @count, @count - 1;
 	close;
@@ -82,7 +82,7 @@ OnDie_3:
 
 OnDie_4:
 	dispbottom "Barricade destroyed.";
-	message strcharinfo(0),"+@name3$+";
+	message strcharinfo(0)," " +@name4$+ " ";
 	delwall @name4$;
 	set @count, @count - 1;
 	close;
@@ -90,7 +90,7 @@ OnDie_4:
 
 OnDie_5:
 	dispbottom "Barricade destroyed.";
-	message strcharinfo(0),"+@name3$+";
+	message strcharinfo(0)," " +@name5$+ " ";
 	delwall @name5$;
 	set @count, @count - 1;
 	close;
@@ -98,21 +98,21 @@ OnDie_5:
 
 OnDie_6:
 	dispbottom "Barricade destroyed.";
-	message strcharinfo(0),"+@name3$+";
+	message strcharinfo(0)," " +@name6$+ " ";
 	delwall @name6$;
 	set @count, @count - 1;
 	close;
 	end;
 OnDie_7:
 	dispbottom "Barricade destroyed.";
-	message strcharinfo(0),"+@name3$+";
+	message strcharinfo(0)," " +@name7$+ " ";
 	delwall @name7$;
 	set @count, @count - 1;
 	close;
 	end;
 OnDie_8:
 	dispbottom "Barricade destroyed.";
-	message strcharinfo(0),"+@name3$+";
+	message strcharinfo(0)," " +@name8$+ " ";
 	delwall @name8$;
 	set @count, @count - 1;
 	close;
