@@ -57,6 +57,7 @@ OnSpawn:
 
 OnDie_1:
 	dispbottom "Barricade destroyed.";
+	dispbottom "+@name$+";
 	delwall @name$;
 	specialeffect 373;
 	close;
@@ -64,12 +65,14 @@ OnDie_1:
 
 OnDie_2:
 	dispbottom "Barricade destroyed.";
+	dispbottom "+@name$+";
 	delwall @name2$;
 	close;
 	end;
 
 OnDie_3:
 	dispbottom "Barricade destroyed.";
+	dispbottom "+@name$+";
 	delwall @name3$;
 	close;
 	end;
