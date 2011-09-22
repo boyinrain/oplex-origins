@@ -64,41 +64,41 @@ OnDie_1:
 
 OnDie_2:
 	dispbottom "Barricade destroyed.";
-	delwall @name$;
+	delwall @name2$;
 	close;
 	end;
 
 OnDie_3:
 	dispbottom "Barricade destroyed.";
-	delwall @name$;
+	delwall @name3$;
 	close;
 	end;
 
 OnDie_4:
 	dispbottom "Barricade destroyed.";
-	delwall @name$;
+	delwall @name4$;
 	close;
 	end;
 
 OnDie_5:
 	dispbottom "Barricade destroyed.";
-	delwall @name$;
+	delwall @name5$;
 	close;
 	end;
 
 OnDie_6:
 	dispbottom "Barricade destroyed.";
-	delwall @name$;
+	delwall @name6$;
 	close;
 	end;
 OnDie_7:
 	dispbottom "Barricade destroyed.";
-	delwall @name$;
+	delwall @name7$;
 	close;
 	end;
 OnDie_8:
 	dispbottom "Barricade destroyed.";
-	delwall @name$;
+	delwall @name8$;
 	close;
 	end;
 }
