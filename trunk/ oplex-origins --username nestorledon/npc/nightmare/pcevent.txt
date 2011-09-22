@@ -66,8 +66,7 @@ OnNPCKillEvent:
 	query_sql "UPDATE `char` SET `monster_kill` = "+monsterkill+" WHERE `char_id` = "+@char_id;
 	end;
 	}
-	getmobdata (killerrid,.@mobdata);
-	dispbottom .@mobdata[6];
+	
 	if(KilledRid == 1123||KilledRid == 1122){	getmapxy @playermap$,@playerx,@playery,0; announce "You killed a Sentry!",bc_self,0xFF0000;end;}
 	
 
