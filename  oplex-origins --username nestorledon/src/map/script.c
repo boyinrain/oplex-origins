@@ -7259,7 +7259,8 @@ BUILDIN_FUNC(monster)
 	else
 		m = map_mapname2mapid(map);
 
-	mob_once_spawn(sd,m,x,y,str,class_,amount,event);
+	mob_id = mob_once_spawn(sd,m,x,y,str,class_,amount,event,owner,type);
+	script_pushint(st, mob_id);
 	return 0;
 }
 /*==========================================
