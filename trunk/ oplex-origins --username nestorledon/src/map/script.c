@@ -13280,7 +13280,7 @@ BUILDIN_FUNC(duplicatecreate)
 	nd_target->bl.id = npc_get_new_npc_id();
 	nd_target->class_ = targetspriteid;
 	nd_target->speed = 200;
-	nd_target->src_id = sourceid;
+	nd_target->u.scr.src_id = sourceid;
 	nd_target->bl.type = BL_NPC;
 	nd_target->subtype = type;
 	switch(type)
