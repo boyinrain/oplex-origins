@@ -29,7 +29,8 @@ OnSpawn:
 	end;
 
 OnDie_1:
-	dispbottom "Barricade destroyed." ;
+	getmobdata(killedrid,@array);
+	dispbottom @array[13] ;
 	delwall @name$;
 	specialeffect 373;
 	close;
