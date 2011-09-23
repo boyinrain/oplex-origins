@@ -40,9 +40,7 @@ OnSpawn:
 	close;
 	end;
 
-OnDie:
-	if(.name$ == getd(strnpcinfo(0) + ".count"))
-	
+OnDie:	
 	dispbottom "Barricade destroyed.";
 
 	message strcharinfo(0)," " +.name$+ " ";
