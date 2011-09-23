@@ -13408,7 +13408,7 @@ BUILDIN_FUNC(duplicateremove)
 	else
 		nd = (struct npc_data *)map_id2bl(st->oid);
 
-	if(nd->src_id == NULL)//remove all dupicates for this source npc
+	if(nd->u.scr.src_id == NULL)//remove all dupicates for this source npc
 		map_foreachnpc(npc_unload_dup_sub_pub,nd->bl.id);
 	else// just remove this duplicate
 		npc_unload(nd);
