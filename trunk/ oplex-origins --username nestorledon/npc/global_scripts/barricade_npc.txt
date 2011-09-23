@@ -19,7 +19,7 @@ OnSpawn:
 
 	set .count, .count + 1;
 
-	setd("_" + strnpcinfo(0) + ".count" + "_", strnpcinfo(0) + ".count");
+	setd "_" + strnpcinfo(0) + ".count" + "_", strnpcinfo(0) + ".count";
 
 	mes " Name: " +_strnpcinfo(0)1_+ "0000";
 
