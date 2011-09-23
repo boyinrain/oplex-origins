@@ -19,9 +19,9 @@ OnSpawn:
 
 	set .count, .count + 1;
 
-	setd("[" + strnpcinfo(0) + ".count" + "]", strnpcinfo(0) + ".count");
+	setd("_" + strnpcinfo(0) + ".count" + "_", strnpcinfo(0) + ".count");
 
-	mes [strnpcingo(0)1];
+	mes _strnpcingo(0)1_;
 
 	set .name$, strnpcinfo(0) + .count;
 
