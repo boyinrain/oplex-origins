@@ -17,20 +17,15 @@ OnSpawn:
 	//==================================================
 	getmapxy @playermap$,@playerx,@playery,0;
 
-	set .count, .count + 1;
-	set @npc, strnpcinfo(0);
+	set .count,.count + 1;
 
-	setd("@" + "npc" + ".count" + "$", strnpcinfo(0) + ".count");
-
-	message strcharinfo(0)," " +@npc1$+ " ";
-
-	set .name$, @npc + .count;
+	set .@name$, strnpcinfo(0) + .count;
 
 	// Place MONSTER where character is.
-	monster @playermap$,@playerx,@playery,.name$,1511,1,"Barricade::OnDie";
+	monster @playermap$,@playerx,@playery,.@name$,1511,1,"Barricade::OnDie";
 	
 	// Place WALL where character is.
-	setwall @playermap$,@playerx,@playery,1,1,shootable,.name$;
+	setwall @playermap$,@playerx,@playery,1,1,shootable,.@name$;
 
 	delitem 1007,10;
 	mes "Barricade has been built!!!";
