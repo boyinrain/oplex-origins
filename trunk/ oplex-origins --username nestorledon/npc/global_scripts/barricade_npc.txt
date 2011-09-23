@@ -31,16 +31,14 @@ OnSpawn:
 	mes "Barricade has been built!!!";
 	close;
 	end;
-	}
 
 OnDie:	
 	dispbottom "Barricade destroyed.";
-
 	message strcharinfo(0)," " +.@name$+ " ";
-
 	delwall .@name$;
 	close;
 	end;
+	}
 
 OnSpawn_OLD:
 	//set @randid, rand(1,10000);
