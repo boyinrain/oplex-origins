@@ -27,7 +27,7 @@ OnSpawn:
 	set .name$, strnpcinfo(0) + .count;
 
 	// Place MONSTER where character is.
-	monster @playermap$,@playerx,@playery,.name$,1511,1,"barricade::OnDie";
+	monster @playermap$,@playerx,@playery,.name$,1511,1,"Barricade::OnDie";
 	
 	// Place WALL where character is.
 	setwall @playermap$,@playerx,@playery,1,1,shootable,.name$;
