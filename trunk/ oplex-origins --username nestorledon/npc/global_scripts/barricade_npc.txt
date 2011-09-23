@@ -2,6 +2,17 @@
 //-------------------------------------------------
 blank_01,0,0,5	script	barricade	52,{
 
+//=================================================
+//= Still Needed:
+//= We need to set a check so that the player only get's
+//= -1 if it's his/her barricade.
+//= I've set up a special var, @active.
+//= We will use this var as a switch within each barricade.
+//= If @active == 1 - The player cannot build that barricade...
+//= Because it's already active ;p
+//=================================================
+
+
 OnSpawn:
 	//set @randid, rand(1,10000);
 	set @count,@count + 1;
@@ -9,42 +20,42 @@ OnSpawn:
 
 	if(@count>=9){mes "You cannot build barricades at this time.";close;end;}
 
-	if(@count==1){
+	if(@count==1 && @active1==0){
 	set @name$, strcharinfo(0) + @count;
 	monster @playermap$,@playerx,@playery,@name$,1511,1,"barricade::OnDie_1";
 	setwall @playermap$,@playerx,@playery,1,1,shootable,@name$;
 	}
-	if(@count==2){
+	if(@count==2 && @active2==0){
 	set @name2$, strcharinfo(0) + @count;
 	monster @playermap$,@playerx,@playery,@name2$,1511,1,"barricade::OnDie_2";
 	setwall @playermap$,@playerx,@playery,1,1,shootable,@name2$;
 	}
-	if(@count==3){
+	if(@count==3 && @active3==0){
 	set @name3$, strcharinfo(0) + @count;
 	monster @playermap$,@playerx,@playery,@name3$,1511,1,"barricade::OnDie_3";
 	setwall @playermap$,@playerx,@playery,1,1,shootable,@name3$;
 	}
-	if(@count==4){
+	if(@count==4 && @active4==0){
 	set @name4$, strcharinfo(0) + @count;
 	monster @playermap$,@playerx,@playery,@name4$,1511,1,"barricade::OnDie_4";
 	setwall @playermap$,@playerx,@playery,1,1,shootable,@name4$;
 	}
-	if(@count==5){
+	if(@count==5 && @active5==0){
 	set @name5$, strcharinfo(0) + @count;
 	monster @playermap$,@playerx,@playery,@name5$,1511,1,"barricade::OnDie_5";
 	setwall @playermap$,@playerx,@playery,1,1,shootable,@name5$;
 	}
-	if(@count==6){
+	if(@count==6 && @active6==0){
 	set @name6$, strcharinfo(0) + @count;
 	monster @playermap$,@playerx,@playery,@name6$,1511,1,"barricade::OnDie_6";
 	setwall @playermap$,@playerx,@playery,1,1,shootable,@name6$;
 	}
-	if(@count==7){
+	if(@count==7 && @active7==0){
 	set @name7$, strcharinfo(0) + @count;
 	monster @playermap$,@playerx,@playery,@name7$,1511,1,"barricade::OnDie_7";
 	setwall @playermap$,@playerx,@playery,1,1,shootable,@name7$;
 	}
-	if(@count==8){
+	if(@count==8 && @active8==0){
 	set @name8$, strcharinfo(0) + @count;
 	monster @playermap$,@playerx,@playery,@name8$,1511,1,"barricade::OnDie_8";
 	setwall @playermap$,@playerx,@playery,1,1,shootable,@name8$;
@@ -68,7 +79,7 @@ OnDie_2:
 	dispbottom "Barricade destroyed.";
 	message strcharinfo(0)," " +@name2$+ " ";
 	delwall @name2$;
-	if(@name$ == "strcharinfo(0) + 2"){set @count, @count - 1;}
+	if(@name$ == "strcharinfo(0) + 2){set @count, @count - 1;}
 	close;
 	end;
 
