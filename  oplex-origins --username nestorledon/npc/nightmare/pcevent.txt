@@ -68,7 +68,12 @@ OnNPCKillEvent:
 	}
 	
 	if(KilledRid == 1123||KilledRid == 1122){	getmapxy @playermap$,@playerx,@playery,0; announce "You killed a Sentry!",bc_self,0xFF0000;end;}
+	if(KilledRid == 1085){
+	mes "YOU KILLED GENERAL CROWLEY!!!";
+	close;
+	getitem 13155,1;
 	
+	}
 
 //	//mag's barrier check & delete
 //	if(KilledRid == 1511){
