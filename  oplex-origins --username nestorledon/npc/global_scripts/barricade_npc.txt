@@ -87,7 +87,7 @@ OnDie_2:
 	dispbottom "Barricade destroyed.";
 	message strcharinfo(0)," " +@name2$+ " ";
 	delwall @name2$;
-	if(@name$ == strcharinfo(0) + 2){set @count, @count - 1;}
+	if(@name2$ == strcharinfo(0) + 2){set @count, @count - 1;}
 	set @active2,0;
 	close;
 	end;
