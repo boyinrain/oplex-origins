@@ -21,7 +21,7 @@ OnSpawn:
 
 	setd("." + strnpcinfo(0) + ".count" + "$", strnpcinfo(0) + ".count");
 
-	mes " Name: " +.strnpcinfo(0)1$+ "0000";
+	message strcharinfo(0)," " +.strnpcinfo(0)1$+ " ";
 
 	set .name$, strnpcinfo(0) + .count;
 
