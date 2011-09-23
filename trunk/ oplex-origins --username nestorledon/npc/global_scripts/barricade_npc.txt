@@ -36,9 +36,9 @@ OnSpawn:
 OnDie:	
 	dispbottom "Barricade destroyed.";
 
-	message strcharinfo(0)," " +.name$+ " ";
+	message strcharinfo(0)," " +.@name$+ " ";
 
-	delwall .name$;
+	delwall .@name$;
 	close;
 	end;
 
