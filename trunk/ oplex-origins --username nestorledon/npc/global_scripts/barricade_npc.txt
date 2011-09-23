@@ -32,13 +32,11 @@ OnSpawn:
 	// Place WALL where character is.
 	setwall @playermap$,@playerx,@playery,1,1,shootable,.name$;
 
-	}
-
-
 	delitem 1007,10;
 	mes "Barricade has been built!!!";
 	close;
 	end;
+	}
 
 OnDie:	
 	dispbottom "Barricade destroyed.";
