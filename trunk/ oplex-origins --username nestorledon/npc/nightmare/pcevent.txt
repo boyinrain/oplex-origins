@@ -72,7 +72,7 @@ OnNPCKillEvent:
 	mes "YOU KILLED GENERAL CROWLEY!!!";
 	close;
 	getitem 13155,1;
-	
+	end;
 	}
 
 //	//mag's barrier check & delete
