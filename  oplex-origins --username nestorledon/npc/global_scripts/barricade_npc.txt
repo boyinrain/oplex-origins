@@ -17,9 +17,9 @@ OnSpawn:
 	//==================================================
 	getmapxy @playermap$,@playerx,@playery,0;
 
-	set .count,.count + 1;
+	set .@count,.@count + 1;
 
-	set .@name$, strnpcinfo(0) + .count;
+	set .@name$, strnpcinfo(0) + .@count;
 
 	// Place MONSTER where character is.
 	monster @playermap$,@playerx,@playery,.@name$,1511,1,"Barricade::OnDie";
