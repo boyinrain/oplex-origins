@@ -18,11 +18,11 @@ OnSpawn:
 	getmapxy @playermap$,@playerx,@playery,0;
 
 	set .count, .count + 1;
-	set .npc, strnpcinfo(0);
+	set @npc, strnpcinfo(0);
 
-	setd("." + ".npc" + ".count" + "$", strnpcinfo(0) + ".count");
+	setd("@" + "npc" + ".count" + "$", strnpcinfo(0) + ".count");
 
-	message strcharinfo(0)," " +..npc1$+ " ";
+	message strcharinfo(0)," " +@npc1$+ " ";
 
 	set .name$, strnpcinfo(0) + .count;
 
