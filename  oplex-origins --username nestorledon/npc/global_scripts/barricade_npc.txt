@@ -71,7 +71,7 @@ OnDie_1:
 	message strcharinfo(0)," " +@name$+ " ";
 	delwall @name$;
 	specialeffect 373;
-	if(@name$ == strcharinfo(0) + 1){set @count, @count - 1;}
+	if(@name$ == "strcharinfo(0) + 1"){set @count, @count - 1;}
 	close;
 	end;
 
@@ -79,7 +79,7 @@ OnDie_2:
 	dispbottom "Barricade destroyed.";
 	message strcharinfo(0)," " +@name2$+ " ";
 	delwall @name2$;
-	if(@name$ == "strcharinfo(0) + 2){set @count, @count - 1;}
+	if(@name$ == "strcharinfo(0) + 2"){set @count, @count - 1;}
 	close;
 	end;
 
