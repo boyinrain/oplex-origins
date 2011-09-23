@@ -318,27 +318,25 @@ if(.@item$)=="M82" {goto S_WB;}
 		close;
 		end;
 		}
-
 //============================================================
 //= Menus
 //============================================================
 S_WB:
-mes	"^0066FF" +.@item$+ "^000000 is feasible.";
-mes	"Is this what you wanted?";
-menu	"Yes.",Y_WB,"No, I want to select another item",L_Comp,"No, I'm done for now.",-;
-close;
-
+	mes	"^0066FF" +.@item$+ "^000000 is feasible.";
+	mes	"Is this what you wanted?";
+	menu	"Yes.",Y_WB,"No, I want to select another item",L_Comp,"No, I'm done for now.",-;
+	close;
+//============================================================
 Y_WB:
-next;
-mes	"What would you like to do?";
-menu	"Create",C_WB,"Dismantle",D_WB,"Go back",L_Comp,"Forget it",-;
-
+	next;
+	mes	"What would you like to do?";
+	menu	"Create",C_WB,"Dismantle",D_WB,"Go back",L_Comp,"Forget it",-;
+//============================================================
 C_WB:
-callfunc("work_bench_create",.@resources_nums);
-
+	callfunc("work_bench_create",.@resource_nums,.@item$,.@resources,.@resource_names$);
+//============================================================
 D_WB:
-
-setarray .@resources[0],.@fabric,.@metal,.@plastic,.@latex,.@stone,.@wood,.@cyan,.@leather,.@sulfur,.@charcoal,.@salt,.@coal,.@ducttape,.@gunpowder,.@nails;
+	setarray .@resources[0],.@fabric,.@metal,.@plastic,.@latex,.@stone,.@wood,.@cyan,.@leather,.@sulfur,.@charcoal,.@salt,.@coal,.@ducttape,.@gunpowder,.@nails;
 
 // Resource name Array
 setarray .@resource_names$[0],.@fabric_name$,.@metal_name$,.@plastic_name$,.@latex_name$,.@stone_name$,.@wood_name$,.@cyan_name$,.@leather_name$,.@sulfur_name$,.@charcoal_name$,.@salt_name$,.@coal_name$,.@ducttape_name$,.@gunpowder_name$,.@nails_name$;
@@ -347,9 +345,10 @@ setarray .@resource_names$[0],.@fabric_name$,.@metal_name$,.@plastic_name$,.@lat
 setarray .@resource_nums[0],.@fabric_num,.@metal_num,.@plastic_num,.@latex_num,.@stone_num,.@wood_num,.@cyan_num,.@leather_num,.@sulfur_num,.@charcoal_num,.@salt_num,.@coal_num,.@ducttape_num,.@gunpowder_num,.@nails_num;
 
 callfunc("work_bench_dismantle",.@resource_nums,.@item$,.@resources,.@resource_names$);
-
+//============================================================
 L_WBRefine:
-mes "Sorry but this feature is currently being developed.";
-close;
-end;
+	mes "Sorry but this feature is currently being developed.";
+	close;
+	end;
+//============================================================
 }

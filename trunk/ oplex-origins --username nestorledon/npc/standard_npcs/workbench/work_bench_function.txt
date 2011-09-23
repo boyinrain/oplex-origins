@@ -82,7 +82,7 @@ Y_D:
 		end;
 	}
 	else {
-		mes	"Seems like you dont have the item(s) you want to dismantle.";
+		mes	"Seems like you don't have the item(s) you want to dismantle.";
 		close;
 		end;
 	}
@@ -93,38 +93,58 @@ Y_D:
 //============================================================
 function	script	work_bench_create	{
 	//mes	"Please enter how many of the item you want to create.";
-	//input	.@ammount;
+	//input	.@amount;
 
 	// Check for the same item ID use in the query.
-	if (countitem(".@item$") > 0) {
+	next;
+	mes "To create this item, you'll need:";
+	mes "^0066FF" +getelementofarray(getarg(3),0)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),0)+ "^000000 ^0066FF" +getelementofarray(getarg(3),1)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),1)+ "^000000 ^0066FF" +getelementofarray(getarg(3),2)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),2)+ "^000000 ^0066FF" +getelementofarray(getarg(3),3)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),3)+ "^000000 ^0066FF" +getelementofarray(getarg(3),4)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),4)+ "^000000 ^0066FF" +getelementofarray(getarg(3),5)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),5)+ "^000000 ^0066FF" +getelementofarray(getarg(3),6)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),6)+ "^000000 ^0066FF" +getelementofarray(getarg(3),7)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),7)+ "^000000 ^0066FF" +getelementofarray(getarg(3),8)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),8)+ "^000000 ^0066FF" +getelementofarray(getarg(3),9)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),9)+ "^000000 ^0066FF" +getelementofarray(getarg(3),10)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),10)+ "^000000 ^0066FF" +getelementofarray(getarg(3),11)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),11)+ "^000000 ^0066FF" +getelementofarray(getarg(3),12)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),12)+ "^000000 ^0066FF" +getelementofarray(getarg(3),13)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),13)+ "^000000 ^0066FF" +getelementofarray(getarg(3),14)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),14)+ "^000000";
+	menu	"Yes.",Y_C,"No, I'm done for now.",-;
+	next;
+	close;
 
+Y_C:
+	if (countitem(getelementofarray(getarg(2),0)) >= getelementofarray(getarg(0),0)&&
+	(getelementofarray(getarg(2),1)) >= getelementofarray(getarg(0),1)&&
+	(getelementofarray(getarg(2),2)) >= getelementofarray(getarg(0),2)&&
+	(getelementofarray(getarg(2),3)) >= getelementofarray(getarg(0),3)&&
+	(getelementofarray(getarg(2),4)) >= getelementofarray(getarg(0),4)&&
+	(getelementofarray(getarg(2),5)) >= getelementofarray(getarg(0),5)&&
+	(getelementofarray(getarg(2),6)) >= getelementofarray(getarg(0),6)&&
+	(getelementofarray(getarg(2),7)) >= getelementofarray(getarg(0),7)&&
+	(getelementofarray(getarg(2),8)) >= getelementofarray(getarg(0),8)&&
+	(getelementofarray(getarg(2),9)) >= getelementofarray(getarg(0),9)&&
+	(getelementofarray(getarg(2),10)) >= getelementofarray(getarg(0),10)&&
+	(getelementofarray(getarg(2),11)) >= getelementofarray(getarg(0),11)&&
+	(getelementofarray(getarg(2),12)) >= getelementofarray(getarg(0),12)&&
+	(getelementofarray(getarg(2),13)) >= getelementofarray(getarg(0),13)&&
+	(getelementofarray(getarg(2),14)) >= getelementofarray(getarg(0),14)
+)	{
 		mes	"You carefully start working on the item";
 		next;
-		// Resource Consume
-		delitem .@fabric,.@farbic_num;
-		delitem .@metal,.@metal_num;
-		delitem .@plastic,.@plastic_num;
-		delitem .@latex,.@latex_num;
-		delitem .@stone,.@stone_num;
-		delitem .@wood,.@wood_num;
-		delitem .@cyan,.@cyan_num;
-		delitem .@leather,.@leather_num;
-		delitem .@sulfur,.@sulfur_num;
-		delitem .@charcoal,.@charcoal_num;
-		delitem .@salt,.@salt_num;
-		delitem .@coal,.@coal_num;
-		delitem .@ducttape,.@ducttape_num;
-		delitem .@gunpowder,.@gunpowder_num;
-		delitem .@nails,.@nails_num;
-		// Item Created
-		getitem .@item$,1;
-		// Success Message
+		// Resource Deletion
+		delitem getelementofarray(getarg(2),0),getelementofarray(getarg(0),0);
+		delitem getelementofarray(getarg(2),1),getelementofarray(getarg(0),1);
+		delitem getelementofarray(getarg(2),2),getelementofarray(getarg(0),2);
+		delitem getelementofarray(getarg(2),3),getelementofarray(getarg(0),3);
+		delitem getelementofarray(getarg(2),4),getelementofarray(getarg(0),4);
+		delitem getelementofarray(getarg(2),5),getelementofarray(getarg(0),5);
+		delitem getelementofarray(getarg(2),6),getelementofarray(getarg(0),6);
+		delitem getelementofarray(getarg(2),7),getelementofarray(getarg(0),7);
+		delitem getelementofarray(getarg(2),8),getelementofarray(getarg(0),8);
+		delitem getelementofarray(getarg(2),9),getelementofarray(getarg(0),9);
+		delitem getelementofarray(getarg(2),10),getelementofarray(getarg(0),10);
+		delitem getelementofarray(getarg(2),11),getelementofarray(getarg(0),11);
+		delitem getelementofarray(getarg(2),12),getelementofarray(getarg(0),12);
+		delitem getelementofarray(getarg(2),13),getelementofarray(getarg(0),13);
+		delitem getelementofarray(getarg(2),14),getelementofarray(getarg(0),14);
 		mes "Success!";
+		getitem getarg(1),1;	// Create item on success.
 		close;
 		end;
 	}
 	else {
-		mes	"Seems like you dont have enough resources to create this.";
+		mes	"Seems like you don't have the proper resources.";
 		close;
 		end;
 	}
