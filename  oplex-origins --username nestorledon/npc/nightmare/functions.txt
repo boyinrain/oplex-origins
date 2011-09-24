@@ -549,3 +549,35 @@ if (countitem(1007) >= 10)	{
 	end;
 	}
 }
+
+
+function	script	horde_func	{
+// calls aggro to area when needed
+//I.E. Firearms shot, Bomb, ect.
+//--------------------------------
+
+//---this line get's players position
+getmapxy @playermap$,@playerx,@playery,0;
+
+//---this line calls a random zombie from
+//the db and put's them close enough to the 
+//player to become a problem
+set @randx, rand(10,14);
+set @randy, rand(10,14);
+set @side, rand(0,1);
+set @zombeh, rand(1078, 1084);
+if(@side == 0){
+@side = -1;
+}
+
+@randx == @randx * side;
+@randy == @randy * side;
+
+monster @playermap$,@playerx + @randx,@playery + @randy,Zombie,@zombeh,1;
+
+
+
+
+
+
+}
