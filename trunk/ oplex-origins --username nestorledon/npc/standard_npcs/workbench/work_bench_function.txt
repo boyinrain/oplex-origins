@@ -120,7 +120,8 @@ Y_C:
 	(getelementofarray(getarg(2),11) >= getelementofarray(getarg(0),11)) && 
 	(getelementofarray(getarg(2),12) >= getelementofarray(getarg(0),12)) && 
 	(getelementofarray(getarg(2),13) >= getelementofarray(getarg(0),13)) && 
-	(getelementofarray(getarg(2),14) >= getelementofarray(getarg(0),14))) {
+	(getelementofarray(getarg(2),14) >= getelementofarray(getarg(0),14))
+){
 		
 		next;
 		mes	"You carefully start working on the item...";
