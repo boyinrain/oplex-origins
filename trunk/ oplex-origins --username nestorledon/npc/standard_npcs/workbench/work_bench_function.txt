@@ -51,6 +51,7 @@ function	script	work_bench_dismantle	{
 
 Y_D:
 	if (countitem(getarg(1)) >= 1)	{
+		next;
 		mes	"You carefully start working on the item";
 		next;
 		// Delete the decomposed item
@@ -82,6 +83,7 @@ Y_D:
 		end;
 	}
 	else {
+		next;
 		mes	"Seems like you don't have the item(s) you want to dismantle.";
 		close;
 		end;
@@ -131,6 +133,7 @@ Y_C:
 		end;
 	}
 	else {
+		next;
 		mes	"Seems like you don't have the proper resources.";
 		close;
 		end;
