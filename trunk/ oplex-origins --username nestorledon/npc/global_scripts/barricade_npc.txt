@@ -1,6 +1,6 @@
 //----======Mock up barricade script V1.0======----
 //-------------------------------------------------
-blank_01,0,0,5	script	Barricade	52,{
+blank_01,0,0,5	script	Barricade#00::00	52,{
 
 //=================================================
 //= Still Needed:
@@ -11,164 +11,13 @@ blank_01,0,0,5	script	Barricade	52,{
 //= If @active == 1 - The player cannot build that barricade...
 //= Because it's already active ;p
 //=================================================
+
 OnSpawn:
-	//==================================================
-	//= Locate player for Barricade placement
-	//==================================================
-	getmapxy @playermap$,@playerx,@playery,0;
-
-	set @count,@count + 1;
-
-	set @name$, strnpcinfo(0) + @count;
-
-	// Place MONSTER where character is.
-	monster @playermap$,@playerx,@playery,@name$,1511,1,"Barricade::OnDie";
-	
-	// Place WALL where character is.
-	setwall @playermap$,@playerx,@playery,1,1,shootable,@name$;
-
-	delitem 1007,10;
-	mes "Barricade has been built!!!";
+	message strcharinfo(0),"Yay it's dupped!";
 	close;
 	end;
 
 OnDie:	
-	dispbottom "Barricade destroyed.";
-	message strcharinfo(0)," " +@name$+ " ";
-	delwall @name$;
 	close;
 	end;
 	}
-
-OnSpawn_OLD:
-	//set @randid, rand(1,10000);
-	set @count,@count + 1;
-	getmapxy @playermap$,@playerx,@playery,0;
-
-	if(@count>=9){mes "You cannot build barricades at this time.";close;end;}
-
-	if(@count==1 && @active1==0){
-	set @active1,1;
-	set @name$, strcharinfo(0) + @count;
-	monster @playermap$,@playerx,@playery,@name$,1511,1,"barricade::OnDie_1";
-	setwall @playermap$,@playerx,@playery,1,1,shootable,@name$;
-	}
-	if(@count==2 && @active2==0){
-	set @active2,1;
-	set @name2$, strcharinfo(0) + @count;
-	monster @playermap$,@playerx,@playery,@name2$,1511,1,"barricade::OnDie_2";
-	setwall @playermap$,@playerx,@playery,1,1,shootable,@name2$;
-	}
-	if(@count==3 && @active3==0){
-	set @active3,1;
-	set @name3$, strcharinfo(0) + @count;
-	monster @playermap$,@playerx,@playery,@name3$,1511,1,"barricade::OnDie_3";
-	setwall @playermap$,@playerx,@playery,1,1,shootable,@name3$;
-	}
-	if(@count==4 && @active4==0){
-	set @active4,1;
-	set @name4$, strcharinfo(0) + @count;
-	monster @playermap$,@playerx,@playery,@name4$,1511,1,"barricade::OnDie_4";
-	setwall @playermap$,@playerx,@playery,1,1,shootable,@name4$;
-	}
-	if(@count==5 && @active5==0){
-	set @active5,1;
-	set @name5$, strcharinfo(0) + @count;
-	monster @playermap$,@playerx,@playery,@name5$,1511,1,"barricade::OnDie_5";
-	setwall @playermap$,@playerx,@playery,1,1,shootable,@name5$;
-	}
-	if(@count==6 && @active6==0){
-	set @active6,1;
-	set @name6$, strcharinfo(0) + @count;
-	monster @playermap$,@playerx,@playery,@name6$,1511,1,"barricade::OnDie_6";
-	setwall @playermap$,@playerx,@playery,1,1,shootable,@name6$;
-	}
-	if(@count==7 && @active7==0){
-	set @active7,1;
-	set @name7$, strcharinfo(0) + @count;
-	monster @playermap$,@playerx,@playery,@name7$,1511,1,"barricade::OnDie_7";
-	setwall @playermap$,@playerx,@playery,1,1,shootable,@name7$;
-	}
-	if(@count==8 && @active8==0){
-	set @active8,1;
-	set @name8$, strcharinfo(0) + @count;
-	monster @playermap$,@playerx,@playery,@name8$,1511,1,"barricade::OnDie_8";
-	setwall @playermap$,@playerx,@playery,1,1,shootable,@name8$;
-	}
-
-	delitem 1007,10;
-	mes "Barricade has been built!!!";
-	close;
-	end;
-
-OnDie_1:
-	dispbottom "Barricade destroyed.";
-	message strcharinfo(0)," " +@name$+ " ";
-	delwall @name$;
-	if(@name$ == strcharinfo(0) + 1){set @count, @count - 1;}
-	set @active1,0;
-	close;
-	end;
-
-OnDie_2:
-	dispbottom "Barricade destroyed.";
-	message strcharinfo(0)," " +@name2$+ " ";
-	delwall @name2$;
-	if(@name2$ == strcharinfo(0) + 2){set @count, @count - 1;}
-	set @active2,0;
-	close;
-	end;
-
-OnDie_3:
-	dispbottom "Barricade destroyed.";
-	message strcharinfo(0)," " +@name3$+ " ";
-	delwall @name3$;
-	if(@name3$ == strcharinfo(0) + 3){set @count, @count - 1;}
-	set @active3,0;
-	close;
-	end;
-
-OnDie_4:
-	dispbottom "Barricade destroyed.";
-	message strcharinfo(0)," " +@name4$+ " ";
-	delwall @name4$;
-	if(@name4$ == strcharinfo(0) + 4){set @count, @count - 1;}
-	set @active4,0;
-	close;
-	end;
-
-OnDie_5:
-	dispbottom "Barricade destroyed.";
-	message strcharinfo(0)," " +@name5$+ " ";
-	delwall @name5$;
-	if(@name5$ == strcharinfo(0) + 5){set @count, @count - 1;}
-	set @active5,0;
-	close;
-	end;
-
-OnDie_6:
-	dispbottom "Barricade destroyed.";
-	message strcharinfo(0)," " +@name6$+ " ";
-	delwall @name6$;
-	if(@name6$ == strcharinfo(0) + 6){set @count, @count - 1;}
-	set @active6,0;
-	close;
-	end;
-OnDie_7:
-	dispbottom "Barricade destroyed.";
-	message strcharinfo(0)," " +@name7$+ " ";
-	delwall @name7$;
-	if(@name7$ == strcharinfo(0) + 7){set @count, @count - 1;}
-	set @active1,7;
-	close;
-	end;
-OnDie_8:
-	dispbottom "Barricade destroyed.";
-	message strcharinfo(0)," " +@name8$+ " ";
-	delwall @name8$;
-	if(@name8$ == strcharinfo(0) + 8){set @count, @count - 1;}
-	set @active1,8;
-	close;
-	end;
-}
-
