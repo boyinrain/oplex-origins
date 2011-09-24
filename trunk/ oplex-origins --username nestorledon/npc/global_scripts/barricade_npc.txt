@@ -2,7 +2,10 @@
 //-------------------------------------------------
 -	script	Barricade	-1,{
 //=================================================
-
+//= The barricades are semi functional at this point.
+//= We just need to use setd and getd commands to
+//= Dynamically append the variables $name$ & $barcount.
+//=================================================
 OnSpawn:
 	getmapxy @playermap$,@playerx,@playery,0;
 
@@ -25,7 +28,7 @@ OnSpawn:
 
 OnDie:	
 	dispbottom "Barricade destroyed.";
-	message strcharinfo(0)," " +$name$+ " ";
+	message strcharinfo(0),"" +$name$+ "";
 	delwall $name$;
 	close;
 	end;
