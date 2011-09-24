@@ -95,7 +95,7 @@ function	script	work_bench_create	{
 	//mes	"Please enter how many of the item you want to create.";
 	//input	.@amount;
 
-	// Check for the same item ID use in the query.
+	// Check for resources.
 	next;
 	mes "To create this item, you'll need:";
 	mes "^0066FF" +getelementofarray(getarg(3),0)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),0)+ "^000000 ^0066FF" +getelementofarray(getarg(3),1)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),1)+ "^000000 ^0066FF" +getelementofarray(getarg(3),2)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),2)+ "^000000 ^0066FF" +getelementofarray(getarg(3),3)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),3)+ "^000000 ^0066FF" +getelementofarray(getarg(3),4)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),4)+ "^000000 ^0066FF" +getelementofarray(getarg(3),5)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),5)+ "^000000 ^0066FF" +getelementofarray(getarg(3),6)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),6)+ "^000000 ^0066FF" +getelementofarray(getarg(3),7)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),7)+ "^000000 ^0066FF" +getelementofarray(getarg(3),8)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),8)+ "^000000 ^0066FF" +getelementofarray(getarg(3),9)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),9)+ "^000000 ^0066FF" +getelementofarray(getarg(3),10)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),10)+ "^000000 ^0066FF" +getelementofarray(getarg(3),11)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),11)+ "^000000 ^0066FF" +getelementofarray(getarg(3),12)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),12)+ "^000000 ^0066FF" +getelementofarray(getarg(3),13)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),13)+ "^000000 ^0066FF" +getelementofarray(getarg(3),14)+ ":^000000 ^FF0000" +getelementofarray(getarg(0),14)+ "^000000";
@@ -105,7 +105,8 @@ function	script	work_bench_create	{
 
 Y_C:
 	if(countitem(getelementofarray(getarg(2),1)) >= getelementofarray(getarg(0),1)) {
-
+		
+		next;
 		mes	"You carefully start working on the item";
 		next;
 		// Resource Deletion
