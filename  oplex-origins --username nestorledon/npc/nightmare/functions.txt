@@ -543,7 +543,7 @@ if (countitem(1007) >= 10)	{
 	callfunc "loading_func";
 	callfunc "loading_func";
 	getmapxy @playermap$,@playerx,@playery,0;
-	DuplicateCreate("barricade#00","lolBOX","00","@playermap$",@playerx,@playery,0,111,1,1);
+	DuplicateCreate("Barricade#00","lolBOX","00","@playermap$",@playerx,@playery,0,111,1,1);
 	doevent "Barricade::OnSpawn";
 } else {
 	mes "You need more Wood.";
