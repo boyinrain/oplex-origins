@@ -5,6 +5,7 @@
 //= The barricades are semi functional at this point.
 //= We just need to use setd and getd commands to
 //= Dynamically append the variables $name$ & $barcount.
+//= Reference Here: http://eathena.ws/wiki/index.php/Setd
 //=================================================
 OnSpawn:
 	getmapxy @playermap$,@playerx,@playery,0;
