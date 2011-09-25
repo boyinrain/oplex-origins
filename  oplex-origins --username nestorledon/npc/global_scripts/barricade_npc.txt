@@ -14,13 +14,13 @@ OnSpawn:
 	set #name,#name + 1;
 
 	// Set a dynamic permenent global variable to keep track of WALL names.
-	setd "$" + "barricade_" + #name + "$", strcharinfo(0) + "'s" + " " + strnpcinfo(0) + #name;
+	set getd("$barricade_" + #name + "$", strcharinfo(0) + "'s" + " " + strnpcinfo(0) + #name;
 
 	// Set the value of the dynamic variable for name usage.
-	set .@name, getd("$" + "barricade_" + "#name" + "$");
+	set .@name, getd("$barricade_" + #name + "$");
 
 	// Place MONSTER where character is.
-	monster @playermap$,@playerx,@playery,getd("$" + "barricade_" + "#name" + "$"),1511,1,"Barricade::OnDie";
+	monster @playermap$,@playerx,@playery,getd("$barricade_" + #name + "$"),1511,1,"Barricade::OnDie";
 	
 	// Place WALL where character is.
 	setwall @playermap$,@playerx,@playery,1,1,shootable,"$barricade_" + #name + "$";
