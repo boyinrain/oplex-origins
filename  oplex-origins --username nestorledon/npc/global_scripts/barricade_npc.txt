@@ -14,7 +14,7 @@ OnSpawn:
 	set #name,#name + 1;
 
 	// Set a dynamic permenent global variable to keep track of WALL names.
-	setd "$" + "barricade_" + #name + "$", strcharinfo(0) + "'s" + " " + strnpcinfo(0) + barcount;
+	setd "$" + "barricade_" + #name + "$", strcharinfo(0) + "'s" + " " + strnpcinfo(0) + #name;
 
 	// Set the value of the dynamic variable for name usage.
 	set .@name, getd("$" + "barricade_" + "#name" + "$");
