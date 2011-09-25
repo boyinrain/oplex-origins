@@ -13447,11 +13447,11 @@ BUILDIN_FUNC(setbgid) {
 		script_pushint( st, -1 );
 		return 0;
 	}
-	if ( sd->bg_id == bg_id && bg_id != 0 ) {
+	if ( sd->state.bg_id == bg_id && bg_id != 0 ) {
 		script_pushint( st, -5 );
 		return 0;
 	}
-	if ( sd->bg_id )
+	if ( sd->state.bg_id )
 		bg_team_leave(sd,0);
 	if ( bg_id == 0 ) {
 		script_pushint( st, 0 );
