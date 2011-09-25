@@ -23,7 +23,7 @@
 #include <stdio.h>
 
 static DBMap* bg_team_db; // int bg_id -> struct battleground_data*
-static unsigned int bg_team_counter = 0; // Next bg_id
+static unsigned int bg_team_counter = 1000; // Next bg_id
 
 struct battleground_data* bg_team_search(int bg_id)
 { // Search a BG Team using bg_id
@@ -169,6 +169,22 @@ int bg_create(unsigned short mapindex, short rx, short ry, const char *ev, const
 	idb_put(bg_team_db, bg_team_counter, bg);
 
 	return bg->bg_id;
+}
+
+int bg_create2( unsigned short bg_id, unsigned short mapindex, short rx, short ry, const char *ev, const char *dev ) {
+	struct battleground_data *bg = bg_team_search(bg_id);
+	if ( bg ) return 0;
+	CREATE(bg, struct battleground_data, 1);
+	bg->bg_id = bg_id;
+	bg->count = 0;
+	bg->mapindex = mapindex;
+	bg->x = rx;
+	bg->y = ry;
+	safestrncpy(bg->logout_event, ev, sizeof(bg->logout_event));
+	safestrncpy(bg->die_event, dev, sizeof(bg->die_event));
+	memset(&bg->members, 0, sizeof(bg->members));
+	idb_put(bg_team_db, bg_id, bg);
+	return bg_id;
 }
 
 int bg_team_get_id(struct block_list *bl)
