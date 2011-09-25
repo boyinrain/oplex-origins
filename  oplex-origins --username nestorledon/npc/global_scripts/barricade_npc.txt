@@ -10,9 +10,9 @@
 OnSpawn:
 	getmapxy @playermap$,@playerx,@playery,0;
 
-	set $barcount,$barcount + 1;
+	setd barcount,barcount + 1;
 
-	set $name$, strnpcinfo(0) + $barcount;
+	set $name$, strcharinfo(0) + "'S" + strnpcinfo(0) + $barcount;
 
 	// Place MONSTER where character is.
 	monster @playermap$,@playerx,@playery,$name$,1511,1,"Barricade::OnDie";
