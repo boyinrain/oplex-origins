@@ -20,7 +20,7 @@ OnSpawn:
 	set .@name, getd("$" + "barricade_" + "#name" + "$");
 
 	// Place MONSTER where character is.
-	monster @playermap$,@playerx,@playery,"$barricade_" + #name + "$",1511,1,"Barricade::OnDie";
+	monster @playermap$,@playerx,@playery,$barricade_ + #name + $,1511,1,"Barricade::OnDie";
 	
 	// Place WALL where character is.
 	setwall @playermap$,@playerx,@playery,1,1,shootable,"$barricade_" + #name + "$";
