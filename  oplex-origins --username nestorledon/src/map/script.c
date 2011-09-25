@@ -13417,6 +13417,78 @@ BUILDIN_FUNC(duplicateremove)
 	return 0;
 }
 
+//	createbgid <battleground ID>, <respawn map>, <respawn x>, <respawn y>, <On Quit event>, <On Death event>;
+BUILDIN_FUNC(createbgid) {
+	if ( bg_create2( script_getnum(st,2), mapindex_name2id( script_getstr(st,3) ), script_getnum(st,4), script_getnum(st,5), script_getstr(st,6), script_getstr(st,7) ) > 0 )
+		script_pushint( st, script_getnum(st,2) );
+	else
+		script_pushint( st, 0 );
+	return 0;
+}
+ 
+//	setbgid <battleground ID> {, <player name> };
+BUILDIN_FUNC(setbgid) {
+	unsigned short bg_id = script_getnum(st,2);
+	struct battleground_data *bg = bg_team_search(bg_id);
+	TBL_PC* sd;
+	if ( bg_id < 0 || bg_id > 1000 ) {
+		script_pushint( st, -4 );
+		return 0;
+	}
+	if ( script_hasdata(st,3) ) 
+		sd = map_nick2sd( script_getstr(st,3) );
+	else
+		sd = script_rid2sd(st);
+	if ( sd == NULL ) {
+		script_pushint( st, -3 );
+		return 0;
+	}
+	if ( bg_id > 0 && bg == NULL ) {
+		script_pushint( st, -1 );
+		return 0;
+	}
+	if ( sd->bg_id == bg_id && bg_id != 0 ) {
+		script_pushint( st, -5 );
+		return 0;
+	}
+	if ( sd->bg_id )
+		bg_team_leave(sd,0);
+	if ( bg_id == 0 ) {
+		script_pushint( st, 0 );
+		return 0;
+	}
+	if ( bg_team_join( bg_id, sd ) == 0 )
+		script_pushint( st, -2 );
+	else
+		script_pushint( st, bg_id );
+	return 0;
+}
+
+//	getbgusers <battleground ID>;
+BUILDIN_FUNC(getbgusers) {
+	struct battleground_data *bg = bg_team_search( script_getnum(st,2) );
+	unsigned char i;
+	if ( bg == NULL ) {
+		script_pushint( st, -1 );
+		return 0;
+	}
+	for ( i = 0; bg->members[i].sd != NULL; i++ )
+		mapreg_setreg( reference_uid( add_str("$@arenamembers"), i ), bg->members[i].sd->bl.id );
+	mapreg_setreg( add_str("$@arenamembersnum"), i );
+	script_pushint( st, i );
+	return 0;
+}
+
+//	bg_kickall <battleground ID>;
+BUILDIN_FUNC(bg_kickall) {
+	struct battleground_data *bg = bg_team_search( script_getnum(st,2) );
+	unsigned char i;
+	if ( bg == NULL )
+		return 0;
+	for ( i = 0; bg->members[i].sd != NULL; i++ )
+		bg_team_leave( bg->members[i].sd , 0 );
+	return 0;
+}
 
 // declarations that were supposed to be exported from npc_chat.c
 #ifdef PCRE_SUPPORT
@@ -13780,5 +13852,11 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(agitstart2,""),
 	BUILDIN_DEF(agitend2,""),
 	BUILDIN_DEF(agitcheck2,""),
+
+	//No Waiting Room BG Commands
+	BUILDIN_DEF(createbgid,"isiiss"),
+	BUILDIN_DEF(setbgid,"i?"),
+	BUILDIN_DEF(getbgusers,"i"),
+	BUILDIN_DEF(bg_kickall,"i"),
 	{NULL,NULL,NULL},
 };
