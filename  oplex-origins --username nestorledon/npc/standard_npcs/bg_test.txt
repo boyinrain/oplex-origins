@@ -1,0 +1,49 @@
+blank_01,15,15,5	script	bbb	52,{
+	switch ( select( "join", "watch", "manual set", "kick all" ) ) {
+		case 1:
+			setbgid 1;
+			close;
+		case 2:
+			getbgusers 1;
+			for ( set .@i, 0; .@i < $@arenamembersnum; set .@i, .@i +1 )
+				dispbottom ( .@i +1 )+". "+ rid2name( $@arenamembers[.@i] );
+			close;
+		case 3:
+			mes "input a team";
+			input .@id, -200000000, 2000000000;
+			mes "input player name";
+			input .@name$;
+			switch ( setbgid(.@id, .@name$) ) {
+				default:
+					mes "team join successfully";
+					close;
+				case 0:
+					mes "the player's team successfully reset to 0";
+					close;
+				case -1:
+					mes "this team hasn't create yet";
+					close;
+				case -2:
+					mes "the team is already full";
+					close;
+				case -3:
+					mes "player not found";
+					close;
+				case -4:
+					mes "using invalid bg id";
+					close;
+				case -5:
+					mes "joining existing team";
+					close;
+			}
+			close;
+		case 4:
+			bg_kickall 1;
+			close;
+	}
+	close;
+OnInit:
+	getmapxy .@map$, .@x, .@y, 1;
+	createbgid 1, .@map$, .@x, .@y, strnpcinfo(0) +"::Onquit", "";
+	end;
+}
