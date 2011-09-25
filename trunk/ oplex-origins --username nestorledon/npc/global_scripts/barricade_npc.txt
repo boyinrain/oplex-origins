@@ -10,7 +10,7 @@
 OnSpawn:
 	getmapxy @playermap$,@playerx,@playery,0;
 
-	setd @barcount,@barcount + 1;
+	set @barcount,@barcount + 1;
 
 	setd $name$, strcharinfo(0) + "'s" + " " + strnpcinfo(0) + @barcount;
 
