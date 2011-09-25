@@ -10,15 +10,20 @@
 OnSpawn:
 	getmapxy @playermap$,@playerx,@playery,0;
 
+	// Set permenent player variable as a counter.
 	set name,name + 1;
 
-	setd "$" + name + "$", strcharinfo(0) + "'s" + " " + strnpcinfo(0) + barcount; 
+	// Set a dynamic permenent global variable to keep track of WALL names.
+	setd "$" + "barricade_" + name + "$", strcharinfo(0) + "'s" + " " + strnpcinfo(0) + barcount;
+
+	// Set the value of the dynamic variable for name usage.
+	set .@name, getd(""$" + "barricade_" + name + "$"");
 
 	// Place MONSTER where character is.
-	monster @playermap$,@playerx,@playery,$name$,1511,1,"Barricade::OnDie";
+	monster @playermap$,@playerx,@playery,.@name,1511,1,"Barricade::OnDie";
 	
 	// Place WALL where character is.
-	setwall @playermap$,@playerx,@playery,1,1,shootable,$name$;
+	setwall @playermap$,@playerx,@playery,1,1,shootable,.@name;
 	
 	// Delete Wood
 	delitem 1007,10;
@@ -28,9 +33,9 @@ OnSpawn:
 	end;
 
 OnDie:	
-	dispbottom "Barricade destroyed.";
-	message strcharinfo(0),"" +$name$+ "";
-	delwall $name$;
+	// Destruction message + Test
+	message strcharinfo(0),"Barricade " +.@name+ " destroyed.";
+	delwall .@name;
 	close;
 	end;
 	}
