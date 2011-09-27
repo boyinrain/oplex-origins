@@ -1,12 +1,7 @@
 //----======Mock up barricade script V1.0======----
 //-------------------------------------------------
 -	script	Barricade	-1,{
-//=================================================
-//= The barricades are semi functional at this point.
-//= We just need to use setd and getd commands to
-//= dynamically append the variables $name$ & name.
-//= Reference Here: http://eathena.ws/wiki/index.php/Setd
-//=================================================
+
 OnSpawn:
 	getmapxy @playermap$,@playerx,@playery,0;
 
@@ -24,14 +19,14 @@ OnSpawn:
 	
 	// Delete Wood
 	delitem 1007,10;
-	mes "Barricade has been built!!!";
+	mes "Barricade has been built!";
 
 	close;
 	end;
 
 OnDie:	
 	// Destruction message + Test
-	message strcharinfo(0),"Barricade " +getd("$barricade_" + #name + "$")+ " destroyed.";
+	message strcharinfo(0)," +getd("$barricade_" + #name + "$")+ " destroyed.";
 	delwall getd("$barricade_" + #name + "$");
 	close;
 	end;
