@@ -25,7 +25,7 @@ OnPCLoginEvent:
 	getmapxy @playermap$,@playerx,@playery,0;
 	if (isday()) announce "It's day time.",bc_self,0xFFFF00;
 	if (isnight()) {	
-		announce "It's night time.",bc_self,0xFFFF00;
+		announce "It's night time.",bc_self,CD3700;
 		atcommand"@effect 334";
 	}
 	if(@playermap$=="op_tut01"){ end; };
