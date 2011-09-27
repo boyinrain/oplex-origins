@@ -22,7 +22,7 @@ blank_01,8,0,5	script	Donation Claims	52,{
 			mes "You should have recieved an email with your donation code.  Please enter it to recieve your points.";
 			input @donatecode$;
 
-			set @dcnt,query_sql("SELECT `id`,`amount`,`claimed` FROM `cpanel`.`donations` WHERE `code`='"+@donatecode$+"'",@id,@amount,@claimed);
+			set @dcnt,query_sql("SELECT `id`,`amount`,`claimed` FROM `oocp`.`donations` WHERE `code`='"+@donatecode$+"'",@id,@amount,@claimed);
 			if(@dcnt == 1)
 			{
 				if(@claimed == 1)
@@ -44,7 +44,7 @@ blank_01,8,0,5	script	Donation Claims	52,{
 						case 1:
 							next;
 							set @accountid,getcharid(3);
-							query_sql("UPDATE `cpanel`.`donations` SET `claimed`='1', `recipient`='"+@accountid+"' WHERE id='"+@id+"'");
+							query_sql("UPDATE `oocp`.`donations` SET `claimed`='1', `recipient`='"+@accountid+"' WHERE id='"+@id+"'");
 							set #CASHPOINTS,(#CASHPOINTS+@points);
 
 							mes "[Donation Claims]";
