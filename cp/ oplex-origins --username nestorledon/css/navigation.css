@@ -1,0 +1,149 @@
+/* Design by Brian Diaz of Media 65 @ http://www.m65.net  All Rights Reserved */
+/*##################### NAVIGATION SECTION #####################*/
+/* Pathway Breadcrumbs is Module*/	
+   a.breadcrumbs pathway{}
+   .pathway {}
+	a.pathway:link {}
+	a.pathway:visited {}
+	a.pathway:active {}
+	a.pathway:hover {}
+   
+
+	
+/* Menu J1.5 new menu */
+/* level 1 or Top Level*/
+.menu  { 
+padding:0;
+margin:0;
+list-style-type:none;
+text-align: left;
+padding-top: 20px;
+font-family: Verdana,Arial,Geneva,Helvetica,sans-serif;
+font-size: 12px;
+font-weight: bold;
+text-decoration: none;
+/*border-right: 10px solid #393939;*/
+/*padding: 0 0 0 5px;*/
+}
+
+ul.menu {
+}
+
+.menu a{
+color: White;
+display: block;
+}
+
+.menu a:hover{
+	color: #FFFFFF;
+	background-color: #666666;
+	display: block;
+}
+/* end of Level 1 */
+
+/* Level 2 Grey */
+.menu ul {
+color:white;
+background-color: transparent; 
+list-style: none;
+padding: 0px;
+}
+
+.menu ul a{
+	color: #CCCCCC;
+	text-decoration: none;
+	display:block;
+	border: 1px solid #2e2e2e;
+	text-align:center;
+	background-color: #2e2e2e;
+	list-style-type: none;
+	margin-top: 0px;
+	padding: 0;
+}
+
+.menu  ul li a:hover{
+color:FFFFFF;
+background-color: #666666;
+}
+/* End of Level 2 */
+
+/* Level 3 Black yellow*/
+.menu ul ul  {
+list-style: none;
+background-color: transparent; 
+}
+
+/*  */
+.menu ul ul a {
+color:white;
+background-color: Black; 
+display: block;
+text-indent: 2em;
+}
+/*  */
+.menu  ul li ul li a:hover{
+color: White;
+background-color: #FFD700;
+}
+/* End of Level 3 */
+
+
+/* Level 4 Green */
+.menu ul li ul li ul li {
+list-style: none;
+color: White;
+background-color: transparent;
+}
+.menu ul li ul li ul li a{
+color: White;
+background-color: #B1CD32;
+display: block;
+text-indent: 3em;
+}
+.menu ul li ul li ul li a:hover{
+color: White;
+background-color: #677620;
+}
+/* End of Level 4 */
+
+/* Level 5 Maroon */
+.menu ul li ul li ul li ul li{
+list-style: none;
+color: White;
+background-color: transparent;
+}
+.menu ul li ul li ul li ul li a{
+color: White;
+background-color: #660000;
+display: block;
+text-indent: 4em;
+}
+.menu ul li ul li ul li ul li a:hover{
+color: White;
+background-color: #990000;
+}
+/* End of Level 5 Maroon */
+
+/* Current highlighted link Icon Arrow */
+#current li {
+ margin: 0px;
+ padding: 0px;
+}
+
+#current {
+/*	list-style: disc url(../images/mw_readon.png);*/
+/* image issue with the rollover need to be add to others href link */
+}
+
+/*  */
+/* Legacy 
+Mainlevel menu */
+.mainlevel {}
+a.mainlevel {}
+a.mainlevel:hover {}
+/* End Mainlevel menu */
+/*  Sub Menu */
+.sublevel{}
+a.sublevel{}
+a.sublevel:hover {}
+/* End Legacy Sub Menu */

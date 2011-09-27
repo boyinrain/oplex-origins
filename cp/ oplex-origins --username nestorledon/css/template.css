@@ -1,0 +1,61 @@
+/* Design by Brian Diaz of Media 65 @ http://www.m65.net  All Rights Reserved */
+@import url(layouts.css);
+@import url(components.css);
+@import url(modules.css);
+@import url(navigation.css);
+@import url(misc.css);
+@import url(forms.css);
+
+
+/* #######################  GENERAL SETTINGS ############################ */
+html.body{
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #666;
+	margin-top: 0px;
+	background-color: #CCCCFF;
+}
+
+body {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #666;
+	margin-top: 0px;
+	background-color: #0D0D0D;
+	}
+
+/*  Global Formatting */
+h1 {font-size:16px;line-height: 1em;font-weight: 900;}
+h2 {font-size:15px;line-height: 1em;font-weight: 900;}
+h3 {font-size:14px;line-height: 1em;font-weight: 900;}
+h4 {font-size:13px;line-height: 1em;font-weight: 900;}
+h5 {font-size:12px;line-height: 1em;font-weight: 900;}
+h6 {font-size:11px;line-height: 1em;font-weight: 900;}
+td{font-size: 14px;font-weight:bold; color:#666666;}
+th{font-size: 12px;}
+a:link {color: #CCCCCC;
+	text-decoration: none;
+	display:block;
+	text-align:left;
+}
+a:hover {color: #659FDE;}
+a:visited {
+	color: #CCCCCC;
+	text-decoration: none;
+	display:block;
+	text-align:left;
+}
+img {border: 0 none;}
+
+/* Custom Search Module CSS */
+.searchsearch {float:right;margin-right:65px;margin-top:3px;max-height:12px;}
+.latestnewsmod { margin-top:10px}
+
+.mod_login { padding-left:5px; padding-top:5px;}
+
+.sitemenu { background-color:#FF0000}
+
+/* Clears Divs */
+.clr{clear: both;}
+
+/* #######################  END GENERAL SETTINGS ############################ */

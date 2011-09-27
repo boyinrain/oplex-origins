@@ -1,0 +1,165 @@
+#body
+{
+	text-align: center;
+}
+
+#container {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	background-image:url(../images/tcs_bg.jpg);
+	background-repeat:no-repeat;
+}
+
+#topcontainer {
+}
+
+#login_div {
+}
+
+#new_div {
+	display:block;
+}
+
+#download {
+	display:block;
+	float:left;
+}
+
+#top {
+	width:1000px;
+	height:30px;
+	background-image:url(../images/jtcs_2.png);
+	background-repeat:no-repeat;
+	background-position:center;
+	float:right;
+	overflow:hidden;
+}
+
+#header {
+	min-width:1000px;
+	background-image:none;
+	position:absolute;
+	margin-top:30px;
+	float:right;
+}
+
+#title {
+	left:29px;
+	top:49px;
+	width:1000px;
+	background-image:none;
+	float:right;
+}
+
+#tcmenu {
+	width:1000px;
+	float:right;
+	text-align:center;
+}
+
+#user1 {
+	float:left;
+	background-repeat:no-repeat;
+	background-image:none;
+	margin-left:40px;
+	padding-left:1px;
+	margin-top:10px;
+}
+
+#icon {
+	float:left;
+	min-height:120px;
+	min-width:260px;
+	background-image:url(../images/jtcs_8.png);
+	background-repeat:no-repeat;
+}
+/*
+#inset {
+	float:right;
+	min-width:516px;
+	min-height:290px;
+	background-image:none;
+	background-repeat:no-repeat;
+	padding-right:35px;
+	margin-top:10px;
+}
+*/
+#midcontainer {
+float:left;
+}
+
+#component {
+	left:29px;
+	top:361px;
+	width:941px;
+	background-image:none;
+	overflow:auto;
+	margin-left:40px;
+	margin-right:40px;
+}
+
+#newsflash {
+	max-height:240px;
+	min-width:301px;
+	padding-left:1px;
+	padding-top:26px;
+	padding-bottom:10px;
+	background-image:url(../images/jtcs_12.png);
+	background-repeat:no-repeat;
+	float:left;
+	margin-left:41px;
+}
+
+#ad1 {
+	min-width:301px;
+	padding-left:1px;
+	padding-top:26px;
+	padding-bottom:10px;
+	background-image:url(../images/jtcs_14.png);
+	background-repeat:no-repeat;
+	float:left;
+	margin-left:0.5%
+}
+
+#ad2 {
+	min-width:301px;
+	background-image:url(../images/jtcs_16.png);
+	background-repeat:no-repeat;
+	float:left;
+	margin-left:0.5%;
+	padding-left:1px;
+	padding-top:26px;
+	padding-bottom:10px;
+}
+#bottomcontainer {
+float:left;
+}
+
+#bottom {
+	min-width:1000px;
+	background-image:none;
+	float:left;
+}
+
+#footer {
+	min-width:1000px;
+	background-image:none;
+	float:left;
+}
+
+#legals {
+	min-width:1000px;
+	height:37px;
+	background-image:url(../images/jtcs_19.png);
+	background-repeat:no-repeat;
+	background-position:center;
+	float:left;
+	padding-top:25px;
+}
+
+#debug {
+	min-width:1000px;
+	background-image:none;
+	float:left;
+}

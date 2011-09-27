@@ -1,0 +1,50 @@
+/* Design by Brian Diaz of Media 65 @ http://www.m65.net  All Rights Reserved */
+@import url(layouts_rtl.css);
+@import url(components_rtl.css);
+@import url(modules_rtl.css);
+@import url(navigation_rtl.css);
+@import url(misc_rtl.css);
+@import url(forms_rtl.css);
+
+/* #######################  GENERAL SETTINGS ############################ */
+html.body{
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #666;
+	margin-top: 0px;
+}
+
+body {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #666;
+	margin-top: 0px;
+	direction: rtl;
+	}
+
+/*  Global Formatting */
+h1 {font-size:16px;line-height: 1em;font-weight: 900;}
+h2 {font-size:15px;line-height: 1em;font-weight: 900;}
+h3 {font-size:14px;line-height: 1em;font-weight: 900;}
+h4 {font-size:13px;line-height: 1em;font-weight: 900;}
+h5 {font-size:12px;line-height: 1em;font-weight: 900;}
+h6 {font-size:11px;line-height: 1em;font-weight: 900;}
+td{font-size: 12px;}
+th{font-size: 12px;}
+a {color: #CC6600;}
+a:hover {color: #659FDE;}
+a:visited {color: #CC6600;}
+a.image, a.image:hover  {border:0;}
+li{ list-style: square;}
+ul { list-style: square;}
+
+/* Clears Divs */
+.clr{clear: both;}
+
+/* #######################  END GENERAL SETTINGS ############################ */
+
+
+
+
+
+

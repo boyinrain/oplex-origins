@@ -1,0 +1,55 @@
+/* Design by Brian Diaz of Media 65 @ http://www.m65.net  All Rights Reserved */
+span.M65-com-Joomla-Template-Kit-display-id-class-details
+{ 
+background-color: #D7EBFF !important; 
+border: thin solid #A9A9A9 !important;
+color: #000000 !important;  
+padding: 2px;
+font-family: monospace;
+font-size: 11px;
+font: bold;
+ }
+ 
+table.cont {
+border: 2px inset #D7EBFF;
+padding: 10px;
+ }
+ 
+ table.zero {
+border: 0px;
+padding: 3px;
+font-size: large;
+font-style: oblique;
+font-weight: bold;
+color:#000;
+ }
+ 
+table{
+border: 2px solid #FF00FF;
+padding: 5px;
+	}
+	
+th{
+border: 1px dashed #8B0000;
+}
+
+td{
+	border: 1px dashed #8FBC8F;
+}
+
+
+div{
+border: 2px solid Orange;
+padding: 5px;
+}
+
+.article_column{
+ 	border: 1px solid #612F6A;
+	padding: 5px;
+ }
+ 
+ form{
+ 	border: 2px solid Red;
+	padding: 2px;
+ }
+ 

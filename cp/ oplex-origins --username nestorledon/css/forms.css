@@ -1,0 +1,24 @@
+/* Design by Brian Diaz of Media 65 @ http://www.m65.net  All Rights Reserved */
+/* ##################### FORM SECTION  #####################*/	
+form{}
+
+/* Input Field */
+input {}
+/* Text Area */
+.inputbox {}
+
+/* Text Area */
+.text_area {}
+
+/* Pull down menu */
+.selectbox {}
+
+/* Submit Button */
+.button {}
+
+/* Contact Email Form */
+.contact_email {}
+
+/*Body of the form*/
+.adminform{}
+/* ##################### END FORM SECTION  ##################### */	
