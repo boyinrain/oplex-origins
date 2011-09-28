@@ -140,9 +140,21 @@ $submenu[22][0] = "PVP Ladder";
 $submenu[22][1] = "pvpladder.php";
 $CONFIG_pvpladder = 1 ? $submenu[22][2] = 3 : $submenu[22][2] = -1;
 
-//$submenu[17][0] = "Bans/Blocks";
-//$submenu[17][1] = "";
-//$submenu[17][2] = 6;
+$submenu[23][0] = $lang['MENU_SURVIVALLADDER'];
+$submenu[23][1] = "survivalladder.php";
+$submenu[23][2] = 3;
+
+$submenu[24][0] = $lang['MENU_ZOMBIELADDER'];
+$submenu[24][1] = "zombieladder.php";
+$submenu[24][2] = 3;
+
+$submenu[25][0] = $lang['MENU_KILLERLADDER'];
+$submenu[25][1] = "killerladder.php";
+$submenu[25][2] = 3;
+
+$submenu[17][0] = "Bans/Blocks";
+$submenu[17][1] = "";
+$submenu[17][2] = 6;
 
 
 $pos = 0;

@@ -25,6 +25,25 @@ an e-mail to cerescp@gmail.com
 
 //Do not change tags %s e %d ou %%
 
+//===============================================
+//= Oplex Origins
+//===============================================
+// Menus
+$lang['MENU_SURVIVALLADDER'] = "Survivor Ladder"; // [Sigma]
+$lang['MENU_ZOMBIELADDER'] = 'Zombie Ladder'; // [Sigma]
+$lang['MENU_KILLERLADDER'] = 'Survivor Killer Ladder'; // [Sigma]
+// Table Titles
+$lang['SURVIVAL'] = 'Days Survived'; // [Sigma]
+$lang['ZOMBIE'] = 'Zombies Killed'; // [Sigma]
+$lang['KILLER'] = 'Survivors Killed'; // [Sigma]
+// Header Titles
+$lang['SURVIVAL_SURVIVAL'] = 'Top Survivors'; // [Sigma]
+$lang['ZOMBIE_ZOMBIE'] = 'Top Zombie Killers'; // [Sigma]
+$lang['KILLER_KILLER'] = 'Top Survivor Killers'; // [Sigma]
+// Common Terms
+$lang['LASTLOGIN'] = 'Last Login'; // [Sigma]
+
+
 //misc
 $lang['LOGGED'] = 'You are now logged in.';
 $lang['LOGGEDOFF'] = 'You are now logged off.';

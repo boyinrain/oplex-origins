@@ -180,6 +180,24 @@ DEFINE('Z_GET_SEX', "SELECT `sex` FROM `login` WHERE `account_id` = '%d'");
 DEFINE('Z_SET_SEXM', "UPDATE `login` SET `sex` = 'M' WHERE `account_id` = '%d'");
 DEFINE('Z_SET_SEXF', "UPDATE `login` SET `sex` = 'F' WHERE `account_id` = '%d'");
 
+//===============================================
+//= Oplex Origins
+//===============================================
+// survivalladder.php - Survival Ladder
+DEFINE('survivalladder', "SELECT `char`.`name`, `char`.`class`, `char`.`base_level`, `char`.`job_level`, `char`.`survival`,
+`char`.`account_id`, `char`.`char_id` FROM `char` LEFT JOIN `login` ON `login`.`account_id` = `char`.`account_id`
+WHERE `login`.`level` < '40' AND `login`.`state` != '5' ORDER BY `survival` DESC LIMIT 0, 100");
+
+// zombieladder.php - Zombie Killer Ladder
+DEFINE('zombieladder', "SELECT `char`.`name`, `char`.`class`, `char`.`base_level`, `char`.`job_level`, `char`.`monster_kill`,
+`char`.`account_id`, `char`.`char_id` FROM `char` LEFT JOIN `login` ON `login`.`account_id` = `char`.`account_id`
+WHERE `login`.`level` < '40' AND `login`.`state` != '5' ORDER BY `monster_kill` DESC LIMIT 0, 100");
+
+// killerladder.php - Survivor Killer Ladder
+DEFINE('killerladder', "SELECT `char`.`name`, `char`.`class`, `char`.`base_level`, `char`.`job_level`, `char`.`player_kill`,
+`char`.`account_id`, `char`.`char_id` FROM `char` LEFT JOIN `login` ON `login`.`account_id` = `char`.`account_id`
+WHERE `login`.`level` < '40' AND `login`.`state` != '5' ORDER BY `player_kill` DESC LIMIT 0, 100");
+
 //DEFINE('GET_CREDIT', "SELECT `credit` FROM `cp_votes` WHERE `account_id` = '%id'");
 
 ?>
