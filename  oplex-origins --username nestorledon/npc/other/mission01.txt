@@ -42,8 +42,9 @@ la_hosp00,93,80,0	script	Table	-,{
 monster	"la_hosp00",93,73,"Zombie",1081,2,"Table::OnDie";
 
 OnDie:
-	set @ZombolsKilled,@ZombolsKilled+1;
-	if (@ZombolsKilled==2) goto Q_ST;
+	
+	set $ZomKill,$ZomKill+1;
+	if ($ZomKill==2) goto Q_ST;
 end;
 
 Q_ST:
