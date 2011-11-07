@@ -1,7 +1,7 @@
 //===== Oplex Origins Script =================================
 //= First mission
 //===== By: ================================================== 
-//= Epsynus
+//= Epsynus &  Sigma
 //===== Current Version: ===================================== 
 //= 1.1
 //===== Compatible With: ===================================== 
@@ -19,12 +19,12 @@
 
 la_hosp00,83,81,0	script	Patient Terminal::ptrm01	111,{
 if( ($quest==1) )	goto	Q_1;
-mes	"[Patient Terminal]";
-mes	"...I moved everyone to the basement so those things wouldn't get to them.";
+mes	"^990000 [ Patient Terminal ]^000000";
+mes	"...I moved everyone to the basement so those things wouldn't get to them...";
 next;
-mes	"Most of the survivors are comatose but some are showing signs of rehabilitation.";
+mes	"...Most of the survivors are comatose but some are showing signs of rehabilitation...";
 next;
-mes	"I'm going to seal the doors to the basement just to be safe. The only way out then will be the Service Tunnels.";
+mes	"...I'm going to seal the doors to the basement just to be safe. The only way out then will be the Service Tunnels...";
 next;
 mes	"I'll hide the key in morgue....";
 set $quest,1;
@@ -34,3 +34,43 @@ Q_1:
 	message strcharinfo(0),"Find the key!";
 	close;
 }
+
+//============================================================
+//= Morgue
+//============================================================
+la_hosp00,93,80,0	script	Table::qkey	-,{
+monster	"morgue",0,0,"Zombie",1081,5,"Table::OnZombolKilled";
+
+OnZombolKilled:
+	set $ZombolsKilled,$ZombolsKilled+1;
+	if ($ZombolsKilled==10) goto Q_ST;
+end;
+
+Q_ST:
+	message strcharinfo(0),"The Area seems safe now, Time too find the key!";
+	if( ($qey==1) )	goto	Q_empty;
+	message strcharinfo(0),"This could be it...";
+	getitem KeyID, 1;
+	set	$qkey,1;
+end;
+
+Q_empty:
+message strcharinfo(0),"Nothing of importance.";
+}
+
+morgue,47,21,0	script	Door::qdoor	-,{
+if( (countitem(KeyID)>=1) )	goto	Q_door;
+message strcharinfo(0),"Nothing of importance";
+end;
+
+Q_door:
+	mes	"Your hands are shaking as you try to open the door with the key";
+	callfunc "loading_func";
+	delitem	KeyID,1;
+	warp "lavive_service_tunnels",00,00;
+end;
+}
+
+//============================================================
+//=
+//============================================================
