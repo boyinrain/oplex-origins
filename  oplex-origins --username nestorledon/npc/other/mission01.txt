@@ -46,6 +46,7 @@ callfunc "loading_func";
 callfunc "loading_func";
 callfunc "loading_func";
 message strcharinfo(0),"Found the key.";
+set @key, 1054;
 getitem @key, 1;
 set	$qkey,1;
 end;
