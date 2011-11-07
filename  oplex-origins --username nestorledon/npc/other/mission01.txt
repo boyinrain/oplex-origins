@@ -54,6 +54,7 @@ Q_ST:
 	getitem @key, 1;
 	set	$qkey,1;
 end;
+}
 
 morgue,47,21,0	script	Door::qdoor	-,{
 if( (countitem(@key)>=1) )	goto	Q_door;
