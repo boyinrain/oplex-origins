@@ -26,7 +26,7 @@ mes	"...Most of the survivors are comatose but some are showing signs of rehabil
 next;
 mes	"...I'm going to seal the doors to the basement just to be safe. The only way out then will be the Service Tunnels...";
 next;
-mes	"I'll hide the key in morgue....";
+mes	"I'll hide the key in morgue on the ta...";
 set $quest,1;
 close;
 
@@ -38,26 +38,16 @@ Q_1:
 //============================================================
 //= Morgue
 //============================================================
-la_hosp00,93,80,0	script	Table	-,{
-monster	"la_hosp00",93,73,"Zombie",1081,2,"Table::OnDie";
-set .@char,getcharid(3);
+la_hosp00,83,67,0	script	Table	111,{
 
-OnDie:
-	
-	set $ZomKill,$ZomKill+1;
-	if ($ZomKill==2) goto Q_ST;
-end;
-
-Q_ST:
-	if(attachrid(.@char))
-	{
-		message strcharinfo(0),"WHAT THE HELL WAS THAT!!!";
-		sleep 2000;
-		message strcharinfo(0),"One of them dropped something...";
-		set .@key, 1054;
-		getitem @key, 1;
-		set	$qkey,1;
-	}
+callfunc "loading_func";
+callfunc "loading_func";
+callfunc "loading_func";
+callfunc "loading_func";
+callfunc "loading_func";
+message strcharinfo(0),"Found the key.";
+getitem @key, 1;
+set	$qkey,1;
 end;
 }
 
