@@ -39,25 +39,21 @@ Q_1:
 //= Morgue
 //============================================================
 la_hosp00,93,80,0	script	Table	-,{
-monster	"la_hosp00",93,73,"Zombie",1081,5,"Table::OnDie";
+monster	"la_hosp00",93,73,"Zombie",1081,2,"Table::OnDie";
 
 OnDie:
-	set $ZombolsKilled,$ZombolsKilled+1;
-	if ($ZombolsKilled==10) goto Q_ST;
+	set @ZombolsKilled,@ZombolsKilled+1;
+	if (@ZombolsKilled==2) goto Q_ST;
 end;
 
 Q_ST:
-	message strcharinfo(0),"The Area seems safe now, Time too find the key!";
-	if( ($qey==1) )	goto	Q_empty;
-	message strcharinfo(0),"This could be it...";
+	message strcharinfo(0),"WHAT THE HELL WAS THAT!!!";
+	sleep 5000;
+	message strcharinfo(0),"One of them dropped something...";
 	set @key, 1054;
 	getitem @key, 1;
 	set	$qkey,1;
 end;
-
-Q_empty:
-message strcharinfo(0),"Nothing of importance.";
-}
 
 morgue,47,21,0	script	Door::qdoor	-,{
 if( (countitem(@key)>=1) )	goto	Q_door;
