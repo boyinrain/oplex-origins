@@ -50,7 +50,8 @@ Q_ST:
 	message strcharinfo(0),"The Area seems safe now, Time too find the key!";
 	if( ($qey==1) )	goto	Q_empty;
 	message strcharinfo(0),"This could be it...";
-	getitem KeyID, 1;
+	set @key, 1054;
+	getitem @key, 1;
 	set	$qkey,1;
 end;
 
@@ -59,14 +60,14 @@ message strcharinfo(0),"Nothing of importance.";
 }
 
 morgue,47,21,0	script	Door::qdoor	-,{
-if( (countitem(KeyID)>=1) )	goto	Q_door;
+if( (countitem(@key)>=1) )	goto	Q_door;
 message strcharinfo(0),"Nothing of importance";
 end;
 
 Q_door:
 	mes	"Your hands are shaking as you try to open the door with the key";
 	callfunc "loading_func";
-	delitem	KeyID,1;
+	delitem	@key,1;
 	warp "lavive_service_tunnels",00,00;
 end;
 }
