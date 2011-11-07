@@ -39,7 +39,7 @@ Q_1:
 //= Morgue
 //============================================================
 la_hosp00,93,80,0	script	Table::qkey	-,{
-monster	"morgue",0,0,"Zombie",1081,5,"Table::OnZombolKilled";
+monster	"la_hosp00",93,73,"Zombie",1081,5,"Table::OnZombolKilled";
 
 OnZombolKilled:
 	set $ZombolsKilled,$ZombolsKilled+1;
