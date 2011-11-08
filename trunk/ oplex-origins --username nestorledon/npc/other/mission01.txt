@@ -40,6 +40,7 @@ Q_1:
 //============================================================
 la_hosp00,83,67,0	script	Table	111,{
 
+if( ($qkey==1) )	end;
 callfunc "loading_func";
 callfunc "loading_func";
 callfunc "loading_func";
