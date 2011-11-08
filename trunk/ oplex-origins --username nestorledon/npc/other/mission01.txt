@@ -40,7 +40,7 @@ Q_1:
 //============================================================
 la_hosp00,83,67,0	script	Table	111,{
 
-if( ($qkey==1) )	end;
+if( ($qkey==1) )	goto NoKey;
 callfunc "loading_func";
 callfunc "loading_func";
 callfunc "loading_func";
@@ -50,6 +50,10 @@ message strcharinfo(0),"Found the key.";
 set @key, 1054;
 getitem @key, 1;
 set	$qkey,1;
+end;
+
+NoKey:
+message strcharinfo(0),"There's nothing else here.";
 end;
 }
 
